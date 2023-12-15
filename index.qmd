@@ -1,7 +1,16 @@
 ---
-title: "Hjem"
+title: "MPS 140: Kvantitativ forskningsmetode og statistikk"
+tbl-colwidths: [5,10,35,5,5,5,5,5,5]
 ---
 
-Velkommen til MPS 140!
-Planen min er å legge ut en forelesningsplan, kursmateriell og kode på disse sidene. 
+Dette er en tentativ oversikt. Oppdateres etterhvert !
 
+::: column-screen-inset-right
+| Samling | Dato          | Tema                                          |               Forberedelser                |                       Presentasjon                        | Activity | Lab | Critique | Project |
+|:------:|--------|--------|:------:|:------:|:----------:|:------:|:------:|:------:|
+|    1    | Sun, April 2  | Welcome to Stat 313 Course Set-up             |   [📖](weeks/week-0.qmd "Course Set-up")   |                                                           |          |     |          |         |
+|    2    | Tue, April 4  | Course Structure & Statistics Review          | [📖](weeks/week-1.qmd "Week 1 Coursework") | [🖥](slides/week1-day1.qmd "Week 1 Review Lecture Slides") |          |     |          |         |
+|         |               |                                               |                                            |                                                           |          |     |          |         |
+|         |               |                                               |                                            |                                                           |          |     |          |         |
+|    3    | Tue, April 11 | Visualizing & Summarizing Numerical Variables | [📖](weeks/week-2.qmd "Week 2 Coursework") | [🖥](slides/week2-day1.qmd "Week 2 Review Lecture Slides") |          |     |          |         |
+:::

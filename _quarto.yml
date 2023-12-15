@@ -3,18 +3,58 @@ project:
   output-dir: docs
 
 website:
+  page-navigation: true
   title: "MPS 140"
+  site-url: "https://njaalf.github.io/MPS-140/"
   navbar:
     left:
       - href: index.qmd
         text: Home
       - about.qmd
 
+page-footer:
+    right: "Websiden laget i [Quarto](https://quarto.org/)."
+    left: "&copy; Copyright 2024, Njål Foldnes"
+    background: "#D9E3E4"
+
+sidebar:
+    background: "#D9E3E4"
+    logo: "images/cp-stat-hex.png"
+    pinned: true
+    align: center
+    style: "docked"
+    search: true
+    collapse-level: 1
+    contents:
+      - section: "Kursinfo"
+        contents:
+          - href: oversikt.qmd
+            text: Oversikt
+          - href: pensum.qmd
+            text: Pensum
+      - section: "R Ressurser"
+        contents:
+          - href: Ressurser.qmd
+            text: R stoff
+      - section: "Samlinger"
+        contents:
+          - href: samlinger/samling1.qmd
+            text: "Samling 1"
+          - href: samlinger/samling2.qmd
+            text: "Samling 2"
+         
+
 format:
   html:
-    theme: cosmo
-    css: styles.css
+    theme:
+      - cosmo
+      - theme.scss
+    mainfont: "Atkinson Hyperlegible"
+    code-copy: true
+    code-overflow: wrap
     toc: true
 
-editor: visual
+execute:
+  freeze: auto
 
+editor: visual
