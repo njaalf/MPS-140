@@ -1,27 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://njaalf.github.io/MPS-140/pensum.html</loc>
-    <lastmod>2023-12-15T13:47:57.556Z</lastmod>
+    <loc>https://njaalf.github.io/MPS-140/oversikt.html</loc>
+    <lastmod>2024-01-11T14:31:10.021Z</lastmod>
   </url>
   <url>
-    <loc>https://njaalf.github.io/MPS-140/index.html</loc>
-    <lastmod>2023-12-15T13:47:56.943Z</lastmod>
+    <loc>https://njaalf.github.io/MPS-140/omeksamen.html</loc>
+    <lastmod>2024-01-11T14:31:10.448Z</lastmod>
   </url>
   <url>
     <loc>https://njaalf.github.io/MPS-140/samlinger/samling1.html</loc>
-    <lastmod>2023-12-15T13:47:56.298Z</lastmod>
-  </url>
-  <url>
-    <loc>https://njaalf.github.io/MPS-140/oversikt.html</loc>
-    <lastmod>2023-12-15T13:47:55.994Z</lastmod>
+    <lastmod>2024-01-11T14:31:10.931Z</lastmod>
   </url>
   <url>
     <loc>https://njaalf.github.io/MPS-140/samlinger/samling2.html</loc>
-    <lastmod>2023-12-15T13:47:56.606Z</lastmod>
+    <lastmod>2024-01-11T14:31:11.290Z</lastmod>
+  </url>
+  <url>
+    <loc>https://njaalf.github.io/MPS-140/index.html</loc>
+    <lastmod>2024-01-11T14:31:11.782Z</lastmod>
+  </url>
+  <url>
+    <loc>https://njaalf.github.io/MPS-140/slides/slides1.html</loc>
+    <lastmod>2024-01-11T14:31:12.155Z</lastmod>
   </url>
   <url>
     <loc>https://njaalf.github.io/MPS-140/about.html</loc>
-    <lastmod>2023-12-15T13:47:57.249Z</lastmod>
+    <lastmod>2024-01-11T14:31:12.517Z</lastmod>
+  </url>
+  <url>
+    <loc>https://njaalf.github.io/MPS-140/pensum.html</loc>
+    <lastmod>2024-01-11T14:31:12.822Z</lastmod>
+  </url>
+  <url>
+    <loc>https://njaalf.github.io/MPS-140/Ressurser.html</loc>
+    <lastmod>2024-01-11T14:31:14.418Z</lastmod>
+  </url>
+  <url>
+    <loc>https://njaalf.github.io/MPS-140/emnebeskrivelse.html</loc>
+    <lastmod>2024-01-11T14:31:14.760Z</lastmod>
   </url>
 </urlset>

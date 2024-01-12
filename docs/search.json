@@ -1,10 +1,31 @@
 [
   {
+    "objectID": "omeksamen.html",
+    "href": "omeksamen.html",
+    "title": "MPS 140",
+    "section": "",
+    "text": "5 timer skriftlig eksamen på UiS.\nSe emnebeskrivelsen for detaljer"
+  },
+  {
+    "objectID": "samlinger/samling1.html",
+    "href": "samlinger/samling1.html",
+    "title": "Første samling: Grunnleggende statistikk",
+    "section": "",
+    "text": "Velkommen!\nI denne samlingen får vi et overblikk over kurset, og vi frisker opp statistikken fra introkurset. Vi snakker også litt om metodologi i psykologi (kvantitativ vs kvalitativ tilnærming), og vi jobber i grupper.\nI gruppearbeidet vil dere få oppgaver på introkurs i statistikk nivå som er svært viktige å beherske for resten av kurset."
+  },
+  {
+    "objectID": "samlinger/samling1.html#læringsmål",
+    "href": "samlinger/samling1.html#læringsmål",
+    "title": "Første samling: Grunnleggende statistikk",
+    "section": "Læringsmål",
+    "text": "Læringsmål\nEtter denne samlingen har du repetert (eller lært) å:\n\nbeskrive et datasett ved hjelp av nøkkeltall som gjennomsnitt, standardavvik og korrelasjon.\nForklare variablers målenivå\nForstå forskjell på avhengig og uavhengiv variabel\nForstå forskjell på observasjonell og eksperimentell studie\nForstå forskjell på populasjon og utvalg\nKjenne til bekvemmelighetsutvalg, klyngeutvalg og stratifisert utvalg\nForstå konfidensintervall og hypotesetesting\nForklare hva “signifikant” betyr i statistikk\nInstallere R og Rstudio på din laptop"
+  },
+  {
     "objectID": "index.html",
     "href": "index.html",
     "title": "MPS 140: Kvantitativ forskningsmetode og statistikk",
     "section": "",
-    "text": "Dette er en tentativ oversikt. Oppdateres etterhvert !\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nSamling\nDato\nTema\nForberedelser\nPresentasjon\nActivity\nLab\nCritique\nProject\n\n\n\n\n1\nSun, April 2\nWelcome to Stat 313 Course Set-up\n📖\n\n\n\n\n\n\n\n2\nTue, April 4\nCourse Structure & Statistics Review\n📖\n🖥\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n3\nTue, April 11\nVisualizing & Summarizing Numerical Variables\n📖\n🖥"
+    "text": "FYSISKE SAMLINGER\n\n\n\n\n\n\n\n\n\n\n\n\n\nDato\nTema\nForberedelser\nPresentasjon\nOppgaver\n\n\n\n\n23.01: 1215-16\nIntro og grunnleggende statistikk\n📖\n\n\n\n\n05.03: 815-16\nPsykometri\n\n\n\n\n\n09.04: 815-16\nLatente variable\n\n\n\n\n\n03.06\nEksamen\n\n\n\n\n\n\n\n\n\nDIGITALE SAMLINGER\n\n\n\n\n\n\n\n\n\n\n\nDato\nTema\nForberedelser\nPresentasjon\nOppgaver\n\n\n\n\n06.02: 9-12\nProgramvaren R\n\n\n\n\n\n19.03: 9-12\nProgramvaren R og psykometri\n\n\n\n\n\n23.04:9-12\nLatente variable\n\n\n\n\n\n07.05: 9-12\nEksamensforberedelse"
   },
   {
     "objectID": "about.html",
@@ -12,5 +33,26 @@
     "title": "Emnebeskrivelse",
     "section": "",
     "text": "Denne websiden inneholder kursmateriell for statistikkurset i 2-årig psykologi master ved UiS. Emnebeskrivelser: https://www.uis.no/nb/course/MPS140_1"
+  },
+  {
+    "objectID": "Ressurser.html",
+    "href": "Ressurser.html",
+    "title": "Programvaren R",
+    "section": "",
+    "text": "R er en open source og gratis programvare for statistikk.\nFor installasjon på din computer følg oppskriften her: https://posit.co/download/rstudio-desktop/\nSå kan du lage noen tilfeldige tall og lage et histogram og regne ut snittet og median:\n\nminetall &lt;- rnorm(200)# 200 tilfeldige tall trekkes fra standard normalfordeling. Ser ganske normalfordelt ut ja\nhist(minetall)\n\n\n\nmean(minetall)\n\n[1] 0.007222779\n\nmedian(minetall)\n\n[1] 0.08220225"
+  },
+  {
+    "objectID": "Ressurser.html#r-og-rstudio",
+    "href": "Ressurser.html#r-og-rstudio",
+    "title": "Programvaren R",
+    "section": "",
+    "text": "R er en open source og gratis programvare for statistikk.\nFor installasjon på din computer følg oppskriften her: https://posit.co/download/rstudio-desktop/\nSå kan du lage noen tilfeldige tall og lage et histogram og regne ut snittet og median:\n\nminetall &lt;- rnorm(200)# 200 tilfeldige tall trekkes fra standard normalfordeling. Ser ganske normalfordelt ut ja\nhist(minetall)\n\n\n\nmean(minetall)\n\n[1] 0.007222779\n\nmedian(minetall)\n\n[1] 0.08220225"
+  },
+  {
+    "objectID": "emnebeskrivelse.html",
+    "href": "emnebeskrivelse.html",
+    "title": "Emnebeskrivelse",
+    "section": "",
+    "text": "Denne websiden inneholder kursmateriell for statistikkurset i 2-årig psykologi master ved UiS. Emnebeskrivelsen: https://www.uis.no/nb/course/MPS140_1"
   }
 ]

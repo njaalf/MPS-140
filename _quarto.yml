@@ -1,3 +1,5 @@
+# modelled on https://github.com/sta210-s22/website
+#https://atheobold.github.io/stat-313-website/ stolen from also
 project:
   type: website
   output-dir: docs
@@ -6,55 +8,40 @@ website:
   page-navigation: true
   title: "MPS 140"
   site-url: "https://njaalf.github.io/MPS-140/"
-  navbar:
-    left:
-      - href: index.qmd
-        text: Home
-      - about.qmd
-
-page-footer:
-    right: "Websiden laget i [Quarto](https://quarto.org/)."
-    left: "&copy; Copyright 2024, Njål Foldnes"
-    background: "#D9E3E4"
-
-sidebar:
-    background: "#D9E3E4"
-    logo: "images/cp-stat-hex.png"
-    pinned: true
-    align: center
-    style: "docked"
-    search: true
-    collapse-level: 1
-    contents:
-      - section: "Kursinfo"
-        contents:
-          - href: oversikt.qmd
-            text: Oversikt
-          - href: pensum.qmd
-            text: Pensum
-      - section: "R Ressurser"
-        contents:
-          - href: Ressurser.qmd
-            text: R stoff
-      - section: "Samlinger"
-        contents:
-          - href: samlinger/samling1.qmd
-            text: "Samling 1"
-          - href: samlinger/samling2.qmd
-            text: "Samling 2"
-         
-
+  
+  sidebar:
+      background: "#D9E3E4"
+      logo: "images/icon.png"
+      pinned: true
+      align: center
+      style: "docked"
+      search: true
+      collapse-level: 1
+      contents:
+        - section: "Kursinfo"
+          contents: 
+            - href: emnebeskrivelse.qmd
+              text: Emnebeskrivelse
+        - section: "Samlinger"
+          contents:
+            - href: samlinger/samling1.qmd
+              text: "Samling 1"
+        - section: "R"
+          contents:
+            - href: Ressurser.qmd
+              text: Installasjon
+        - section: "Eksamen"
+          contents:
+            - href: omeksamen.qmd
+              text: Om eksamen
+              
 format:
-  html:
-    theme:
-      - cosmo
-      - theme.scss
-    mainfont: "Atkinson Hyperlegible"
-    code-copy: true
-    code-overflow: wrap
-    toc: true
+      html:
+        theme:
+          light: [cosmo, theme.scss]
+          dark: [cosmo, theme-dark.scss]
+        mainfont: "Atkinson Hyperlegible"
+        code-copy: true
+        code-overflow: wrap
+        toc: false
 
-execute:
-  freeze: auto
-
-editor: visual
