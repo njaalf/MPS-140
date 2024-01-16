@@ -44,6 +44,10 @@ Etter denne samlingen har du repetert (eller lært) å:
 
 -   Last ned og installer R og Rstudio [her](/Ressurser.qmd)
 
+-   En spilleliste for intro statistikk kan nytes her
+{{< video https://www.youtube.com/watch?v=mormpnTjfr0&list=PLIL-ab4XLlB1EcHq1kz4qCGmmuT2_2qqp&index=1 >}}
+    
+
 ::: {style="font-size: 0.875em;"}
 Tilbake til [kursplan](/index.qmd) ⏎
 :::
