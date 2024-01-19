@@ -12,6 +12,8 @@ execute:
 
 Velkommen!
 
+BLA BLA
+
 I denne samlingen får vi et overblikk over kurset, og vi frisker opp statistikken fra introkurset. Vi snakker også litt om metodologi i psykologi (kvantitativ vs kvalitativ tilnærming), og vi jobber i grupper.
 
 I gruppearbeidet vil dere få oppgaver på introkurs i statistikk nivå som er svært viktige å beherske for resten av kurset.
@@ -44,9 +46,7 @@ Etter denne samlingen har du repetert (eller lært) å:
 
 -   Last ned og installer R og Rstudio [her](/Ressurser.qmd)
 
--   En spilleliste for intro statistikk kan nytes her
-{{< video https://www.youtube.com/watch?v=mormpnTjfr0&list=PLIL-ab4XLlB1EcHq1kz4qCGmmuT2_2qqp&index=1 >}}
-    
+-   En spilleliste for intro statistikk kan nytes her {{< video https://www.youtube.com/watch?v=mormpnTjfr0&list=PLIL-ab4XLlB1EcHq1kz4qCGmmuT2_2qqp&index=1 >}}
 
 ::: {style="font-size: 0.875em;"}
 Tilbake til [kursplan](/index.qmd) ⏎
