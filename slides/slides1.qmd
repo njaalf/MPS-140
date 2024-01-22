@@ -1,7 +1,7 @@
 ---
 title: "Velkommen til MPS140"
 title-slide-attributes:
-    data-background-image: trend2.png
+    data-background-image: missplot.png
     data-background-size: stretch
     data-background-opacity: "0.5"
     
@@ -16,13 +16,12 @@ execute:
 
 # Om foreleseren
 
-
 -   Professor i statistikk på Nasjonalt Lesesenter, UiS
     -   [Publikasjoner](https://scholar.google.no/citations?user=KgBUXhUAAAAJ&hl=no)
 -   Bruker flipped classroom som undervisningsmetode
-    -   [Kvantitativ metode](https://journals.sagepub.com/doi/full/10.1177/1469787415616726) 
+    -   [Kvantitativ metode](https://journals.sagepub.com/doi/full/10.1177/1469787415616726)
     -   [Kvalitativ metode](https://www.tandfonline.com/doi/full/10.1080/13562517.2017.1379481)
-- Også interessert i sosiale medier og mental helse [Kronikk](https://www.aftenposten.no/meninger/debatt/i/jl4veq/det-er-alvorlige-feil-og-mangler-i-forskningen-paa-sosiale-medier)
+-   Også interessert i sosiale medier og mental helse [Kronikk](https://www.aftenposten.no/meninger/debatt/i/jl4veq/det-er-alvorlige-feil-og-mangler-i-forskningen-paa-sosiale-medier)
 
 # Om kurset
 
@@ -40,237 +39,89 @@ Statistikk handler om hvordan vi best samler inn og analyserer data, og hvordan 
 
 ## 
 
-Vi skal i MPS140 repetere elementære statistikk og så utvide til multippel regresjon og faktormodeller. Her er noen nye ting vi skal lære:
+Vi skal i MPS140 repetere elementære statistikk og så utvide til multippel regresjon og psykometriske modeller. Her er noen nye ting vi skal lære:
 
 ::: {style="font-size: 0.75em;"}
 -   å jobbe med data på en transparent og reproduserbar måte (i R)
 -   visualisere og sammenfatte data med nøkkeltall (R)
 -   at vi må ha et kritisk blikk på bruk av statistikk i forskning
--   lære om måling av psykologiske begrep som stress, lojalitet, trivsel etc (i R)
+-   lære om måling av psykologiske begrep som stress, lojalitet, trivsel etc
 :::
 
 ## 
 
 ::: {style="font-size: 4em; color: #FFFFFF;"}
-Coding 🙀
+Koding 🙀
 :::
 
 . . .
 
-Coding is a **huge** part of how doing statistics in the wild looks.
+I praksis er koding (skrive syntaks i statistikkprogram) **en sentral** del av statistisk praksis.
 
 . . .
 
--   Everyone is coming from a different background
--   Different aspects of the course will be difficult to different people
--   You will be given coding resources each week
--   Use your peers to support your learning
+-   I klassen har vi stor variasjon i talenter og interesser
+-   Det blir en del R koding for å illustrere konsepter
+-   Bruk studiekamerater til å lære
 
 ## 
 
 ::: {style="font-size: 2em; color: #FFFFFF;"}
-Course Components
+Komponenter
 :::
 
 ::: columns
-::: {.column width="30%"}
+::: {.column width="40%"}
 ::: {style="color: #b76352;"}
-*Before Class*
+Før samling
 :::
-
--   Reading Guides
--   Concept Quizzes
--   R Tutorials
+- Det er viktig å være forberedt til samling:
+-   Tekster
+-   Videoer
+-   R stoff
 :::
 
 ::: {.column width="2%"}
 :::
 
-::: {.column width="30%"}
+::: {.column width="40%"}
 ::: {style="color: #76b5c5;"}
-*During Class*
+Under samling
 :::
 
--   Group Discussion
--   Hands-on Activities
--   Lab Assignments
-:::
-
-::: {.column width="2%"}
-:::
-
-::: {.column width="30%"}
-::: {style="color: #e28743;"}
-*Outside of Class*
-:::
-
--   Statistical Critiques
-
--   Midterm Project
-
--   Final Project
+-   Forelesning
+-   Oppgaver som skal løses i grupper. Basert på forberedelsesstoffet.
+-   Debriefing
 :::
 :::
 
-##  {background-color="#B6CADA"}
+## Dagens plan
 
-<!-- ::: {style="font-size: 2em; color: #000000;"} -->
 
-<!-- Specifications Based Grading -->
+-   Forelese cirka 1 time
+   
+-   Jobbe med oppgaver
+    -   Først individuelt 1 time
+    -   Grupper ca 1 time
+    - Gruppene ligger på canvas
 
-<!-- ::: -->
+- Debriefing
 
-<!-- ![](images/four_pillars.png) -->
 
-<!-- . . . -->
+## Samlæring i flipped classroom
 
-<!-- ::: {style="color: #000000;"} -->
+-   Ta plass og gi plass
 
-<!-- Everyone is capable of earning an A! -->
+-   Elsk frustrasjon og forvirring
 
-<!-- ::: -->
+- Å hjelpe noen er å forklare hvordan du tenker, **ikke** å bare gi svar eller gjøre utregninger for andre
 
-<!-- ##  {background-color="#B6CADA"} -->
+- Du har *rett* til å spørre **alle** i gruppen om hjelp
 
-<!-- ::: {style="font-size: 2em; color: #000000;"} -->
+- Du har *plikt* til å prøve å hjelpe **enhver** i gruppen som spør 
 
-<!-- How Smart are You? -->
+- Der gir på slutten en kort rapport til hver av gruppemedlemmene !
 
-<!-- ::: -->
-
-<!-- ::: columns -->
-
-<!-- ::: {.column width="30%"} -->
-
-<!-- (2 minutes) -->
-
-<!-- -   Write two *criteria* would you use to *rank* yourself compared to everyone else in this class -->
-
-<!-- ::: -->
-
-<!-- ::: {.column width="2%"} -->
-
-<!-- ::: -->
-
-<!-- ::: {.column width="30%"} -->
-
-<!-- (3 minutes) -->
-
-<!-- -   Talk with the person on your right about the criteria you proposed -->
-
-<!-- ::: -->
-
-<!-- ::: {.column width="2%"} -->
-
-<!-- ::: -->
-
-<!-- ::: {.column width="30%"} -->
-
-<!-- (5 minutes) -->
-
-<!-- -   Share out -->
-
-<!-- -   Person with most vowels in name should be prepared to share! -->
-
-<!-- ::: -->
-
-<!-- ::: -->
-
-<!-- ##  -->
-
-<!-- ::: {style="font-size: 2em; color: #FFFFFF;"} -->
-
-<!-- Cooperative Learning -->
-
-<!-- ::: -->
-
-<!-- is a structured form of small-group learning -->
-
-<!-- . . . -->
-
-<!-- </br> -->
-
-<!-- ::: {style="font-size: 0.85em;"} -->
-
-<!-- -   Roles relate to **how** the work should be done -->
-
-<!--     -   Roles **are not** about breaking up the work intellectually -->
-
-<!-- -   Roles allow each person to contribute to the group in significant ways -->
-
-<!--     -   Each person's participation is necessary to complete the task -->
-
-<!-- ::: -->
-
-<!-- ##  {background-color="#B6CADA"} -->
-
-<!-- ::: {style="font-size: 3em; color: #000000;"} -->
-
-<!-- Group Norms -->
-
-<!-- ::: -->
-
-<!-- ::: columns -->
-
-<!-- ::: {.column width="45%"} -->
-
-<!-- -   Zero tolerance for: racism, sexism, homophobia, transphobia, ageism, ableism -->
-
-<!-- -   Respect one another -->
-
-<!-- -   Intent and impact *both* matter -->
-
-<!-- ::: -->
-
-<!-- ::: {.column width="5%"} -->
-
-<!-- ::: -->
-
-<!-- ::: {.column width="45%"} -->
-
-<!-- -   Non-judgmental -->
-
-<!-- -   Take space, make space -->
-
-<!-- -   Embrace discomfort -->
-
-<!-- -   Make decisions by consensus -->
-
-<!-- ::: -->
-
-<!-- ::: -->
-
-<!-- ##  -->
-
-<!-- ::: {style="font-size: 2em; color: #FFFFFF;"} -->
-
-<!-- How We Learn Together -->
-
-<!-- ::: -->
-
-<!-- ::: columns -->
-
-<!-- ::: {.column width="45%"} -->
-
-<!-- ::: {style="font-size: 0.85em;"} -->
-
-<!-- -   No one is done until everyone is done -->
-
-<!-- -   You have the *right* to ask **anyone** in your group for help -->
-
-<!-- -   You have the *duty* to help **anyone** in your group who asks for help -->
-
-<!-- ::: -->
-
-<!-- ::: -->
-
-<!-- ::: {.column width="5%"} -->
-
-<!-- ::: -->
-
-<!-- ::: {.column width="45%"} -->
-
-<!-- ::: {style="font-size: 0.85em;"} -->
 
 <!-- -   Helping someone means explaining your thinking **not** giving answers or doing the work for them -->
 
@@ -730,21 +581,3 @@ Course Components
 
 <!-- What do you need to say that the explanatory variable [*causes*]{style="color: #e28743;"} a change in the response variable? -->
 
-# Plan for Thursday
-
-## Lab 1
-
--   Access Posit Cloud from link posted on Canvas
-    -   Create an Account
-    -   Join the STAT 313 / 513 workspace
-    -   Access the Lab 1 Project
-    -   Open the Project
--   A video will be posted guiding you on how to work with Quarto
-    -   Ask questions on Discord
-    -   Email / text / chat with your group members
-
-## 
-
-::: {style="font-size: 4em; color: #FFFFFF;"}
-Find Your Group!
-:::

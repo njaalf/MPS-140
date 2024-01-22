@@ -323,7 +323,7 @@
   <div class="reveal">
     <div class="slides">
 
-<section id="title-slide" data-background-image="trend2.png" data-background-opacity="0.5" data-background-size="stretch" class="quarto-title-block center">
+<section id="title-slide" data-background-image="missplot.png" data-background-opacity="0.5" data-background-size="stretch" class="quarto-title-block center">
   <h1 class="title">Velkommen til MPS140</h1>
 
 <div class="quarto-title-authors">
@@ -363,154 +363,85 @@
 <img data-src="../images/transform.png" class="r-stretch quarto-figure-center"><p class="caption">The data science cycle – Wickham &amp; Grolemund</p></section>
 <section id="section-1" class="slide level2">
 <h2></h2>
-<p>Vi skal i MPS140 repetere elementære statistikk og så utvide til multippel regresjon og faktormodeller. Her er noen nye ting vi skal lære:</p>
+<p>Vi skal i MPS140 repetere elementære statistikk og så utvide til multippel regresjon og psykometriske modeller. Her er noen nye ting vi skal lære:</p>
 <div style="font-size: 0.75em;">
 <ul>
 <li>å jobbe med data på en transparent og reproduserbar måte (i R)</li>
 <li>visualisere og sammenfatte data med nøkkeltall (R)</li>
 <li>at vi må ha et kritisk blikk på bruk av statistikk i forskning</li>
-<li>lære om måling av psykologiske begrep som stress, lojalitet, trivsel etc (i R)</li>
+<li>lære om måling av psykologiske begrep som stress, lojalitet, trivsel etc</li>
 </ul>
 </div>
 </section>
 <section id="section-2" class="slide level2">
 <h2></h2>
 <div style="font-size: 4em; color: #FFFFFF;">
-<p>Coding 🙀</p>
+<p>Koding 🙀</p>
 </div>
 <div class="fragment">
-<p>Coding is a <strong>huge</strong> part of how doing statistics in the wild looks.</p>
+<p>I praksis er koding (skrive syntaks i statistikkprogram) <strong>en sentral</strong> del av statistisk praksis.</p>
 </div>
 <div class="fragment">
 <ul>
-<li>Everyone is coming from a different background</li>
-<li>Different aspects of the course will be difficult to different people</li>
-<li>You will be given coding resources each week</li>
-<li>Use your peers to support your learning</li>
+<li>I klassen har vi stor variasjon i talenter og interesser</li>
+<li>Det blir en del R koding for å illustrere konsepter</li>
+<li>Bruk studiekamerater til å lære</li>
 </ul>
 </div>
 </section>
 <section id="section-3" class="slide level2">
 <h2></h2>
 <div style="font-size: 2em; color: #FFFFFF;">
-<p>Course Components</p>
+<p>Komponenter</p>
 </div>
 <div class="columns">
-<div class="column" style="width:30%;">
+<div class="column" style="width:40%;">
 <div style="color: #b76352;">
-<p><em>Before Class</em></p>
+<p>Før samling</p>
 </div>
 <ul>
-<li>Reading Guides</li>
-<li>Concept Quizzes</li>
-<li>R Tutorials</li>
+<li>Det er viktig å være forberedt til samling:</li>
+<li>Tekster</li>
+<li>Videoer</li>
+<li>R stoff</li>
 </ul>
 </div><div class="column" style="width:2%;">
 
-</div><div class="column" style="width:30%;">
+</div><div class="column" style="width:40%;">
 <div style="color: #76b5c5;">
-<p><em>During Class</em></p>
+<p>Under samling</p>
 </div>
 <ul>
-<li>Group Discussion</li>
-<li>Hands-on Activities</li>
-<li>Lab Assignments</li>
-</ul>
-</div><div class="column" style="width:2%;">
-
-</div><div class="column" style="width:30%;">
-<div style="color: #e28743;">
-<p><em>Outside of Class</em></p>
-</div>
-<ul>
-<li><p>Statistical Critiques</p></li>
-<li><p>Midterm Project</p></li>
-<li><p>Final Project</p></li>
+<li>Forelesning</li>
+<li>Oppgaver som skal løses i grupper. Basert på forberedelsesstoffet.</li>
+<li>Debriefing</li>
 </ul>
 </div>
 </div>
 </section>
-<section id="section-4" class="slide level2" data-background-color="#B6CADA">
-<h2></h2>
-<!-- ::: {style="font-size: 2em; color: #000000;"} -->
-<!-- Specifications Based Grading -->
-<!-- ::: -->
-<!-- ![](images/four_pillars.png) -->
-<!-- . . . -->
-<!-- ::: {style="color: #000000;"} -->
-<!-- Everyone is capable of earning an A! -->
-<!-- ::: -->
-<!-- ##  {background-color="#B6CADA"} -->
-<!-- ::: {style="font-size: 2em; color: #000000;"} -->
-<!-- How Smart are You? -->
-<!-- ::: -->
-<!-- ::: columns -->
-<!-- ::: {.column width="30%"} -->
-<!-- (2 minutes) -->
-<!-- -   Write two *criteria* would you use to *rank* yourself compared to everyone else in this class -->
-<!-- ::: -->
-<!-- ::: {.column width="2%"} -->
-<!-- ::: -->
-<!-- ::: {.column width="30%"} -->
-<!-- (3 minutes) -->
-<!-- -   Talk with the person on your right about the criteria you proposed -->
-<!-- ::: -->
-<!-- ::: {.column width="2%"} -->
-<!-- ::: -->
-<!-- ::: {.column width="30%"} -->
-<!-- (5 minutes) -->
-<!-- -   Share out -->
-<!-- -   Person with most vowels in name should be prepared to share! -->
-<!-- ::: -->
-<!-- ::: -->
-<!-- ##  -->
-<!-- ::: {style="font-size: 2em; color: #FFFFFF;"} -->
-<!-- Cooperative Learning -->
-<!-- ::: -->
-<!-- is a structured form of small-group learning -->
-<!-- . . . -->
-<!-- </br> -->
-<!-- ::: {style="font-size: 0.85em;"} -->
-<!-- -   Roles relate to **how** the work should be done -->
-<!--     -   Roles **are not** about breaking up the work intellectually -->
-<!-- -   Roles allow each person to contribute to the group in significant ways -->
-<!--     -   Each person's participation is necessary to complete the task -->
-<!-- ::: -->
-<!-- ##  {background-color="#B6CADA"} -->
-<!-- ::: {style="font-size: 3em; color: #000000;"} -->
-<!-- Group Norms -->
-<!-- ::: -->
-<!-- ::: columns -->
-<!-- ::: {.column width="45%"} -->
-<!-- -   Zero tolerance for: racism, sexism, homophobia, transphobia, ageism, ableism -->
-<!-- -   Respect one another -->
-<!-- -   Intent and impact *both* matter -->
-<!-- ::: -->
-<!-- ::: {.column width="5%"} -->
-<!-- ::: -->
-<!-- ::: {.column width="45%"} -->
-<!-- -   Non-judgmental -->
-<!-- -   Take space, make space -->
-<!-- -   Embrace discomfort -->
-<!-- -   Make decisions by consensus -->
-<!-- ::: -->
-<!-- ::: -->
-<!-- ##  -->
-<!-- ::: {style="font-size: 2em; color: #FFFFFF;"} -->
-<!-- How We Learn Together -->
-<!-- ::: -->
-<!-- ::: columns -->
-<!-- ::: {.column width="45%"} -->
-<!-- ::: {style="font-size: 0.85em;"} -->
-<!-- -   No one is done until everyone is done -->
-<!-- -   You have the *right* to ask **anyone** in your group for help -->
-<!-- -   You have the *duty* to help **anyone** in your group who asks for help -->
-<!-- ::: -->
-<!-- ::: -->
-<!-- ::: {.column width="5%"} -->
-<!-- ::: -->
-<!-- ::: {.column width="45%"} -->
-<!-- ::: {style="font-size: 0.85em;"} -->
+<section id="dagens-plan" class="slide level2">
+<h2>Dagens plan</h2>
+<ul>
+<li><p>Forelese cirka 1 time</p></li>
+<li><p>Jobbe med oppgaver</p>
+<ul>
+<li>Først individuelt 1 time</li>
+<li>Grupper ca 1 time</li>
+<li>Gruppene ligger på canvas</li>
+</ul></li>
+<li><p>Debriefing</p></li>
+</ul>
+</section>
+<section id="samlæring-i-flipped-classroom" class="slide level2">
+<h2>Samlæring i flipped classroom</h2>
+<ul>
+<li><p>Ta plass og gi plass</p></li>
+<li><p>Elsk frustrasjon og forvirring</p></li>
+<li><p>Å hjelpe noen er å forklare hvordan du tenker, <strong>ikke</strong> å bare gi svar eller gjøre utregninger for andre</p></li>
+<li><p>Du har <em>rett</em> til å spørre <strong>alle</strong> i gruppen om hjelp</p></li>
+<li><p>Du har <em>plikt</em> til å prøve å hjelpe <strong>enhver</strong> i gruppen som spør</p></li>
+<li><p>Der gir på slutten en kort rapport til hver av gruppemedlemmene !</p></li>
+</ul>
 <!-- -   Helping someone means explaining your thinking **not** giving answers or doing the work for them -->
 <!-- -   Provide a justification when you make a statement -->
 <!-- -   Think and work together -- don't divide up the work -->
@@ -740,34 +671,6 @@
 <!-- </br> -->
 <!-- . . . -->
 <!-- What do you need to say that the explanatory variable [*causes*]{style="color: #e28743;"} a change in the response variable? -->
-</section></section>
-<section>
-<section id="plan-for-thursday" class="title-slide slide level1 center">
-<h1>Plan for Thursday</h1>
-
-</section>
-<section id="lab-1" class="slide level2">
-<h2>Lab 1</h2>
-<ul>
-<li>Access Posit Cloud from link posted on Canvas
-<ul>
-<li>Create an Account</li>
-<li>Join the STAT 313 / 513 workspace</li>
-<li>Access the Lab 1 Project</li>
-<li>Open the Project</li>
-</ul></li>
-<li>A video will be posted guiding you on how to work with Quarto
-<ul>
-<li>Ask questions on Discord</li>
-<li>Email / text / chat with your group members</li>
-</ul></li>
-</ul>
-</section>
-<section id="section-5" class="slide level2">
-<h2></h2>
-<div style="font-size: 4em; color: #FFFFFF;">
-<p>Find Your Group!</p>
-</div>
 
 <div class="footer footer-default">
 
