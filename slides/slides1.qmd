@@ -14,7 +14,15 @@ execute:
   warning: false
 ---
 
-# Om  kurset
+# Njål Foldnes
+
+-   Professor i statistikk på Nasjonalt Lesesenter, UiS
+    -   [Publikasjoner](https://scholar.google.no/citations?user=KgBUXhUAAAAJ&hl=no)
+-   Bruker flipped classroom som undervisningsmetode
+    -   [Kvantitativ metode](https://journals.sagepub.com/doi/full/10.1177/1469787415616726) 
+    -   [Kvalitativ metode](https://www.tandfonline.com/doi/full/10.1080/13562517.2017.1379481)
+
+# Om kurset
 
 ## 
 
@@ -23,16 +31,14 @@ Hva er statistikk?
 :::
 
 ::: {style="color: #b76352;"}
-Statistikk handler om hvordan vi best samler inn og analyserer data, og hvordan vi trekker riktige konklusjoner fra våre data. 
+Statistikk handler om hvordan vi best samler inn og analyserer data, og hvordan vi trekker riktige konklusjoner fra våre data.
 :::
-
 
 ![The data science cycle -- Wickham & Grolemund](../images/transform.png)
 
 ## 
 
-Vi skal i MPS140 repetere elementære statistikk og så utvide til multippel regresjon og faktormodeller. Her er noen nye ting vi skal lære: 
-
+Vi skal i MPS140 repetere elementære statistikk og så utvide til multippel regresjon og faktormodeller. Her er noen nye ting vi skal lære:
 
 ::: {style="font-size: 0.75em;"}
 -   å jobbe med data på en transparent og reproduserbar måte (i R)
@@ -107,7 +113,9 @@ Course Components
 ##  {background-color="#B6CADA"}
 
 <!-- ::: {style="font-size: 2em; color: #000000;"} -->
+
 <!-- Specifications Based Grading -->
+
 <!-- ::: -->
 
 <!-- ![](images/four_pillars.png) -->
@@ -115,46 +123,63 @@ Course Components
 <!-- . . . -->
 
 <!-- ::: {style="color: #000000;"} -->
+
 <!-- Everyone is capable of earning an A! -->
+
 <!-- ::: -->
 
 <!-- ##  {background-color="#B6CADA"} -->
 
 <!-- ::: {style="font-size: 2em; color: #000000;"} -->
+
 <!-- How Smart are You? -->
+
 <!-- ::: -->
 
 <!-- ::: columns -->
+
 <!-- ::: {.column width="30%"} -->
+
 <!-- (2 minutes) -->
 
 <!-- -   Write two *criteria* would you use to *rank* yourself compared to everyone else in this class -->
+
 <!-- ::: -->
 
 <!-- ::: {.column width="2%"} -->
+
 <!-- ::: -->
 
 <!-- ::: {.column width="30%"} -->
+
 <!-- (3 minutes) -->
 
 <!-- -   Talk with the person on your right about the criteria you proposed -->
+
 <!-- ::: -->
 
 <!-- ::: {.column width="2%"} -->
+
 <!-- ::: -->
 
 <!-- ::: {.column width="30%"} -->
+
 <!-- (5 minutes) -->
 
 <!-- -   Share out -->
+
 <!-- -   Person with most vowels in name should be prepared to share! -->
+
 <!-- ::: -->
+
 <!-- ::: -->
 
 <!-- ##  -->
 
 <!-- ::: {style="font-size: 2em; color: #FFFFFF;"} -->
+
 <!-- Cooperative Learning -->
+
 <!-- ::: -->
 
 <!-- is a structured form of small-group learning -->
@@ -164,31 +189,43 @@ Course Components
 <!-- </br> -->
 
 <!-- ::: {style="font-size: 0.85em;"} -->
+
 <!-- -   Roles relate to **how** the work should be done -->
+
 <!--     -   Roles **are not** about breaking up the work intellectually -->
+
 <!-- -   Roles allow each person to contribute to the group in significant ways -->
+
 <!--     -   Each person's participation is necessary to complete the task -->
+
 <!-- ::: -->
 
 <!-- ##  {background-color="#B6CADA"} -->
 
 <!-- ::: {style="font-size: 3em; color: #000000;"} -->
+
 <!-- Group Norms -->
+
 <!-- ::: -->
 
 <!-- ::: columns -->
+
 <!-- ::: {.column width="45%"} -->
+
 <!-- -   Zero tolerance for: racism, sexism, homophobia, transphobia, ageism, ableism -->
 
 <!-- -   Respect one another -->
 
 <!-- -   Intent and impact *both* matter -->
+
 <!-- ::: -->
 
 <!-- ::: {.column width="5%"} -->
+
 <!-- ::: -->
 
 <!-- ::: {.column width="45%"} -->
+
 <!-- -   Non-judgmental -->
 
 <!-- -   Take space, make space -->
@@ -196,56 +233,77 @@ Course Components
 <!-- -   Embrace discomfort -->
 
 <!-- -   Make decisions by consensus -->
+
 <!-- ::: -->
+
 <!-- ::: -->
 
 <!-- ##  -->
 
 <!-- ::: {style="font-size: 2em; color: #FFFFFF;"} -->
+
 <!-- How We Learn Together -->
+
 <!-- ::: -->
 
 <!-- ::: columns -->
+
 <!-- ::: {.column width="45%"} -->
+
 <!-- ::: {style="font-size: 0.85em;"} -->
+
 <!-- -   No one is done until everyone is done -->
 
 <!-- -   You have the *right* to ask **anyone** in your group for help -->
 
 <!-- -   You have the *duty* to help **anyone** in your group who asks for help -->
+
 <!-- ::: -->
+
 <!-- ::: -->
 
 <!-- ::: {.column width="5%"} -->
+
 <!-- ::: -->
 
 <!-- ::: {.column width="45%"} -->
+
 <!-- ::: {style="font-size: 0.85em;"} -->
+
 <!-- -   Helping someone means explaining your thinking **not** giving answers or doing the work for them -->
 
 <!-- -   Provide a justification when you make a statement -->
 
 <!-- -   Think and work together -- don't divide up the work -->
+
 <!-- ::: -->
+
 <!-- ::: -->
+
 <!-- ::: -->
 
 <!-- ##  {background-color="#B6CADA"} -->
 
 <!-- ::: {style="font-size: 8em; color: #000000;"} -->
+
 <!-- Break -->
+
 <!-- ::: -->
 
 <!-- #  -->
 
 <!-- ::: {style="font-size: 4.5em;"} -->
+
 <!-- Let's talk about data... -->
+
 <!-- ::: -->
 
 <!-- ##  -->
 
 <!-- ::: {style="font-size: 4em; color: #FFFFFF;"} -->
+
 <!-- Tidy Data -->
+
 <!-- ::: -->
 
 <!-- ![Expected layout of "tidy" datasets](images/tidy-1.png) -->
@@ -253,113 +311,177 @@ Course Components
 <!-- ##  -->
 
 <!-- ::: {style="font-size: 2em; color: #FFFFFF;"} -->
+
 <!-- Gender stereotypes in 5-7 year old children -->
+
 <!-- ::: -->
 
 <!-- </br> -->
 
 <!-- ::: {style="font-size: 0.75em;"} -->
+
 <!-- ```{r gender-stereotypes} -->
+
 <!-- #| echo: false -->
+
 <!-- children_gender_stereo[[2]] %>%  -->
+
 <!--   rename(sex = gender) %>%  -->
+
 <!--   sample_n(6) %>% -->
+
 <!--   kable(format = "html") %>%  -->
+
 <!--   kable_styling(bootstrap_options = c("striped", "condensed"),  -->
+
 <!--                 latex_options = "striped") -->
 
 <!-- ``` -->
+
 <!-- ::: -->
 
 <!-- ##  -->
 
 <!-- ::: {style="font-size: 1.5em; color: #FFFFFF;"} -->
+
 <!-- Body girth and skeletal diameter measurements -->
+
 <!-- ::: -->
 
 <!-- ::: {style="font-size: 0.75em;"} -->
+
 <!-- ```{r body-girth} -->
+
 <!-- #| echo: false -->
+
 <!-- bdims %>%  -->
+
 <!--   sample_n(6) %>%  -->
+
 <!--   select(age, wgt, hgt, sex, sho_gi, wai_gi, nav_gi, hip_gi) %>%  -->
+
 <!--   kable() %>%  -->
+
 <!--   kable_styling(bootstrap_options = c("striped", "condensed"),  -->
+
 <!--                 latex_options = "striped") -->
+
 <!-- ``` -->
+
 <!-- ::: -->
 
 <!-- ##  -->
 
 <!-- ::: {style="font-size: 2em; color: #FFFFFF;"} -->
+
 <!-- NBA player of the week -->
+
 <!-- ::: -->
 
 <!-- </br> -->
 
 <!-- ::: {style="font-size: 0.75em;"} -->
+
 <!-- ```{r nba} -->
+
 <!-- #| echo: false -->
+
 <!-- nba %>%  -->
+
 <!--   sample_n(6) %>% -->
+
 <!--   select(Age:Position) %>%  -->
+
 <!--   kable(format = "html") %>%  -->
+
 <!--     kable_styling(bootstrap_options = c("striped", "condensed"),  -->
+
 <!--                 latex_options = "striped") -->
+
 <!-- ``` -->
+
 <!-- ::: -->
 
 <!-- ##  {background-color="#B6CADA"} -->
 
 <!-- ::: {style="font-size: 3em; color: #000000;"} -->
+
 <!-- Your Turn -->
+
 <!-- ::: -->
 
 <!-- ::: {style="font-size: 0.75em;"} -->
+
 <!-- Every year, the US releases to the public a large data set containing information on births recorded in the country. -->
 
 <!-- A total of 13 variables were collected on every birth, including information about: -->
 
 <!-- -   the birth (baby weight, sex of baby, premie status) -->
+
 <!-- -   the pregnancy (hospital visits, length of gestation, ) -->
+
 <!-- -   the birth parent's attributes (age, smoking status, marital status, race) -->
+
 <!-- -   the partner's age -->
+
 <!-- ::: -->
 
 <!-- . . . -->
 
 <!-- ::: {style="color: #b76352;"} -->
+
 <!-- How would you expect this dataframe to look? -->
+
 <!-- ::: -->
 
 <!-- ##  -->
 
 <!-- ::: {style="font-size: 2em;"} -->
+
 <!-- Military Spending -->
+
 <!-- ::: -->
 
 <!-- ::: {style="font-size: 0.75em;"} -->
+
 <!-- ```{r} -->
+
 <!-- #| echo: false -->
+
 <!-- #| label: wide-data -->
 
 <!-- countries <- tibble(Country =  -->
+
 <!--                       c("Sweden",  -->
+
 <!--                         "Norway",  -->
+
 <!--                         "Australia",  -->
+
 <!--                         "USA",  -->
+
 <!--                         "Africa") -->
+
 <!--                     ) -->
 
 <!-- military %>%  -->
+
 <!--   semi_join(countries, by = "Country") %>%  -->
+
 <!--   select(Country, `2010`:`2019`) %>%  -->
+
 <!--   mutate(across(.cols = `2010`:`2019`,  -->
+
 <!--                 .fns = ~ as.numeric(.x) * 100)) %>%  -->
+
 <!--   kable() %>%  -->
+
 <!--   kable_styling(bootstrap_options = c("striped", "condensed"),  -->
+
 <!--                 latex_options = "striped") -->
+
 <!-- ``` -->
+
 <!-- ::: -->
 
 <!-- . . . -->
@@ -367,26 +489,39 @@ Course Components
 <!-- </br> -->
 
 <!-- ::: {style="color: #b76352;"} -->
+
 <!-- Do these data satisfy the "tidy" principles? -->
+
 <!-- ::: -->
 
 <!-- ##  -->
 
 <!-- ::: {style="font-size: 2em;"} -->
+
 <!-- Vehicle Efficiency -->
+
 <!-- ::: -->
 
 <!-- ::: {style="font-size: 0.75em;"} -->
+
 <!-- ```{r} -->
+
 <!-- #| echo: false -->
+
 <!-- #| label: row-names -->
 
 <!-- mtcars %>%  -->
+
 <!--   sample_n(size = 4, replace = FALSE) %>%  -->
+
 <!--   kable() %>%  -->
+
 <!--   kable_styling(bootstrap_options = c("striped", "condensed"),  -->
+
 <!--                 latex_options = "striped") -->
+
 <!-- ``` -->
+
 <!-- ::: -->
 
 <!-- . . . -->
@@ -394,7 +529,9 @@ Course Components
 <!-- </br> -->
 
 <!-- ::: {style="color: #b76352;"} -->
+
 <!-- Do these data satisfy the "tidy" principles? -->
+
 <!-- ::: -->
 
 <!-- ##  {background-color="#B6CADA"} -->
@@ -404,7 +541,9 @@ Course Components
 <!-- ##  -->
 
 <!-- ::: {style="font-size: 2em; color: #FFFFFF;"} -->
+
 <!-- Types of Variables -->
+
 <!-- ::: -->
 
 <!-- </br> -->
@@ -422,7 +561,9 @@ Course Components
 <!-- ##  -->
 
 <!-- ::: {style="font-size: 2em; color: #76b5c5;"} -->
+
 <!-- Your Turn (90-seconds) -->
+
 <!-- ::: -->
 
 <!-- </br> -->
@@ -440,51 +581,75 @@ Course Components
 <!-- . . . -->
 
 <!-- ::: {style="font-size: 1.5em; color: #e28743;"} -->
+
 <!-- Share out! -->
+
 <!-- ::: -->
 
 <!-- #  {background-color="#B6CADA"} -->
 
 <!-- ::: {style="font-size: 4em; color: #000000;"} -->
+
 <!-- Lab Warm-up -->
+
 <!-- ::: -->
 
 <!-- ##  -->
 
 <!-- ::: {style="font-size: 2em; color: #FFFFFF;"} -->
+
 <!-- Data Types in `R` -->
+
 <!-- ::: -->
 
 <!-- ```{r} -->
+
 <!-- #| echo: false -->
+
 <!-- births_small <- births14  %>%  -->
+
 <!--   mutate(sex = as.factor(sex)) %>%  -->
+
 <!--   select(-visits, -mature, -marital)  -->
+
 <!-- ``` -->
 
 <!-- ::: {style="font-size: 0.75em;"} -->
+
 <!-- ```{r} -->
+
 <!-- #| echo: true -->
+
 <!-- #| code-line-numbers: false -->
+
 <!-- glimpse(births_small) -->
+
 <!-- ``` -->
+
 <!-- ::: -->
 
 <!-- ::: columns -->
+
 <!-- ::: {.column width="45%"} -->
+
 <!-- What do you think `dbl` means? -->
 
 <!-- How is that different from `int`? -->
+
 <!-- ::: -->
 
 <!-- ::: {.column width="5%"} -->
+
 <!-- ::: -->
 
 <!-- ::: {.column width="45%"} -->
+
 <!-- What does `chr` mean? -->
 
 <!-- How might it differ from `fct`? -->
+
 <!-- ::: -->
+
 <!-- ::: -->
 
 <!-- # Other Foundational Concepts -->
@@ -492,33 +657,47 @@ Course Components
 <!-- ##  -->
 
 <!-- ::: {style="font-size: 2em; color: #FFFFFF;"} -->
+
 <!-- Types of Studies -->
+
 <!-- ::: -->
 
 <!-- ::: columns -->
+
 <!-- ::: {.column width="40%"} -->
+
 <!-- *Experiment* -->
 
 <!-- -   randomization -->
+
 <!-- -   replication -->
+
 <!-- -   controlling -->
+
 <!-- -   blocking -->
+
 <!-- ::: -->
 
 <!-- ::: {.column width="5%"} -->
+
 <!-- ::: -->
 
 <!-- ::: {.column width="55%"} -->
+
 <!-- *Observational Study* -->
 
 <!-- -   collect data in a way that does not directly interfere with how the data arise -->
+
 <!-- ::: -->
+
 <!-- ::: -->
 
 <!-- ##  -->
 
 <!-- ::: {style="font-size: 2em; color: #FFFFFF;"} -->
+
 <!-- Relationships Between Variables -->
+
 <!-- ::: -->
 
 <!-- </br> -->
@@ -534,7 +713,9 @@ Course Components
 <!-- ##  -->
 
 <!-- ::: {style="font-size: 2em; color: #FFFFFF;"} -->
+
 <!-- Causal Inference -->
+
 <!-- ::: -->
 
 <!-- </br> -->
