@@ -7,6 +7,48 @@
     "text": "Denne websiden inneholder kursmateriell for statistikkurset i 2-årig psykologi master ved UiS. Emnebeskrivelsen: https://www.uis.no/nb/course/MPS140_1"
   },
   {
+    "objectID": "slides/slides1.html#section",
+    "href": "slides/slides1.html#section",
+    "title": "Velkommen til MPS140",
+    "section": "",
+    "text": "Hva er statistikk?\n\n\nStatistikk handler om hvordan vi best samler inn og analyserer data, og hvordan vi trekker riktige konklusjoner fra våre data.\n\n\nThe data science cycle – Wickham & Grolemund"
+  },
+  {
+    "objectID": "slides/slides1.html#section-1",
+    "href": "slides/slides1.html#section-1",
+    "title": "Velkommen til MPS140",
+    "section": "",
+    "text": "Vi skal i MPS140 repetere elementære statistikk og så utvide til multippel regresjon og faktormodeller. Her er noen nye ting vi skal lære:\n\n\nå jobbe med data på en transparent og reproduserbar måte (i R)\nvisualisere og sammenfatte data med nøkkeltall (R)\nat vi må ha et kritisk blikk på bruk av statistikk i forskning\nlære om måling av psykologiske begrep som stress, lojalitet, trivsel etc (i R)"
+  },
+  {
+    "objectID": "slides/slides1.html#section-2",
+    "href": "slides/slides1.html#section-2",
+    "title": "Velkommen til MPS140",
+    "section": "",
+    "text": "Coding 🙀\n\n\nCoding is a huge part of how doing statistics in the wild looks.\n\n\n\nEveryone is coming from a different background\nDifferent aspects of the course will be difficult to different people\nYou will be given coding resources each week\nUse your peers to support your learning"
+  },
+  {
+    "objectID": "slides/slides1.html#section-3",
+    "href": "slides/slides1.html#section-3",
+    "title": "Velkommen til MPS140",
+    "section": "",
+    "text": "Course Components\n\n\n\n\nBefore Class\n\n\nReading Guides\nConcept Quizzes\nR Tutorials\n\n\n\n\n\nDuring Class\n\n\nGroup Discussion\nHands-on Activities\nLab Assignments\n\n\n\n\n\nOutside of Class\n\n\nStatistical Critiques\nMidterm Project\nFinal Project"
+  },
+  {
+    "objectID": "slides/slides1.html#lab-1",
+    "href": "slides/slides1.html#lab-1",
+    "title": "Velkommen til MPS140",
+    "section": "Lab 1",
+    "text": "Lab 1\n\nAccess Posit Cloud from link posted on Canvas\n\nCreate an Account\nJoin the STAT 313 / 513 workspace\nAccess the Lab 1 Project\nOpen the Project\n\nA video will be posted guiding you on how to work with Quarto\n\nAsk questions on Discord\nEmail / text / chat with your group members"
+  },
+  {
+    "objectID": "slides/slides1.html#section-5",
+    "href": "slides/slides1.html#section-5",
+    "title": "Velkommen til MPS140",
+    "section": "",
+    "text": "Find Your Group!"
+  },
+  {
     "objectID": "omeksamen.html",
     "href": "omeksamen.html",
     "title": "MPS 140",
@@ -46,13 +88,13 @@
     "href": "Ressurser.html",
     "title": "Programvaren R",
     "section": "",
-    "text": "R er en open source og gratis programvare for statistikk.\nFor installasjon på din computer følg oppskriften her: https://posit.co/download/rstudio-desktop/\nSå kan du lage noen tilfeldige tall og lage et histogram og regne ut snittet og median:\n\nminetall &lt;- rnorm(200)# 200 tilfeldige tall trekkes fra standard normalfordeling. Ser ganske normalfordelt ut ja\nhist(minetall)\n\n\n\nmean(minetall)\n\n[1] 0.04900758\n\nmedian(minetall)\n\n[1] 0.01074382"
+    "text": "R er en open source og gratis programvare for statistikk.\nFor installasjon på din computer følg oppskriften her: https://posit.co/download/rstudio-desktop/\nSå kan du lage noen tilfeldige tall og lage et histogram og regne ut snittet og median:\n\nminetall &lt;- rnorm(200)# 200 tilfeldige tall trekkes fra standard normalfordeling. Ser ganske normalfordelt ut ja\nhist(minetall)\n\n\n\nmean(minetall)\n\n[1] -0.1234597\n\nmedian(minetall)\n\n[1] -0.09664736"
   },
   {
     "objectID": "Ressurser.html#r-og-rstudio",
     "href": "Ressurser.html#r-og-rstudio",
     "title": "Programvaren R",
     "section": "",
-    "text": "R er en open source og gratis programvare for statistikk.\nFor installasjon på din computer følg oppskriften her: https://posit.co/download/rstudio-desktop/\nSå kan du lage noen tilfeldige tall og lage et histogram og regne ut snittet og median:\n\nminetall &lt;- rnorm(200)# 200 tilfeldige tall trekkes fra standard normalfordeling. Ser ganske normalfordelt ut ja\nhist(minetall)\n\n\n\nmean(minetall)\n\n[1] 0.04900758\n\nmedian(minetall)\n\n[1] 0.01074382"
+    "text": "R er en open source og gratis programvare for statistikk.\nFor installasjon på din computer følg oppskriften her: https://posit.co/download/rstudio-desktop/\nSå kan du lage noen tilfeldige tall og lage et histogram og regne ut snittet og median:\n\nminetall &lt;- rnorm(200)# 200 tilfeldige tall trekkes fra standard normalfordeling. Ser ganske normalfordelt ut ja\nhist(minetall)\n\n\n\nmean(minetall)\n\n[1] -0.1234597\n\nmedian(minetall)\n\n[1] -0.09664736"
   }
 ]
