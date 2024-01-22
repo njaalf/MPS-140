@@ -14,13 +14,15 @@ execute:
   warning: false
 ---
 
-# Njål Foldnes
+# Om foreleseren
+
 
 -   Professor i statistikk på Nasjonalt Lesesenter, UiS
     -   [Publikasjoner](https://scholar.google.no/citations?user=KgBUXhUAAAAJ&hl=no)
 -   Bruker flipped classroom som undervisningsmetode
     -   [Kvantitativ metode](https://journals.sagepub.com/doi/full/10.1177/1469787415616726) 
     -   [Kvalitativ metode](https://www.tandfonline.com/doi/full/10.1080/13562517.2017.1379481)
+- Også interessert i sosiale medier og mental helse [Kronikk](https://www.aftenposten.no/meninger/debatt/i/jl4veq/det-er-alvorlige-feil-og-mangler-i-forskningen-paa-sosiale-medier)
 
 # Om kurset
 
