@@ -35,7 +35,9 @@ Hva er statistikk?
 Statistikk handler om hvordan vi best samler inn og analyserer data, og hvordan vi trekker riktige konklusjoner fra våre data.
 :::
 
-![The data science cycle -- Wickham & Grolemund](../images/transform.png)
+![](../images/transform.png)
+
+Fra "pensumboka"  R for Data Science <https://r4ds.hadley.nz/>
 
 ## 
 
@@ -120,7 +122,9 @@ Under samling
 
 - Du har *plikt* til å prøve å hjelpe **enhver** i gruppen som spør 
 
-- Der gir på slutten en kort rapport til hver av gruppemedlemmene !
+- Du lager på slutten en tilbamelding til hver av gruppemedlemmene !
+
+- Team 1 - Team 4 er opprettet ved tilfeldig uttrekk. Se canvas. 
 
 
 <!-- -   Helping someone means explaining your thinking **not** giving answers or doing the work for them -->

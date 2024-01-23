@@ -30,6 +30,10 @@ website:
           contents:
             - href: Ressurser.qmd
               text: Installasjon
+        - section: "Data"
+          contents: 
+            - href: R/agePingelab.csv
+              text: "Pingelab"
         - section: "Eksamen"
           contents:
             - href: omeksamen.qmd

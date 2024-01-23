@@ -11,7 +11,7 @@
     "href": "slides/slides1.html#section",
     "title": "Velkommen til MPS140",
     "section": "",
-    "text": "Hva er statistikk?\n\n\nStatistikk handler om hvordan vi best samler inn og analyserer data, og hvordan vi trekker riktige konklusjoner fra våre data.\n\n\nThe data science cycle – Wickham & Grolemund"
+    "text": "Hva er statistikk?\n\n\nStatistikk handler om hvordan vi best samler inn og analyserer data, og hvordan vi trekker riktige konklusjoner fra våre data.\n\n\nFra “pensumboka” R for Data Science https://r4ds.hadley.nz/"
   },
   {
     "objectID": "slides/slides1.html#section-1",
@@ -46,14 +46,126 @@
     "href": "slides/slides1.html#samlæring-i-flipped-classroom",
     "title": "Velkommen til MPS140",
     "section": "Samlæring i flipped classroom",
-    "text": "Samlæring i flipped classroom\n\nTa plass og gi plass\nElsk frustrasjon og forvirring\nÅ hjelpe noen er å forklare hvordan du tenker, ikke å bare gi svar eller gjøre utregninger for andre\nDu har rett til å spørre alle i gruppen om hjelp\nDu har plikt til å prøve å hjelpe enhver i gruppen som spør\nDer gir på slutten en kort rapport til hver av gruppemedlemmene !"
+    "text": "Samlæring i flipped classroom\n\nTa plass og gi plass\nElsk frustrasjon og forvirring\nÅ hjelpe noen er å forklare hvordan du tenker, ikke å bare gi svar eller gjøre utregninger for andre\nDu har rett til å spørre alle i gruppen om hjelp\nDu har plikt til å prøve å hjelpe enhver i gruppen som spør\nDu lager på slutten en tilbamelding til hver av gruppemedlemmene !\nTeam 1 - Team 4 er opprettet ved tilfeldig uttrekk. Se canvas."
   },
   {
-    "objectID": "omeksamen.html",
-    "href": "omeksamen.html",
-    "title": "MPS 140",
-    "section": "",
-    "text": "5 timer skriftlig eksamen på UiS.\nSe emnebeskrivelsen for detaljer"
+    "objectID": "R/R1.html#housing-dataene",
+    "href": "R/R1.html#housing-dataene",
+    "title": "R for samling 1",
+    "section": "Housing dataene",
+    "text": "Housing dataene\nVi må installere noen pakker og da får vi Housing datafilen gjennom pakken Ecdat.\n\nlibrary(Ecdat)\nlibrary(tidyverse)\nHousing &lt;- Housing[, c(1:3, 10, 11:12)]# her velger vi ut søylene 1,2,3,10,11,12\n#View(Housing) kikker litt på dataene"
+  },
+  {
+    "objectID": "R/R1.html#histogram-for-pris",
+    "href": "R/R1.html#histogram-for-pris",
+    "title": "R for samling 1",
+    "section": "Histogram for pris",
+    "text": "Histogram for pris\nEnten bruker vi base R eller den mer kraftige pakken ggplot som vi fikk via tidyverse."
+  },
+  {
+    "objectID": "R/R1.html#stolpediagram-for-preferred-area",
+    "href": "R/R1.html#stolpediagram-for-preferred-area",
+    "title": "R for samling 1",
+    "section": "Stolpediagram for preferred area",
+    "text": "Stolpediagram for preferred area\nStolpediagram for preferred area:\n\n#ggplot\nggplot(Housing, aes(prefarea))+geom_bar()"
+  },
+  {
+    "objectID": "R/R1.html#separere-på-preferreed-area-og-se-på-fordelingene",
+    "href": "R/R1.html#separere-på-preferreed-area-og-se-på-fordelingene",
+    "title": "R for samling 1",
+    "section": "Separere på preferreed area og se på fordelingene",
+    "text": "Separere på preferreed area og se på fordelingene\n\nggplot(Housing, aes(price, color=prefarea))+geom_density()"
+  },
+  {
+    "objectID": "R/R1.html#krysstabell",
+    "href": "R/R1.html#krysstabell",
+    "title": "R for samling 1",
+    "section": "KRYSSTABELL",
+    "text": "KRYSSTABELL\n\ntable(Housing$airc, Housing$prefarea)\n\n     \n       no yes\n  no  298  75\n  yes 120  53"
+  },
+  {
+    "objectID": "R/R1.html#spredningsdiagram",
+    "href": "R/R1.html#spredningsdiagram",
+    "title": "R for samling 1",
+    "section": "spredningsdiagram",
+    "text": "spredningsdiagram\n\nggplot(Housing, aes(lotsize,price))+geom_point()"
+  },
+  {
+    "objectID": "R/R1.html#korrelasjon",
+    "href": "R/R1.html#korrelasjon",
+    "title": "R for samling 1",
+    "section": "Korrelasjon",
+    "text": "Korrelasjon\n\nx &lt;- c(-5 , 10 , 15 , 31 , 42)\ny &lt;- c( 3 , 3 , 0 , 1 , -1)\ncor(x, y)\n\n[1] -0.82\n\n#base R\nplot(x,y)\n\n\n\n#ggplot\nggplot(data.frame(x,y), aes(x,y))+geom_point(size=3)"
+  },
+  {
+    "objectID": "R/R1.html#cornflakes",
+    "href": "R/R1.html#cornflakes",
+    "title": "R for samling 1",
+    "section": "Cornflakes",
+    "text": "Cornflakes\n\nvekt &lt;- c(502, 498, 479, 492, 488, 494, 494)\nt.test(vekt, mu=500)\n\n\n    One Sample t-test\n\ndata:  vekt\nt = -2.7105, df = 6, p-value = 0.03508\nalternative hypothesis: true mean is not equal to 500\n95 percent confidence interval:\n 485.5935 499.2636\nsample estimates:\nmean of x \n 492.4286"
+  },
+  {
+    "objectID": "R/R1.html#oppgave-13",
+    "href": "R/R1.html#oppgave-13",
+    "title": "R for samling 1",
+    "section": "Oppgave 13",
+    "text": "Oppgave 13\n\nalder &lt;- c(20, 20, 19, 23, 29, 27, 25, 21)#legge inn i vektor\nsd(alder)\n\n[1] 3.664502"
+  },
+  {
+    "objectID": "R/R1.html#oppgave-24",
+    "href": "R/R1.html#oppgave-24",
+    "title": "R for samling 1",
+    "section": "Oppgave 24",
+    "text": "Oppgave 24\n\ntimer &lt;- c(23, 55, 60, 70, 65 , 60)\nsd(timer)\n\n[1] 16.71825"
+  },
+  {
+    "objectID": "R/R1.html#oppgave-27",
+    "href": "R/R1.html#oppgave-27",
+    "title": "R for samling 1",
+    "section": "Oppgave 27",
+    "text": "Oppgave 27\n\nprop.test(x=26, n=240)\n\n\n    1-sample proportions test with continuity correction\n\ndata:  26 out of 240, null probability 0.5\nX-squared = 145.7, df = 1, p-value &lt; 2.2e-16\nalternative hypothesis: true p is not equal to 0.5\n95 percent confidence interval:\n 0.0732806 0.1563674\nsample estimates:\n        p \n0.1083333"
+  },
+  {
+    "objectID": "R/R1.html#oppgave-28",
+    "href": "R/R1.html#oppgave-28",
+    "title": "R for samling 1",
+    "section": "Oppgave 28",
+    "text": "Oppgave 28\n\nprop.test(x=28, n=56, conf.level=.9)#stemmer!\n\n\n    1-sample proportions test without continuity correction\n\ndata:  28 out of 56, null probability 0.5\nX-squared = 0, df = 1, p-value = 1\nalternative hypothesis: true p is not equal to 0.5\n90 percent confidence interval:\n 0.392661 0.607339\nsample estimates:\n  p \n0.5"
+  },
+  {
+    "objectID": "R/R1.html#oppgave-30",
+    "href": "R/R1.html#oppgave-30",
+    "title": "R for samling 1",
+    "section": "Oppgave 30",
+    "text": "Oppgave 30\n\n\n\n    One Sample t-test\n\ndata:  alder\nt = 9.5681, df = 5, p-value = 0.0002112\nalternative hypothesis: true mean is not equal to 0\n95 percent confidence interval:\n 29.61922 51.38078\nsample estimates:\nmean of x \n     40.5"
+  },
+  {
+    "objectID": "R/R1.html#oppgave-31",
+    "href": "R/R1.html#oppgave-31",
+    "title": "R for samling 1",
+    "section": "Oppgave 31",
+    "text": "Oppgave 31\n\npinge &lt;- read.csv(\"agePingelab.csv\")\nalder &lt;- pinge[, 1]# bare en søyle, vi velger denne. \nmean(alder)\n\n[1] 41.16667"
+  },
+  {
+    "objectID": "R/R1.html#oppgave-32",
+    "href": "R/R1.html#oppgave-32",
+    "title": "R for samling 1",
+    "section": "Oppgave 32",
+    "text": "Oppgave 32\n\nt.test(alder)\n\n\n    One Sample t-test\n\ndata:  alder\nt = 20.769, df = 59, p-value &lt; 2.2e-16\nalternative hypothesis: true mean is not equal to 0\n95 percent confidence interval:\n 37.20040 45.13293\nsample estimates:\nmean of x \n 41.16667"
+  },
+  {
+    "objectID": "R/R1.html#oppgave-42",
+    "href": "R/R1.html#oppgave-42",
+    "title": "R for samling 1",
+    "section": "Oppgave 42",
+    "text": "Oppgave 42\n\noppmøte &lt;- c( 2 , 15 , 8 , 14, 8 , 12 , 13 , 2 , 5, 4 )\npoeng &lt;- c( 13 , 26, 20 ,27, 16, 24 , 20, 11 , 16, 20)\nplot(oppmøte, poeng)"
+  },
+  {
+    "objectID": "R/R1.html#oppgave-44",
+    "href": "R/R1.html#oppgave-44",
+    "title": "R for samling 1",
+    "section": "Oppgave 44",
+    "text": "Oppgave 44\n\nreg &lt;- lm(oppmøte~ poeng)\nsummary(reg)\n\n\nCall:\nlm(formula = oppmøte ~ poeng)\n\nResiduals:\n    Min      1Q  Median      3Q     Max \n-4.8698 -0.8058 -0.3470  1.0486  4.1302 \n\nCoefficients:\n            Estimate Std. Error t value Pr(&gt;|t|)    \n(Intercept)  -7.4107     3.1388  -2.361 0.045887 *  \npoeng         0.8140     0.1573   5.176 0.000847 ***\n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nResidual standard error: 2.527 on 8 degrees of freedom\nMultiple R-squared:   0.77, Adjusted R-squared:  0.7413 \nF-statistic: 26.79 on 1 and 8 DF,  p-value: 0.0008471"
   },
   {
     "objectID": "samlinger/samling1.html",
@@ -70,11 +182,18 @@
     "text": "Læringsmål\nEtter denne samlingen har du repetert (eller lært) å:\n\nbeskrive et datasett ved hjelp av nøkkeltall som gjennomsnitt, standardavvik og korrelasjon.\nForklare variablers målenivå\nForstå forskjell på avhengig og uavhengiv variabel\nForstå forskjell på observasjonell og eksperimentell studie\nForstå forskjell på populasjon og utvalg\nKjenne til bekvemmelighetsutvalg, klyngeutvalg og stratifisert utvalg\nForstå konfidensintervall og hypotesetesting\nForklare hva “signifikant” betyr i statistikk\nInstallere R og Rstudio på din laptop"
   },
   {
+    "objectID": "omeksamen.html",
+    "href": "omeksamen.html",
+    "title": "MPS 140",
+    "section": "",
+    "text": "5 timer skriftlig eksamen på UiS.\nSe emnebeskrivelsen for detaljer"
+  },
+  {
     "objectID": "index.html",
     "href": "index.html",
     "title": "MPS 140: Kvantitativ forskningsmetode og statistikk",
     "section": "",
-    "text": "FYSISKE SAMLINGER\n\n\n\n\n\n\n\n\n\n\n\n\n\nDato\nTema\nForberedelser\nPresentasjon\nOppgaver\n\n\n\n\n23.01: 1215-16\nIntro og grunnleggende statistikk\n📖\n📖\n\n\n\n05.03: 815-16\nPsykometri\n\n\n\n\n\n09.04: 815-16\nLatente variable\n\n\n\n\n\n03.06\nEksamen\n\n\n\n\n\n\n\n\n\nDIGITALE SAMLINGER\n\n\n\n\n\n\n\n\n\n\n\nDato\nTema\nForberedelser\nPresentasjon\nOppgaver\n\n\n\n\n06.02: 9-12\nProgramvaren R\n\n\n\n\n\n19.03: 9-12\nProgramvaren R og psykometri\n\n\n\n\n\n23.04:9-12\nLatente variable\n\n\n\n\n\n07.05: 9-12\nEksamensforberedelse"
+    "text": "FYSISKE SAMLINGER\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nDato\nTema\nForberedelser\nPresentasjon\nR\nOppgaver\n\n\n\n\n23.01: 1215-16\nIntro og grunnleggende statistikk\n📖\n🖥 🖥\n\n📋\n\n\n05.03: 815-16\nPsykometri\n\n\n\n\n\n\n09.04: 815-16\nLatente variable\n\n\n\n\n\n\n03.06\nEksamen\n\n\n\n\n\n\n\n\n\n\nDIGITALE SAMLINGER\n\n\n\n\n\n\n\n\n\n\n\nDato\nTema\nForberedelser\nPresentasjon\nOppgaver\n\n\n\n\n06.02: 9-12\nProgramvaren R\n\n\n\n\n\n19.03: 9-12\nProgramvaren R og psykometri\n\n\n\n\n\n23.04:9-12\nLatente variable\n\n\n\n\n\n07.05: 9-12\nEksamensforberedelse"
   },
   {
     "objectID": "about.html",
@@ -88,13 +207,13 @@
     "href": "Ressurser.html",
     "title": "Programvaren R",
     "section": "",
-    "text": "R er en open source og gratis programvare for statistikk.\nFor installasjon på din computer følg oppskriften her: https://posit.co/download/rstudio-desktop/\nSå kan du lage noen tilfeldige tall og lage et histogram og regne ut snittet og median:\n\nminetall &lt;- rnorm(200)# 200 tilfeldige tall trekkes fra standard normalfordeling. Ser ganske normalfordelt ut ja\nhist(minetall)\n\n\n\nmean(minetall)\n\n[1] 0.06288196\n\nmedian(minetall)\n\n[1] 0.1356648"
+    "text": "R er en open source og gratis programvare for statistikk.\nFor installasjon på din computer følg oppskriften her: https://posit.co/download/rstudio-desktop/\nSå kan du lage noen tilfeldige tall og lage et histogram og regne ut snittet og median:\n\nminetall &lt;- rnorm(200)# 200 tilfeldige tall trekkes fra standard normalfordeling. Ser ganske normalfordelt ut ja\nhist(minetall)\n\n\n\nmean(minetall)\n\n[1] -0.07682211\n\nmedian(minetall)\n\n[1] -0.1020333"
   },
   {
     "objectID": "Ressurser.html#r-og-rstudio",
     "href": "Ressurser.html#r-og-rstudio",
     "title": "Programvaren R",
     "section": "",
-    "text": "R er en open source og gratis programvare for statistikk.\nFor installasjon på din computer følg oppskriften her: https://posit.co/download/rstudio-desktop/\nSå kan du lage noen tilfeldige tall og lage et histogram og regne ut snittet og median:\n\nminetall &lt;- rnorm(200)# 200 tilfeldige tall trekkes fra standard normalfordeling. Ser ganske normalfordelt ut ja\nhist(minetall)\n\n\n\nmean(minetall)\n\n[1] 0.06288196\n\nmedian(minetall)\n\n[1] 0.1356648"
+    "text": "R er en open source og gratis programvare for statistikk.\nFor installasjon på din computer følg oppskriften her: https://posit.co/download/rstudio-desktop/\nSå kan du lage noen tilfeldige tall og lage et histogram og regne ut snittet og median:\n\nminetall &lt;- rnorm(200)# 200 tilfeldige tall trekkes fra standard normalfordeling. Ser ganske normalfordelt ut ja\nhist(minetall)\n\n\n\nmean(minetall)\n\n[1] -0.07682211\n\nmedian(minetall)\n\n[1] -0.1020333"
   }
 ]

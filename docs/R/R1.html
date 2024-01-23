@@ -10,7 +10,8 @@
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.3.433">
 
-  <title>MPS 140 - Velkommen til MPS140</title>
+  <meta name="author" content="n foldnes">
+  <title>MPS 140 - R for samling 1</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -28,6 +29,71 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
+    /* CSS for syntax highlighting */
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      { color: #003b4f; background-color: #f1f3f5; }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #003b4f; } /* Normal */
+    code span.al { color: #ad0000; } /* Alert */
+    code span.an { color: #5e5e5e; } /* Annotation */
+    code span.at { color: #657422; } /* Attribute */
+    code span.bn { color: #ad0000; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #003b4f; } /* ControlFlow */
+    code span.ch { color: #20794d; } /* Char */
+    code span.cn { color: #8f5902; } /* Constant */
+    code span.co { color: #5e5e5e; } /* Comment */
+    code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
+    code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
+    code span.dt { color: #ad0000; } /* DataType */
+    code span.dv { color: #ad0000; } /* DecVal */
+    code span.er { color: #ad0000; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #ad0000; } /* Float */
+    code span.fu { color: #4758ab; } /* Function */
+    code span.im { color: #00769e; } /* Import */
+    code span.in { color: #5e5e5e; } /* Information */
+    code span.kw { color: #003b4f; } /* Keyword */
+    code span.op { color: #5e5e5e; } /* Operator */
+    code span.ot { color: #003b4f; } /* Other */
+    code span.pp { color: #ad0000; } /* Preprocessor */
+    code span.sc { color: #5e5e5e; } /* SpecialChar */
+    code span.ss { color: #20794d; } /* SpecialString */
+    code span.st { color: #20794d; } /* String */
+    code span.va { color: #111111; } /* Variable */
+    code span.vs { color: #20794d; } /* VerbatimString */
+    code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
   <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto.css">
   <link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
@@ -323,356 +389,274 @@
   <div class="reveal">
     <div class="slides">
 
-<section id="title-slide" data-background-image="missplot.png" data-background-opacity="0.5" data-background-size="stretch" class="quarto-title-block center">
-  <h1 class="title">Velkommen til MPS140</h1>
+<section id="title-slide" class="quarto-title-block center">
+  <h1 class="title">R for samling 1</h1>
 
 <div class="quarto-title-authors">
+<div class="quarto-title-author">
+<div class="quarto-title-author-name">
+n foldnes 
+</div>
+</div>
 </div>
 
 </section>
-<section id="om-foreleseren" class="title-slide slide level1 center">
-<h1>Om foreleseren</h1>
-<ul>
-<li>Professor i statistikk på Nasjonalt Lesesenter, UiS
-<ul>
-<li><a href="https://scholar.google.no/citations?user=KgBUXhUAAAAJ&amp;hl=no">Publikasjoner</a></li>
-</ul></li>
-<li>Bruker flipped classroom som undervisningsmetode
-<ul>
-<li><a href="https://journals.sagepub.com/doi/full/10.1177/1469787415616726">Kvantitativ metode</a></li>
-<li><a href="https://www.tandfonline.com/doi/full/10.1080/13562517.2017.1379481">Kvalitativ metode</a></li>
-</ul></li>
-<li>Også interessert i sosiale medier og mental helse <a href="https://www.aftenposten.no/meninger/debatt/i/jl4veq/det-er-alvorlige-feil-og-mangler-i-forskningen-paa-sosiale-medier">Kronikk</a></li>
-</ul>
-</section>
-
 <section>
-<section id="om-kurset" class="title-slide slide level1 center">
-<h1>Om kurset</h1>
+<section id="forelesningen" class="title-slide slide level1 center">
+<h1>Forelesningen</h1>
 
 </section>
-<section id="section" class="slide level2">
-<h2></h2>
-<div style="font-size: 2em; color: #FFFFFF;">
-<p>Hva er statistikk?</p>
+<section id="housing-dataene" class="slide level2">
+<h2>Housing dataene</h2>
+<p>Vi må installere noen pakker og da får vi Housing datafilen gjennom pakken Ecdat.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="fu">library</span>(Ecdat)</span>
+<span id="cb1-2"><a href="#cb1-2"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-3"><a href="#cb1-3"></a>Housing <span class="ot">&lt;-</span> Housing[, <span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>, <span class="dv">10</span>, <span class="dv">11</span><span class="sc">:</span><span class="dv">12</span>)]<span class="co"># her velger vi ut søylene 1,2,3,10,11,12</span></span>
+<span id="cb1-4"><a href="#cb1-4"></a><span class="co">#View(Housing) kikker litt på dataene</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div style="color: #b76352;">
-<p>Statistikk handler om hvordan vi best samler inn og analyserer data, og hvordan vi trekker riktige konklusjoner fra våre data.</p>
+</section>
+<section id="histogram-for-pris" class="slide level2">
+<h2>Histogram for pris</h2>
+<p>Enten bruker vi base R eller den mer kraftige pakken ggplot som vi fikk via tidyverse.</p>
+<div class="cell">
+<div class="cell-output-display">
+<p><img data-src="R1_files/figure-revealjs/unnamed-chunk-3-1.png" width="960"></p>
 </div>
+<div class="cell-output-display">
+<p><img data-src="R1_files/figure-revealjs/unnamed-chunk-3-2.png" width="960"></p>
+</div>
+</div>
+</section>
+<section id="stolpediagram-for-preferred-area" class="slide level2">
+<h2>Stolpediagram for preferred area</h2>
+<p>Stolpediagram for preferred area:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a><span class="co">#ggplot</span></span>
+<span id="cb2-2"><a href="#cb2-2"></a><span class="fu">ggplot</span>(Housing, <span class="fu">aes</span>(prefarea))<span class="sc">+</span><span class="fu">geom_bar</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
-<img data-src="../images/transform.png" class="r-stretch"><p>Fra “pensumboka” R for Data Science <a href="https://r4ds.hadley.nz/" class="uri">https://r4ds.hadley.nz/</a></p>
-</section>
-<section id="section-1" class="slide level2">
-<h2></h2>
-<p>Vi skal i MPS140 repetere elementære statistikk og så utvide til multippel regresjon og psykometriske modeller. Her er noen nye ting vi skal lære:</p>
-<div style="font-size: 0.75em;">
-<ul>
-<li>å jobbe med data på en transparent og reproduserbar måte (i R)</li>
-<li>visualisere og sammenfatte data med nøkkeltall (R)</li>
-<li>at vi må ha et kritisk blikk på bruk av statistikk i forskning</li>
-<li>lære om måling av psykologiske begrep som stress, lojalitet, trivsel etc</li>
-</ul>
 </div>
-</section>
-<section id="section-2" class="slide level2">
-<h2></h2>
-<div style="font-size: 4em; color: #FFFFFF;">
-<p>Koding 🙀</p>
-</div>
-<div class="fragment">
-<p>I praksis er koding (skrive syntaks i statistikkprogram) <strong>en sentral</strong> del av statistisk praksis.</p>
-</div>
-<div class="fragment">
-<ul>
-<li>I klassen har vi stor variasjon i talenter og interesser</li>
-<li>Det blir en del R koding for å illustrere konsepter</li>
-<li>Bruk studiekamerater til å lære</li>
-</ul>
-</div>
-</section>
-<section id="section-3" class="slide level2">
-<h2></h2>
-<div style="font-size: 2em; color: #FFFFFF;">
-<p>Komponenter</p>
-</div>
-<div class="columns">
-<div class="column" style="width:40%;">
-<div style="color: #b76352;">
-<p>Før samling</p>
-</div>
-<ul>
-<li>Det er viktig å være forberedt til samling:</li>
-<li>Tekster</li>
-<li>Videoer</li>
-<li>R stoff</li>
-</ul>
-</div><div class="column" style="width:2%;">
+<img data-src="R1_files/figure-revealjs/unnamed-chunk-4-1.png" width="960" class="r-stretch"></section>
+<section id="separere-på-preferreed-area-og-se-på-fordelingene" class="slide level2">
+<h2>Separere på preferreed area og se på fordelingene</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a><span class="fu">ggplot</span>(Housing, <span class="fu">aes</span>(price, <span class="at">color=</span>prefarea))<span class="sc">+</span><span class="fu">geom_density</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
-</div><div class="column" style="width:40%;">
-<div style="color: #76b5c5;">
-<p>Under samling</p>
 </div>
-<ul>
-<li>Forelesning</li>
-<li>Oppgaver som skal løses i grupper. Basert på forberedelsesstoffet.</li>
-<li>Debriefing</li>
-</ul>
+<img data-src="R1_files/figure-revealjs/unnamed-chunk-5-1.png" width="960" class="r-stretch"></section></section>
+<section>
+<section id="alder" class="title-slide slide level1 center">
+<h1>Alder</h1>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a>age <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">16</span>, <span class="dv">56</span>, <span class="dv">58</span>, <span class="dv">67</span>, <span class="dv">62</span>,<span class="dv">69</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="krysstabell" class="slide level2">
+<h2>KRYSSTABELL</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a><span class="fu">table</span>(Housing<span class="sc">$</span>airc, Housing<span class="sc">$</span>prefarea)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>     
+       no yes
+  no  298  75
+  yes 120  53</code></pre>
 </div>
 </div>
 </section>
-<section id="dagens-plan" class="slide level2">
-<h2>Dagens plan</h2>
-<ul>
-<li><p>Forelese cirka 1 time</p></li>
-<li><p>Jobbe med oppgaver</p>
-<ul>
-<li>Først individuelt 1 time</li>
-<li>Grupper ca 1 time</li>
-<li>Gruppene ligger på canvas</li>
-</ul></li>
-<li><p>Debriefing</p></li>
-</ul>
+<section id="spredningsdiagram" class="slide level2">
+<h2>spredningsdiagram</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a><span class="fu">ggplot</span>(Housing, <span class="fu">aes</span>(lotsize,price))<span class="sc">+</span><span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+
+</div>
+<img data-src="R1_files/figure-revealjs/unnamed-chunk-8-1.png" width="960" class="r-stretch"></section>
+<section id="korrelasjon" class="slide level2">
+<h2>Korrelasjon</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">5</span> , <span class="dv">10</span> , <span class="dv">15</span> , <span class="dv">31</span> , <span class="dv">42</span>)</span>
+<span id="cb8-2"><a href="#cb8-2"></a>y <span class="ot">&lt;-</span> <span class="fu">c</span>( <span class="dv">3</span> , <span class="dv">3</span> , <span class="dv">0</span> , <span class="dv">1</span> , <span class="sc">-</span><span class="dv">1</span>)</span>
+<span id="cb8-3"><a href="#cb8-3"></a><span class="fu">cor</span>(x, y)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] -0.82</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a><span class="co">#base R</span></span>
+<span id="cb10-2"><a href="#cb10-2"></a><span class="fu">plot</span>(x,y)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img data-src="R1_files/figure-revealjs/unnamed-chunk-9-1.png" width="960"></p>
+</div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1"></a><span class="co">#ggplot</span></span>
+<span id="cb11-2"><a href="#cb11-2"></a><span class="fu">ggplot</span>(<span class="fu">data.frame</span>(x,y), <span class="fu">aes</span>(x,y))<span class="sc">+</span><span class="fu">geom_point</span>(<span class="at">size=</span><span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img data-src="R1_files/figure-revealjs/unnamed-chunk-9-2.png" width="960"></p>
+</div>
+</div>
 </section>
-<section id="samlæring-i-flipped-classroom" class="slide level2">
-<h2>Samlæring i flipped classroom</h2>
-<ul>
-<li><p>Ta plass og gi plass</p></li>
-<li><p>Elsk frustrasjon og forvirring</p></li>
-<li><p>Å hjelpe noen er å forklare hvordan du tenker, <strong>ikke</strong> å bare gi svar eller gjøre utregninger for andre</p></li>
-<li><p>Du har <em>rett</em> til å spørre <strong>alle</strong> i gruppen om hjelp</p></li>
-<li><p>Du har <em>plikt</em> til å prøve å hjelpe <strong>enhver</strong> i gruppen som spør</p></li>
-<li><p>Du lager på slutten en tilbamelding til hver av gruppemedlemmene !</p></li>
-<li><p>Team 1 - Team 4 er opprettet ved tilfeldig uttrekk. Se canvas.</p></li>
-</ul>
-<!-- -   Helping someone means explaining your thinking **not** giving answers or doing the work for them -->
-<!-- -   Provide a justification when you make a statement -->
-<!-- -   Think and work together -- don't divide up the work -->
-<!-- ::: -->
-<!-- ::: -->
-<!-- ::: -->
-<!-- ##  {background-color="#B6CADA"} -->
-<!-- ::: {style="font-size: 8em; color: #000000;"} -->
-<!-- Break -->
-<!-- ::: -->
-<!-- #  -->
-<!-- ::: {style="font-size: 4.5em;"} -->
-<!-- Let's talk about data... -->
-<!-- ::: -->
-<!-- ##  -->
-<!-- ::: {style="font-size: 4em; color: #FFFFFF;"} -->
-<!-- Tidy Data -->
-<!-- ::: -->
-<!-- ![Expected layout of "tidy" datasets](images/tidy-1.png) -->
-<!-- ##  -->
-<!-- ::: {style="font-size: 2em; color: #FFFFFF;"} -->
-<!-- Gender stereotypes in 5-7 year old children -->
-<!-- ::: -->
-<!-- </br> -->
-<!-- ::: {style="font-size: 0.75em;"} -->
-<!-- ```{r gender-stereotypes} -->
-<!-- #| echo: false -->
-<!-- children_gender_stereo[[2]] %>%  -->
-<!--   rename(sex = gender) %>%  -->
-<!--   sample_n(6) %>% -->
-<!--   kable(format = "html") %>%  -->
-<!--   kable_styling(bootstrap_options = c("striped", "condensed"),  -->
-<!--                 latex_options = "striped") -->
-<!-- ``` -->
-<!-- ::: -->
-<!-- ##  -->
-<!-- ::: {style="font-size: 1.5em; color: #FFFFFF;"} -->
-<!-- Body girth and skeletal diameter measurements -->
-<!-- ::: -->
-<!-- ::: {style="font-size: 0.75em;"} -->
-<!-- ```{r body-girth} -->
-<!-- #| echo: false -->
-<!-- bdims %>%  -->
-<!--   sample_n(6) %>%  -->
-<!--   select(age, wgt, hgt, sex, sho_gi, wai_gi, nav_gi, hip_gi) %>%  -->
-<!--   kable() %>%  -->
-<!--   kable_styling(bootstrap_options = c("striped", "condensed"),  -->
-<!--                 latex_options = "striped") -->
-<!-- ``` -->
-<!-- ::: -->
-<!-- ##  -->
-<!-- ::: {style="font-size: 2em; color: #FFFFFF;"} -->
-<!-- NBA player of the week -->
-<!-- ::: -->
-<!-- </br> -->
-<!-- ::: {style="font-size: 0.75em;"} -->
-<!-- ```{r nba} -->
-<!-- #| echo: false -->
-<!-- nba %>%  -->
-<!--   sample_n(6) %>% -->
-<!--   select(Age:Position) %>%  -->
-<!--   kable(format = "html") %>%  -->
-<!--     kable_styling(bootstrap_options = c("striped", "condensed"),  -->
-<!--                 latex_options = "striped") -->
-<!-- ``` -->
-<!-- ::: -->
-<!-- ##  {background-color="#B6CADA"} -->
-<!-- ::: {style="font-size: 3em; color: #000000;"} -->
-<!-- Your Turn -->
-<!-- ::: -->
-<!-- ::: {style="font-size: 0.75em;"} -->
-<!-- Every year, the US releases to the public a large data set containing information on births recorded in the country. -->
-<!-- A total of 13 variables were collected on every birth, including information about: -->
-<!-- -   the birth (baby weight, sex of baby, premie status) -->
-<!-- -   the pregnancy (hospital visits, length of gestation, ) -->
-<!-- -   the birth parent's attributes (age, smoking status, marital status, race) -->
-<!-- -   the partner's age -->
-<!-- ::: -->
-<!-- . . . -->
-<!-- ::: {style="color: #b76352;"} -->
-<!-- How would you expect this dataframe to look? -->
-<!-- ::: -->
-<!-- ##  -->
-<!-- ::: {style="font-size: 2em;"} -->
-<!-- Military Spending -->
-<!-- ::: -->
-<!-- ::: {style="font-size: 0.75em;"} -->
-<!-- ```{r} -->
-<!-- #| echo: false -->
-<!-- #| label: wide-data -->
-<!-- countries <- tibble(Country =  -->
-<!--                       c("Sweden",  -->
-<!--                         "Norway",  -->
-<!--                         "Australia",  -->
-<!--                         "USA",  -->
-<!--                         "Africa") -->
-<!--                     ) -->
-<!-- military %>%  -->
-<!--   semi_join(countries, by = "Country") %>%  -->
-<!--   select(Country, `2010`:`2019`) %>%  -->
-<!--   mutate(across(.cols = `2010`:`2019`,  -->
-<!--                 .fns = ~ as.numeric(.x) * 100)) %>%  -->
-<!--   kable() %>%  -->
-<!--   kable_styling(bootstrap_options = c("striped", "condensed"),  -->
-<!--                 latex_options = "striped") -->
-<!-- ``` -->
-<!-- ::: -->
-<!-- . . . -->
-<!-- </br> -->
-<!-- ::: {style="color: #b76352;"} -->
-<!-- Do these data satisfy the "tidy" principles? -->
-<!-- ::: -->
-<!-- ##  -->
-<!-- ::: {style="font-size: 2em;"} -->
-<!-- Vehicle Efficiency -->
-<!-- ::: -->
-<!-- ::: {style="font-size: 0.75em;"} -->
-<!-- ```{r} -->
-<!-- #| echo: false -->
-<!-- #| label: row-names -->
-<!-- mtcars %>%  -->
-<!--   sample_n(size = 4, replace = FALSE) %>%  -->
-<!--   kable() %>%  -->
-<!--   kable_styling(bootstrap_options = c("striped", "condensed"),  -->
-<!--                 latex_options = "striped") -->
-<!-- ``` -->
-<!-- ::: -->
-<!-- . . . -->
-<!-- </br> -->
-<!-- ::: {style="color: #b76352;"} -->
-<!-- Do these data satisfy the "tidy" principles? -->
-<!-- ::: -->
-<!-- ##  {background-color="#B6CADA"} -->
-<!-- ![Artwork by [\@allison_horst](https://twitter.com/allison_horst)](images/tidy-data.jpg) -->
-<!-- ##  -->
-<!-- ::: {style="font-size: 2em; color: #FFFFFF;"} -->
-<!-- Types of Variables -->
-<!-- ::: -->
-<!-- </br> -->
-<!-- ![Diagram of types of variables we will analyze!](images/variables.png) -->
-<!-- ##  {background-color="#B6CADA"} -->
-<!-- <center>![](images/continuous-discrete.jpeg)</center> -->
-<!-- ##  {background-color="#B6CADA"} -->
-<!-- ![](images/nominal_ordinal_binary.png) -->
-<!-- ##  -->
-<!-- ::: {style="font-size: 2em; color: #76b5c5;"} -->
-<!-- Your Turn (90-seconds) -->
-<!-- ::: -->
-<!-- </br> -->
-<!-- Write down one example of: -->
-<!-- -   a **continuous, numerical** variable -->
-<!-- -   a **discrete, numerical** variable -->
-<!-- -   an **ordinal, categorical** variable -->
-<!-- -   a **regular, categorical** variable -->
-<!-- . . . -->
-<!-- ::: {style="font-size: 1.5em; color: #e28743;"} -->
-<!-- Share out! -->
-<!-- ::: -->
-<!-- #  {background-color="#B6CADA"} -->
-<!-- ::: {style="font-size: 4em; color: #000000;"} -->
-<!-- Lab Warm-up -->
-<!-- ::: -->
-<!-- ##  -->
-<!-- ::: {style="font-size: 2em; color: #FFFFFF;"} -->
-<!-- Data Types in `R` -->
-<!-- ::: -->
-<!-- ```{r} -->
-<!-- #| echo: false -->
-<!-- births_small <- births14  %>%  -->
-<!--   mutate(sex = as.factor(sex)) %>%  -->
-<!--   select(-visits, -mature, -marital)  -->
-<!-- ``` -->
-<!-- ::: {style="font-size: 0.75em;"} -->
-<!-- ```{r} -->
-<!-- #| echo: true -->
-<!-- #| code-line-numbers: false -->
-<!-- glimpse(births_small) -->
-<!-- ``` -->
-<!-- ::: -->
-<!-- ::: columns -->
-<!-- ::: {.column width="45%"} -->
-<!-- What do you think `dbl` means? -->
-<!-- How is that different from `int`? -->
-<!-- ::: -->
-<!-- ::: {.column width="5%"} -->
-<!-- ::: -->
-<!-- ::: {.column width="45%"} -->
-<!-- What does `chr` mean? -->
-<!-- How might it differ from `fct`? -->
-<!-- ::: -->
-<!-- ::: -->
-<!-- # Other Foundational Concepts -->
-<!-- ##  -->
-<!-- ::: {style="font-size: 2em; color: #FFFFFF;"} -->
-<!-- Types of Studies -->
-<!-- ::: -->
-<!-- ::: columns -->
-<!-- ::: {.column width="40%"} -->
-<!-- *Experiment* -->
-<!-- -   randomization -->
-<!-- -   replication -->
-<!-- -   controlling -->
-<!-- -   blocking -->
-<!-- ::: -->
-<!-- ::: {.column width="5%"} -->
-<!-- ::: -->
-<!-- ::: {.column width="55%"} -->
-<!-- *Observational Study* -->
-<!-- -   collect data in a way that does not directly interfere with how the data arise -->
-<!-- ::: -->
-<!-- ::: -->
-<!-- ##  -->
-<!-- ::: {style="font-size: 2em; color: #FFFFFF;"} -->
-<!-- Relationships Between Variables -->
-<!-- ::: -->
-<!-- </br> -->
-<!-- explanatory variable $\rightarrow$ *might affect* $\rightarrow$ response variable -->
-<!-- . . . -->
-<!-- -   If two variables are not associated, then they are said to be **independent**. -->
-<!-- -   If two variables are associated, then they are said to be **dependent**. -->
-<!-- ##  -->
-<!-- ::: {style="font-size: 2em; color: #FFFFFF;"} -->
-<!-- Causal Inference -->
-<!-- ::: -->
-<!-- </br> -->
-<!-- association $\neq$ causation -->
-<!-- </br> -->
-<!-- . . . -->
-<!-- What do you need to say that the explanatory variable [*causes*]{style="color: #e28743;"} a change in the response variable? -->
+<section id="cornflakes" class="slide level2">
+<h2>Cornflakes</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1"></a>vekt <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">502</span>, <span class="dv">498</span>, <span class="dv">479</span>, <span class="dv">492</span>, <span class="dv">488</span>, <span class="dv">494</span>, <span class="dv">494</span>)</span>
+<span id="cb12-2"><a href="#cb12-2"></a><span class="fu">t.test</span>(vekt, <span class="at">mu=</span><span class="dv">500</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    One Sample t-test
+
+data:  vekt
+t = -2.7105, df = 6, p-value = 0.03508
+alternative hypothesis: true mean is not equal to 500
+95 percent confidence interval:
+ 485.5935 499.2636
+sample estimates:
+mean of x 
+ 492.4286 </code></pre>
+</div>
+</div>
+</section></section>
+<section>
+<section id="quiz" class="title-slide slide level1 center">
+<h1>Quiz</h1>
+
+</section>
+<section id="oppgave-13" class="slide level2">
+<h2>Oppgave 13</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1"></a>alder <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">20</span>, <span class="dv">20</span>, <span class="dv">19</span>, <span class="dv">23</span>, <span class="dv">29</span>, <span class="dv">27</span>, <span class="dv">25</span>, <span class="dv">21</span>)<span class="co">#legge inn i vektor</span></span>
+<span id="cb14-2"><a href="#cb14-2"></a><span class="fu">sd</span>(alder)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 3.664502</code></pre>
+</div>
+</div>
+</section>
+<section id="oppgave-24" class="slide level2">
+<h2>Oppgave 24</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1"></a>timer <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">23</span>, <span class="dv">55</span>, <span class="dv">60</span>, <span class="dv">70</span>, <span class="dv">65</span> , <span class="dv">60</span>)</span>
+<span id="cb16-2"><a href="#cb16-2"></a><span class="fu">sd</span>(timer)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 16.71825</code></pre>
+</div>
+</div>
+</section>
+<section id="oppgave-27" class="slide level2">
+<h2>Oppgave 27</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1"></a><span class="fu">prop.test</span>(<span class="at">x=</span><span class="dv">26</span>, <span class="at">n=</span><span class="dv">240</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    1-sample proportions test with continuity correction
+
+data:  26 out of 240, null probability 0.5
+X-squared = 145.7, df = 1, p-value &lt; 2.2e-16
+alternative hypothesis: true p is not equal to 0.5
+95 percent confidence interval:
+ 0.0732806 0.1563674
+sample estimates:
+        p 
+0.1083333 </code></pre>
+</div>
+</div>
+</section>
+<section id="oppgave-28" class="slide level2">
+<h2>Oppgave 28</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1"></a><span class="fu">prop.test</span>(<span class="at">x=</span><span class="dv">28</span>, <span class="at">n=</span><span class="dv">56</span>, <span class="at">conf.level=</span>.<span class="dv">9</span>)<span class="co">#stemmer!</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    1-sample proportions test without continuity correction
+
+data:  28 out of 56, null probability 0.5
+X-squared = 0, df = 1, p-value = 1
+alternative hypothesis: true p is not equal to 0.5
+90 percent confidence interval:
+ 0.392661 0.607339
+sample estimates:
+  p 
+0.5 </code></pre>
+</div>
+</div>
+</section>
+<section id="oppgave-30" class="slide level2">
+<h2>Oppgave 30</h2>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    One Sample t-test
+
+data:  alder
+t = 9.5681, df = 5, p-value = 0.0002112
+alternative hypothesis: true mean is not equal to 0
+95 percent confidence interval:
+ 29.61922 51.38078
+sample estimates:
+mean of x 
+     40.5 </code></pre>
+</div>
+</div>
+</section>
+<section id="oppgave-31" class="slide level2">
+<h2>Oppgave 31</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1"></a>pinge <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"agePingelab.csv"</span>)</span>
+<span id="cb23-2"><a href="#cb23-2"></a>alder <span class="ot">&lt;-</span> pinge[, <span class="dv">1</span>]<span class="co"># bare en søyle, vi velger denne. </span></span>
+<span id="cb23-3"><a href="#cb23-3"></a><span class="fu">mean</span>(alder)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 41.16667</code></pre>
+</div>
+</div>
+</section>
+<section id="oppgave-32" class="slide level2">
+<h2>Oppgave 32</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1"></a><span class="fu">t.test</span>(alder)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    One Sample t-test
+
+data:  alder
+t = 20.769, df = 59, p-value &lt; 2.2e-16
+alternative hypothesis: true mean is not equal to 0
+95 percent confidence interval:
+ 37.20040 45.13293
+sample estimates:
+mean of x 
+ 41.16667 </code></pre>
+</div>
+</div>
+</section>
+<section id="oppgave-42" class="slide level2">
+<h2>Oppgave 42</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1"></a>oppmøte <span class="ot">&lt;-</span> <span class="fu">c</span>( <span class="dv">2</span> , <span class="dv">15</span> , <span class="dv">8</span> , <span class="dv">14</span>, <span class="dv">8</span> , <span class="dv">12</span> , <span class="dv">13</span> , <span class="dv">2</span> , <span class="dv">5</span>, <span class="dv">4</span> )</span>
+<span id="cb27-2"><a href="#cb27-2"></a>poeng <span class="ot">&lt;-</span> <span class="fu">c</span>( <span class="dv">13</span> , <span class="dv">26</span>, <span class="dv">20</span> ,<span class="dv">27</span>, <span class="dv">16</span>, <span class="dv">24</span> , <span class="dv">20</span>, <span class="dv">11</span> , <span class="dv">16</span>, <span class="dv">20</span>)</span>
+<span id="cb27-3"><a href="#cb27-3"></a><span class="fu">plot</span>(oppmøte, poeng)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+
+</div>
+<img data-src="R1_files/figure-revealjs/unnamed-chunk-18-1.png" width="960" class="r-stretch"></section>
+<section id="oppgave-44" class="slide level2">
+<h2>Oppgave 44</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1"></a>reg <span class="ot">&lt;-</span> <span class="fu">lm</span>(oppmøte<span class="sc">~</span> poeng)</span>
+<span id="cb28-2"><a href="#cb28-2"></a><span class="fu">summary</span>(reg)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = oppmøte ~ poeng)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-4.8698 -0.8058 -0.3470  1.0486  4.1302 
+
+Coefficients:
+            Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)  -7.4107     3.1388  -2.361 0.045887 *  
+poeng         0.8140     0.1573   5.176 0.000847 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 2.527 on 8 degrees of freedom
+Multiple R-squared:   0.77, Adjusted R-squared:  0.7413 
+F-statistic: 26.79 on 1 and 8 DF,  p-value: 0.0008471</code></pre>
+</div>
+</div>
 
 <div class="footer footer-default">
 
@@ -889,6 +873,44 @@
         ]
       });
     </script>
+    
+    <script>
+      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
+      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
+      // slide changes (different for each slide format).
+      (function () {
+        // dispatch for htmlwidgets
+        function fireSlideEnter() {
+          const event = window.document.createEvent("Event");
+          event.initEvent("slideenter", true, true);
+          window.document.dispatchEvent(event);
+        }
+
+        function fireSlideChanged(previousSlide, currentSlide) {
+          fireSlideEnter();
+
+          // dispatch for shiny
+          if (window.jQuery) {
+            if (previousSlide) {
+              window.jQuery(previousSlide).trigger("hidden");
+            }
+            if (currentSlide) {
+              window.jQuery(currentSlide).trigger("shown");
+            }
+          }
+        }
+
+        // hookup for slidy
+        if (window.w3c_slidy) {
+          window.w3c_slidy.add_observer(function (slide_num) {
+            // slide_num starts at position 1
+            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
+          });
+        }
+
+      })();
+    </script>
+
     <script id="quarto-html-after-body" type="application/javascript">
     window.document.addEventListener("DOMContentLoaded", function (event) {
       const toggleBodyColorMode = (bsSheetEl) => {
