@@ -25,12 +25,13 @@ execute:
 
 # Om kurset
 
-## 
+## MPS 140
 
 ::: {style="font-size: 2em; color: #FFFFFF;"}
-Hva er statistikk?
+[Kursmateriale legges ut på github](https://njaalf.github.io/MPS-140/)
 :::
 
+## Statistikk
 ::: {style="color: #b76352;"}
 Statistikk handler om hvordan vi best samler inn og analyserer data, og hvordan vi trekker riktige konklusjoner fra våre data.
 :::
