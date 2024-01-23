@@ -18,35 +18,35 @@
     "href": "slides/slides1.html#section-1",
     "title": "Velkommen til MPS140",
     "section": "",
-    "text": "Vi skal i MPS140 repetere elementære statistikk og så utvide til multippel regresjon og faktormodeller. Her er noen nye ting vi skal lære:\n\n\nå jobbe med data på en transparent og reproduserbar måte (i R)\nvisualisere og sammenfatte data med nøkkeltall (R)\nat vi må ha et kritisk blikk på bruk av statistikk i forskning\nlære om måling av psykologiske begrep som stress, lojalitet, trivsel etc (i R)"
+    "text": "Vi skal i MPS140 repetere elementære statistikk og så utvide til multippel regresjon og psykometriske modeller. Her er noen nye ting vi skal lære:\n\n\nå jobbe med data på en transparent og reproduserbar måte (i R)\nvisualisere og sammenfatte data med nøkkeltall (R)\nat vi må ha et kritisk blikk på bruk av statistikk i forskning\nlære om måling av psykologiske begrep som stress, lojalitet, trivsel etc"
   },
   {
     "objectID": "slides/slides1.html#section-2",
     "href": "slides/slides1.html#section-2",
     "title": "Velkommen til MPS140",
     "section": "",
-    "text": "Coding 🙀\n\n\nCoding is a huge part of how doing statistics in the wild looks.\n\n\n\nEveryone is coming from a different background\nDifferent aspects of the course will be difficult to different people\nYou will be given coding resources each week\nUse your peers to support your learning"
+    "text": "Koding 🙀\n\n\nI praksis er koding (skrive syntaks i statistikkprogram) en sentral del av statistisk praksis.\n\n\n\nI klassen har vi stor variasjon i talenter og interesser\nDet blir en del R koding for å illustrere konsepter\nBruk studiekamerater til å lære"
   },
   {
     "objectID": "slides/slides1.html#section-3",
     "href": "slides/slides1.html#section-3",
     "title": "Velkommen til MPS140",
     "section": "",
-    "text": "Course Components\n\n\n\n\nBefore Class\n\n\nReading Guides\nConcept Quizzes\nR Tutorials\n\n\n\n\n\nDuring Class\n\n\nGroup Discussion\nHands-on Activities\nLab Assignments\n\n\n\n\n\nOutside of Class\n\n\nStatistical Critiques\nMidterm Project\nFinal Project"
+    "text": "Komponenter\n\n\n\n\nFør samling\n\n\nDet er viktig å være forberedt til samling:\nTekster\nVideoer\nR stoff\n\n\n\n\n\nUnder samling\n\n\nForelesning\nOppgaver som skal løses i grupper. Basert på forberedelsesstoffet.\nDebriefing"
   },
   {
-    "objectID": "slides/slides1.html#lab-1",
-    "href": "slides/slides1.html#lab-1",
+    "objectID": "slides/slides1.html#dagens-plan",
+    "href": "slides/slides1.html#dagens-plan",
     "title": "Velkommen til MPS140",
-    "section": "Lab 1",
-    "text": "Lab 1\n\nAccess Posit Cloud from link posted on Canvas\n\nCreate an Account\nJoin the STAT 313 / 513 workspace\nAccess the Lab 1 Project\nOpen the Project\n\nA video will be posted guiding you on how to work with Quarto\n\nAsk questions on Discord\nEmail / text / chat with your group members"
+    "section": "Dagens plan",
+    "text": "Dagens plan\n\nForelese cirka 1 time\nJobbe med oppgaver\n\nFørst individuelt 1 time\nGrupper ca 1 time\nGruppene ligger på canvas\n\nDebriefing"
   },
   {
-    "objectID": "slides/slides1.html#section-5",
-    "href": "slides/slides1.html#section-5",
+    "objectID": "slides/slides1.html#samlæring-i-flipped-classroom",
+    "href": "slides/slides1.html#samlæring-i-flipped-classroom",
     "title": "Velkommen til MPS140",
-    "section": "",
-    "text": "Find Your Group!"
+    "section": "Samlæring i flipped classroom",
+    "text": "Samlæring i flipped classroom\n\nTa plass og gi plass\nElsk frustrasjon og forvirring\nÅ hjelpe noen er å forklare hvordan du tenker, ikke å bare gi svar eller gjøre utregninger for andre\nDu har rett til å spørre alle i gruppen om hjelp\nDu har plikt til å prøve å hjelpe enhver i gruppen som spør\nDer gir på slutten en kort rapport til hver av gruppemedlemmene !"
   },
   {
     "objectID": "omeksamen.html",
@@ -74,7 +74,7 @@
     "href": "index.html",
     "title": "MPS 140: Kvantitativ forskningsmetode og statistikk",
     "section": "",
-    "text": "FYSISKE SAMLINGER\n\n\n\n\n\n\n\n\n\n\n\n\n\nDato\nTema\nForberedelser\nPresentasjon\nOppgaver\n\n\n\n\n23.01: 1215-16\nIntro og grunnleggende statistikk\n📖\n\n\n\n\n05.03: 815-16\nPsykometri\n\n\n\n\n\n09.04: 815-16\nLatente variable\n\n\n\n\n\n03.06\nEksamen\n\n\n\n\n\n\n\n\n\nDIGITALE SAMLINGER\n\n\n\n\n\n\n\n\n\n\n\nDato\nTema\nForberedelser\nPresentasjon\nOppgaver\n\n\n\n\n06.02: 9-12\nProgramvaren R\n\n\n\n\n\n19.03: 9-12\nProgramvaren R og psykometri\n\n\n\n\n\n23.04:9-12\nLatente variable\n\n\n\n\n\n07.05: 9-12\nEksamensforberedelse"
+    "text": "FYSISKE SAMLINGER\n\n\n\n\n\n\n\n\n\n\n\n\n\nDato\nTema\nForberedelser\nPresentasjon\nOppgaver\n\n\n\n\n23.01: 1215-16\nIntro og grunnleggende statistikk\n📖\n📖\n\n\n\n05.03: 815-16\nPsykometri\n\n\n\n\n\n09.04: 815-16\nLatente variable\n\n\n\n\n\n03.06\nEksamen\n\n\n\n\n\n\n\n\n\nDIGITALE SAMLINGER\n\n\n\n\n\n\n\n\n\n\n\nDato\nTema\nForberedelser\nPresentasjon\nOppgaver\n\n\n\n\n06.02: 9-12\nProgramvaren R\n\n\n\n\n\n19.03: 9-12\nProgramvaren R og psykometri\n\n\n\n\n\n23.04:9-12\nLatente variable\n\n\n\n\n\n07.05: 9-12\nEksamensforberedelse"
   },
   {
     "objectID": "about.html",
@@ -88,13 +88,13 @@
     "href": "Ressurser.html",
     "title": "Programvaren R",
     "section": "",
-    "text": "R er en open source og gratis programvare for statistikk.\nFor installasjon på din computer følg oppskriften her: https://posit.co/download/rstudio-desktop/\nSå kan du lage noen tilfeldige tall og lage et histogram og regne ut snittet og median:\n\nminetall &lt;- rnorm(200)# 200 tilfeldige tall trekkes fra standard normalfordeling. Ser ganske normalfordelt ut ja\nhist(minetall)\n\n\n\nmean(minetall)\n\n[1] -0.1234597\n\nmedian(minetall)\n\n[1] -0.09664736"
+    "text": "R er en open source og gratis programvare for statistikk.\nFor installasjon på din computer følg oppskriften her: https://posit.co/download/rstudio-desktop/\nSå kan du lage noen tilfeldige tall og lage et histogram og regne ut snittet og median:\n\nminetall &lt;- rnorm(200)# 200 tilfeldige tall trekkes fra standard normalfordeling. Ser ganske normalfordelt ut ja\nhist(minetall)\n\n\n\nmean(minetall)\n\n[1] 0.06288196\n\nmedian(minetall)\n\n[1] 0.1356648"
   },
   {
     "objectID": "Ressurser.html#r-og-rstudio",
     "href": "Ressurser.html#r-og-rstudio",
     "title": "Programvaren R",
     "section": "",
-    "text": "R er en open source og gratis programvare for statistikk.\nFor installasjon på din computer følg oppskriften her: https://posit.co/download/rstudio-desktop/\nSå kan du lage noen tilfeldige tall og lage et histogram og regne ut snittet og median:\n\nminetall &lt;- rnorm(200)# 200 tilfeldige tall trekkes fra standard normalfordeling. Ser ganske normalfordelt ut ja\nhist(minetall)\n\n\n\nmean(minetall)\n\n[1] -0.1234597\n\nmedian(minetall)\n\n[1] -0.09664736"
+    "text": "R er en open source og gratis programvare for statistikk.\nFor installasjon på din computer følg oppskriften her: https://posit.co/download/rstudio-desktop/\nSå kan du lage noen tilfeldige tall og lage et histogram og regne ut snittet og median:\n\nminetall &lt;- rnorm(200)# 200 tilfeldige tall trekkes fra standard normalfordeling. Ser ganske normalfordelt ut ja\nhist(minetall)\n\n\n\nmean(minetall)\n\n[1] 0.06288196\n\nmedian(minetall)\n\n[1] 0.1356648"
   }
 ]
