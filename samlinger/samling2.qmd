@@ -36,7 +36,7 @@ Læringsmål:
 
 
 
-- Kjør dette og prøv å forstå hvordan det skal tolkes ift neuroticism (epiNeur) og bdi  
+- Kjør dette og prøv å forstå hvordan det skal tolkes ift neuroticism (epiNeur) og bdi  (becks depression inventory)
 ```{r}
 # last ned et datasett med Eysenck personality og Big Five 
 datafilename="https://personality-project.org/r/datasets/maps.mixx.epi.bfi.data"  
