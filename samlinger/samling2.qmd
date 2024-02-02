@@ -17,18 +17,8 @@ Læringsmål:
 - Forstå ideen bak specification curve analysis (SCA) og Figur 1 i artikkelen [Orben 2019](https://doi.org/10.1038/s41562-018-0506-1 "The association between adolescent well-being and digital technology use")
 
 
-
 - kunne kjøre regresjon i R og tolke resultatene
-```{r}
-# last ned et datasett med Eysenck personality og Big Five 
-datafilename="https://personality-project.org/r/datasets/maps.mixx.epi.bfi.data"  
-personality.data =read.delim(url(datafilename))
-head(personality.data)     #kikke på de første radene
 
-
-model1 = lm(bdi~epiNeur,data=personality.data)  #enkel regresjon: beck depression forklares av neuroticism (1 av big five)
-summary(model1)   # basic statistical summary
-```
 
 
 
@@ -40,17 +30,21 @@ summary(model1)   # basic statistical summary
 
 - 📖 Repeter stoffet i kapittel 22 om enkel regresjon i Statistikk og Dataanalyse
 
-- Kjør en enkel regresion i R. Prøv dette og se om du forstår hva det betyr
+
+
+- Les og reflekter rundt de to første sidene i artikkelen [Orben 2019](https://doi.org/10.1038/s41562-018-0506-1 "The association between adolescent well-being and digital technology use") 
+
+
+
+- Kjør dette og prøv å forstå hvordan det skal tolkes ift neuroticism (epiNeur) og bdi  
 ```{r}
 # last ned et datasett med Eysenck personality og Big Five 
 datafilename="https://personality-project.org/r/datasets/maps.mixx.epi.bfi.data"  
 personality.data =read.delim(url(datafilename))
 head(personality.data)     #kikke på de første radene
 
+plot(personality.data$epiNeur,personality.data$bdi)# spredningsplott viser korrelasjon.. 
 
 model1 = lm(bdi~epiNeur,data=personality.data)  #enkel regresjon: beck depression forklares av neuroticism (1 av big five)
 summary(model1)   # basic statistical summary
 ```
-
-
-- Les og reflekter rundt de to første sidene i artikkelen [Orben 2019](https://doi.org/10.1038/s41562-018-0506-1 "The association between adolescent well-being and digital technology use") 

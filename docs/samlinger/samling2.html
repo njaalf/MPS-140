@@ -268,6 +268,13 @@ Important
 <li><p>Forstå ideen bak specification curve analysis (SCA) og Figur 1 i artikkelen <a href="https://doi.org/10.1038/s41562-018-0506-1" title="The association between adolescent well-being and digital technology use">Orben 2019</a></p></li>
 <li><p>kunne kjøre regresjon i R og tolke resultatene</p></li>
 </ul>
+<section id="forbered-deg-til-6-feb" class="level2">
+<h2 class="anchored" data-anchor-id="forbered-deg-til-6-feb">Forbered deg til 6 feb!</h2>
+<ul>
+<li><p>📖 Repeter stoffet i kapittel 22 om enkel regresjon i Statistikk og Dataanalyse</p></li>
+<li><p>Les og reflekter rundt de to første sidene i artikkelen <a href="https://doi.org/10.1038/s41562-018-0506-1" title="The association between adolescent well-being and digital technology use">Orben 2019</a></p></li>
+<li><p>Kjør dette og prøv å forstå hvordan det skal tolkes ift neuroticism (epiNeur) og bdi</p></li>
+</ul>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># last ned et datasett med Eysenck personality og Big Five </span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>datafilename<span class="ot">=</span><span class="st">"https://personality-project.org/r/datasets/maps.mixx.epi.bfi.data"</span>  </span>
@@ -289,8 +296,12 @@ Important
 5       39       67
 6       51       38</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>model1 <span class="ot">=</span> <span class="fu">lm</span>(bdi<span class="sc">~</span>epiNeur,<span class="at">data=</span>personality.data)  <span class="co">#enkel regresjon: beck depression forklares av neuroticism (1 av big five)</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(model1)   <span class="co"># basic statistical summary</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(personality.data<span class="sc">$</span>epiNeur,personality.data<span class="sc">$</span>bdi)<span class="co"># spredningsplott viser korrelasjon.. </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="samling2_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid" width="672"></p>
+</div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>model1 <span class="ot">=</span> <span class="fu">lm</span>(bdi<span class="sc">~</span>epiNeur,<span class="at">data=</span>personality.data)  <span class="co">#enkel regresjon: beck depression forklares av neuroticism (1 av big five)</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(model1)   <span class="co"># basic statistical summary</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Call:
@@ -312,59 +323,6 @@ Multiple R-squared:  0.3348,    Adjusted R-squared:  0.3319
 F-statistic: 115.3 on 1 and 229 DF,  p-value: &lt; 2.2e-16</code></pre>
 </div>
 </div>
-<section id="forbered-deg-til-6-feb" class="level2">
-<h2 class="anchored" data-anchor-id="forbered-deg-til-6-feb">Forbered deg til 6 feb!</h2>
-<ul>
-<li><p>📖 Repeter stoffet i kapittel 22 om enkel regresjon i Statistikk og Dataanalyse</p></li>
-<li><p>Kjør en enkel regresion i R. Prøv dette og se om du forstår hva det betyr</p></li>
-</ul>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># last ned et datasett med Eysenck personality og Big Five </span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>datafilename<span class="ot">=</span><span class="st">"https://personality-project.org/r/datasets/maps.mixx.epi.bfi.data"</span>  </span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>personality.data <span class="ot">=</span><span class="fu">read.delim</span>(<span class="fu">url</span>(datafilename))</span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(personality.data)     <span class="co">#kikke på de første radene</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>  epiE epiS epiImp epilie epiNeur bfagree bfcon bfext bfneur bfopen bdi
-1   18   10      7      3       9     138    96   141     51    138   1
-2   16    8      5      1      12     101    99   107    116    132   7
-3    6    1      3      2       5     143   118    38     68     90   4
-4   12    6      4      3      15     104   106    64    114    101   8
-5   14    6      5      3       2     115   102   103     86    118   8
-6    6    4      2      5      15     110   113    61     54    149   5
-  traitanx stateanx
-1       24       22
-2       41       40
-3       37       44
-4       54       40
-5       39       67
-6       51       38</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>model1 <span class="ot">=</span> <span class="fu">lm</span>(bdi<span class="sc">~</span>epiNeur,<span class="at">data=</span>personality.data)  <span class="co">#enkel regresjon: beck depression forklares av neuroticism (1 av big five)</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(model1)   <span class="co"># basic statistical summary</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>
-Call:
-lm(formula = bdi ~ epiNeur, data = personality.data)
-
-Residuals:
-     Min       1Q   Median       3Q      Max 
--11.9548  -3.1577  -0.7707   2.0452  16.4092 
-
-Coefficients:
-            Estimate Std. Error t value Pr(&gt;|t|)    
-(Intercept) -0.32129    0.73070   -0.44    0.661    
-epiNeur      0.68200    0.06353   10.74   &lt;2e-16 ***
----
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
-
-Residual standard error: 4.721 on 229 degrees of freedom
-Multiple R-squared:  0.3348,    Adjusted R-squared:  0.3319 
-F-statistic: 115.3 on 1 and 229 DF,  p-value: &lt; 2.2e-16</code></pre>
-</div>
-</div>
-<ul>
-<li>Les og reflekter rundt de to første sidene i artikkelen <a href="https://doi.org/10.1038/s41562-018-0506-1" title="The association between adolescent well-being and digital technology use">Orben 2019</a></li>
-</ul>
 
 
 </section>
