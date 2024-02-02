@@ -7,53 +7,95 @@
     "text": "Denne websiden inneholder kursmateriell for statistikkurset i 2-årig psykologi master ved UiS. Emnebeskrivelsen: https://www.uis.no/nb/course/MPS140_1"
   },
   {
-    "objectID": "slides/slides1.html#mps-140",
-    "href": "slides/slides1.html#mps-140",
-    "title": "Velkommen til MPS140",
+    "objectID": "slides/slides2.html#mps-140",
+    "href": "slides/slides2.html#mps-140",
+    "title": "Lineær Regresjon",
     "section": "MPS 140",
     "text": "MPS 140\n\nKursmateriale legges ut på github"
   },
   {
-    "objectID": "slides/slides1.html#statistikk",
-    "href": "slides/slides1.html#statistikk",
-    "title": "Velkommen til MPS140",
+    "objectID": "slides/slides2.html#statistikk",
+    "href": "slides/slides2.html#statistikk",
+    "title": "Lineær Regresjon",
     "section": "Statistikk",
     "text": "Statistikk\n\nStatistikk handler om hvordan vi best samler inn og analyserer data, og hvordan vi trekker riktige konklusjoner fra våre data.\n\n\nFra “pensumboka” R for Data Science https://r4ds.hadley.nz/"
   },
   {
-    "objectID": "slides/slides1.html#section",
-    "href": "slides/slides1.html#section",
-    "title": "Velkommen til MPS140",
+    "objectID": "slides/slides2.html#section",
+    "href": "slides/slides2.html#section",
+    "title": "Lineær Regresjon",
     "section": "",
     "text": "Vi skal i MPS140 repetere elementære statistikk og så utvide til multippel regresjon og psykometriske modeller. Her er noen nye ting vi skal lære:\n\n\nå jobbe med data på en transparent og reproduserbar måte (i R)\nvisualisere og sammenfatte data med nøkkeltall (R)\nat vi må ha et kritisk blikk på bruk av statistikk i forskning\nlære om måling av psykologiske begrep som stress, lojalitet, trivsel etc"
   },
   {
-    "objectID": "slides/slides1.html#section-1",
-    "href": "slides/slides1.html#section-1",
-    "title": "Velkommen til MPS140",
+    "objectID": "slides/slides2.html#section-1",
+    "href": "slides/slides2.html#section-1",
+    "title": "Lineær Regresjon",
     "section": "",
     "text": "Koding 🙀\n\n\nI praksis er koding (skrive syntaks i statistikkprogram) en sentral del av statistisk praksis.\n\n\n\nI klassen har vi stor variasjon i talenter og interesser\nDet blir en del R koding for å illustrere konsepter\nBruk studiekamerater til å lære"
   },
   {
-    "objectID": "slides/slides1.html#section-2",
-    "href": "slides/slides1.html#section-2",
-    "title": "Velkommen til MPS140",
+    "objectID": "slides/slides2.html#section-2",
+    "href": "slides/slides2.html#section-2",
+    "title": "Lineær Regresjon",
     "section": "",
     "text": "Komponenter\n\n\n\n\nFør samling\n\n\nDet er viktig å være forberedt til samling:\nTekster\nVideoer\nR stoff\n\n\n\n\n\nUnder samling\n\n\nForelesning\nOppgaver som skal løses i grupper. Basert på forberedelsesstoffet.\nDebriefing"
   },
   {
-    "objectID": "slides/slides1.html#dagens-plan",
-    "href": "slides/slides1.html#dagens-plan",
-    "title": "Velkommen til MPS140",
+    "objectID": "slides/slides2.html#dagens-plan",
+    "href": "slides/slides2.html#dagens-plan",
+    "title": "Lineær Regresjon",
     "section": "Dagens plan",
     "text": "Dagens plan\n\nForelese cirka 1 time\nJobbe med oppgaver\n\nFørst individuelt 1 time\nGrupper ca 1 time\nGruppene ligger på canvas\n\nDebriefing"
   },
   {
-    "objectID": "slides/slides1.html#samlæring-i-flipped-classroom",
-    "href": "slides/slides1.html#samlæring-i-flipped-classroom",
-    "title": "Velkommen til MPS140",
+    "objectID": "slides/slides2.html#samlæring-i-flipped-classroom",
+    "href": "slides/slides2.html#samlæring-i-flipped-classroom",
+    "title": "Lineær Regresjon",
     "section": "Samlæring i flipped classroom",
     "text": "Samlæring i flipped classroom\n\nTa plass og gi plass\nElsk frustrasjon og forvirring\nÅ hjelpe noen er å forklare hvordan du tenker, ikke å bare gi svar eller gjøre utregninger for andre\nDu har rett til å spørre alle i gruppen om hjelp\nDu har plikt til å prøve å hjelpe enhver i gruppen som spør\nDu lager på slutten en tilbamelding til hver av gruppemedlemmene !\nTeam 1 - Team 4 er opprettet ved tilfeldig uttrekk. Se canvas."
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "MPS 140: Kvantitativ forskningsmetode og statistikk",
+    "section": "",
+    "text": "FYSISKE SAMLINGER\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nDato\nTema\nForberedelser\nPresentasjoner\nR\nOppgaver\n\n\n\n\n23.01: 1215-16\nIntro og grunnleggende statistikk\n📖\n🖥 🖥\n📋\n📋\n\n\n05.03: 815-16\nPsykometri\n\n\n\n\n\n\n09.04: 815-16\nLatente variable\n\n\n\n\n\n\n03.06\nEksamen\n\n\n\n\n\n\n\n\n\n\nDIGITALE SAMLINGER\n\n\n\n\n\n\n\n\n\n\n\nDato\nTema\nForberedelser\nPresentasjon\nOppgaver\n\n\n\n\n06.02: 9-12\nR og regresjonsmodellen\n📖\n\n\n\n\n19.03: 9-12\nProgramvaren R og psykometri\n\n\n\n\n\n23.04:9-12\nLatente variable\n\n\n\n\n\n07.05: 9-12\nEksamensforberedelse"
+  },
+  {
+    "objectID": "samlinger/samling2.html",
+    "href": "samlinger/samling2.html",
+    "title": "Digital samling - 6 feb",
+    "section": "",
+    "text": "Important\n\n\n\n\nDigital samling på Teams.\nLæringsmål:\n# last ned et datasett med Eysenck personality og Big Five \ndatafilename=\"https://personality-project.org/r/datasets/maps.mixx.epi.bfi.data\"  \npersonality.data =read.delim(url(datafilename))\nhead(personality.data)     #kikke på de første radene\n\n  epiE epiS epiImp epilie epiNeur bfagree bfcon bfext bfneur bfopen bdi\n1   18   10      7      3       9     138    96   141     51    138   1\n2   16    8      5      1      12     101    99   107    116    132   7\n3    6    1      3      2       5     143   118    38     68     90   4\n4   12    6      4      3      15     104   106    64    114    101   8\n5   14    6      5      3       2     115   102   103     86    118   8\n6    6    4      2      5      15     110   113    61     54    149   5\n  traitanx stateanx\n1       24       22\n2       41       40\n3       37       44\n4       54       40\n5       39       67\n6       51       38\n\nmodel1 = lm(bdi~epiNeur,data=personality.data)  #enkel regresjon: beck depression forklares av neuroticism (1 av big five)\nsummary(model1)   # basic statistical summary\n\n\nCall:\nlm(formula = bdi ~ epiNeur, data = personality.data)\n\nResiduals:\n     Min       1Q   Median       3Q      Max \n-11.9548  -3.1577  -0.7707   2.0452  16.4092 \n\nCoefficients:\n            Estimate Std. Error t value Pr(&gt;|t|)    \n(Intercept) -0.32129    0.73070   -0.44    0.661    \nepiNeur      0.68200    0.06353   10.74   &lt;2e-16 ***\n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nResidual standard error: 4.721 on 229 degrees of freedom\nMultiple R-squared:  0.3348,    Adjusted R-squared:  0.3319 \nF-statistic: 115.3 on 1 and 229 DF,  p-value: &lt; 2.2e-16"
+  },
+  {
+    "objectID": "samlinger/samling2.html#forbered-deg-til-6-feb",
+    "href": "samlinger/samling2.html#forbered-deg-til-6-feb",
+    "title": "Digital samling - 6 feb",
+    "section": "Forbered deg til 6 feb!",
+    "text": "Forbered deg til 6 feb!\n\n📖 Repeter stoffet i kapittel 22 om enkel regresjon i Statistikk og Dataanalyse\nKjør en enkel regresion i R. Prøv dette og se om du forstår hva det betyr\n\n\n# last ned et datasett med Eysenck personality og Big Five \ndatafilename=\"https://personality-project.org/r/datasets/maps.mixx.epi.bfi.data\"  \npersonality.data =read.delim(url(datafilename))\nhead(personality.data)     #kikke på de første radene\n\n  epiE epiS epiImp epilie epiNeur bfagree bfcon bfext bfneur bfopen bdi\n1   18   10      7      3       9     138    96   141     51    138   1\n2   16    8      5      1      12     101    99   107    116    132   7\n3    6    1      3      2       5     143   118    38     68     90   4\n4   12    6      4      3      15     104   106    64    114    101   8\n5   14    6      5      3       2     115   102   103     86    118   8\n6    6    4      2      5      15     110   113    61     54    149   5\n  traitanx stateanx\n1       24       22\n2       41       40\n3       37       44\n4       54       40\n5       39       67\n6       51       38\n\nmodel1 = lm(bdi~epiNeur,data=personality.data)  #enkel regresjon: beck depression forklares av neuroticism (1 av big five)\nsummary(model1)   # basic statistical summary\n\n\nCall:\nlm(formula = bdi ~ epiNeur, data = personality.data)\n\nResiduals:\n     Min       1Q   Median       3Q      Max \n-11.9548  -3.1577  -0.7707   2.0452  16.4092 \n\nCoefficients:\n            Estimate Std. Error t value Pr(&gt;|t|)    \n(Intercept) -0.32129    0.73070   -0.44    0.661    \nepiNeur      0.68200    0.06353   10.74   &lt;2e-16 ***\n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nResidual standard error: 4.721 on 229 degrees of freedom\nMultiple R-squared:  0.3348,    Adjusted R-squared:  0.3319 \nF-statistic: 115.3 on 1 and 229 DF,  p-value: &lt; 2.2e-16\n\n\n\nLes og reflekter rundt de to første sidene i artikkelen Orben 2019"
+  },
+  {
+    "objectID": "omeksamen.html",
+    "href": "omeksamen.html",
+    "title": "MPS 140",
+    "section": "",
+    "text": "5 timer skriftlig eksamen på UiS.\nSe emnebeskrivelsen for detaljer"
+  },
+  {
+    "objectID": "samlinger/samling1.html",
+    "href": "samlinger/samling1.html",
+    "title": "Første samling: Grunnleggende statistikk",
+    "section": "",
+    "text": "Velkommen!\nBLA BLA\nI denne samlingen får vi et overblikk over kurset, og vi frisker opp statistikken fra introkurset. Vi snakker også litt om metodologi i psykologi (kvantitativ vs kvalitativ tilnærming), og vi jobber i grupper.\nI gruppearbeidet vil dere få oppgaver på introkurs i statistikk nivå som er svært viktige å beherske for resten av kurset."
+  },
+  {
+    "objectID": "samlinger/samling1.html#læringsmål",
+    "href": "samlinger/samling1.html#læringsmål",
+    "title": "Første samling: Grunnleggende statistikk",
+    "section": "Læringsmål",
+    "text": "Læringsmål\nEtter denne samlingen har du repetert (eller lært) å:\n\nbeskrive et datasett ved hjelp av nøkkeltall som gjennomsnitt, standardavvik og korrelasjon.\nForklare variablers målenivå\nForstå forskjell på avhengig og uavhengiv variabel\nForstå forskjell på observasjonell og eksperimentell studie\nForstå forskjell på populasjon og utvalg\nKjenne til bekvemmelighetsutvalg, klyngeutvalg og stratifisert utvalg\nForstå konfidensintervall og hypotesetesting\nForklare hva “signifikant” betyr i statistikk\nInstallere R og Rstudio på din laptop"
   },
   {
     "objectID": "R/R1.html#housing-dataene",
@@ -175,32 +217,53 @@
     "text": "Oppgave 44\n\nreg &lt;- lm(oppmøte~ poeng)\nsummary(reg)\n\n\nCall:\nlm(formula = oppmøte ~ poeng)\n\nResiduals:\n    Min      1Q  Median      3Q     Max \n-4.8698 -0.8058 -0.3470  1.0486  4.1302 \n\nCoefficients:\n            Estimate Std. Error t value Pr(&gt;|t|)    \n(Intercept)  -7.4107     3.1388  -2.361 0.045887 *  \npoeng         0.8140     0.1573   5.176 0.000847 ***\n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nResidual standard error: 2.527 on 8 degrees of freedom\nMultiple R-squared:   0.77, Adjusted R-squared:  0.7413 \nF-statistic: 26.79 on 1 and 8 DF,  p-value: 0.0008471"
   },
   {
-    "objectID": "samlinger/samling1.html",
-    "href": "samlinger/samling1.html",
-    "title": "Første samling: Grunnleggende statistikk",
-    "section": "",
-    "text": "Velkommen!\nBLA BLA\nI denne samlingen får vi et overblikk over kurset, og vi frisker opp statistikken fra introkurset. Vi snakker også litt om metodologi i psykologi (kvantitativ vs kvalitativ tilnærming), og vi jobber i grupper.\nI gruppearbeidet vil dere få oppgaver på introkurs i statistikk nivå som er svært viktige å beherske for resten av kurset."
+    "objectID": "slides/slides1.html#mps-140",
+    "href": "slides/slides1.html#mps-140",
+    "title": "Velkommen til MPS140",
+    "section": "MPS 140",
+    "text": "MPS 140\n\nKursmateriale legges ut på github"
   },
   {
-    "objectID": "samlinger/samling1.html#læringsmål",
-    "href": "samlinger/samling1.html#læringsmål",
-    "title": "Første samling: Grunnleggende statistikk",
-    "section": "Læringsmål",
-    "text": "Læringsmål\nEtter denne samlingen har du repetert (eller lært) å:\n\nbeskrive et datasett ved hjelp av nøkkeltall som gjennomsnitt, standardavvik og korrelasjon.\nForklare variablers målenivå\nForstå forskjell på avhengig og uavhengiv variabel\nForstå forskjell på observasjonell og eksperimentell studie\nForstå forskjell på populasjon og utvalg\nKjenne til bekvemmelighetsutvalg, klyngeutvalg og stratifisert utvalg\nForstå konfidensintervall og hypotesetesting\nForklare hva “signifikant” betyr i statistikk\nInstallere R og Rstudio på din laptop"
+    "objectID": "slides/slides1.html#statistikk",
+    "href": "slides/slides1.html#statistikk",
+    "title": "Velkommen til MPS140",
+    "section": "Statistikk",
+    "text": "Statistikk\n\nStatistikk handler om hvordan vi best samler inn og analyserer data, og hvordan vi trekker riktige konklusjoner fra våre data.\n\n\nFra “pensumboka” R for Data Science https://r4ds.hadley.nz/"
   },
   {
-    "objectID": "omeksamen.html",
-    "href": "omeksamen.html",
-    "title": "MPS 140",
+    "objectID": "slides/slides1.html#section",
+    "href": "slides/slides1.html#section",
+    "title": "Velkommen til MPS140",
     "section": "",
-    "text": "5 timer skriftlig eksamen på UiS.\nSe emnebeskrivelsen for detaljer"
+    "text": "Vi skal i MPS140 repetere elementære statistikk og så utvide til multippel regresjon og psykometriske modeller. Her er noen nye ting vi skal lære:\n\n\nå jobbe med data på en transparent og reproduserbar måte (i R)\nvisualisere og sammenfatte data med nøkkeltall (R)\nat vi må ha et kritisk blikk på bruk av statistikk i forskning\nlære om måling av psykologiske begrep som stress, lojalitet, trivsel etc"
   },
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "MPS 140: Kvantitativ forskningsmetode og statistikk",
+    "objectID": "slides/slides1.html#section-1",
+    "href": "slides/slides1.html#section-1",
+    "title": "Velkommen til MPS140",
     "section": "",
-    "text": "FYSISKE SAMLINGER\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nDato\nTema\nForberedelser\nPresentasjoner\nR\nOppgaver\n\n\n\n\n23.01: 1215-16\nIntro og grunnleggende statistikk\n📖\n🖥 🖥\n📋\n📋\n\n\n05.03: 815-16\nPsykometri\n\n\n\n\n\n\n09.04: 815-16\nLatente variable\n\n\n\n\n\n\n03.06\nEksamen\n\n\n\n\n\n\n\n\n\n\nDIGITALE SAMLINGER\n\n\n\n\n\n\n\n\n\n\n\nDato\nTema\nForberedelser\nPresentasjon\nOppgaver\n\n\n\n\n06.02: 9-12\nProgramvaren R\n\n\n\n\n\n19.03: 9-12\nProgramvaren R og psykometri\n\n\n\n\n\n23.04:9-12\nLatente variable\n\n\n\n\n\n07.05: 9-12\nEksamensforberedelse"
+    "text": "Koding 🙀\n\n\nI praksis er koding (skrive syntaks i statistikkprogram) en sentral del av statistisk praksis.\n\n\n\nI klassen har vi stor variasjon i talenter og interesser\nDet blir en del R koding for å illustrere konsepter\nBruk studiekamerater til å lære"
+  },
+  {
+    "objectID": "slides/slides1.html#section-2",
+    "href": "slides/slides1.html#section-2",
+    "title": "Velkommen til MPS140",
+    "section": "",
+    "text": "Komponenter\n\n\n\n\nFør samling\n\n\nDet er viktig å være forberedt til samling:\nTekster\nVideoer\nR stoff\n\n\n\n\n\nUnder samling\n\n\nForelesning\nOppgaver som skal løses i grupper. Basert på forberedelsesstoffet.\nDebriefing"
+  },
+  {
+    "objectID": "slides/slides1.html#dagens-plan",
+    "href": "slides/slides1.html#dagens-plan",
+    "title": "Velkommen til MPS140",
+    "section": "Dagens plan",
+    "text": "Dagens plan\n\nForelese cirka 1 time\nJobbe med oppgaver\n\nFørst individuelt 1 time\nGrupper ca 1 time\nGruppene ligger på canvas\n\nDebriefing"
+  },
+  {
+    "objectID": "slides/slides1.html#samlæring-i-flipped-classroom",
+    "href": "slides/slides1.html#samlæring-i-flipped-classroom",
+    "title": "Velkommen til MPS140",
+    "section": "Samlæring i flipped classroom",
+    "text": "Samlæring i flipped classroom\n\nTa plass og gi plass\nElsk frustrasjon og forvirring\nÅ hjelpe noen er å forklare hvordan du tenker, ikke å bare gi svar eller gjøre utregninger for andre\nDu har rett til å spørre alle i gruppen om hjelp\nDu har plikt til å prøve å hjelpe enhver i gruppen som spør\nDu lager på slutten en tilbamelding til hver av gruppemedlemmene !\nTeam 1 - Team 4 er opprettet ved tilfeldig uttrekk. Se canvas."
   },
   {
     "objectID": "about.html",
@@ -214,13 +277,13 @@
     "href": "Ressurser.html",
     "title": "Programvaren R",
     "section": "",
-    "text": "R er en open source og gratis programvare for statistikk.\nFor installasjon på din computer følg oppskriften her: https://posit.co/download/rstudio-desktop/\nSå kan du lage noen tilfeldige tall og lage et histogram og regne ut snittet og median:\n\nminetall &lt;- rnorm(200)# 200 tilfeldige tall trekkes fra standard normalfordeling. Ser ganske normalfordelt ut ja\nhist(minetall)\n\n\n\nmean(minetall)\n\n[1] 0.02165424\n\nmedian(minetall)\n\n[1] 0.02774294"
+    "text": "R er en open source og gratis programvare for statistikk.\nFor installasjon på din computer følg oppskriften her: https://posit.co/download/rstudio-desktop/\nSå kan du lage noen tilfeldige tall og lage et histogram og regne ut snittet og median:\n\nminetall &lt;- rnorm(200)# 200 tilfeldige tall trekkes fra standard normalfordeling. Ser ganske normalfordelt ut ja\nhist(minetall)\n\n\n\nmean(minetall)\n\n[1] 0.06572387\n\nmedian(minetall)\n\n[1] 0.1319522"
   },
   {
     "objectID": "Ressurser.html#r-og-rstudio",
     "href": "Ressurser.html#r-og-rstudio",
     "title": "Programvaren R",
     "section": "",
-    "text": "R er en open source og gratis programvare for statistikk.\nFor installasjon på din computer følg oppskriften her: https://posit.co/download/rstudio-desktop/\nSå kan du lage noen tilfeldige tall og lage et histogram og regne ut snittet og median:\n\nminetall &lt;- rnorm(200)# 200 tilfeldige tall trekkes fra standard normalfordeling. Ser ganske normalfordelt ut ja\nhist(minetall)\n\n\n\nmean(minetall)\n\n[1] 0.02165424\n\nmedian(minetall)\n\n[1] 0.02774294"
+    "text": "R er en open source og gratis programvare for statistikk.\nFor installasjon på din computer følg oppskriften her: https://posit.co/download/rstudio-desktop/\nSå kan du lage noen tilfeldige tall og lage et histogram og regne ut snittet og median:\n\nminetall &lt;- rnorm(200)# 200 tilfeldige tall trekkes fra standard normalfordeling. Ser ganske normalfordelt ut ja\nhist(minetall)\n\n\n\nmean(minetall)\n\n[1] 0.06572387\n\nmedian(minetall)\n\n[1] 0.1319522"
   }
 ]
