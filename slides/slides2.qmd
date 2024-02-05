@@ -2,7 +2,9 @@
 title: "Lineær Regresjon. Digital samling 1"
    
 format: 
-  revealjs
+  revealjs:
+    toc: true
+    toc-depth: 1
 df-print: paged
 editor: source
 execute: 
@@ -72,7 +74,7 @@ theme_set(theme_minimal())
 
 ```
 
-# Et lite eksempel for lineær regresjon
+# Et lite eksempel for enkel regresjon
 
 ## Lekeeksempel
 
