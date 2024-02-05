@@ -10,7 +10,7 @@
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.3.450">
 
-  <title>MPS 140 - Lineær Regresjon</title>
+  <title>MPS 140 - Lineær Regresjon. Digital samling 1</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -323,364 +323,97 @@
   <div class="reveal">
     <div class="slides">
 
-<section id="title-slide" data-background-image="missplot.png" data-background-opacity="0.5" data-background-size="stretch" class="quarto-title-block center">
-  <h1 class="title">Lineær Regresjon</h1>
+<section id="title-slide" data-background-opacity="0.5" data-background-size="stretch" class="quarto-title-block center">
+  <h1 class="title">Lineær Regresjon. Digital samling 1</h1>
 
 <div class="quarto-title-authors">
 </div>
 
 </section>
-<section id="om-foreleseren" class="title-slide slide level1 center">
-<h1>Om foreleseren</h1>
-<ul>
-<li>Professor i statistikk på Nasjonalt Lesesenter, UiS
-<ul>
-<li><a href="https://scholar.google.no/citations?user=KgBUXhUAAAAJ&amp;hl=no">Publikasjoner</a></li>
-</ul></li>
-<li>Bruker flipped classroom som undervisningsmetode
-<ul>
-<li><a href="https://journals.sagepub.com/doi/full/10.1177/1469787415616726">Kvantitativ metode</a></li>
-<li><a href="https://www.tandfonline.com/doi/full/10.1080/13562517.2017.1379481">Kvalitativ metode</a></li>
-</ul></li>
-<li>Også interessert i sosiale medier og mental helse <a href="https://www.aftenposten.no/meninger/debatt/i/jl4veq/det-er-alvorlige-feil-og-mangler-i-forskningen-paa-sosiale-medier">Kronikk</a></li>
-</ul>
-</section>
-
 <section>
-<section id="om-kurset" class="title-slide slide level1 center">
-<h1>Om kurset</h1>
+<section id="et-lite-lekeeksempel-for-lineær-regresjon" class="title-slide slide level1 center">
+<h1>Et lite lekeeksempel for lineær regresjon</h1>
 
 </section>
-<section id="mps-140" class="slide level2">
-<h2>MPS 140</h2>
-<div style="font-size: 2em; color: #FFFFFF;">
-<p><a href="https://njaalf.github.io/MPS-140/">Kursmateriale legges ut på github</a></p>
+<section id="lekeeksempel" class="slide level2">
+<h2>Lekeeksempel</h2>
+<div class="quarto-layout-panel">
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div class="quarto-layout-cell" style="flex-basis: 60.0%;justify-content: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="tabell.png" width="300"></p>
+<figcaption>Rådata</figcaption>
+</figure>
 </div>
-</section>
-<section id="statistikk" class="slide level2">
-<h2>Statistikk</h2>
-<div style="color: #b76352;">
-<p>Statistikk handler om hvordan vi best samler inn og analyserer data, og hvordan vi trekker riktige konklusjoner fra våre data.</p>
 </div>
+<div class="quarto-layout-cell" style="flex-basis: 40.0%;justify-content: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="scatterreg.png" width="200"></p>
+<figcaption>Regresjon</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</section></section>
+<section>
+<section id="trivsel-og-mobilbruk-blant-engelske-15-åringer" class="title-slide slide level1 center">
+<h1>Trivsel og mobilbruk blant engelske 15 åringer</h1>
 
-<img data-src="../images/transform.png" class="r-stretch"><p>Fra “pensumboka” R for Data Science <a href="https://r4ds.hadley.nz/" class="uri">https://r4ds.hadley.nz/</a></p>
 </section>
-<section id="section" class="slide level2">
-<h2></h2>
-<p>Vi skal i MPS140 repetere elementære statistikk og så utvide til multippel regresjon og psykometriske modeller. Her er noen nye ting vi skal lære:</p>
-<div style="font-size: 0.75em;">
-<ul>
-<li>å jobbe med data på en transparent og reproduserbar måte (i R)</li>
-<li>visualisere og sammenfatte data med nøkkeltall (R)</li>
-<li>at vi må ha et kritisk blikk på bruk av statistikk i forskning</li>
-<li>lære om måling av psykologiske begrep som stress, lojalitet, trivsel etc</li>
-</ul>
-</div>
+<section id="trivsel-og-sosiale-medier-engelske-15-åringer" class="slide level2">
+<h2>Trivsel og sosiale medier engelske 15 åringer</h2>
+<p>Przybylski, A. &amp; Weinstein, N. (2017). A Large-Scale Test of the Goldilocks Hypothesis. <em>Psychological Science</em>, <em>28</em>, 204–215.</p>
+<p>Storskala studie som finner støtte til “Goldilocks” hypotesen.</p>
+<p>Dataene er tilgjengelige <a href="https://osf.io/82ybd/">her</a></p>
 </section>
-<section id="section-1" class="slide level2">
-<h2></h2>
-<div style="font-size: 4em; color: #FFFFFF;">
-<p>Koding 🙀</p>
-</div>
-<div class="fragment">
-<p>I praksis er koding (skrive syntaks i statistikkprogram) <strong>en sentral</strong> del av statistisk praksis.</p>
-</div>
-<div class="fragment">
-<ul>
-<li>I klassen har vi stor variasjon i talenter og interesser</li>
-<li>Det blir en del R koding for å illustrere konsepter</li>
-<li>Bruk studiekamerater til å lære</li>
-</ul>
-</div>
-</section>
-<section id="section-2" class="slide level2">
-<h2></h2>
-<div style="font-size: 2em; color: #FFFFFF;">
-<p>Komponenter</p>
-</div>
-<div class="columns">
-<div class="column" style="width:40%;">
-<div style="color: #b76352;">
-<p>Før samling</p>
-</div>
-<ul>
-<li>Det er viktig å være forberedt til samling:</li>
-<li>Tekster</li>
-<li>Videoer</li>
-<li>R stoff</li>
-</ul>
-</div><div class="column" style="width:2%;">
+<section id="trivsel---wellbeing" class="slide level2">
+<h2>Trivsel - Wellbeing</h2>
+<p>Vi ønsker å studere trivsel. Det er vår <em>avhengige</em> variabel:</p>
+<p>Trivsel målt med <a href="https://warwick.ac.uk/fac/med/research/platform/wemwbs/">Warwick-Edinburgh Mental Well-Being Scale (WEMWBS)</a>. Spørreskjema med 14 <em>items</em> og 5 responsnivå. Vi bruker summescoren</p>
 
-</div><div class="column" style="width:40%;">
-<div style="color: #76b5c5;">
-<p>Under samling</p>
-</div>
-<ul>
-<li>Forelesning</li>
-<li>Oppgaver som skal løses i grupper. Basert på forberedelsesstoffet.</li>
-<li>Debriefing</li>
-</ul>
-</div>
-</div>
+<img data-src="slides2_files/figure-revealjs/unnamed-chunk-2-1.png" width="960" class="r-stretch"><p>Vi har 71033 deltagere! La oss tenke på dette som POPULASJONEN</p>
 </section>
-<section id="dagens-plan" class="slide level2">
-<h2>Dagens plan</h2>
+<section id="sammenheng-trivsel-og-telefonbruk-i-et-utvalg-av-400-15-åringer" class="slide level2">
+<h2>Sammenheng trivsel og telefonbruk i et utvalg av 400 15-åringer</h2>
+<p>En svak negativ trend?</p>
+
+<img data-src="slides2_files/figure-revealjs/unnamed-chunk-3-1.png" width="960" class="r-stretch"></section>
+<section id="enkel-regresjon" class="slide level2">
+<h2>Enkel regresjon</h2>
+<p>Vi ønsker å studere en kontinuerlig variabel <span class="math inline">\(y\)</span>. Denne kalles den <em>avhengige</em> variabelen.</p>
+<p>Vi forklarer variasjonen i <span class="math inline">\(y\)</span> ved hjelp av en enkel forklaringsvariabel <span class="math inline">\(x\)</span> og en <em>lineær</em> sammenheng</p>
+<p><span class="math display">\[ y = \beta_0+ \beta_1 x + \epsilon\]</span></p>
 <ul>
-<li><p>Forelese cirka 1 time</p></li>
-<li><p>Jobbe med oppgaver</p>
-<ul>
-<li>Først individuelt 1 time</li>
-<li>Grupper ca 1 time</li>
-<li>Gruppene ligger på canvas</li>
-</ul></li>
-<li><p>Debriefing</p></li>
+<li><span class="math inline">\(\beta_1 &gt; 0\)</span>: positiv sammenheng mellom <span class="math inline">\(x\)</span> og <span class="math inline">\(y\)</span></li>
+<li><span class="math inline">\(\beta_1 &lt; 0\)</span>: negativ sammenheng mellom <span class="math inline">\(x\)</span> og <span class="math inline">\(y\)</span></li>
+<li><span class="math inline">\(\beta_1 = 0\)</span>: ingen sammenheng mellom <span class="math inline">\(x\)</span> og <span class="math inline">\(y\)</span></li>
 </ul>
 </section>
-<section id="samlæring-i-flipped-classroom" class="slide level2">
-<h2>Samlæring i flipped classroom</h2>
-<ul>
-<li><p>Ta plass og gi plass</p></li>
-<li><p>Elsk frustrasjon og forvirring</p></li>
-<li><p>Å hjelpe noen er å forklare hvordan du tenker, <strong>ikke</strong> å bare gi svar eller gjøre utregninger for andre</p></li>
-<li><p>Du har <em>rett</em> til å spørre <strong>alle</strong> i gruppen om hjelp</p></li>
-<li><p>Du har <em>plikt</em> til å prøve å hjelpe <strong>enhver</strong> i gruppen som spør</p></li>
-<li><p>Du lager på slutten en tilbamelding til hver av gruppemedlemmene !</p></li>
-<li><p>Team 1 - Team 4 er opprettet ved tilfeldig uttrekk. Se canvas.</p></li>
-</ul>
-<!-- -   Helping someone means explaining your thinking **not** giving answers or doing the work for them -->
-<!-- -   Provide a justification when you make a statement -->
-<!-- -   Think and work together -- don't divide up the work -->
-<!-- ::: -->
-<!-- ::: -->
-<!-- ::: -->
-<!-- ##  {background-color="#B6CADA"} -->
-<!-- ::: {style="font-size: 8em; color: #000000;"} -->
-<!-- Break -->
-<!-- ::: -->
-<!-- #  -->
-<!-- ::: {style="font-size: 4.5em;"} -->
-<!-- Let's talk about data... -->
-<!-- ::: -->
-<!-- ##  -->
-<!-- ::: {style="font-size: 4em; color: #FFFFFF;"} -->
-<!-- Tidy Data -->
-<!-- ::: -->
-<!-- ![Expected layout of "tidy" datasets](images/tidy-1.png) -->
-<!-- ##  -->
-<!-- ::: {style="font-size: 2em; color: #FFFFFF;"} -->
-<!-- Gender stereotypes in 5-7 year old children -->
-<!-- ::: -->
-<!-- </br> -->
-<!-- ::: {style="font-size: 0.75em;"} -->
-<!-- ```{r gender-stereotypes} -->
-<!-- #| echo: false -->
-<!-- children_gender_stereo[[2]] %>%  -->
-<!--   rename(sex = gender) %>%  -->
-<!--   sample_n(6) %>% -->
-<!--   kable(format = "html") %>%  -->
-<!--   kable_styling(bootstrap_options = c("striped", "condensed"),  -->
-<!--                 latex_options = "striped") -->
-<!-- ``` -->
-<!-- ::: -->
-<!-- ##  -->
-<!-- ::: {style="font-size: 1.5em; color: #FFFFFF;"} -->
-<!-- Body girth and skeletal diameter measurements -->
-<!-- ::: -->
-<!-- ::: {style="font-size: 0.75em;"} -->
-<!-- ```{r body-girth} -->
-<!-- #| echo: false -->
-<!-- bdims %>%  -->
-<!--   sample_n(6) %>%  -->
-<!--   select(age, wgt, hgt, sex, sho_gi, wai_gi, nav_gi, hip_gi) %>%  -->
-<!--   kable() %>%  -->
-<!--   kable_styling(bootstrap_options = c("striped", "condensed"),  -->
-<!--                 latex_options = "striped") -->
-<!-- ``` -->
-<!-- ::: -->
-<!-- ##  -->
-<!-- ::: {style="font-size: 2em; color: #FFFFFF;"} -->
-<!-- NBA player of the week -->
-<!-- ::: -->
-<!-- </br> -->
-<!-- ::: {style="font-size: 0.75em;"} -->
-<!-- ```{r nba} -->
-<!-- #| echo: false -->
-<!-- nba %>%  -->
-<!--   sample_n(6) %>% -->
-<!--   select(Age:Position) %>%  -->
-<!--   kable(format = "html") %>%  -->
-<!--     kable_styling(bootstrap_options = c("striped", "condensed"),  -->
-<!--                 latex_options = "striped") -->
-<!-- ``` -->
-<!-- ::: -->
-<!-- ##  {background-color="#B6CADA"} -->
-<!-- ::: {style="font-size: 3em; color: #000000;"} -->
-<!-- Your Turn -->
-<!-- ::: -->
-<!-- ::: {style="font-size: 0.75em;"} -->
-<!-- Every year, the US releases to the public a large data set containing information on births recorded in the country. -->
-<!-- A total of 13 variables were collected on every birth, including information about: -->
-<!-- -   the birth (baby weight, sex of baby, premie status) -->
-<!-- -   the pregnancy (hospital visits, length of gestation, ) -->
-<!-- -   the birth parent's attributes (age, smoking status, marital status, race) -->
-<!-- -   the partner's age -->
-<!-- ::: -->
-<!-- . . . -->
-<!-- ::: {style="color: #b76352;"} -->
-<!-- How would you expect this dataframe to look? -->
-<!-- ::: -->
-<!-- ##  -->
-<!-- ::: {style="font-size: 2em;"} -->
-<!-- Military Spending -->
-<!-- ::: -->
-<!-- ::: {style="font-size: 0.75em;"} -->
-<!-- ```{r} -->
-<!-- #| echo: false -->
-<!-- #| label: wide-data -->
-<!-- countries <- tibble(Country =  -->
-<!--                       c("Sweden",  -->
-<!--                         "Norway",  -->
-<!--                         "Australia",  -->
-<!--                         "USA",  -->
-<!--                         "Africa") -->
-<!--                     ) -->
-<!-- military %>%  -->
-<!--   semi_join(countries, by = "Country") %>%  -->
-<!--   select(Country, `2010`:`2019`) %>%  -->
-<!--   mutate(across(.cols = `2010`:`2019`,  -->
-<!--                 .fns = ~ as.numeric(.x) * 100)) %>%  -->
-<!--   kable() %>%  -->
-<!--   kable_styling(bootstrap_options = c("striped", "condensed"),  -->
-<!--                 latex_options = "striped") -->
-<!-- ``` -->
-<!-- ::: -->
-<!-- . . . -->
-<!-- </br> -->
-<!-- ::: {style="color: #b76352;"} -->
-<!-- Do these data satisfy the "tidy" principles? -->
-<!-- ::: -->
-<!-- ##  -->
-<!-- ::: {style="font-size: 2em;"} -->
-<!-- Vehicle Efficiency -->
-<!-- ::: -->
-<!-- ::: {style="font-size: 0.75em;"} -->
-<!-- ```{r} -->
-<!-- #| echo: false -->
-<!-- #| label: row-names -->
-<!-- mtcars %>%  -->
-<!--   sample_n(size = 4, replace = FALSE) %>%  -->
-<!--   kable() %>%  -->
-<!--   kable_styling(bootstrap_options = c("striped", "condensed"),  -->
-<!--                 latex_options = "striped") -->
-<!-- ``` -->
-<!-- ::: -->
-<!-- . . . -->
-<!-- </br> -->
-<!-- ::: {style="color: #b76352;"} -->
-<!-- Do these data satisfy the "tidy" principles? -->
-<!-- ::: -->
-<!-- ##  {background-color="#B6CADA"} -->
-<!-- ![Artwork by [\@allison_horst](https://twitter.com/allison_horst)](images/tidy-data.jpg) -->
-<!-- ##  -->
-<!-- ::: {style="font-size: 2em; color: #FFFFFF;"} -->
-<!-- Types of Variables -->
-<!-- ::: -->
-<!-- </br> -->
-<!-- ![Diagram of types of variables we will analyze!](images/variables.png) -->
-<!-- ##  {background-color="#B6CADA"} -->
-<!-- <center>![](images/continuous-discrete.jpeg)</center> -->
-<!-- ##  {background-color="#B6CADA"} -->
-<!-- ![](images/nominal_ordinal_binary.png) -->
-<!-- ##  -->
-<!-- ::: {style="font-size: 2em; color: #76b5c5;"} -->
-<!-- Your Turn (90-seconds) -->
-<!-- ::: -->
-<!-- </br> -->
-<!-- Write down one example of: -->
-<!-- -   a **continuous, numerical** variable -->
-<!-- -   a **discrete, numerical** variable -->
-<!-- -   an **ordinal, categorical** variable -->
-<!-- -   a **regular, categorical** variable -->
-<!-- . . . -->
-<!-- ::: {style="font-size: 1.5em; color: #e28743;"} -->
-<!-- Share out! -->
-<!-- ::: -->
-<!-- #  {background-color="#B6CADA"} -->
-<!-- ::: {style="font-size: 4em; color: #000000;"} -->
-<!-- Lab Warm-up -->
-<!-- ::: -->
-<!-- ##  -->
-<!-- ::: {style="font-size: 2em; color: #FFFFFF;"} -->
-<!-- Data Types in `R` -->
-<!-- ::: -->
-<!-- ```{r} -->
-<!-- #| echo: false -->
-<!-- births_small <- births14  %>%  -->
-<!--   mutate(sex = as.factor(sex)) %>%  -->
-<!--   select(-visits, -mature, -marital)  -->
-<!-- ``` -->
-<!-- ::: {style="font-size: 0.75em;"} -->
-<!-- ```{r} -->
-<!-- #| echo: true -->
-<!-- #| code-line-numbers: false -->
-<!-- glimpse(births_small) -->
-<!-- ``` -->
-<!-- ::: -->
-<!-- ::: columns -->
-<!-- ::: {.column width="45%"} -->
-<!-- What do you think `dbl` means? -->
-<!-- How is that different from `int`? -->
-<!-- ::: -->
-<!-- ::: {.column width="5%"} -->
-<!-- ::: -->
-<!-- ::: {.column width="45%"} -->
-<!-- What does `chr` mean? -->
-<!-- How might it differ from `fct`? -->
-<!-- ::: -->
-<!-- ::: -->
-<!-- # Other Foundational Concepts -->
-<!-- ##  -->
-<!-- ::: {style="font-size: 2em; color: #FFFFFF;"} -->
-<!-- Types of Studies -->
-<!-- ::: -->
-<!-- ::: columns -->
-<!-- ::: {.column width="40%"} -->
-<!-- *Experiment* -->
-<!-- -   randomization -->
-<!-- -   replication -->
-<!-- -   controlling -->
-<!-- -   blocking -->
-<!-- ::: -->
-<!-- ::: {.column width="5%"} -->
-<!-- ::: -->
-<!-- ::: {.column width="55%"} -->
-<!-- *Observational Study* -->
-<!-- -   collect data in a way that does not directly interfere with how the data arise -->
-<!-- ::: -->
-<!-- ::: -->
-<!-- ##  -->
-<!-- ::: {style="font-size: 2em; color: #FFFFFF;"} -->
-<!-- Relationships Between Variables -->
-<!-- ::: -->
-<!-- </br> -->
-<!-- explanatory variable $\rightarrow$ *might affect* $\rightarrow$ response variable -->
-<!-- . . . -->
-<!-- -   If two variables are not associated, then they are said to be **independent**. -->
-<!-- -   If two variables are associated, then they are said to be **dependent**. -->
-<!-- ##  -->
-<!-- ::: {style="font-size: 2em; color: #FFFFFF;"} -->
-<!-- Causal Inference -->
-<!-- ::: -->
-<!-- </br> -->
-<!-- association $\neq$ causation -->
-<!-- </br> -->
-<!-- . . . -->
-<!-- What do you need to say that the explanatory variable [*causes*]{style="color: #e28743;"} a change in the response variable? -->
+<section id="antagelse-1-i-lineær-regresjon-linearitet" class="slide level2">
+<h2>Antagelse 1 i lineær regresjon: Linearitet</h2>
+</section>
+<section id="hva-er-sammenheng-mellom-trivsel-og-antall-timer-på-mobiltelefon" class="slide level2">
+<h2>Hva er sammenheng mellom trivsel og antall timer på mobiltelefon?</h2>
+<p>dfdf</p>
+</section>
+<section id="mobilbruk-og-well" class="slide level2">
+<h2>Mobilbruk og well</h2>
+</section></section>
+<section id="multippel-regresjon" class="title-slide slide level1 center">
+<h1>Multippel regresjon</h1>
+
+</section>
+
+<section id="anova" class="title-slide slide level1 center">
+<h1>ANOVA</h1>
 
 <div class="footer footer-default">
 
 </div>
-</section></section>
+</section>
     </div>
   </div>
 
@@ -892,6 +625,44 @@
         ]
       });
     </script>
+    
+    <script>
+      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
+      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
+      // slide changes (different for each slide format).
+      (function () {
+        // dispatch for htmlwidgets
+        function fireSlideEnter() {
+          const event = window.document.createEvent("Event");
+          event.initEvent("slideenter", true, true);
+          window.document.dispatchEvent(event);
+        }
+
+        function fireSlideChanged(previousSlide, currentSlide) {
+          fireSlideEnter();
+
+          // dispatch for shiny
+          if (window.jQuery) {
+            if (previousSlide) {
+              window.jQuery(previousSlide).trigger("hidden");
+            }
+            if (currentSlide) {
+              window.jQuery(currentSlide).trigger("shown");
+            }
+          }
+        }
+
+        // hookup for slidy
+        if (window.w3c_slidy) {
+          window.w3c_slidy.add_observer(function (slide_num) {
+            // slide_num starts at position 1
+            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
+          });
+        }
+
+      })();
+    </script>
+
     <script id="quarto-html-after-body" type="application/javascript">
     window.document.addEventListener("DOMContentLoaded", function (event) {
       const toggleBodyColorMode = (bsSheetEl) => {

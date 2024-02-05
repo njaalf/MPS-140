@@ -285,5 +285,103 @@
     "title": "Programvaren R",
     "section": "",
     "text": "R er en open source og gratis programvare for statistikk.\nFor installasjon på din computer følg oppskriften her: https://posit.co/download/rstudio-desktop/\nSå kan du lage noen tilfeldige tall og lage et histogram og regne ut snittet og median:\n\nminetall &lt;- rnorm(200)# 200 tilfeldige tall trekkes fra standard normalfordeling. Ser ganske normalfordelt ut ja\nhist(minetall)\n\n\n\nmean(minetall)\n\n[1] 0.01240467\n\nmedian(minetall)\n\n[1] 0.006092189"
+  },
+  {
+    "objectID": "slides/slides2.html#mobilbruk-og-well",
+    "href": "slides/slides2.html#mobilbruk-og-well",
+    "title": "Lineær Regresjon. Digital samling 1",
+    "section": "Mobilbruk og well",
+    "text": "Mobilbruk og well"
+  },
+  {
+    "objectID": "slides/slides2.html#trivsel-og-sosiale-medier-blant-ungdom",
+    "href": "slides/slides2.html#trivsel-og-sosiale-medier-blant-ungdom",
+    "title": "Lineær Regresjon. Digital samling 1",
+    "section": "Trivsel og sosiale medier blant ungdom",
+    "text": "Trivsel og sosiale medier blant ungdom\nPrzybylski, A. & Weinstein, N. (2017). A Large-Scale Test of the Goldilocks Hypothesis. Psychological Science, 28, 204–215.\nStorskala studie som finner støtte til “Goldilocks” hypotesen.\nDataene er tilgjengelige her"
+  },
+  {
+    "objectID": "slides/slides2.html#variabler",
+    "href": "slides/slides2.html#variabler",
+    "title": "Lineær Regresjon. Digital samling 1",
+    "section": "Variabler",
+    "text": "Variabler\nTrivsel målt med Warwick-Edinburgh Mental Well-Being Scale (WEMWBS). Spørreskjema med 14 items og 5 responsnivå. Vi tar summeskåren!\nAt Przybylski & Weinstein’s page for this study on the Open Science Framework, you can find the participant survey which asks a large number of additional questions (see page 14 for the WEMWBS questions and pages 4-5 for the questions about screen time). Within the same page you can also find the raw data; however, for the purpose of this exercise, you will be using local pre-processed copies of the data which we will provide.\nPrzybylski and Weinstein looked at multiple measures of screen time, but we will be focusing on smartphone use. They found that decrements in well-being started to appear when respondents reported more than one hour of weekly smartphone use. Our question: Does the negative association between hours of use and well-being (beyond the one-hour point) differ for boys and girls?\nNote that in this analysis, we have:\n\na continuous\\(^*\\) DV, well-being;\na continuous\\(^*\\) predictor, screen time;\na categorical predictor, gender.\n\n\\(^*\\)these variables are only quasi-continuous, inasmuch as only discrete values are possible. However, there are a sufficient number of discrete categories that we can treat them as effectively continuous."
+  },
+  {
+    "objectID": "slides/slides2.html#måling-av-trivsel",
+    "href": "slides/slides2.html#måling-av-trivsel",
+    "title": "Lineær Regresjon. Digital samling 1",
+    "section": "Måling av trivsel",
+    "text": "Måling av trivsel\nVi ønsker å studere trivsel. Det er vår avhengige variabel:\nTrivsel målt med Warwick-Edinburgh Mental Well-Being Scale (WEMWBS). Spørreskjema med 14 items og 5 responsnivå. Vi bruker summescoren"
+  },
+  {
+    "objectID": "slides/slides2.html#hva-er-sammenheng-mellom-trivsel-og-antall-timer-på-mobiltelefon",
+    "href": "slides/slides2.html#hva-er-sammenheng-mellom-trivsel-og-antall-timer-på-mobiltelefon",
+    "title": "Lineær Regresjon. Digital samling 1",
+    "section": "Hva er sammenheng mellom trivsel og antall timer på mobiltelefon?",
+    "text": "Hva er sammenheng mellom trivsel og antall timer på mobiltelefon?\ndfdf"
+  },
+  {
+    "objectID": "slides/slides2.html#trivsel---wellbeing",
+    "href": "slides/slides2.html#trivsel---wellbeing",
+    "title": "Lineær Regresjon. Digital samling 1",
+    "section": "Trivsel - Wellbeing",
+    "text": "Trivsel - Wellbeing\nVi ønsker å studere trivsel. Det er vår avhengige variabel:\nTrivsel målt med Warwick-Edinburgh Mental Well-Being Scale (WEMWBS). Spørreskjema med 14 items og 5 responsnivå. Vi bruker summescoren\n\nVi har 71033 deltagere! La oss tenke på dette som POPULASJONEN"
+  },
+  {
+    "objectID": "slides/slides2.html#trivsel-og-sosiale-medier-engelske-15-åringer",
+    "href": "slides/slides2.html#trivsel-og-sosiale-medier-engelske-15-åringer",
+    "title": "Lineær Regresjon. Digital samling 1",
+    "section": "Trivsel og sosiale medier engelske 15 åringer",
+    "text": "Trivsel og sosiale medier engelske 15 åringer\nPrzybylski, A. & Weinstein, N. (2017). A Large-Scale Test of the Goldilocks Hypothesis. Psychological Science, 28, 204–215.\nStorskala studie som finner støtte til “Goldilocks” hypotesen.\nDataene er tilgjengelige her"
+  },
+  {
+    "objectID": "slides/slides2.html#sammenheng-trivsel-og-telefonbruk",
+    "href": "slides/slides2.html#sammenheng-trivsel-og-telefonbruk",
+    "title": "Lineær Regresjon. Digital samling 1",
+    "section": "Sammenheng trivsel og telefonbruk",
+    "text": "Sammenheng trivsel og telefonbruk"
+  },
+  {
+    "objectID": "slides/slides2.html#sammenheng-trivsel-og-telefonbruk-i-et-mindre-utvalg",
+    "href": "slides/slides2.html#sammenheng-trivsel-og-telefonbruk-i-et-mindre-utvalg",
+    "title": "Lineær Regresjon. Digital samling 1",
+    "section": "Sammenheng trivsel og telefonbruk i et mindre utvalg",
+    "text": "Sammenheng trivsel og telefonbruk i et mindre utvalg"
+  },
+  {
+    "objectID": "slides/slides2.html#sammenheng-trivsel-og-telefonbruk-i-et-utvalg-av-400-15-åringer",
+    "href": "slides/slides2.html#sammenheng-trivsel-og-telefonbruk-i-et-utvalg-av-400-15-åringer",
+    "title": "Lineær Regresjon. Digital samling 1",
+    "section": "Sammenheng trivsel og telefonbruk i et utvalg av 400 15-åringer",
+    "text": "Sammenheng trivsel og telefonbruk i et utvalg av 400 15-åringer\nEn svak negativ trend?"
+  },
+  {
+    "objectID": "slides/slides2.html#enkel-regresjon",
+    "href": "slides/slides2.html#enkel-regresjon",
+    "title": "Lineær Regresjon. Digital samling 1",
+    "section": "Enkel regresjon",
+    "text": "Enkel regresjon\nVi ønsker å studere en kontinuerlig variabel \\(y\\). Denne kalles den avhengige variabelen.\nVi forklarer variasjonen i \\(y\\) ved hjelp av en enkel forklaringsvariabel \\(x\\) og en lineær sammenheng\n\\[ y = \\beta_0+ \\beta_1 x + \\epsilon\\]\n\n\\(\\beta_1 &gt; 0\\): positiv sammenheng mellom \\(x\\) og \\(y\\)\n\\(\\beta_1 &lt; 0\\): negativ sammenheng mellom \\(x\\) og \\(y\\)\n\\(\\beta_1 = 0\\): ingen sammenheng mellom \\(x\\) og \\(y\\)"
+  },
+  {
+    "objectID": "slides/slides2.html#side-495-i-boka",
+    "href": "slides/slides2.html#side-495-i-boka",
+    "title": "Lineær Regresjon. Digital samling 1",
+    "section": "Side 495 i boka",
+    "text": "Side 495 i boka\n\n\n\n\n\n\n\nRådata\n\n\n\n\nFigure 1:  Lekeeksempel"
+  },
+  {
+    "objectID": "slides/slides2.html#antagelse-1-i-lineær-regresjon-linearitet",
+    "href": "slides/slides2.html#antagelse-1-i-lineær-regresjon-linearitet",
+    "title": "Lineær Regresjon. Digital samling 1",
+    "section": "Antagelse 1 i lineær regresjon: Linearitet",
+    "text": "Antagelse 1 i lineær regresjon: Linearitet"
+  },
+  {
+    "objectID": "slides/slides2.html#lekeeksempel",
+    "href": "slides/slides2.html#lekeeksempel",
+    "title": "Lineær Regresjon. Digital samling 1",
+    "section": "Lekeeksempel",
+    "text": "Lekeeksempel\n\n\n\n\n\n\nRådata\n\n\n\n\n\n\n\nRegresjon"
   }
 ]
