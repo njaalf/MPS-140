@@ -1,82 +1,5 @@
 [
   {
-    "objectID": "emnebeskrivelse.html",
-    "href": "emnebeskrivelse.html",
-    "title": "Emnebeskrivelse",
-    "section": "",
-    "text": "Denne websiden inneholder kursmateriell for statistikkurset i 2-årig psykologi master ved UiS. Emnebeskrivelsen: https://www.uis.no/nb/course/MPS140_1"
-  },
-  {
-    "objectID": "slides/slides2.html#mps-140",
-    "href": "slides/slides2.html#mps-140",
-    "title": "Lineær Regresjon",
-    "section": "MPS 140",
-    "text": "MPS 140\n\nKursmateriale legges ut på github"
-  },
-  {
-    "objectID": "slides/slides2.html#statistikk",
-    "href": "slides/slides2.html#statistikk",
-    "title": "Lineær Regresjon",
-    "section": "Statistikk",
-    "text": "Statistikk\n\nStatistikk handler om hvordan vi best samler inn og analyserer data, og hvordan vi trekker riktige konklusjoner fra våre data.\n\n\nFra “pensumboka” R for Data Science https://r4ds.hadley.nz/"
-  },
-  {
-    "objectID": "slides/slides2.html#section",
-    "href": "slides/slides2.html#section",
-    "title": "Lineær Regresjon",
-    "section": "",
-    "text": "Vi skal i MPS140 repetere elementære statistikk og så utvide til multippel regresjon og psykometriske modeller. Her er noen nye ting vi skal lære:\n\n\nå jobbe med data på en transparent og reproduserbar måte (i R)\nvisualisere og sammenfatte data med nøkkeltall (R)\nat vi må ha et kritisk blikk på bruk av statistikk i forskning\nlære om måling av psykologiske begrep som stress, lojalitet, trivsel etc"
-  },
-  {
-    "objectID": "slides/slides2.html#section-1",
-    "href": "slides/slides2.html#section-1",
-    "title": "Lineær Regresjon",
-    "section": "",
-    "text": "Koding 🙀\n\n\nI praksis er koding (skrive syntaks i statistikkprogram) en sentral del av statistisk praksis.\n\n\n\nI klassen har vi stor variasjon i talenter og interesser\nDet blir en del R koding for å illustrere konsepter\nBruk studiekamerater til å lære"
-  },
-  {
-    "objectID": "slides/slides2.html#section-2",
-    "href": "slides/slides2.html#section-2",
-    "title": "Lineær Regresjon",
-    "section": "",
-    "text": "Komponenter\n\n\n\n\nFør samling\n\n\nDet er viktig å være forberedt til samling:\nTekster\nVideoer\nR stoff\n\n\n\n\n\nUnder samling\n\n\nForelesning\nOppgaver som skal løses i grupper. Basert på forberedelsesstoffet.\nDebriefing"
-  },
-  {
-    "objectID": "slides/slides2.html#dagens-plan",
-    "href": "slides/slides2.html#dagens-plan",
-    "title": "Lineær Regresjon",
-    "section": "Dagens plan",
-    "text": "Dagens plan\n\nForelese cirka 1 time\nJobbe med oppgaver\n\nFørst individuelt 1 time\nGrupper ca 1 time\nGruppene ligger på canvas\n\nDebriefing"
-  },
-  {
-    "objectID": "slides/slides2.html#samlæring-i-flipped-classroom",
-    "href": "slides/slides2.html#samlæring-i-flipped-classroom",
-    "title": "Lineær Regresjon",
-    "section": "Samlæring i flipped classroom",
-    "text": "Samlæring i flipped classroom\n\nTa plass og gi plass\nElsk frustrasjon og forvirring\nÅ hjelpe noen er å forklare hvordan du tenker, ikke å bare gi svar eller gjøre utregninger for andre\nDu har rett til å spørre alle i gruppen om hjelp\nDu har plikt til å prøve å hjelpe enhver i gruppen som spør\nDu lager på slutten en tilbamelding til hver av gruppemedlemmene !\nTeam 1 - Team 4 er opprettet ved tilfeldig uttrekk. Se canvas."
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "MPS 140: Kvantitativ forskningsmetode og statistikk",
-    "section": "",
-    "text": "FYSISKE SAMLINGER\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nDato\nTema\nForberedelser\nPresentasjoner\nR\nOppgaver\n\n\n\n\n23.01: 1215-16\nIntro og grunnleggende statistikk\n📖\n🖥 🖥\n📋\n📋\n\n\n05.03: 815-16\nPsykometri\n\n\n\n\n\n\n09.04: 815-16\nLatente variable\n\n\n\n\n\n\n03.06\nEksamen\n\n\n\n\n\n\n\n\n\n\nDIGITALE SAMLINGER\n\n\n\n\n\n\n\n\n\n\n\nDato\nTema\nForberedelser\nPresentasjon\nOppgaver\n\n\n\n\n06.02: 9-12\nR og regresjonsmodellen\n📖\n\n\n\n\n19.03: 9-12\nProgramvaren R og psykometri\n\n\n\n\n\n23.04:9-12\nLatente variable\n\n\n\n\n\n07.05: 9-12\nEksamensforberedelse"
-  },
-  {
-    "objectID": "samlinger/samling2.html",
-    "href": "samlinger/samling2.html",
-    "title": "Digital samling - 6 feb",
-    "section": "",
-    "text": "Important\n\n\n\n\nDigital samling på Teams.\nLæringsmål:"
-  },
-  {
-    "objectID": "samlinger/samling2.html#forbered-deg-til-6-feb",
-    "href": "samlinger/samling2.html#forbered-deg-til-6-feb",
-    "title": "Digital samling - 6 feb",
-    "section": "Forbered deg til 6 feb!",
-    "text": "Forbered deg til 6 feb!\n\n📖 Repeter stoffet i kapittel 22 om enkel regresjon i Statistikk og Dataanalyse\nLes og reflekter rundt de to første sidene i artikkelen Orben 2019\nKjør dette og prøv å forstå hvordan det skal tolkes ift neuroticism (epiNeur) og bdi (becks depression inventory)\n\n\n# last ned et datasett med Eysenck personality og Big Five \ndatafilename=\"https://personality-project.org/r/datasets/maps.mixx.epi.bfi.data\"  \npersonality.data =read.delim(url(datafilename))\nhead(personality.data)     #kikke på de første radene\n\n  epiE epiS epiImp epilie epiNeur bfagree bfcon bfext bfneur bfopen bdi\n1   18   10      7      3       9     138    96   141     51    138   1\n2   16    8      5      1      12     101    99   107    116    132   7\n3    6    1      3      2       5     143   118    38     68     90   4\n4   12    6      4      3      15     104   106    64    114    101   8\n5   14    6      5      3       2     115   102   103     86    118   8\n6    6    4      2      5      15     110   113    61     54    149   5\n  traitanx stateanx\n1       24       22\n2       41       40\n3       37       44\n4       54       40\n5       39       67\n6       51       38\n\nplot(personality.data$epiNeur,personality.data$bdi)# spredningsplott viser korrelasjon.. \n\n\n\nmodel1 = lm(bdi~epiNeur,data=personality.data)  #enkel regresjon: beck depression forklares av neuroticism (1 av big five)\nsummary(model1)   # basic statistical summary\n\n\nCall:\nlm(formula = bdi ~ epiNeur, data = personality.data)\n\nResiduals:\n     Min       1Q   Median       3Q      Max \n-11.9548  -3.1577  -0.7707   2.0452  16.4092 \n\nCoefficients:\n            Estimate Std. Error t value Pr(&gt;|t|)    \n(Intercept) -0.32129    0.73070   -0.44    0.661    \nepiNeur      0.68200    0.06353   10.74   &lt;2e-16 ***\n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nResidual standard error: 4.721 on 229 degrees of freedom\nMultiple R-squared:  0.3348,    Adjusted R-squared:  0.3319 \nF-statistic: 115.3 on 1 and 229 DF,  p-value: &lt; 2.2e-16"
-  },
-  {
     "objectID": "omeksamen.html",
     "href": "omeksamen.html",
     "title": "MPS 140",
@@ -96,6 +19,20 @@
     "title": "Første samling: Grunnleggende statistikk",
     "section": "Læringsmål",
     "text": "Læringsmål\nEtter denne samlingen har du repetert (eller lært) å:\n\nbeskrive et datasett ved hjelp av nøkkeltall som gjennomsnitt, standardavvik og korrelasjon.\nForklare variablers målenivå\nForstå forskjell på avhengig og uavhengiv variabel\nForstå forskjell på observasjonell og eksperimentell studie\nForstå forskjell på populasjon og utvalg\nKjenne til bekvemmelighetsutvalg, klyngeutvalg og stratifisert utvalg\nForstå konfidensintervall og hypotesetesting\nForklare hva “signifikant” betyr i statistikk\nInstallere R og Rstudio på din laptop"
+  },
+  {
+    "objectID": "samlinger/samling2.html",
+    "href": "samlinger/samling2.html",
+    "title": "Digital samling - 6 feb",
+    "section": "",
+    "text": "Important\n\n\n\n\nDigital samling på Teams.\nLæringsmål:"
+  },
+  {
+    "objectID": "samlinger/samling2.html#forbered-deg-til-6-feb",
+    "href": "samlinger/samling2.html#forbered-deg-til-6-feb",
+    "title": "Digital samling - 6 feb",
+    "section": "Forbered deg til 6 feb!",
+    "text": "Forbered deg til 6 feb!\n\n📖 Repeter stoffet i kapittel 22 om enkel regresjon i Statistikk og Dataanalyse\nLes og reflekter rundt de to første sidene i artikkelen Orben 2019\nKjør dette og prøv å forstå hvordan det skal tolkes ift neuroticism (epiNeur) og bdi (becks depression inventory)\n\n\n# last ned et datasett med Eysenck personality og Big Five \ndatafilename=\"https://personality-project.org/r/datasets/maps.mixx.epi.bfi.data\"  \npersonality.data =read.delim(url(datafilename))\nhead(personality.data)     #kikke på de første radene\n\n  epiE epiS epiImp epilie epiNeur bfagree bfcon bfext bfneur bfopen bdi\n1   18   10      7      3       9     138    96   141     51    138   1\n2   16    8      5      1      12     101    99   107    116    132   7\n3    6    1      3      2       5     143   118    38     68     90   4\n4   12    6      4      3      15     104   106    64    114    101   8\n5   14    6      5      3       2     115   102   103     86    118   8\n6    6    4      2      5      15     110   113    61     54    149   5\n  traitanx stateanx\n1       24       22\n2       41       40\n3       37       44\n4       54       40\n5       39       67\n6       51       38\n\nplot(personality.data$epiNeur,personality.data$bdi)# spredningsplott viser korrelasjon.. \n\n\n\nmodel1 = lm(bdi~epiNeur,data=personality.data)  #enkel regresjon: beck depression forklares av neuroticism (1 av big five)\nsummary(model1)   # basic statistical summary\n\n\nCall:\nlm(formula = bdi ~ epiNeur, data = personality.data)\n\nResiduals:\n     Min       1Q   Median       3Q      Max \n-11.9548  -3.1577  -0.7707   2.0452  16.4092 \n\nCoefficients:\n            Estimate Std. Error t value Pr(&gt;|t|)    \n(Intercept) -0.32129    0.73070   -0.44    0.661    \nepiNeur      0.68200    0.06353   10.74   &lt;2e-16 ***\n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nResidual standard error: 4.721 on 229 degrees of freedom\nMultiple R-squared:  0.3348,    Adjusted R-squared:  0.3319 \nF-statistic: 115.3 on 1 and 229 DF,  p-value: &lt; 2.2e-16"
   },
   {
     "objectID": "R/R1.html#housing-dataene",
@@ -217,6 +154,13 @@
     "text": "Oppgave 44\n\nreg &lt;- lm(oppmøte~ poeng)\nsummary(reg)\n\n\nCall:\nlm(formula = oppmøte ~ poeng)\n\nResiduals:\n    Min      1Q  Median      3Q     Max \n-4.8698 -0.8058 -0.3470  1.0486  4.1302 \n\nCoefficients:\n            Estimate Std. Error t value Pr(&gt;|t|)    \n(Intercept)  -7.4107     3.1388  -2.361 0.045887 *  \npoeng         0.8140     0.1573   5.176 0.000847 ***\n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nResidual standard error: 2.527 on 8 degrees of freedom\nMultiple R-squared:   0.77, Adjusted R-squared:  0.7413 \nF-statistic: 26.79 on 1 and 8 DF,  p-value: 0.0008471"
   },
   {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "MPS 140: Kvantitativ forskningsmetode og statistikk",
+    "section": "",
+    "text": "FYSISKE SAMLINGER\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nDato\nTema\nForberedelser\nPresentasjoner\nR\nOppgaver\n\n\n\n\n23.01: 1215-16\nIntro og grunnleggende statistikk\n📖\n🖥 🖥\n📋\n📋\n\n\n05.03: 815-16\nPsykometri\n\n\n\n\n\n\n09.04: 815-16\nLatente variable\n\n\n\n\n\n\n03.06\nEksamen\n\n\n\n\n\n\n\n\n\n\nDIGITALE SAMLINGER\n\n\n\n\n\n\n\n\n\n\n\nDato\nTema\nForberedelser\nPresentasjon\nOppgaver\n\n\n\n\n06.02: 9-12\nR og regresjonsmodellen\n📖\n\n\n\n\n19.03: 9-12\nProgramvaren R og psykometri\n\n\n\n\n\n23.04:9-12\nLatente variable\n\n\n\n\n\n07.05: 9-12\nEksamensforberedelse"
+  },
+  {
     "objectID": "slides/slides1.html#mps-140",
     "href": "slides/slides1.html#mps-140",
     "title": "Velkommen til MPS140",
@@ -266,67 +210,39 @@
     "text": "Samlæring i flipped classroom\n\nTa plass og gi plass\nElsk frustrasjon og forvirring\nÅ hjelpe noen er å forklare hvordan du tenker, ikke å bare gi svar eller gjøre utregninger for andre\nDu har rett til å spørre alle i gruppen om hjelp\nDu har plikt til å prøve å hjelpe enhver i gruppen som spør\nDu lager på slutten en tilbamelding til hver av gruppemedlemmene !\nTeam 1 - Team 4 er opprettet ved tilfeldig uttrekk. Se canvas."
   },
   {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "Emnebeskrivelse",
-    "section": "",
-    "text": "Denne websiden inneholder kursmateriell for statistikkurset i 2-årig psykologi master ved UiS. Emnebeskrivelser: https://www.uis.no/nb/course/MPS140_1"
-  },
-  {
-    "objectID": "Ressurser.html",
-    "href": "Ressurser.html",
-    "title": "Programvaren R",
-    "section": "",
-    "text": "R er en open source og gratis programvare for statistikk.\nFor installasjon på din computer følg oppskriften her: https://posit.co/download/rstudio-desktop/\nSå kan du lage noen tilfeldige tall og lage et histogram og regne ut snittet og median:\n\nminetall &lt;- rnorm(200)# 200 tilfeldige tall trekkes fra standard normalfordeling. Ser ganske normalfordelt ut ja\nhist(minetall)\n\n\n\nmean(minetall)\n\n[1] 0.01240467\n\nmedian(minetall)\n\n[1] 0.006092189"
-  },
-  {
-    "objectID": "Ressurser.html#r-og-rstudio",
-    "href": "Ressurser.html#r-og-rstudio",
-    "title": "Programvaren R",
-    "section": "",
-    "text": "R er en open source og gratis programvare for statistikk.\nFor installasjon på din computer følg oppskriften her: https://posit.co/download/rstudio-desktop/\nSå kan du lage noen tilfeldige tall og lage et histogram og regne ut snittet og median:\n\nminetall &lt;- rnorm(200)# 200 tilfeldige tall trekkes fra standard normalfordeling. Ser ganske normalfordelt ut ja\nhist(minetall)\n\n\n\nmean(minetall)\n\n[1] 0.01240467\n\nmedian(minetall)\n\n[1] 0.006092189"
-  },
-  {
-    "objectID": "slides/slides2.html#mobilbruk-og-well",
-    "href": "slides/slides2.html#mobilbruk-og-well",
+    "objectID": "slides/slides2.html#lekeeksempel",
+    "href": "slides/slides2.html#lekeeksempel",
     "title": "Lineær Regresjon. Digital samling 1",
-    "section": "Mobilbruk og well",
-    "text": "Mobilbruk og well"
+    "section": "Lekeeksempel",
+    "text": "Lekeeksempel\n\n\n\n\n\n\nRådata\n\n\n\n\n\n\n\nRegresjon"
   },
   {
-    "objectID": "slides/slides2.html#trivsel-og-sosiale-medier-blant-ungdom",
-    "href": "slides/slides2.html#trivsel-og-sosiale-medier-blant-ungdom",
+    "objectID": "slides/slides2.html#estimere-modellen-med-textsflm-og-plotte",
+    "href": "slides/slides2.html#estimere-modellen-med-textsflm-og-plotte",
     "title": "Lineær Regresjon. Digital samling 1",
-    "section": "Trivsel og sosiale medier blant ungdom",
-    "text": "Trivsel og sosiale medier blant ungdom\nPrzybylski, A. & Weinstein, N. (2017). A Large-Scale Test of the Goldilocks Hypothesis. Psychological Science, 28, 204–215.\nStorskala studie som finner støtte til “Goldilocks” hypotesen.\nDataene er tilgjengelige her"
+    "section": "Estimere modellen med \\(\\textsf{lm()}\\) og plotte",
+    "text": "Estimere modellen med \\(\\textsf{lm()}\\) og plotte\n\nx &lt;- c(-5, 10, 15, 31, 42)\ny &lt;- c(3,3,0,1, -1)\nmodel &lt;- lm(y~x)\nqplot(x,y, size=3)+geom_smooth(method=\"lm\", se=F)"
   },
   {
-    "objectID": "slides/slides2.html#variabler",
-    "href": "slides/slides2.html#variabler",
+    "objectID": "slides/slides2.html#utskrift-fra-textsflm",
+    "href": "slides/slides2.html#utskrift-fra-textsflm",
     "title": "Lineær Regresjon. Digital samling 1",
-    "section": "Variabler",
-    "text": "Variabler\nTrivsel målt med Warwick-Edinburgh Mental Well-Being Scale (WEMWBS). Spørreskjema med 14 items og 5 responsnivå. Vi tar summeskåren!\nAt Przybylski & Weinstein’s page for this study on the Open Science Framework, you can find the participant survey which asks a large number of additional questions (see page 14 for the WEMWBS questions and pages 4-5 for the questions about screen time). Within the same page you can also find the raw data; however, for the purpose of this exercise, you will be using local pre-processed copies of the data which we will provide.\nPrzybylski and Weinstein looked at multiple measures of screen time, but we will be focusing on smartphone use. They found that decrements in well-being started to appear when respondents reported more than one hour of weekly smartphone use. Our question: Does the negative association between hours of use and well-being (beyond the one-hour point) differ for boys and girls?\nNote that in this analysis, we have:\n\na continuous\\(^*\\) DV, well-being;\na continuous\\(^*\\) predictor, screen time;\na categorical predictor, gender.\n\n\\(^*\\)these variables are only quasi-continuous, inasmuch as only discrete values are possible. However, there are a sufficient number of discrete categories that we can treat them as effectively continuous."
+    "section": "Utskrift fra \\(\\textsf{lm()}\\)",
+    "text": "Utskrift fra \\(\\textsf{lm()}\\)\n\nsummary(model)\n\n\nCall:\nlm(formula = y ~ x)\n\nResiduals:\n       1        2        3        4        5 \n-0.08772  1.11210 -1.48796  0.79185 -0.32828 \n\nCoefficients:\n            Estimate Std. Error t value Pr(&gt;|t|)  \n(Intercept)  2.68778    0.79939   3.362   0.0437 *\nx           -0.07999    0.03223  -2.481   0.0892 .\n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nResidual standard error: 1.182 on 3 degrees of freedom\nMultiple R-squared:  0.6724,    Adjusted R-squared:  0.5632 \nF-statistic: 6.158 on 1 and 3 DF,  p-value: 0.08916"
   },
   {
-    "objectID": "slides/slides2.html#måling-av-trivsel",
-    "href": "slides/slides2.html#måling-av-trivsel",
+    "objectID": "slides/slides2.html#r2-forklart-varians",
+    "href": "slides/slides2.html#r2-forklart-varians",
     "title": "Lineær Regresjon. Digital samling 1",
-    "section": "Måling av trivsel",
-    "text": "Måling av trivsel\nVi ønsker å studere trivsel. Det er vår avhengige variabel:\nTrivsel målt med Warwick-Edinburgh Mental Well-Being Scale (WEMWBS). Spørreskjema med 14 items og 5 responsnivå. Vi bruker summescoren"
+    "section": "\\(R^2\\): forklart varians",
+    "text": "\\(R^2\\): forklart varians\n\nResidualet: Avstand fra den faktiske \\(y\\) verdien til den \\(y\\) som modellen predikerer (på linja)\n\\(R^2\\): Andel av variasjonen i \\(y\\) som kan forklares av \\(x\\) (to versjoner). Jo høyere, jo bedre er linja som forklaringsmodell"
   },
   {
-    "objectID": "slides/slides2.html#hva-er-sammenheng-mellom-trivsel-og-antall-timer-på-mobiltelefon",
-    "href": "slides/slides2.html#hva-er-sammenheng-mellom-trivsel-og-antall-timer-på-mobiltelefon",
+    "objectID": "slides/slides2.html#predikere-nye-verdier",
+    "href": "slides/slides2.html#predikere-nye-verdier",
     "title": "Lineær Regresjon. Digital samling 1",
-    "section": "Hva er sammenheng mellom trivsel og antall timer på mobiltelefon?",
-    "text": "Hva er sammenheng mellom trivsel og antall timer på mobiltelefon?\ndfdf"
-  },
-  {
-    "objectID": "slides/slides2.html#trivsel---wellbeing",
-    "href": "slides/slides2.html#trivsel---wellbeing",
-    "title": "Lineær Regresjon. Digital samling 1",
-    "section": "Trivsel - Wellbeing",
-    "text": "Trivsel - Wellbeing\nVi ønsker å studere trivsel. Det er vår avhengige variabel:\nTrivsel målt med Warwick-Edinburgh Mental Well-Being Scale (WEMWBS). Spørreskjema med 14 items og 5 responsnivå. Vi bruker summescoren\n\nVi har 71033 deltagere! La oss tenke på dette som POPULASJONEN"
+    "section": "Predikere nye verdier",
+    "text": "Predikere nye verdier\nDersom vi har en ny verdie, \\(x=20\\) kan vi bruke linja til en kvalifisert gjetning på hva \\(y\\) vil være:\n\nyhat &lt;- predict(model, newdata=data.frame(x=20))\nyhat\n\n       1 \n1.088017 \n\nqplot(x,y, size=3)+geom_smooth(method=\"lm\", se=F)+geom_point(aes(x=20, y=yhat),size=5, color=\"red\")"
   },
   {
     "objectID": "slides/slides2.html#trivsel-og-sosiale-medier-engelske-15-åringer",
@@ -336,18 +252,11 @@
     "text": "Trivsel og sosiale medier engelske 15 åringer\nPrzybylski, A. & Weinstein, N. (2017). A Large-Scale Test of the Goldilocks Hypothesis. Psychological Science, 28, 204–215.\nStorskala studie som finner støtte til “Goldilocks” hypotesen.\nDataene er tilgjengelige her"
   },
   {
-    "objectID": "slides/slides2.html#sammenheng-trivsel-og-telefonbruk",
-    "href": "slides/slides2.html#sammenheng-trivsel-og-telefonbruk",
+    "objectID": "slides/slides2.html#trivsel---wellbeing",
+    "href": "slides/slides2.html#trivsel---wellbeing",
     "title": "Lineær Regresjon. Digital samling 1",
-    "section": "Sammenheng trivsel og telefonbruk",
-    "text": "Sammenheng trivsel og telefonbruk"
-  },
-  {
-    "objectID": "slides/slides2.html#sammenheng-trivsel-og-telefonbruk-i-et-mindre-utvalg",
-    "href": "slides/slides2.html#sammenheng-trivsel-og-telefonbruk-i-et-mindre-utvalg",
-    "title": "Lineær Regresjon. Digital samling 1",
-    "section": "Sammenheng trivsel og telefonbruk i et mindre utvalg",
-    "text": "Sammenheng trivsel og telefonbruk i et mindre utvalg"
+    "section": "Trivsel - Wellbeing",
+    "text": "Trivsel - Wellbeing\nVi ønsker å studere trivsel. Det er vår avhengige variabel:\nTrivsel målt med Warwick-Edinburgh Mental Well-Being Scale (WEMWBS). Spørreskjema med 14 items og 5 responsnivå. Vi bruker summescoren\n\nVi har 71033 deltagere! La oss tenke på dette som POPULASJONEN"
   },
   {
     "objectID": "slides/slides2.html#sammenheng-trivsel-og-telefonbruk-i-et-utvalg-av-400-15-åringer",
@@ -364,13 +273,6 @@
     "text": "Enkel regresjon\nVi ønsker å studere en kontinuerlig variabel \\(y\\). Denne kalles den avhengige variabelen.\nVi forklarer variasjonen i \\(y\\) ved hjelp av en enkel forklaringsvariabel \\(x\\) og en lineær sammenheng\n\\[ y = \\beta_0+ \\beta_1 x + \\epsilon\\]\n\n\\(\\beta_1 &gt; 0\\): positiv sammenheng mellom \\(x\\) og \\(y\\)\n\\(\\beta_1 &lt; 0\\): negativ sammenheng mellom \\(x\\) og \\(y\\)\n\\(\\beta_1 = 0\\): ingen sammenheng mellom \\(x\\) og \\(y\\)"
   },
   {
-    "objectID": "slides/slides2.html#side-495-i-boka",
-    "href": "slides/slides2.html#side-495-i-boka",
-    "title": "Lineær Regresjon. Digital samling 1",
-    "section": "Side 495 i boka",
-    "text": "Side 495 i boka\n\n\n\n\n\n\n\nRådata\n\n\n\n\nFigure 1:  Lekeeksempel"
-  },
-  {
     "objectID": "slides/slides2.html#antagelse-1-i-lineær-regresjon-linearitet",
     "href": "slides/slides2.html#antagelse-1-i-lineær-regresjon-linearitet",
     "title": "Lineær Regresjon. Digital samling 1",
@@ -378,10 +280,45 @@
     "text": "Antagelse 1 i lineær regresjon: Linearitet"
   },
   {
-    "objectID": "slides/slides2.html#lekeeksempel",
-    "href": "slides/slides2.html#lekeeksempel",
+    "objectID": "slides/slides2.html#hva-er-sammenheng-mellom-trivsel-og-antall-timer-på-mobiltelefon",
+    "href": "slides/slides2.html#hva-er-sammenheng-mellom-trivsel-og-antall-timer-på-mobiltelefon",
     "title": "Lineær Regresjon. Digital samling 1",
-    "section": "Lekeeksempel",
-    "text": "Lekeeksempel\n\n\n\n\n\n\nRådata\n\n\n\n\n\n\n\nRegresjon"
+    "section": "Hva er sammenheng mellom trivsel og antall timer på mobiltelefon?",
+    "text": "Hva er sammenheng mellom trivsel og antall timer på mobiltelefon?\ndfdf"
+  },
+  {
+    "objectID": "slides/slides2.html#mobilbruk-og-well",
+    "href": "slides/slides2.html#mobilbruk-og-well",
+    "title": "Lineær Regresjon. Digital samling 1",
+    "section": "Mobilbruk og well",
+    "text": "Mobilbruk og well"
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "Emnebeskrivelse",
+    "section": "",
+    "text": "Denne websiden inneholder kursmateriell for statistikkurset i 2-årig psykologi master ved UiS. Emnebeskrivelser: https://www.uis.no/nb/course/MPS140_1"
+  },
+  {
+    "objectID": "Ressurser.html",
+    "href": "Ressurser.html",
+    "title": "Programvaren R",
+    "section": "",
+    "text": "R er en open source og gratis programvare for statistikk.\nFor installasjon på din computer følg oppskriften her: https://posit.co/download/rstudio-desktop/\nSå kan du lage noen tilfeldige tall og lage et histogram og regne ut snittet og median:\n\nminetall &lt;- rnorm(200)# 200 tilfeldige tall trekkes fra standard normalfordeling. Ser ganske normalfordelt ut ja\nhist(minetall)\n\n\n\nmean(minetall)\n\n[1] -0.02339894\n\nmedian(minetall)\n\n[1] -0.1085856"
+  },
+  {
+    "objectID": "Ressurser.html#r-og-rstudio",
+    "href": "Ressurser.html#r-og-rstudio",
+    "title": "Programvaren R",
+    "section": "",
+    "text": "R er en open source og gratis programvare for statistikk.\nFor installasjon på din computer følg oppskriften her: https://posit.co/download/rstudio-desktop/\nSå kan du lage noen tilfeldige tall og lage et histogram og regne ut snittet og median:\n\nminetall &lt;- rnorm(200)# 200 tilfeldige tall trekkes fra standard normalfordeling. Ser ganske normalfordelt ut ja\nhist(minetall)\n\n\n\nmean(minetall)\n\n[1] -0.02339894\n\nmedian(minetall)\n\n[1] -0.1085856"
+  },
+  {
+    "objectID": "emnebeskrivelse.html",
+    "href": "emnebeskrivelse.html",
+    "title": "Emnebeskrivelse",
+    "section": "",
+    "text": "Denne websiden inneholder kursmateriell for statistikkurset i 2-årig psykologi master ved UiS. Emnebeskrivelsen: https://www.uis.no/nb/course/MPS140_1"
   }
 ]

@@ -32,8 +32,8 @@ website:
               text: Installasjon
         - section: "Data"
           contents: 
-            - href: R/agePingelab.csv
-              text: "Pingelab"
+            - href: data/goldilocks.csv
+              text: "Goldilocks"
         - section: "Eksamen"
           contents:
             - href: omeksamen.qmd

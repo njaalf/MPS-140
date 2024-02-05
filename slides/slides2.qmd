@@ -22,6 +22,7 @@ library("see")
 library("performance")
 library("report")
 library("tidyverse")
+theme_set(theme_minimal())
 # pinfo <- read_csv("../data/participant_info.csv")
 # wellbeing <- read_csv("../data/wellbeing.csv")
 # screen <- read_csv("../data/screen_time.csv")
@@ -71,51 +72,77 @@ library("tidyverse")
 
 ```
 
-# Et lite lekeeksempel for lineær regresjon
+# Et lite eksempel for lineær regresjon
 
-## Lekeeksempel 
+## Lekeeksempel
 
+::: {layout-ncol="2"}
+![Rådata](tabell.png){width="300"}
 
-::: {layout-ncol=2}
-
-![Rådata](tabell.png){width=300}
-
-![Regresjon](scatterreg.png){width=200}
-
+![Regresjon](scatterreg.png){width="200"}
 :::
 
+## Estimere modellen med $\textsf{lm()}$ og plotte
+
+```{r, echo=T}
+x <- c(-5, 10, 15, 31, 42)
+y <- c(3,3,0,1, -1)
+model <- lm(y~x)
+qplot(x,y, size=3)+geom_smooth(method="lm", se=F)
+```
 
 
+## Utskrift fra $\textsf{lm()}$
+```{r, echo=T}
+summary(model)
+```
 
 
-# Trivsel og mobilbruk blant engelske 15 åringer
+## $R^2$: forklart varians
+
+- Residualet: Avstand fra den faktiske $y$ verdien til den $y$ som modellen predikerer (på linja)
+
+- $R^2$: Andel  av variasjonen i $y$ som kan forklares av $x$ (to versjoner). Jo høyere, jo bedre er linja som forklaringsmodell
+
+
+## Predikere nye verdier 
+
+Dersom vi har en ny verdie, $x=20$ kan vi bruke linja til en kvalifisert gjetning på hva $y$ vil være:
+
+```{r, echo=T}
+yhat <- predict(model, newdata=data.frame(x=20))
+yhat
+qplot(x,y, size=3)+geom_smooth(method="lm", se=F)+geom_point(aes(x=20, y=yhat),size=5, color="red")
+```
+
+
+# Reelt datasett: Trivsel og mobilbruk blant engelske 15 åringer
 
 ## Trivsel og sosiale medier engelske 15 åringer
 
 Przybylski, A. & Weinstein, N. (2017). A Large-Scale Test of the Goldilocks Hypothesis. *Psychological Science*, *28*, 204--215.
 
-Storskala studie som finner støtte til  "Goldilocks" hypotesen. 
+Storskala studie som finner støtte til "Goldilocks" hypotesen.
 
 Dataene er tilgjengelige [her](https://osf.io/82ybd/)
-
 
 ## Trivsel - Wellbeing
 
 Vi ønsker å studere trivsel. Det er vår *avhengige* variabel:
 
-Trivsel målt med [Warwick-Edinburgh Mental Well-Being Scale (WEMWBS)](https://warwick.ac.uk/fac/med/research/platform/wemwbs/).
-Spørreskjema med  14 *items* og  5 responsnivå. 
-Vi  bruker summescoren 
+Trivsel målt med [Warwick-Edinburgh Mental Well-Being Scale (WEMWBS)](https://warwick.ac.uk/fac/med/research/platform/wemwbs/). Spørreskjema med 14 *items* og 5 responsnivå. Vi bruker summescoren
 
 ```{r}
 smart_wb <- readRDS("../data/smartphone_wellbeing.rds")#last inn data
 hist(smart_wb$tot_wellbeing)#histogram
 ```
-Vi har `r nrow(smart_wb)` deltagere! 
-La oss tenke på dette som POPULASJONEN
 
-## Sammenheng trivsel og telefonbruk i et  utvalg av 400 15-åringer
+Vi har `r nrow(smart_wb)` deltagere! La oss tenke på dette som POPULASJONEN
+
+## Sammenheng trivsel og telefonbruk i et utvalg av 400 15-åringer
+
 En svak negativ trend?
+
 ```{r}
 set.seed(1)
 utvalgte <- sample(1:nrow(smart_wb),400)# tilfeldig utvalg av 500
@@ -123,41 +150,26 @@ utvalg <- smart_wb[utvalgte, ]
 ggplot(utvalg, aes(tothours, tot_wellbeing))+geom_jitter(method="lm", height=0)+xlab("Antall timer daglig")+ylab("Total trivsel")
 ```
 
-
-
 ## Enkel regresjon
 
-Vi ønsker å studere en kontinuerlig variabel $y$. Denne kalles den *avhengige* variabelen. 
+Vi ønsker å studere en kontinuerlig variabel $y$. Denne kalles den *avhengige* variabelen.
 
 Vi forklarer variasjonen i $y$ ved hjelp av en enkel forklaringsvariabel $x$ og en *lineær* sammenheng
 
 $$ y = \beta_0+ \beta_1 x + \epsilon$$
 
-
-- $\beta_1 > 0$: positiv sammenheng mellom $x$ og $y$
-- $\beta_1 < 0$: negativ sammenheng mellom $x$ og $y$
-- $\beta_1 = 0$: ingen sammenheng mellom $x$ og $y$
-
-
-
+-   $\beta_1 > 0$: positiv sammenheng mellom $x$ og $y$
+-   $\beta_1 < 0$: negativ sammenheng mellom $x$ og $y$
+-   $\beta_1 = 0$: ingen sammenheng mellom $x$ og $y$
 
 ## Antagelse 1 i lineær regresjon: Linearitet
 
-
-
-
-
-
-
-
-
 ## Hva er sammenheng mellom trivsel og antall timer på mobiltelefon?
+
 dfdf
 
 ## Mobilbruk og well
 
-
 # Multippel regresjon
 
 # ANOVA
-
