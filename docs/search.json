@@ -214,14 +214,14 @@
     "href": "slides/slides2.html#lekeeksempel",
     "title": "Lineær Regresjon. Digital samling 1",
     "section": "Lekeeksempel",
-    "text": "Lekeeksempel\n\n\n\n\n\n\nRådata\n\n\n\n\n\n\n\nRegresjon"
+    "text": "Lekeeksempel"
   },
   {
     "objectID": "slides/slides2.html#estimere-modellen-med-textsflm-og-plotte",
     "href": "slides/slides2.html#estimere-modellen-med-textsflm-og-plotte",
     "title": "Lineær Regresjon. Digital samling 1",
     "section": "Estimere modellen med \\(\\textsf{lm()}\\) og plotte",
-    "text": "Estimere modellen med \\(\\textsf{lm()}\\) og plotte\n\nx &lt;- c(-5, 10, 15, 31, 42)\ny &lt;- c(3,3,0,1, -1)\nmodel &lt;- lm(y~x)\nqplot(x,y, size=3)+geom_smooth(method=\"lm\", se=F)"
+    "text": "Estimere modellen med \\(\\textsf{lm()}\\) og plotte\n\nx &lt;- c(-5, 10, 15, 31, 42)\ny &lt;- c(3,3,0,1, -1)\nmodel &lt;- lm(y~x)\nqplot(x,y)+geom_smooth(method=\"lm\", se=F)"
   },
   {
     "objectID": "slides/slides2.html#utskrift-fra-textsflm",
@@ -245,6 +245,41 @@
     "text": "Predikere nye verdier\nDersom vi har en ny verdie, \\(x=20\\) kan vi bruke linja til en kvalifisert gjetning på hva \\(y\\) vil være:\n\nyhat &lt;- predict(model, newdata=data.frame(x=20))\nyhat\n\n       1 \n1.088017 \n\nqplot(x,y, size=3)+geom_smooth(method=\"lm\", se=F)+geom_point(aes(x=20, y=yhat),size=5, color=\"red\")"
   },
   {
+    "objectID": "slides/slides2.html#enkel-regresjon",
+    "href": "slides/slides2.html#enkel-regresjon",
+    "title": "Lineær Regresjon. Digital samling 1",
+    "section": "Enkel regresjon",
+    "text": "Enkel regresjon\nVi ønsker å studere en kontinuerlig variabel \\(y\\). Denne kalles den avhengige variabelen.\nVi forklarer variasjonen i \\(y\\) ved hjelp av en enkel forklaringsvariabel \\(x\\) og en lineær sammenheng\n\\[ y = \\beta_0+ \\beta_1 x + \\epsilon\\]\n\n\\(\\beta_1 &gt; 0\\): positiv sammenheng mellom \\(x\\) og \\(y\\)\n\\(\\beta_1 &lt; 0\\): negativ sammenheng mellom \\(x\\) og \\(y\\)\n\\(\\beta_1 = 0\\): ingen sammenheng mellom \\(x\\) og \\(y\\)"
+  },
+  {
+    "objectID": "slides/slides2.html#antagelser-i-lineær-regresjon",
+    "href": "slides/slides2.html#antagelser-i-lineær-regresjon",
+    "title": "Lineær Regresjon. Digital samling 1",
+    "section": "Antagelser i lineær regresjon",
+    "text": "Antagelser i lineær regresjon\n\nLinearitet!\nHomoskedastisitet: Residualene må ha samme varians uansett hva \\(x\\) er. Kan sjekkes med å plotte residualene vs de predikerte (fitted values)\nHvis det er et lite utvalg så bør residualene være normalfordelte"
+  },
+  {
+    "objectID": "slides/slides2.html#ok-lineært-og-homoskedastisk",
+    "href": "slides/slides2.html#ok-lineært-og-homoskedastisk",
+    "title": "Lineær Regresjon. Digital samling 1",
+    "section": "OK: lineært og homoskedastisk",
+    "text": "OK: lineært og homoskedastisk\n\nPerfekt"
+  },
+  {
+    "objectID": "slides/slides2.html#ikke-ok-ikke-lineært",
+    "href": "slides/slides2.html#ikke-ok-ikke-lineært",
+    "title": "Lineær Regresjon. Digital samling 1",
+    "section": "IKKE OK: ikke lineært!",
+    "text": "IKKE OK: ikke lineært!\n\nSammenhengen er ikke lineærKan fikses ved å ta med \\(x^2\\) som uavhengig variabel"
+  },
+  {
+    "objectID": "slides/slides2.html#ikke-ok-homoskedastiske-feilledd",
+    "href": "slides/slides2.html#ikke-ok-homoskedastiske-feilledd",
+    "title": "Lineær Regresjon. Digital samling 1",
+    "section": "IKKE OK: homoskedastiske feilledd",
+    "text": "IKKE OK: homoskedastiske feilledd\n\nResidualene varierer mer jo større \\(x\\) erKan fikses ved å bruke en robust estimator av White-typen"
+  },
+  {
     "objectID": "slides/slides2.html#trivsel-og-sosiale-medier-engelske-15-åringer",
     "href": "slides/slides2.html#trivsel-og-sosiale-medier-engelske-15-åringer",
     "title": "Lineær Regresjon. Digital samling 1",
@@ -256,42 +291,98 @@
     "href": "slides/slides2.html#trivsel---wellbeing",
     "title": "Lineær Regresjon. Digital samling 1",
     "section": "Trivsel - Wellbeing",
-    "text": "Trivsel - Wellbeing\nVi ønsker å studere trivsel. Det er vår avhengige variabel:\nTrivsel målt med Warwick-Edinburgh Mental Well-Being Scale (WEMWBS). Spørreskjema med 14 items og 5 responsnivå. Vi bruker summescoren\n\nVi har 71033 deltagere! La oss tenke på dette som POPULASJONEN"
+    "text": "Trivsel - Wellbeing\nVi ønsker å studere trivsel. Det er vår avhengige variabel:\nTrivsel målt med Warwick-Edinburgh Mental Well-Being Scale (WEMWBS). Spørreskjema med 14 items og 5 responsnivå. Vi bruker summescoren\n\n\n\n\n\n\n\n\nVi har 71033 deltagere! La oss tenke på dette som POPULASJONEN"
   },
   {
-    "objectID": "slides/slides2.html#sammenheng-trivsel-og-telefonbruk-i-et-utvalg-av-400-15-åringer",
-    "href": "slides/slides2.html#sammenheng-trivsel-og-telefonbruk-i-et-utvalg-av-400-15-åringer",
+    "objectID": "slides/slides2.html#negativ-trivsel-og-telefonbruk-i-populasjonen",
+    "href": "slides/slides2.html#negativ-trivsel-og-telefonbruk-i-populasjonen",
     "title": "Lineær Regresjon. Digital samling 1",
-    "section": "Sammenheng trivsel og telefonbruk i et utvalg av 400 15-åringer",
-    "text": "Sammenheng trivsel og telefonbruk i et utvalg av 400 15-åringer\nEn svak negativ trend?"
+    "section": "Negativ trivsel og telefonbruk i “populasjonen”",
+    "text": "Negativ trivsel og telefonbruk i “populasjonen”\n\npopmodel &lt;- lm(tot_wellbeing~ tothours, data=populasjon)\npopmodel %&gt;% tidy() %&gt;% kable(digits=2)\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n50.31\n0.09\n585.03\n0\n\n\ntothours\n-0.81\n0.02\n-43.99\n0\n\n\n\n\n\n\n\nEn time ekstra daglig mobilbruk gir en forventet nedgang i trivsel på 0.81"
   },
   {
-    "objectID": "slides/slides2.html#enkel-regresjon",
-    "href": "slides/slides2.html#enkel-regresjon",
+    "objectID": "slides/slides2.html#sammenheng-trivsel-og-telefonbruk-i-et-tilfeldig-utvalg-av-400-15-åringer",
+    "href": "slides/slides2.html#sammenheng-trivsel-og-telefonbruk-i-et-tilfeldig-utvalg-av-400-15-åringer",
     "title": "Lineær Regresjon. Digital samling 1",
-    "section": "Enkel regresjon",
-    "text": "Enkel regresjon\nVi ønsker å studere en kontinuerlig variabel \\(y\\). Denne kalles den avhengige variabelen.\nVi forklarer variasjonen i \\(y\\) ved hjelp av en enkel forklaringsvariabel \\(x\\) og en lineær sammenheng\n\\[ y = \\beta_0+ \\beta_1 x + \\epsilon\\]\n\n\\(\\beta_1 &gt; 0\\): positiv sammenheng mellom \\(x\\) og \\(y\\)\n\\(\\beta_1 &lt; 0\\): negativ sammenheng mellom \\(x\\) og \\(y\\)\n\\(\\beta_1 = 0\\): ingen sammenheng mellom \\(x\\) og \\(y\\)"
+    "section": "Sammenheng trivsel og telefonbruk i et tilfeldig utvalg av 400 15-åringer",
+    "text": "Sammenheng trivsel og telefonbruk i et tilfeldig utvalg av 400 15-åringer"
   },
   {
-    "objectID": "slides/slides2.html#antagelse-1-i-lineær-regresjon-linearitet",
-    "href": "slides/slides2.html#antagelse-1-i-lineær-regresjon-linearitet",
+    "objectID": "slides/slides2.html#regresjon-i-utvalget",
+    "href": "slides/slides2.html#regresjon-i-utvalget",
     "title": "Lineær Regresjon. Digital samling 1",
-    "section": "Antagelse 1 i lineær regresjon: Linearitet",
-    "text": "Antagelse 1 i lineær regresjon: Linearitet"
+    "section": "Regresjon i utvalget",
+    "text": "Regresjon i utvalget\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n50.89\n1.09\n46.55\n0\n\n\ntothours\n-0.93\n0.23\n-4.01\n0\n\n\n\n\n\n\n\nGanske likt populasjonsverdiene! Vi har linearitet."
   },
   {
-    "objectID": "slides/slides2.html#hva-er-sammenheng-mellom-trivsel-og-antall-timer-på-mobiltelefon",
-    "href": "slides/slides2.html#hva-er-sammenheng-mellom-trivsel-og-antall-timer-på-mobiltelefon",
+    "objectID": "slides/slides2.html#homoskedastiske-feilledd",
+    "href": "slides/slides2.html#homoskedastiske-feilledd",
     "title": "Lineær Regresjon. Digital samling 1",
-    "section": "Hva er sammenheng mellom trivsel og antall timer på mobiltelefon?",
-    "text": "Hva er sammenheng mellom trivsel og antall timer på mobiltelefon?\ndfdf"
+    "section": "Homoskedastiske feilledd?",
+    "text": "Homoskedastiske feilledd?\n\nHer har vi tilnærmet homoskedastisitet!"
   },
   {
-    "objectID": "slides/slides2.html#mobilbruk-og-well",
-    "href": "slides/slides2.html#mobilbruk-og-well",
+    "objectID": "slides/slides2.html#husk-at-estimatene-er-usikre",
+    "href": "slides/slides2.html#husk-at-estimatene-er-usikre",
     "title": "Lineær Regresjon. Digital samling 1",
-    "section": "Mobilbruk og well",
-    "text": "Mobilbruk og well"
+    "section": "Husk at estimatene er usikre!",
+    "text": "Husk at estimatene er usikre!\nHer er fire andre utvalg av størrelse \\(n=400\\). Vi ser at intercept og slope varierer endel!"
+  },
+  {
+    "objectID": "slides/slides2.html#multippel-regresjon-1",
+    "href": "slides/slides2.html#multippel-regresjon-1",
+    "title": "Lineær Regresjon. Digital samling 1",
+    "section": "Multippel regresjon",
+    "text": "Multippel regresjon\nEn enkel uvidelse av enkel regresjon, der vi har flere uavhengige variable\n\\[ y = \\beta_0+ \\beta_1 x_1 +  \\beta_2 x_2+ \\beta_3 x_3+ \\epsilon\\] Her har vi TRE forklaringsvariabler \\(x_1,x_2, x_3\\) som forklarer hvorfor \\(y\\) varierer!"
+  },
+  {
+    "objectID": "slides/slides2.html#ceteris-paribus",
+    "href": "slides/slides2.html#ceteris-paribus",
+    "title": "Lineær Regresjon. Digital samling 1",
+    "section": "Ceteris paribus",
+    "text": "Ceteris paribus\nCeteris paribus [keːˈtɛ.riːsˈpa.rɪ.bʊs] latinsk for “alt annet likt”\nI multippel regresjon får vi effekten av en variabel på \\(y\\), “alt annet likt”. Vi kontrollerer for de andre variablene!\nFor eksempel: \\[ y = 1+ 2 \\cdot x_1 - x_2+ 0.5 \\cdot x_3+ \\epsilon\\] Når \\(x_1\\) øker med 1 enhet, så øker \\(y\\) med 2 enheter, alt annet likt. Dvs at vi holder \\(x_2\\) og \\(x_3\\) fast, og får isolert sammenhengen mellom \\(x_1\\) og \\(y\\)."
+  },
+  {
+    "objectID": "slides/slides2.html#eksempel-effekt-av-telefonbruk-på-well-being-kontrollert-for-kjønn",
+    "href": "slides/slides2.html#eksempel-effekt-av-telefonbruk-på-well-being-kontrollert-for-kjønn",
+    "title": "Lineær Regresjon. Digital samling 1",
+    "section": "Eksempel: Effekt av telefonbruk på Well-being, kontrollert for kjønn",
+    "text": "Eksempel: Effekt av telefonbruk på Well-being, kontrollert for kjønn\nGutter har høyere trivsel (6.5 poeng) og lavere mobilforbruk:\n\nutvalg %&gt;% group_by(male) %&gt;%\n  summarise(wbsnitt=mean(tot_wellbeing),\n            tothoursnitt=mean(tothours))\n\n\n\n  \n\n\n\nVi tar med kjønn som forklaringsvariabel. Dette er en kategorisk variabel, vi koder den med en dummy variabel: male=0 betyr jente, male=1 betyr gutt."
+  },
+  {
+    "objectID": "slides/slides2.html#kategoriske-variabler-og-dummy-koding",
+    "href": "slides/slides2.html#kategoriske-variabler-og-dummy-koding",
+    "title": "Lineær Regresjon. Digital samling 1",
+    "section": "Kategoriske variabler og dummy-koding",
+    "text": "Kategoriske variabler og dummy-koding\nkategoriske variabler kan kodes med dummyvariabler i regresjon. Dersom vi har \\(K\\) kategorier, trenger vi \\(K-1\\) dummy variabler:\n\nKjønn: \\(K=2\\). Vi har \\(K-1=2-1=1\\) dummy variabel.\nUSA politisk tilørighet: Dem, Rep, Ind: \\(K=3\\). Vi har \\(K-1=2-1=2\\) dummy variabler. For eksempel kan vi har \\(R=1\\) hvis republikaner, og \\(D=1\\) hvis demokrat. Vi trenger ikke \\(Ind\\), siden dersom \\(R=0\\) og \\(D=0\\) så vet vi at det er en independent velger."
+  },
+  {
+    "objectID": "slides/slides2.html#multippel-regresjon-i-r",
+    "href": "slides/slides2.html#multippel-regresjon-i-r",
+    "title": "Lineær Regresjon. Digital samling 1",
+    "section": "Multippel regresjon i R",
+    "text": "Multippel regresjon i R\n\\[ \\text{tot_wellbeing} = \\beta_0+ \\beta_1 \\cdot \\text{tothours}+ \\beta_2 \\cdot \\text{male}+\\epsilon\\]\n\nmultmodel &lt;- lm(tot_wellbeing~ tothours+male, data=utvalg)\nmultmodel %&gt;% tidy() %&gt;% kable(digits=2)\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n47.57\n1.14\n41.74\n0\n\n\ntothours\n-0.69\n0.22\n-3.08\n0\n\n\nmale1\n6.07\n0.88\n6.92\n0"
+  },
+  {
+    "objectID": "slides/slides2.html#telefonbruk-kjønn-og-well-being",
+    "href": "slides/slides2.html#telefonbruk-kjønn-og-well-being",
+    "title": "Lineær Regresjon. Digital samling 1",
+    "section": "Telefonbruk, kjønn og well-being",
+    "text": "Telefonbruk, kjønn og well-being\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n47.57\n1.14\n41.74\n0\n\n\ntothours\n-0.69\n0.22\n-3.08\n0\n\n\nmale1\n6.07\n0.88\n6.92\n0\n\n\n\n\n\n\n\nEffekten av telefonbruk er litt mindre når vi kontrollerer for kjønn (-0.934 \\(\\rightarrow\\) -0.688 )\nOg effekt av kjønn på trivsel, når vi kontrollerer for telefonbruk, er lavere nå, 6.07. Så noe av den observerte trivselforskjellen på 6.5 kan forklares ved at guttene er mindre på mobil, og at mobil ikke er bra for wellbeing!"
+  },
+  {
+    "objectID": "slides/slides2.html#anova-analysis-of-variance",
+    "href": "slides/slides2.html#anova-analysis-of-variance",
+    "title": "Lineær Regresjon. Digital samling 1",
+    "section": "ANOVA analysis of variance",
+    "text": "ANOVA analysis of variance\nI intro statistikk så lærer man anova. - Du har flere grupper i populasjonen - Du lurer på om \\(y\\) har samme gjennomsnitt i alle gruppene - \\(H_0:\\mu_1=\\mu_2=\\cdots=\\mu_g\\) - Alternativhypotesen er at gruppegjennomsnittene ikke alle er like!"
+  },
+  {
+    "objectID": "slides/slides2.html#eksempel",
+    "href": "slides/slides2.html#eksempel",
+    "title": "Lineær Regresjon. Digital samling 1",
+    "section": "Eksempel",
+    "text": "Eksempel\nVi antar at i utvalget var det 4 skoler. Vi ønsker å teste om well-being er den samme på alle skolene:\n\naov(tot_wellbeing~ school, utvalg) %&gt;% tidy() %&gt;% kable(digits=2) \n\n\n\n\nterm\ndf\nsumsq\nmeansq\nstatistic\np.value\n\n\n\n\nschool\n3\n92.19\n30.73\n0.38\n0.77\n\n\nResiduals\n396\n32388.05\n81.79\nNA\nNA\n\n\n\n\n\n\n\nVi har ikke støtte for å hevde at det er forskjell i well-being mellom de 4 skolene (p-verdi=.77 vi beholder \\(H_0\\))"
   },
   {
     "objectID": "about.html",
@@ -305,14 +396,14 @@
     "href": "Ressurser.html",
     "title": "Programvaren R",
     "section": "",
-    "text": "R er en open source og gratis programvare for statistikk.\nFor installasjon på din computer følg oppskriften her: https://posit.co/download/rstudio-desktop/\nSå kan du lage noen tilfeldige tall og lage et histogram og regne ut snittet og median:\n\nminetall &lt;- rnorm(200)# 200 tilfeldige tall trekkes fra standard normalfordeling. Ser ganske normalfordelt ut ja\nhist(minetall)\n\n\n\nmean(minetall)\n\n[1] -0.02339894\n\nmedian(minetall)\n\n[1] -0.1085856"
+    "text": "R er en open source og gratis programvare for statistikk.\nFor installasjon på din computer følg oppskriften her: https://posit.co/download/rstudio-desktop/\nSå kan du lage noen tilfeldige tall og lage et histogram og regne ut snittet og median:\n\nminetall &lt;- rnorm(200)# 200 tilfeldige tall trekkes fra standard normalfordeling. Ser ganske normalfordelt ut ja\nhist(minetall)\n\n\n\nmean(minetall)\n\n[1] 0.06996111\n\nmedian(minetall)\n\n[1] 0.1011971"
   },
   {
     "objectID": "Ressurser.html#r-og-rstudio",
     "href": "Ressurser.html#r-og-rstudio",
     "title": "Programvaren R",
     "section": "",
-    "text": "R er en open source og gratis programvare for statistikk.\nFor installasjon på din computer følg oppskriften her: https://posit.co/download/rstudio-desktop/\nSå kan du lage noen tilfeldige tall og lage et histogram og regne ut snittet og median:\n\nminetall &lt;- rnorm(200)# 200 tilfeldige tall trekkes fra standard normalfordeling. Ser ganske normalfordelt ut ja\nhist(minetall)\n\n\n\nmean(minetall)\n\n[1] -0.02339894\n\nmedian(minetall)\n\n[1] -0.1085856"
+    "text": "R er en open source og gratis programvare for statistikk.\nFor installasjon på din computer følg oppskriften her: https://posit.co/download/rstudio-desktop/\nSå kan du lage noen tilfeldige tall og lage et histogram og regne ut snittet og median:\n\nminetall &lt;- rnorm(200)# 200 tilfeldige tall trekkes fra standard normalfordeling. Ser ganske normalfordelt ut ja\nhist(minetall)\n\n\n\nmean(minetall)\n\n[1] 0.06996111\n\nmedian(minetall)\n\n[1] 0.1011971"
   },
   {
     "objectID": "emnebeskrivelse.html",

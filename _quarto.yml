@@ -32,8 +32,10 @@ website:
               text: Installasjon
         - section: "Data"
           contents: 
-            - href: data/goldilocks.csv
-              text: "Goldilocks"
+            - href: data/smartphone_wellbeing.rds
+              text: "Goldilocks hele datasett"
+            - href: data/goldilocksutvalg.rds
+              text: "Goldilocks utvalg av 400 ungdommer"
         - section: "Eksamen"
           contents:
             - href: omeksamen.qmd

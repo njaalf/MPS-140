@@ -383,12 +383,15 @@
       margin-right: 0; 
     }
   </style>
+  
+  <link href="../site_libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet">
+  <script src="../site_libs/pagedtable-1.1/js/pagedtable.js"></script>
 </head>
 <body class="quarto-light">
   <div class="reveal">
     <div class="slides">
 
-<section id="title-slide" data-background-opacity="0.5" data-background-size="stretch" class="quarto-title-block center">
+<section id="title-slide" class="quarto-title-block center">
   <h1 class="title">Lineær Regresjon. Digital samling 1</h1>
 
 <div class="quarto-title-authors">
@@ -404,21 +407,13 @@
 <h2>Lekeeksempel</h2>
 <div class="quarto-layout-panel">
 <div class="quarto-layout-row quarto-layout-valign-top">
-<div class="quarto-layout-cell" style="flex-basis: 60.0%;justify-content: center;">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="tabell.png" width="300"></p>
-<figcaption>Rådata</figcaption>
-</figure>
+<div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
+<p><img data-src="tabell.png" width="400"></p>
 </div>
 </div>
-<div class="quarto-layout-cell" style="flex-basis: 40.0%;justify-content: center;">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="scatterreg.png" width="200"></p>
-<figcaption>Regresjon</figcaption>
-</figure>
-</div>
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
+<p><img data-src="scatterreg.png" width="400"></p>
 </div>
 </div>
 </div>
@@ -429,7 +424,7 @@
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">5</span>, <span class="dv">10</span>, <span class="dv">15</span>, <span class="dv">31</span>, <span class="dv">42</span>)</span>
 <span id="cb1-2"><a href="#cb1-2"></a>y <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">0</span>,<span class="dv">1</span>, <span class="sc">-</span><span class="dv">1</span>)</span>
 <span id="cb1-3"><a href="#cb1-3"></a>model <span class="ot">&lt;-</span> <span class="fu">lm</span>(y<span class="sc">~</span>x)</span>
-<span id="cb1-4"><a href="#cb1-4"></a><span class="fu">qplot</span>(x,y, <span class="at">size=</span><span class="dv">3</span>)<span class="sc">+</span><span class="fu">geom_smooth</span>(<span class="at">method=</span><span class="st">"lm"</span>, <span class="at">se=</span>F)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-4"><a href="#cb1-4"></a><span class="fu">qplot</span>(x,y)<span class="sc">+</span><span class="fu">geom_smooth</span>(<span class="at">method=</span><span class="st">"lm"</span>, <span class="at">se=</span>F)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
 <img data-src="slides2_files/figure-revealjs/unnamed-chunk-2-1.png" width="960" class="r-stretch"></section>
@@ -479,7 +474,40 @@ F-statistic: 6.158 on 1 and 3 DF,  p-value: 0.08916</code></pre>
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a><span class="fu">qplot</span>(x,y, <span class="at">size=</span><span class="dv">3</span>)<span class="sc">+</span><span class="fu">geom_smooth</span>(<span class="at">method=</span><span class="st">"lm"</span>, <span class="at">se=</span>F)<span class="sc">+</span><span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">x=</span><span class="dv">20</span>, <span class="at">y=</span>yhat),<span class="at">size=</span><span class="dv">5</span>, <span class="at">color=</span><span class="st">"red"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
-<img data-src="slides2_files/figure-revealjs/unnamed-chunk-4-1.png" width="960" class="r-stretch"></section></section>
+<img data-src="slides2_files/figure-revealjs/unnamed-chunk-4-1.png" width="960" class="r-stretch"></section>
+<section id="enkel-regresjon" class="slide level2">
+<h2>Enkel regresjon</h2>
+<p>Vi ønsker å studere en kontinuerlig variabel <span class="math inline">\(y\)</span>. Denne kalles den <em>avhengige</em> variabelen.</p>
+<p>Vi forklarer variasjonen i <span class="math inline">\(y\)</span> ved hjelp av en enkel forklaringsvariabel <span class="math inline">\(x\)</span> og en <em>lineær</em> sammenheng</p>
+<p><span class="math display">\[ y = \beta_0+ \beta_1 x + \epsilon\]</span></p>
+<ul>
+<li><span class="math inline">\(\beta_1 &gt; 0\)</span>: positiv sammenheng mellom <span class="math inline">\(x\)</span> og <span class="math inline">\(y\)</span></li>
+<li><span class="math inline">\(\beta_1 &lt; 0\)</span>: negativ sammenheng mellom <span class="math inline">\(x\)</span> og <span class="math inline">\(y\)</span></li>
+<li><span class="math inline">\(\beta_1 = 0\)</span>: ingen sammenheng mellom <span class="math inline">\(x\)</span> og <span class="math inline">\(y\)</span></li>
+</ul>
+</section>
+<section id="antagelser-i-lineær-regresjon" class="slide level2">
+<h2>Antagelser i lineær regresjon</h2>
+<ul>
+<li>Linearitet!</li>
+<li>Homoskedastisitet: Residualene må ha samme varians uansett hva <span class="math inline">\(x\)</span> er. Kan sjekkes med å plotte residualene vs de predikerte (fitted values)</li>
+<li>Hvis det er et lite utvalg så bør residualene være normalfordelte</li>
+</ul>
+</section>
+<section id="ok-lineært-og-homoskedastisk" class="slide level2">
+<h2>OK: lineært og homoskedastisk</h2>
+
+<img data-src="perfekt.png" class="r-stretch quarto-figure-center"><p class="caption">Perfekt</p></section>
+<section id="ikke-ok-ikke-lineært" class="slide level2">
+<h2>IKKE OK: ikke lineært!</h2>
+
+<img data-src="nonlinear.png" class="r-stretch quarto-figure-center"><p class="caption">Sammenhengen er ikke lineær</p><p>Kan fikses ved å ta med <span class="math inline">\(x^2\)</span> som uavhengig variabel</p>
+</section>
+<section id="ikke-ok-homoskedastiske-feilledd" class="slide level2">
+<h2>IKKE OK: homoskedastiske feilledd</h2>
+
+<img data-src="hetero.png" class="r-stretch quarto-figure-center"><p class="caption">Residualene varierer mer jo større <span class="math inline">\(x\)</span> er</p><p>Kan fikses ved å bruke en robust estimator av White-typen</p>
+</section></section>
 <section>
 <section id="reelt-datasett-trivsel-og-mobilbruk-blant-engelske-15-åringer" class="title-slide slide level1 center">
 <h1>Reelt datasett: Trivsel og mobilbruk blant engelske 15 åringer</h1>
@@ -495,47 +523,294 @@ F-statistic: 6.158 on 1 and 3 DF,  p-value: 0.08916</code></pre>
 <h2>Trivsel - Wellbeing</h2>
 <p>Vi ønsker å studere trivsel. Det er vår <em>avhengige</em> variabel:</p>
 <p>Trivsel målt med <a href="https://warwick.ac.uk/fac/med/research/platform/wemwbs/">Warwick-Edinburgh Mental Well-Being Scale (WEMWBS)</a>. Spørreskjema med 14 <em>items</em> og 5 responsnivå. Vi bruker summescoren</p>
+<div class="cell">
+<div class="cell-output-display">
+<p><img data-src="slides2_files/figure-revealjs/unnamed-chunk-5-1.png" width="960"></p>
+</div>
+<div class="cell-output-display">
+<p><img data-src="slides2_files/figure-revealjs/unnamed-chunk-5-2.png" width="960"></p>
+</div>
+</div>
+<p>Vi har 71033 deltagere! La oss tenke på dette som POPULASJONEN</p>
+</section>
+<section id="negativ-trivsel-og-telefonbruk-i-populasjonen" class="slide level2">
+<h2>Negativ trivsel og telefonbruk i “populasjonen”</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a>popmodel <span class="ot">&lt;-</span> <span class="fu">lm</span>(tot_wellbeing<span class="sc">~</span> tothours, <span class="at">data=</span>populasjon)</span>
+<span id="cb7-2"><a href="#cb7-2"></a>popmodel <span class="sc">%&gt;%</span> <span class="fu">tidy</span>() <span class="sc">%&gt;%</span> <span class="fu">kable</span>(<span class="at">digits=</span><span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<table data-quarto-postprocess="true">
+<thead>
+<tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th">term</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">estimate</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">std.error</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">statistic</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">p.value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">(Intercept)</td>
+<td style="text-align: right;">50.31</td>
+<td style="text-align: right;">0.09</td>
+<td style="text-align: right;">585.03</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">tothours</td>
+<td style="text-align: right;">-0.81</td>
+<td style="text-align: right;">0.02</td>
+<td style="text-align: right;">-43.99</td>
+<td style="text-align: right;">0</td>
+</tr>
+</tbody>
+</table>
 
-<img data-src="slides2_files/figure-revealjs/unnamed-chunk-5-1.png" width="960" class="r-stretch"><p>Vi har 71033 deltagere! La oss tenke på dette som POPULASJONEN</p>
-</section>
-<section id="sammenheng-trivsel-og-telefonbruk-i-et-utvalg-av-400-15-åringer" class="slide level2">
-<h2>Sammenheng trivsel og telefonbruk i et utvalg av 400 15-åringer</h2>
-<p>En svak negativ trend?</p>
 
-<img data-src="slides2_files/figure-revealjs/unnamed-chunk-6-1.png" width="960" class="r-stretch"></section>
-<section id="enkel-regresjon" class="slide level2">
-<h2>Enkel regresjon</h2>
-<p>Vi ønsker å studere en kontinuerlig variabel <span class="math inline">\(y\)</span>. Denne kalles den <em>avhengige</em> variabelen.</p>
-<p>Vi forklarer variasjonen i <span class="math inline">\(y\)</span> ved hjelp av en enkel forklaringsvariabel <span class="math inline">\(x\)</span> og en <em>lineær</em> sammenheng</p>
-<p><span class="math display">\[ y = \beta_0+ \beta_1 x + \epsilon\]</span></p>
-<ul>
-<li><span class="math inline">\(\beta_1 &gt; 0\)</span>: positiv sammenheng mellom <span class="math inline">\(x\)</span> og <span class="math inline">\(y\)</span></li>
-<li><span class="math inline">\(\beta_1 &lt; 0\)</span>: negativ sammenheng mellom <span class="math inline">\(x\)</span> og <span class="math inline">\(y\)</span></li>
-<li><span class="math inline">\(\beta_1 = 0\)</span>: ingen sammenheng mellom <span class="math inline">\(x\)</span> og <span class="math inline">\(y\)</span></li>
-</ul>
+</div>
+</div>
+<p>En time ekstra daglig mobilbruk gir en forventet nedgang i trivsel på 0.81</p>
 </section>
-<section id="antagelse-1-i-lineær-regresjon-linearitet" class="slide level2">
-<h2>Antagelse 1 i lineær regresjon: Linearitet</h2>
+<section id="sammenheng-trivsel-og-telefonbruk-i-et-tilfeldig-utvalg-av-400-15-åringer" class="slide level2">
+<h2>Sammenheng trivsel og telefonbruk i et tilfeldig utvalg av 400 15-åringer</h2>
+
+<img data-src="slides2_files/figure-revealjs/unnamed-chunk-7-1.png" width="960" class="r-stretch"></section>
+<section id="regresjon-i-utvalget" class="slide level2">
+<h2>Regresjon i utvalget</h2>
+<div class="cell">
+<div class="cell-output-display">
+<table data-quarto-postprocess="true">
+<thead>
+<tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th">term</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">estimate</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">std.error</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">statistic</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">p.value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">(Intercept)</td>
+<td style="text-align: right;">50.89</td>
+<td style="text-align: right;">1.09</td>
+<td style="text-align: right;">46.55</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">tothours</td>
+<td style="text-align: right;">-0.93</td>
+<td style="text-align: right;">0.23</td>
+<td style="text-align: right;">-4.01</td>
+<td style="text-align: right;">0</td>
+</tr>
+</tbody>
+</table>
+
+
+</div>
+</div>
+<p>Ganske likt populasjonsverdiene! Vi har linearitet.</p>
 </section>
-<section id="hva-er-sammenheng-mellom-trivsel-og-antall-timer-på-mobiltelefon" class="slide level2">
-<h2>Hva er sammenheng mellom trivsel og antall timer på mobiltelefon?</h2>
-<p>dfdf</p>
+<section id="homoskedastiske-feilledd" class="slide level2">
+<h2>Homoskedastiske feilledd?</h2>
+
+<img data-src="slides2_files/figure-revealjs/unnamed-chunk-9-1.png" width="960" class="r-stretch"><p>Her har vi tilnærmet homoskedastisitet!</p>
 </section>
-<section id="mobilbruk-og-well" class="slide level2">
-<h2>Mobilbruk og well</h2>
-</section></section>
+<section id="husk-at-estimatene-er-usikre" class="slide level2">
+<h2>Husk at estimatene er usikre!</h2>
+<p>Her er fire andre utvalg av størrelse <span class="math inline">\(n=400\)</span>. Vi ser at intercept og slope varierer endel!</p>
+
+<img data-src="slides2_files/figure-revealjs/unnamed-chunk-10-1.png" width="960" class="r-stretch"></section></section>
+<section>
 <section id="multippel-regresjon" class="title-slide slide level1 center">
 <h1>Multippel regresjon</h1>
 
 </section>
+<section id="multippel-regresjon-1" class="slide level2">
+<h2>Multippel regresjon</h2>
+<p>En enkel uvidelse av enkel regresjon, der vi har flere <em>uavhengige</em> variable</p>
+<p><span class="math display">\[ y = \beta_0+ \beta_1 x_1 +  \beta_2 x_2+ \beta_3 x_3+ \epsilon\]</span> Her har vi TRE forklaringsvariabler <span class="math inline">\(x_1,x_2, x_3\)</span> som forklarer hvorfor <span class="math inline">\(y\)</span> varierer!</p>
+</section>
+<section id="ceteris-paribus" class="slide level2">
+<h2>Ceteris paribus</h2>
+<p>Ceteris paribus [keːˈtɛ.riːsˈpa.rɪ.bʊs] latinsk for “alt annet likt”</p>
+<p>I multippel regresjon får vi effekten av en variabel på <span class="math inline">\(y\)</span>, “alt annet likt”. Vi <em>kontrollerer</em> for de andre variablene!</p>
+<p>For eksempel: <span class="math display">\[ y = 1+ 2 \cdot x_1 - x_2+ 0.5 \cdot x_3+ \epsilon\]</span> Når <span class="math inline">\(x_1\)</span> øker med 1 enhet, så øker <span class="math inline">\(y\)</span> med 2 enheter, <em>alt annet likt</em>. Dvs at vi holder <span class="math inline">\(x_2\)</span> og <span class="math inline">\(x_3\)</span> fast, og får isolert sammenhengen mellom <span class="math inline">\(x_1\)</span> og <span class="math inline">\(y\)</span>.</p>
+</section>
+<section id="eksempel-effekt-av-telefonbruk-på-well-being-kontrollert-for-kjønn" class="slide level2">
+<h2>Eksempel: Effekt av telefonbruk på Well-being, kontrollert for kjønn</h2>
+<p>Gutter har høyere trivsel (6.5 poeng) og lavere mobilforbruk:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a>utvalg <span class="sc">%&gt;%</span> <span class="fu">group_by</span>(male) <span class="sc">%&gt;%</span></span>
+<span id="cb8-2"><a href="#cb8-2"></a>  <span class="fu">summarise</span>(<span class="at">wbsnitt=</span><span class="fu">mean</span>(tot_wellbeing),</span>
+<span id="cb8-3"><a href="#cb8-3"></a>            <span class="at">tothoursnitt=</span><span class="fu">mean</span>(tothours))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
 
+<div data-pagedtable="false">
+  <script data-pagedtable-source="" type="application/json">
+{"columns":[{"label":["male"],"name":[1],"type":["fct"],"align":["left"]},{"label":["wbsnitt"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["tothoursnitt"],"name":[3],"type":["dbl"],"align":["right"]}],"data":[{"1":"0","2":"44.45817","3":"4.520916"},{"1":"1","2":"50.95973","3":"3.894295"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+</div>
+</div>
+<p>Vi tar med kjønn som forklaringsvariabel. Dette er en kategorisk variabel, vi koder den med en <em>dummy</em> variabel: male=0 betyr jente, male=1 betyr gutt.</p>
+</section>
+<section id="kategoriske-variabler-og-dummy-koding" class="slide level2">
+<h2>Kategoriske variabler og dummy-koding</h2>
+<p>kategoriske variabler kan kodes med dummyvariabler i regresjon. Dersom vi har <span class="math inline">\(K\)</span> kategorier, trenger vi <span class="math inline">\(K-1\)</span> dummy variabler:</p>
+<ul>
+<li>Kjønn: <span class="math inline">\(K=2\)</span>. Vi har <span class="math inline">\(K-1=2-1=1\)</span> dummy variabel.</li>
+<li>USA politisk tilørighet: Dem, Rep, Ind: <span class="math inline">\(K=3\)</span>. Vi har <span class="math inline">\(K-1=2-1=2\)</span> dummy variabler. For eksempel kan vi har <span class="math inline">\(R=1\)</span> hvis republikaner, og <span class="math inline">\(D=1\)</span> hvis demokrat. Vi trenger ikke <span class="math inline">\(Ind\)</span>, siden dersom <span class="math inline">\(R=0\)</span> og <span class="math inline">\(D=0\)</span> så vet vi at det er en independent velger.</li>
+</ul>
+</section>
+<section id="multippel-regresjon-i-r" class="slide level2">
+<h2>Multippel regresjon i R</h2>
+<p><span class="math display">\[ \text{tot_wellbeing} = \beta_0+ \beta_1 \cdot \text{tothours}+ \beta_2 \cdot \text{male}+\epsilon\]</span></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a>multmodel <span class="ot">&lt;-</span> <span class="fu">lm</span>(tot_wellbeing<span class="sc">~</span> tothours<span class="sc">+</span>male, <span class="at">data=</span>utvalg)</span>
+<span id="cb9-2"><a href="#cb9-2"></a>multmodel <span class="sc">%&gt;%</span> <span class="fu">tidy</span>() <span class="sc">%&gt;%</span> <span class="fu">kable</span>(<span class="at">digits=</span><span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<table data-quarto-postprocess="true">
+<thead>
+<tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th">term</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">estimate</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">std.error</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">statistic</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">p.value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">(Intercept)</td>
+<td style="text-align: right;">47.57</td>
+<td style="text-align: right;">1.14</td>
+<td style="text-align: right;">41.74</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">tothours</td>
+<td style="text-align: right;">-0.69</td>
+<td style="text-align: right;">0.22</td>
+<td style="text-align: right;">-3.08</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">male1</td>
+<td style="text-align: right;">6.07</td>
+<td style="text-align: right;">0.88</td>
+<td style="text-align: right;">6.92</td>
+<td style="text-align: right;">0</td>
+</tr>
+</tbody>
+</table>
+
+
+</div>
+</div>
+</section>
+<section id="telefonbruk-kjønn-og-well-being" class="slide level2">
+<h2>Telefonbruk, kjønn og well-being</h2>
+<div class="cell">
+<div class="cell-output-display">
+<table data-quarto-postprocess="true">
+<thead>
+<tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th">term</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">estimate</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">std.error</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">statistic</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">p.value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">(Intercept)</td>
+<td style="text-align: right;">47.57</td>
+<td style="text-align: right;">1.14</td>
+<td style="text-align: right;">41.74</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">tothours</td>
+<td style="text-align: right;">-0.69</td>
+<td style="text-align: right;">0.22</td>
+<td style="text-align: right;">-3.08</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">male1</td>
+<td style="text-align: right;">6.07</td>
+<td style="text-align: right;">0.88</td>
+<td style="text-align: right;">6.92</td>
+<td style="text-align: right;">0</td>
+</tr>
+</tbody>
+</table>
+
+
+</div>
+</div>
+<p>Effekten av telefonbruk er litt mindre når vi kontrollerer for kjønn (-0.934 <span class="math inline">\(\rightarrow\)</span> -0.688 )</p>
+<p>Og effekt av kjønn på trivsel, <em>når vi kontrollerer for telefonbruk</em>, er lavere nå, 6.07. Så noe av den observerte trivselforskjellen på 6.5 kan forklares ved at guttene er mindre på mobil, og at mobil ikke er bra for wellbeing!</p>
+</section></section>
+<section>
 <section id="anova" class="title-slide slide level1 center">
 <h1>ANOVA</h1>
+
+</section>
+<section id="anova-analysis-of-variance" class="slide level2">
+<h2>ANOVA analysis of variance</h2>
+<p>I intro statistikk så lærer man anova. - Du har flere grupper i populasjonen - Du lurer på om <span class="math inline">\(y\)</span> har samme gjennomsnitt i alle gruppene - <span class="math inline">\(H_0:\mu_1=\mu_2=\cdots=\mu_g\)</span> - Alternativhypotesen er at gruppegjennomsnittene ikke alle er like!</p>
+</section>
+<section id="eksempel" class="slide level2">
+<h2>Eksempel</h2>
+<p>Vi antar at i utvalget var det 4 skoler. Vi ønsker å teste om well-being er den samme på alle skolene:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a><span class="fu">aov</span>(tot_wellbeing<span class="sc">~</span> school, utvalg) <span class="sc">%&gt;%</span> <span class="fu">tidy</span>() <span class="sc">%&gt;%</span> <span class="fu">kable</span>(<span class="at">digits=</span><span class="dv">2</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<table data-quarto-postprocess="true">
+<thead>
+<tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th">term</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">df</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">sumsq</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">meansq</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">statistic</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">p.value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">school</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">92.19</td>
+<td style="text-align: right;">30.73</td>
+<td style="text-align: right;">0.38</td>
+<td style="text-align: right;">0.77</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Residuals</td>
+<td style="text-align: right;">396</td>
+<td style="text-align: right;">32388.05</td>
+<td style="text-align: right;">81.79</td>
+<td style="text-align: right;">NA</td>
+<td style="text-align: right;">NA</td>
+</tr>
+</tbody>
+</table>
+
+
+</div>
+</div>
+<p>Vi har ikke støtte for å hevde at det er forskjell i well-being mellom de 4 skolene (p-verdi=.77 vi beholder <span class="math inline">\(H_0\)</span>)</p>
 
 <div class="footer footer-default">
 
 </div>
-</section>
+</section></section>
     </div>
   </div>
 
