@@ -12,6 +12,8 @@ knitr::opts_chunk$set(echo = TRUE)
 ```
 
 
+## Pakker vi trenger å loade
+
 ```{r}
 library(tidyverse)
 library(kableExtra)
