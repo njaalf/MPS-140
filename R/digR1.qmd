@@ -1,0 +1,88 @@
+---
+title: "R for digital samling 1"
+author: "n foldnes"
+format: revealjs
+editor: visual
+---
+
+```{r, echo=F, message=F, warning=FALSE}
+knitr::opts_chunk$set(message = FALSE)
+knitr::opts_chunk$set(warning = FALSE)
+```
+
+# Forelesningen
+
+
+# Quiz
+
+
+```{r}
+set.seed(1)
+n <- 6
+motivasjon <- sample(1:10, 6, replace=T)
+oppmøte <- motivasjon + sample(1:4, 6, replace=T)
+eksamensscore <- motivasjon + 0.5 * oppmøte %>% round()
+motivasjon.df <- data.frame(motivasjon, oppmøte, eksamensscore)
+```
+
+## Oppgave 13
+
+```{r, echo=T}
+alder <- c(20, 20, 19, 23, 29, 27, 25, 21)#legge inn i vektor
+sd(alder)
+```
+
+## Oppgave 24
+
+```{r, echo=T}
+timer <- c(23, 55, 60, 70, 65 , 60)
+sd(timer)
+```
+
+## Oppgave 27
+
+```{r, echo=T}
+prop.test(x=26, n=240)
+```
+
+## Oppgave 28
+
+```{r, echo=T}
+prop.test(x=28, n=56, conf.level=.9)#stemmer!
+```
+
+## Oppgave 30
+
+```{r}
+alder <-  c(30, 44, 34, 41, 59, 35)
+t.test(alder)
+```
+
+## Oppgave 31
+
+```{r, echo=T}
+pinge <- read.csv("agePingelab.csv")
+alder <- pinge[, 1]# bare en søyle, vi velger denne. 
+mean(alder)
+```
+
+## Oppgave 32
+
+```{r, echo=T}
+t.test(alder)
+```
+
+## Oppgave 42
+
+```{r, echo=T}
+oppmøte <- c( 2 , 15 , 8 , 14, 8 , 12 , 13 , 2 , 5, 4 )
+poeng <- c( 13 , 26, 20 ,27, 16, 24 , 20, 11 , 16, 20)
+plot(oppmøte, poeng)
+```
+
+## Oppgave 44
+
+```{r, echo=T}
+reg <- lm(oppmøte~ poeng)
+summary(reg)
+```
