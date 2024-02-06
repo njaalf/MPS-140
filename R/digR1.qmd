@@ -5,83 +5,155 @@ format: revealjs
 editor: visual
 ---
 
-```{r, echo=F, message=F, warning=FALSE}
+```{r,  message=F, warning=FALSE}
 knitr::opts_chunk$set(message = FALSE)
 knitr::opts_chunk$set(warning = FALSE)
-library(tidyverse)
+knitr::opts_chunk$set(echo = TRUE)
 ```
+
+
+```{r}
+library(tidyverse)
+library(kableExtra)
+library(broom)
+```
+
 
 # Forelesningen
 
-# Quiz
+## Lekeeksempel
+```{r, echo=T}
+x <- c(-5, 10, 15, 31, 42)
+y <- c(3,3,0,1, -1)
+model <- lm(y~x)
+qplot(x,y)+geom_smooth(method="lm", se=F)
+```
+## Lekeeksempel
+```{r}
+summary(model)
+```
+
+## Predikere ny verdi for $x=20$
 
 ```{r}
-set.seed(1)
-n <- 6
-motivasjon <- sample(1:10, 6, replace=T)
-oppmøte <- motivasjon + sample(1:4, 6, replace=T)
-eksamensscore <- motivasjon + 0.5 * oppmøte %>% round()
-motivasjon.df <- data.frame(motivasjon, oppmøte, eksamensscore)
+yhat <- predict(model, newdata=data.frame(x=20))
+yhat
+qplot(x,y, size=3)+geom_smooth(method="lm", se=F)+geom_point(aes(x=20, y=yhat),size=5, color="red")
 ```
 
-## Oppgave 13
 
+## Trivsel og well-being populasjon
+Last ned datasettene først! Se Data til venstre i margen 
+```{r}
+populasjon <- readRDS("../data/smartphone_wellbeing.rds")#du må endre på adressen selv. Avhenger av hvilken folder du la dataene i
+hist(populasjon$tot_wellbeing)
+hist(populasjon$tothours)
+```
+
+## Regresjonen i populasjonen
+```{r}
+popmodel <- lm(tot_wellbeing~ tothours, data=populasjon)
+popmodel %>% tidy() %>% kable(digits=2)
+```
+
+## Regresjon i utvalget (last ned først)
+```{r}
+utvalg <- readRDS("../data/goldilocksutvalg.rds")
+ggplot(utvalg, aes(tothours, tot_wellbeing))+geom_jitter(height=0) +geom_smooth(method="lm", se=F)+xlab("Antall timer daglig")+ylab("Total trivsel")
+```
+
+## Regresjon i utvalget
+```{r}
+model <- lm(tot_wellbeing~ tothours, data=utvalg)
+model %>% tidy() %>% kable(digits=2)
+```
+
+
+## Multippel regresjon i R
+
+$$ \text{tot_wellbeing} = \beta_0+ \beta_1 \cdot \text{tothours}+ \beta_2 \cdot \text{male}+\epsilon$$
 ```{r, echo=T}
-alder <- c(20, 20, 19, 23, 29, 27, 25, 21)#legge inn i vektor
-sd(alder)
+multmodel <- lm(tot_wellbeing~ tothours+male, data=utvalg)
+multmodel %>% tidy() %>% kable(digits=2)
 ```
 
-## Oppgave 24
-
+## ANOVA
 ```{r, echo=T}
-timer <- c(23, 55, 60, 70, 65 , 60)
-sd(timer)
+aov(tot_wellbeing~ school, utvalg) %>% tidy() %>% kable(digits=2) 
 ```
 
-## Oppgave 27
 
-```{r, echo=T}
-prop.test(x=26, n=240)
+# QUIZ
+
+
+## Oppg 2
+```{r}
+motivasjon <- c(9, 4, 7, 1, 2, 7)
+oppmøte <- c(12,6, 9, 4, 5, 8)
+plot(motivasjon , oppmøte)
 ```
 
-## Oppgave 28
-
-```{r, echo=T}
-prop.test(x=28, n=56, conf.level=.9)#stemmer!
+## Oppg 3
+```{r}
+sd(oppmøte)
 ```
 
-## Oppgave 30
+## Oppg 4
+```{r}
+mymodel <- lm(oppmøte~motivasjon)
+mymodel
+qplot(motivasjon, oppmøte)+geom_smooth(method="lm")
+
+```
+
+## Oppg 6 og 7
+```{r}
+summary(mymodel)
+```
+
+ID1 har residual 1.0667.
+
+Adjusted R-squared:  0.9183: 92% av variasjon i oppmøte forklare vha av varierende motivasjon. 8% av variasjonen skyldes andre faktorer enn motivasjon
+
+## Oppg 8
 
 ```{r}
-alder <-  c(30, 44, 34, 41, 59, 35)
-t.test(alder)
+MinstTo <- c(1, 0, 1, 0, 0, 1)# 1=MinstTO
+mymodel <- lm(motivasjon~MinstTo)
+mymodel# Vi forventer at MinstTo gir et motivasjon som er 5.33 høyere enn når MinstTO=0
 ```
 
-## Oppgave 31
+## Oppg 9
+```{r}
+eksamensscore <- c(15, 7, 12.5, 3, 4.5, 11)
+mymodel <- lm(eksamensscore~oppmøte)
+mymodel# effekt av oppmøte: Ett ekstra oppmøte gir en forventa økning i eksamensscore på 1.577
+```
+ 
+## Oppg 10
 
-```{r, echo=T}
-pinge <- read.csv("agePingelab.csv")
-alder <- pinge[, 1]# bare en søyle, vi velger denne. 
-mean(alder)
+```{r}
+predict(mymodel, newdata=data.frame(oppmøte=5))
 ```
 
-## Oppgave 32
 
-```{r, echo=T}
-t.test(alder)
+## Oppg 12
+
+```{r}
+mymodel <- lm(eksamensscore ~ oppmøte + motivasjon)
+summary(mymodel)
 ```
 
-## Oppgave 42
+## Oppg 13
+Ett ekstra oppmøte gir 0.45 ekstra poeng på eksamen, gitt at vi kontrollerer for motivasjon
 
-```{r, echo=T}
-oppmøte <- c( 2 , 15 , 8 , 14, 8 , 12 , 13 , 2 , 5, 4 )
-poeng <- c( 13 , 26, 20 ,27, 16, 24 , 20, 11 , 16, 20)
-plot(oppmøte, poeng)
-```
+## Oppg 14
 
-## Oppgave 44
+Ett ekstra poeng i motivasjon gir en forventet økning i eksamensscore på 1.08
 
-```{r, echo=T}
-reg <- lm(oppmøte~ poeng)
-summary(reg)
-```
+## Oppg 15
+99\%
+
+  
+
+
