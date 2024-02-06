@@ -11,7 +11,7 @@
   <meta name="generator" content="quarto-1.3.450">
 
   <meta name="author" content="n foldnes">
-  <title>MPS 140 - R for samling 1</title>
+  <title>MPS 140 - R for digital samling 1</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -390,7 +390,7 @@
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">R for samling 1</h1>
+  <h1 class="title">R for digital samling 1</h1>
 
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
@@ -401,262 +401,405 @@ n foldnes
 </div>
 
 </section>
+<section class="slide level2">
+
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-2"><a href="#cb1-2"></a><span class="fu">library</span>(kableExtra)</span>
+<span id="cb1-3"><a href="#cb1-3"></a><span class="fu">library</span>(broom)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
 <section>
 <section id="forelesningen" class="title-slide slide level1 center">
 <h1>Forelesningen</h1>
 
 </section>
-<section id="housing-dataene" class="slide level2">
-<h2>Housing dataene</h2>
-<p>Vi må installere noen pakker og da får vi Housing datafilen gjennom pakken Ecdat.</p>
+<section id="lekeeksempel" class="slide level2">
+<h2>Lekeeksempel</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="fu">library</span>(Ecdat)</span>
-<span id="cb1-2"><a href="#cb1-2"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb1-3"><a href="#cb1-3"></a>Housing <span class="ot">&lt;-</span> Housing[, <span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>, <span class="dv">10</span>, <span class="dv">11</span><span class="sc">:</span><span class="dv">12</span>)]<span class="co"># her velger vi ut søylene 1,2,3,10,11,12</span></span>
-<span id="cb1-4"><a href="#cb1-4"></a><span class="co">#View(Housing) kikker litt på dataene</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</section>
-<section id="histogram-for-pris" class="slide level2">
-<h2>Histogram for pris</h2>
-<p>Enten bruker vi base R eller den mer kraftige pakken ggplot som vi fikk via tidyverse.</p>
-<div class="cell">
-<div class="cell-output-display">
-<p><img data-src="R1_files/figure-revealjs/unnamed-chunk-3-1.png" width="960"></p>
-</div>
-<div class="cell-output-display">
-<p><img data-src="R1_files/figure-revealjs/unnamed-chunk-3-2.png" width="960"></p>
-</div>
-</div>
-</section>
-<section id="stolpediagram-for-preferred-area" class="slide level2">
-<h2>Stolpediagram for preferred area</h2>
-<p>Stolpediagram for preferred area:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a><span class="co">#ggplot</span></span>
-<span id="cb2-2"><a href="#cb2-2"></a><span class="fu">ggplot</span>(Housing, <span class="fu">aes</span>(prefarea))<span class="sc">+</span><span class="fu">geom_bar</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">5</span>, <span class="dv">10</span>, <span class="dv">15</span>, <span class="dv">31</span>, <span class="dv">42</span>)</span>
+<span id="cb2-2"><a href="#cb2-2"></a>y <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">0</span>,<span class="dv">1</span>, <span class="sc">-</span><span class="dv">1</span>)</span>
+<span id="cb2-3"><a href="#cb2-3"></a>model <span class="ot">&lt;-</span> <span class="fu">lm</span>(y<span class="sc">~</span>x)</span>
+<span id="cb2-4"><a href="#cb2-4"></a><span class="fu">qplot</span>(x,y)<span class="sc">+</span><span class="fu">geom_smooth</span>(<span class="at">method=</span><span class="st">"lm"</span>, <span class="at">se=</span>F)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
-<img data-src="R1_files/figure-revealjs/unnamed-chunk-4-1.png" width="960" class="r-stretch"></section>
-<section id="separere-på-preferreed-area-og-se-på-fordelingene" class="slide level2">
-<h2>Separere på preferreed area og se på fordelingene</h2>
+<img data-src="digR1_files/figure-revealjs/unnamed-chunk-3-1.png" width="960" class="r-stretch"></section>
+<section id="lekeeksempel-1" class="slide level2">
+<h2>Lekeeksempel</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a><span class="fu">ggplot</span>(Housing, <span class="fu">aes</span>(price, <span class="at">color=</span>prefarea))<span class="sc">+</span><span class="fu">geom_density</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-
-</div>
-<img data-src="R1_files/figure-revealjs/unnamed-chunk-5-1.png" width="960" class="r-stretch"></section></section>
-<section>
-<section id="alder" class="title-slide slide level1 center">
-<h1>Alder</h1>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a>age <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">16</span>, <span class="dv">56</span>, <span class="dv">58</span>, <span class="dv">67</span>, <span class="dv">62</span>,<span class="dv">69</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</section>
-<section id="krysstabell" class="slide level2">
-<h2>KRYSSTABELL</h2>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a><span class="fu">table</span>(Housing<span class="sc">$</span>airc, Housing<span class="sc">$</span>prefarea)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>     
-       no yes
-  no  298  75
-  yes 120  53</code></pre>
-</div>
-</div>
-</section>
-<section id="spredningsdiagram" class="slide level2">
-<h2>spredningsdiagram</h2>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a><span class="fu">ggplot</span>(Housing, <span class="fu">aes</span>(lotsize,price))<span class="sc">+</span><span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-
-</div>
-<img data-src="R1_files/figure-revealjs/unnamed-chunk-8-1.png" width="960" class="r-stretch"></section>
-<section id="korrelasjon" class="slide level2">
-<h2>Korrelasjon</h2>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">5</span> , <span class="dv">10</span> , <span class="dv">15</span> , <span class="dv">31</span> , <span class="dv">42</span>)</span>
-<span id="cb8-2"><a href="#cb8-2"></a>y <span class="ot">&lt;-</span> <span class="fu">c</span>( <span class="dv">3</span> , <span class="dv">3</span> , <span class="dv">0</span> , <span class="dv">1</span> , <span class="sc">-</span><span class="dv">1</span>)</span>
-<span id="cb8-3"><a href="#cb8-3"></a><span class="fu">cor</span>(x, y)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] -0.82</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a><span class="co">#base R</span></span>
-<span id="cb10-2"><a href="#cb10-2"></a><span class="fu">plot</span>(x,y)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<p><img data-src="R1_files/figure-revealjs/unnamed-chunk-9-1.png" width="960"></p>
-</div>
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1"></a><span class="co">#ggplot</span></span>
-<span id="cb11-2"><a href="#cb11-2"></a><span class="fu">ggplot</span>(<span class="fu">data.frame</span>(x,y), <span class="fu">aes</span>(x,y))<span class="sc">+</span><span class="fu">geom_point</span>(<span class="at">size=</span><span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<p><img data-src="R1_files/figure-revealjs/unnamed-chunk-9-2.png" width="960"></p>
-</div>
-</div>
-</section>
-<section id="cornflakes" class="slide level2">
-<h2>Cornflakes</h2>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1"></a>vekt <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">502</span>, <span class="dv">498</span>, <span class="dv">479</span>, <span class="dv">492</span>, <span class="dv">488</span>, <span class="dv">494</span>, <span class="dv">494</span>)</span>
-<span id="cb12-2"><a href="#cb12-2"></a><span class="fu">t.test</span>(vekt, <span class="at">mu=</span><span class="dv">500</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a><span class="fu">summary</span>(model)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
-    One Sample t-test
+Call:
+lm(formula = y ~ x)
 
-data:  vekt
-t = -2.7105, df = 6, p-value = 0.03508
-alternative hypothesis: true mean is not equal to 500
-95 percent confidence interval:
- 485.5935 499.2636
-sample estimates:
-mean of x 
- 492.4286 </code></pre>
+Residuals:
+       1        2        3        4        5 
+-0.08772  1.11210 -1.48796  0.79185 -0.32828 
+
+Coefficients:
+            Estimate Std. Error t value Pr(&gt;|t|)  
+(Intercept)  2.68778    0.79939   3.362   0.0437 *
+x           -0.07999    0.03223  -2.481   0.0892 .
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 1.182 on 3 degrees of freedom
+Multiple R-squared:  0.6724,    Adjusted R-squared:  0.5632 
+F-statistic: 6.158 on 1 and 3 DF,  p-value: 0.08916</code></pre>
+</div>
+</div>
+</section>
+<section id="predikere-ny-verdi-for-x20" class="slide level2">
+<h2>Predikere ny verdi for <span class="math inline">\(x=20\)</span></h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a>yhat <span class="ot">&lt;-</span> <span class="fu">predict</span>(model, <span class="at">newdata=</span><span class="fu">data.frame</span>(<span class="at">x=</span><span class="dv">20</span>))</span>
+<span id="cb5-2"><a href="#cb5-2"></a>yhat</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>       1 
+1.088017 </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a><span class="fu">qplot</span>(x,y, <span class="at">size=</span><span class="dv">3</span>)<span class="sc">+</span><span class="fu">geom_smooth</span>(<span class="at">method=</span><span class="st">"lm"</span>, <span class="at">se=</span>F)<span class="sc">+</span><span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">x=</span><span class="dv">20</span>, <span class="at">y=</span>yhat),<span class="at">size=</span><span class="dv">5</span>, <span class="at">color=</span><span class="st">"red"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+
+</div>
+<img data-src="digR1_files/figure-revealjs/unnamed-chunk-5-1.png" width="960" class="r-stretch"></section>
+<section id="trivsel-og-well-being-populasjon" class="slide level2">
+<h2>Trivsel og well-being populasjon</h2>
+<p>Last ned datasettene først! Se Data til venstre i margen</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a>populasjon <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">"../data/smartphone_wellbeing.rds"</span>)<span class="co">#du må endre på adressen selv. Avhenger av hvilken folder du la dataene i</span></span>
+<span id="cb8-2"><a href="#cb8-2"></a><span class="fu">hist</span>(populasjon<span class="sc">$</span>tot_wellbeing)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img data-src="digR1_files/figure-revealjs/unnamed-chunk-6-1.png" width="960"></p>
+</div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a><span class="fu">hist</span>(populasjon<span class="sc">$</span>tothours)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img data-src="digR1_files/figure-revealjs/unnamed-chunk-6-2.png" width="960"></p>
+</div>
+</div>
+</section>
+<section id="regresjonen-i-populasjonen" class="slide level2">
+<h2>Regresjonen i populasjonen</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a>popmodel <span class="ot">&lt;-</span> <span class="fu">lm</span>(tot_wellbeing<span class="sc">~</span> tothours, <span class="at">data=</span>populasjon)</span>
+<span id="cb10-2"><a href="#cb10-2"></a>popmodel <span class="sc">%&gt;%</span> <span class="fu">tidy</span>() <span class="sc">%&gt;%</span> <span class="fu">kable</span>(<span class="at">digits=</span><span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<table data-quarto-postprocess="true">
+<thead>
+<tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th">term</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">estimate</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">std.error</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">statistic</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">p.value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">(Intercept)</td>
+<td style="text-align: right;">50.31</td>
+<td style="text-align: right;">0.09</td>
+<td style="text-align: right;">585.03</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">tothours</td>
+<td style="text-align: right;">-0.81</td>
+<td style="text-align: right;">0.02</td>
+<td style="text-align: right;">-43.99</td>
+<td style="text-align: right;">0</td>
+</tr>
+</tbody>
+</table>
+
+
+</div>
+</div>
+</section>
+<section id="regresjon-i-utvalget-last-ned-først" class="slide level2">
+<h2>Regresjon i utvalget (last ned først)</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1"></a>utvalg <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">"../data/goldilocksutvalg.rds"</span>)</span>
+<span id="cb11-2"><a href="#cb11-2"></a><span class="fu">ggplot</span>(utvalg, <span class="fu">aes</span>(tothours, tot_wellbeing))<span class="sc">+</span><span class="fu">geom_jitter</span>(<span class="at">height=</span><span class="dv">0</span>) <span class="sc">+</span><span class="fu">geom_smooth</span>(<span class="at">method=</span><span class="st">"lm"</span>, <span class="at">se=</span>F)<span class="sc">+</span><span class="fu">xlab</span>(<span class="st">"Antall timer daglig"</span>)<span class="sc">+</span><span class="fu">ylab</span>(<span class="st">"Total trivsel"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+
+</div>
+<img data-src="digR1_files/figure-revealjs/unnamed-chunk-8-1.png" width="960" class="r-stretch"></section>
+<section id="regresjon-i-utvalget" class="slide level2">
+<h2>Regresjon i utvalget</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1"></a>model <span class="ot">&lt;-</span> <span class="fu">lm</span>(tot_wellbeing<span class="sc">~</span> tothours, <span class="at">data=</span>utvalg)</span>
+<span id="cb12-2"><a href="#cb12-2"></a>model <span class="sc">%&gt;%</span> <span class="fu">tidy</span>() <span class="sc">%&gt;%</span> <span class="fu">kable</span>(<span class="at">digits=</span><span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<table data-quarto-postprocess="true">
+<thead>
+<tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th">term</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">estimate</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">std.error</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">statistic</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">p.value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">(Intercept)</td>
+<td style="text-align: right;">50.89</td>
+<td style="text-align: right;">1.09</td>
+<td style="text-align: right;">46.55</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">tothours</td>
+<td style="text-align: right;">-0.93</td>
+<td style="text-align: right;">0.23</td>
+<td style="text-align: right;">-4.01</td>
+<td style="text-align: right;">0</td>
+</tr>
+</tbody>
+</table>
+
+
+</div>
+</div>
+</section>
+<section id="multippel-regresjon-i-r" class="slide level2">
+<h2>Multippel regresjon i R</h2>
+<p><span class="math display">\[ \text{tot_wellbeing} = \beta_0+ \beta_1 \cdot \text{tothours}+ \beta_2 \cdot \text{male}+\epsilon\]</span></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1"></a>multmodel <span class="ot">&lt;-</span> <span class="fu">lm</span>(tot_wellbeing<span class="sc">~</span> tothours<span class="sc">+</span>male, <span class="at">data=</span>utvalg)</span>
+<span id="cb13-2"><a href="#cb13-2"></a>multmodel <span class="sc">%&gt;%</span> <span class="fu">tidy</span>() <span class="sc">%&gt;%</span> <span class="fu">kable</span>(<span class="at">digits=</span><span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<table data-quarto-postprocess="true">
+<thead>
+<tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th">term</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">estimate</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">std.error</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">statistic</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">p.value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">(Intercept)</td>
+<td style="text-align: right;">47.57</td>
+<td style="text-align: right;">1.14</td>
+<td style="text-align: right;">41.74</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">tothours</td>
+<td style="text-align: right;">-0.69</td>
+<td style="text-align: right;">0.22</td>
+<td style="text-align: right;">-3.08</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">male1</td>
+<td style="text-align: right;">6.07</td>
+<td style="text-align: right;">0.88</td>
+<td style="text-align: right;">6.92</td>
+<td style="text-align: right;">0</td>
+</tr>
+</tbody>
+</table>
+
+
+</div>
+</div>
+</section>
+<section id="anova" class="slide level2">
+<h2>ANOVA</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1"></a><span class="fu">aov</span>(tot_wellbeing<span class="sc">~</span> school, utvalg) <span class="sc">%&gt;%</span> <span class="fu">tidy</span>() <span class="sc">%&gt;%</span> <span class="fu">kable</span>(<span class="at">digits=</span><span class="dv">2</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<table data-quarto-postprocess="true">
+<thead>
+<tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th">term</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">df</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">sumsq</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">meansq</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">statistic</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">p.value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">school</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">92.19</td>
+<td style="text-align: right;">30.73</td>
+<td style="text-align: right;">0.38</td>
+<td style="text-align: right;">0.77</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Residuals</td>
+<td style="text-align: right;">396</td>
+<td style="text-align: right;">32388.05</td>
+<td style="text-align: right;">81.79</td>
+<td style="text-align: right;">NA</td>
+<td style="text-align: right;">NA</td>
+</tr>
+</tbody>
+</table>
+
+
 </div>
 </div>
 </section></section>
 <section>
 <section id="quiz" class="title-slide slide level1 center">
-<h1>Quiz</h1>
+<h1>QUIZ</h1>
 
 </section>
-<section id="oppgave-13" class="slide level2">
-<h2>Oppgave 13</h2>
+<section id="oppg-2" class="slide level2">
+<h2>Oppg 2</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1"></a>alder <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">20</span>, <span class="dv">20</span>, <span class="dv">19</span>, <span class="dv">23</span>, <span class="dv">29</span>, <span class="dv">27</span>, <span class="dv">25</span>, <span class="dv">21</span>)<span class="co">#legge inn i vektor</span></span>
-<span id="cb14-2"><a href="#cb14-2"></a><span class="fu">sd</span>(alder)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 3.664502</code></pre>
-</div>
-</div>
-</section>
-<section id="oppgave-24" class="slide level2">
-<h2>Oppgave 24</h2>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1"></a>timer <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">23</span>, <span class="dv">55</span>, <span class="dv">60</span>, <span class="dv">70</span>, <span class="dv">65</span> , <span class="dv">60</span>)</span>
-<span id="cb16-2"><a href="#cb16-2"></a><span class="fu">sd</span>(timer)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 16.71825</code></pre>
-</div>
-</div>
-</section>
-<section id="oppgave-27" class="slide level2">
-<h2>Oppgave 27</h2>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1"></a><span class="fu">prop.test</span>(<span class="at">x=</span><span class="dv">26</span>, <span class="at">n=</span><span class="dv">240</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>
-    1-sample proportions test with continuity correction
-
-data:  26 out of 240, null probability 0.5
-X-squared = 145.7, df = 1, p-value &lt; 2.2e-16
-alternative hypothesis: true p is not equal to 0.5
-95 percent confidence interval:
- 0.0732806 0.1563674
-sample estimates:
-        p 
-0.1083333 </code></pre>
-</div>
-</div>
-</section>
-<section id="oppgave-28" class="slide level2">
-<h2>Oppgave 28</h2>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1"></a><span class="fu">prop.test</span>(<span class="at">x=</span><span class="dv">28</span>, <span class="at">n=</span><span class="dv">56</span>, <span class="at">conf.level=</span>.<span class="dv">9</span>)<span class="co">#stemmer!</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>
-    1-sample proportions test without continuity correction
-
-data:  28 out of 56, null probability 0.5
-X-squared = 0, df = 1, p-value = 1
-alternative hypothesis: true p is not equal to 0.5
-90 percent confidence interval:
- 0.392661 0.607339
-sample estimates:
-  p 
-0.5 </code></pre>
-</div>
-</div>
-</section>
-<section id="oppgave-30" class="slide level2">
-<h2>Oppgave 30</h2>
-<div class="cell">
-<div class="cell-output cell-output-stdout">
-<pre><code>
-    One Sample t-test
-
-data:  alder
-t = 9.5681, df = 5, p-value = 0.0002112
-alternative hypothesis: true mean is not equal to 0
-95 percent confidence interval:
- 29.61922 51.38078
-sample estimates:
-mean of x 
-     40.5 </code></pre>
-</div>
-</div>
-</section>
-<section id="oppgave-31" class="slide level2">
-<h2>Oppgave 31</h2>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1"></a>pinge <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"agePingelab.csv"</span>)</span>
-<span id="cb23-2"><a href="#cb23-2"></a>alder <span class="ot">&lt;-</span> pinge[, <span class="dv">1</span>]<span class="co"># bare en søyle, vi velger denne. </span></span>
-<span id="cb23-3"><a href="#cb23-3"></a><span class="fu">mean</span>(alder)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 41.16667</code></pre>
-</div>
-</div>
-</section>
-<section id="oppgave-32" class="slide level2">
-<h2>Oppgave 32</h2>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1"></a><span class="fu">t.test</span>(alder)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>
-    One Sample t-test
-
-data:  alder
-t = 20.769, df = 59, p-value &lt; 2.2e-16
-alternative hypothesis: true mean is not equal to 0
-95 percent confidence interval:
- 37.20040 45.13293
-sample estimates:
-mean of x 
- 41.16667 </code></pre>
-</div>
-</div>
-</section>
-<section id="oppgave-42" class="slide level2">
-<h2>Oppgave 42</h2>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1"></a>oppmøte <span class="ot">&lt;-</span> <span class="fu">c</span>( <span class="dv">2</span> , <span class="dv">15</span> , <span class="dv">8</span> , <span class="dv">14</span>, <span class="dv">8</span> , <span class="dv">12</span> , <span class="dv">13</span> , <span class="dv">2</span> , <span class="dv">5</span>, <span class="dv">4</span> )</span>
-<span id="cb27-2"><a href="#cb27-2"></a>poeng <span class="ot">&lt;-</span> <span class="fu">c</span>( <span class="dv">13</span> , <span class="dv">26</span>, <span class="dv">20</span> ,<span class="dv">27</span>, <span class="dv">16</span>, <span class="dv">24</span> , <span class="dv">20</span>, <span class="dv">11</span> , <span class="dv">16</span>, <span class="dv">20</span>)</span>
-<span id="cb27-3"><a href="#cb27-3"></a><span class="fu">plot</span>(oppmøte, poeng)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1"></a>motivasjon <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">9</span>, <span class="dv">4</span>, <span class="dv">7</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">7</span>)</span>
+<span id="cb15-2"><a href="#cb15-2"></a>oppmøte <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">12</span>,<span class="dv">6</span>, <span class="dv">9</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">8</span>)</span>
+<span id="cb15-3"><a href="#cb15-3"></a><span class="fu">plot</span>(motivasjon , oppmøte)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
-<img data-src="R1_files/figure-revealjs/unnamed-chunk-18-1.png" width="960" class="r-stretch"></section>
-<section id="oppgave-44" class="slide level2">
-<h2>Oppgave 44</h2>
+<img data-src="digR1_files/figure-revealjs/unnamed-chunk-12-1.png" width="960" class="r-stretch"></section>
+<section id="oppg-3" class="slide level2">
+<h2>Oppg 3</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1"></a>reg <span class="ot">&lt;-</span> <span class="fu">lm</span>(oppmøte<span class="sc">~</span> poeng)</span>
-<span id="cb28-2"><a href="#cb28-2"></a><span class="fu">summary</span>(reg)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1"></a><span class="fu">sd</span>(oppmøte)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 2.94392</code></pre>
+</div>
+</div>
+</section>
+<section id="oppg-4" class="slide level2">
+<h2>Oppg 4</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1"></a>mymodel <span class="ot">&lt;-</span> <span class="fu">lm</span>(oppmøte<span class="sc">~</span>motivasjon)</span>
+<span id="cb18-2"><a href="#cb18-2"></a>mymodel</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Call:
-lm(formula = oppmøte ~ poeng)
-
-Residuals:
-    Min      1Q  Median      3Q     Max 
--4.8698 -0.8058 -0.3470  1.0486  4.1302 
+lm(formula = oppmøte ~ motivasjon)
 
 Coefficients:
-            Estimate Std. Error t value Pr(&gt;|t|)    
-(Intercept)  -7.4107     3.1388  -2.361 0.045887 *  
-poeng         0.8140     0.1573   5.176 0.000847 ***
+(Intercept)   motivasjon  
+      2.833        0.900  </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1"></a><span class="fu">qplot</span>(motivasjon, oppmøte)<span class="sc">+</span><span class="fu">geom_smooth</span>(<span class="at">method=</span><span class="st">"lm"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+
+</div>
+<img data-src="digR1_files/figure-revealjs/unnamed-chunk-14-1.png" width="960" class="r-stretch"></section>
+<section id="oppg-6-og-7" class="slide level2">
+<h2>Oppg 6 og 7</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1"></a><span class="fu">summary</span>(mymodel)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = oppmøte ~ motivasjon)
+
+Residuals:
+      1       2       3       4       5       6 
+ 1.0667 -0.4333 -0.1333  0.2667  0.3667 -1.1333 
+
+Coefficients:
+            Estimate Std. Error t value Pr(&gt;|t|)   
+(Intercept)   2.8333     0.6872   4.123  0.01458 * 
+motivasjon    0.9000     0.1190   7.562  0.00164 **
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
-Residual standard error: 2.527 on 8 degrees of freedom
-Multiple R-squared:   0.77, Adjusted R-squared:  0.7413 
-F-statistic: 26.79 on 1 and 8 DF,  p-value: 0.0008471</code></pre>
+Residual standard error: 0.8416 on 4 degrees of freedom
+Multiple R-squared:  0.9346,    Adjusted R-squared:  0.9183 
+F-statistic: 57.18 on 1 and 4 DF,  p-value: 0.001639</code></pre>
 </div>
 </div>
+<p>ID1 har residual 1.0667.</p>
+<p>Adjusted R-squared: 0.9183: 92% av variasjon i oppmøte forklare vha av varierende motivasjon. 8% av variasjonen skyldes andre faktorer enn motivasjon</p>
+</section>
+<section id="oppg-8" class="slide level2">
+<h2>Oppg 8</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1"></a>MinstTo <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">1</span>)<span class="co"># 1=MinstTO</span></span>
+<span id="cb23-2"><a href="#cb23-2"></a>mymodel <span class="ot">&lt;-</span> <span class="fu">lm</span>(motivasjon<span class="sc">~</span>MinstTo)</span>
+<span id="cb23-3"><a href="#cb23-3"></a>mymodel<span class="co"># Vi forventer at MinstTo gir et motivasjon som er 5.33 høyere enn når MinstTO=0</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = motivasjon ~ MinstTo)
+
+Coefficients:
+(Intercept)      MinstTo  
+      2.333        5.333  </code></pre>
+</div>
+</div>
+</section>
+<section id="oppg-9" class="slide level2">
+<h2>Oppg 9</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1"></a>eksamensscore <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">15</span>, <span class="dv">7</span>, <span class="fl">12.5</span>, <span class="dv">3</span>, <span class="fl">4.5</span>, <span class="dv">11</span>)</span>
+<span id="cb25-2"><a href="#cb25-2"></a>mymodel <span class="ot">&lt;-</span> <span class="fu">lm</span>(eksamensscore<span class="sc">~</span>oppmøte)</span>
+<span id="cb25-3"><a href="#cb25-3"></a>mymodel<span class="co"># effekt av oppmøte: Ett ekstra oppmøte gir en forventa økning i eksamensscore på 1.577</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = eksamensscore ~ oppmøte)
+
+Coefficients:
+(Intercept)      oppmøte  
+     -2.731        1.577  </code></pre>
+</div>
+</div>
+</section>
+<section id="oppg-10" class="slide level2">
+<h2>Oppg 10</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1"></a><span class="fu">predict</span>(mymodel, <span class="at">newdata=</span><span class="fu">data.frame</span>(oppmøte<span class="ot">=</span><span class="dv">5</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>       1 
+5.153846 </code></pre>
+</div>
+</div>
+</section>
+<section id="oppg-12" class="slide level2">
+<h2>Oppg 12</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1"></a>mymodel <span class="ot">&lt;-</span> <span class="fu">lm</span>(eksamensscore <span class="sc">~</span> oppmøte <span class="sc">+</span> motivasjon)</span>
+<span id="cb29-2"><a href="#cb29-2"></a><span class="fu">summary</span>(mymodel)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = eksamensscore ~ oppmøte + motivasjon)
+
+Residuals:
+        1         2         3         4         5         6 
+-0.276471 -0.147059  0.747059  0.005882 -0.029412 -0.300000 
+
+Coefficients:
+            Estimate Std. Error t value Pr(&gt;|t|)  
+(Intercept)   0.1000     0.9336   0.107   0.9215  
+oppmøte       0.4529     0.2965   1.528   0.2240  
+motivasjon    1.0824     0.2760   3.922   0.0295 *
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 0.499 on 3 degrees of freedom
+Multiple R-squared:  0.9933,    Adjusted R-squared:  0.9889 
+F-statistic: 224.1 on 2 and 3 DF,  p-value: 0.0005423</code></pre>
+</div>
+</div>
+</section>
+<section id="oppg-13" class="slide level2">
+<h2>Oppg 13</h2>
+<p>Ett ekstra oppmøte gir 0.45 ekstra poeng på eksamen, gitt at vi kontrollerer for motivasjon</p>
+</section>
+<section id="oppg-14" class="slide level2">
+<h2>Oppg 14</h2>
+<p>Ett ekstra poeng i motivasjon gir en forventet økning i eksamensscore på 1.08</p>
+</section>
+<section id="oppg-15" class="slide level2">
+<h2>Oppg 15</h2>
+<p>99%</p>
 
 <div class="footer footer-default">
 
