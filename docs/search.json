@@ -1,10 +1,374 @@
 [
   {
-    "objectID": "emnebeskrivelse.html",
-    "href": "emnebeskrivelse.html",
-    "title": "Emnebeskrivelse",
+    "objectID": "omeksamen.html",
+    "href": "omeksamen.html",
+    "title": "MPS 140",
     "section": "",
-    "text": "Denne websiden inneholder kursmateriell for statistikkurset i 2-årig psykologi master ved UiS. Emnebeskrivelsen: https://www.uis.no/nb/course/MPS140_1"
+    "text": "5 timer skriftlig eksamen på UiS.\nSe emnebeskrivelsen for detaljer"
+  },
+  {
+    "objectID": "samlinger/samling1.html",
+    "href": "samlinger/samling1.html",
+    "title": "Første samling: Grunnleggende statistikk",
+    "section": "",
+    "text": "Velkommen!\nBLA BLA\nI denne samlingen får vi et overblikk over kurset, og vi frisker opp statistikken fra introkurset. Vi snakker også litt om metodologi i psykologi (kvantitativ vs kvalitativ tilnærming), og vi jobber i grupper.\nI gruppearbeidet vil dere få oppgaver på introkurs i statistikk nivå som er svært viktige å beherske for resten av kurset."
+  },
+  {
+    "objectID": "samlinger/samling1.html#læringsmål",
+    "href": "samlinger/samling1.html#læringsmål",
+    "title": "Første samling: Grunnleggende statistikk",
+    "section": "Læringsmål",
+    "text": "Læringsmål\nEtter denne samlingen har du repetert (eller lært) å:\n\nbeskrive et datasett ved hjelp av nøkkeltall som gjennomsnitt, standardavvik og korrelasjon.\nForklare variablers målenivå\nForstå forskjell på avhengig og uavhengiv variabel\nForstå forskjell på observasjonell og eksperimentell studie\nForstå forskjell på populasjon og utvalg\nKjenne til bekvemmelighetsutvalg, klyngeutvalg og stratifisert utvalg\nForstå konfidensintervall og hypotesetesting\nForklare hva “signifikant” betyr i statistikk\nInstallere R og Rstudio på din laptop"
+  },
+  {
+    "objectID": "samlinger/samling2.html",
+    "href": "samlinger/samling2.html",
+    "title": "Digital samling - 6 feb",
+    "section": "",
+    "text": "Important\n\n\n\n\nDigital samling på Teams.\nLæringsmål:"
+  },
+  {
+    "objectID": "samlinger/samling2.html#forbered-deg-til-6-feb",
+    "href": "samlinger/samling2.html#forbered-deg-til-6-feb",
+    "title": "Digital samling - 6 feb",
+    "section": "Forbered deg til 6 feb!",
+    "text": "Forbered deg til 6 feb!\n\n📖 Repeter stoffet i kapittel 22 om enkel regresjon i Statistikk og Dataanalyse\nLes og reflekter rundt de to første sidene i artikkelen Orben 2019\nKjør dette og prøv å forstå hvordan det skal tolkes ift neuroticism (epiNeur) og bdi (becks depression inventory)\n\n\n# last ned et datasett med Eysenck personality og Big Five \ndatafilename=\"https://personality-project.org/r/datasets/maps.mixx.epi.bfi.data\"  \npersonality.data =read.delim(url(datafilename))\nhead(personality.data)     #kikke på de første radene\n\n  epiE epiS epiImp epilie epiNeur bfagree bfcon bfext bfneur bfopen bdi\n1   18   10      7      3       9     138    96   141     51    138   1\n2   16    8      5      1      12     101    99   107    116    132   7\n3    6    1      3      2       5     143   118    38     68     90   4\n4   12    6      4      3      15     104   106    64    114    101   8\n5   14    6      5      3       2     115   102   103     86    118   8\n6    6    4      2      5      15     110   113    61     54    149   5\n  traitanx stateanx\n1       24       22\n2       41       40\n3       37       44\n4       54       40\n5       39       67\n6       51       38\n\nplot(personality.data$epiNeur,personality.data$bdi)# spredningsplott viser korrelasjon.. \n\n\n\nmodel1 = lm(bdi~epiNeur,data=personality.data)  #enkel regresjon: beck depression forklares av neuroticism (1 av big five)\nsummary(model1)   # basic statistical summary\n\n\nCall:\nlm(formula = bdi ~ epiNeur, data = personality.data)\n\nResiduals:\n     Min       1Q   Median       3Q      Max \n-11.9548  -3.1577  -0.7707   2.0452  16.4092 \n\nCoefficients:\n            Estimate Std. Error t value Pr(&gt;|t|)    \n(Intercept) -0.32129    0.73070   -0.44    0.661    \nepiNeur      0.68200    0.06353   10.74   &lt;2e-16 ***\n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nResidual standard error: 4.721 on 229 degrees of freedom\nMultiple R-squared:  0.3348,    Adjusted R-squared:  0.3319 \nF-statistic: 115.3 on 1 and 229 DF,  p-value: &lt; 2.2e-16"
+  },
+  {
+    "objectID": "samlinger/samling3.html",
+    "href": "samlinger/samling3.html",
+    "title": "Fysisk samling - 5 mars",
+    "section": "",
+    "text": "Læringsmål:"
+  },
+  {
+    "objectID": "samlinger/samling3.html#forberedelser",
+    "href": "samlinger/samling3.html#forberedelser",
+    "title": "Fysisk samling - 5 mars",
+    "section": "Forberedelser",
+    "text": "Forberedelser\n\n📖 Repeter stoffet i kapittel 22 om enkel regresjon i Statistikk og Dataanalyse. Vi skal også repetere p-verdi og konfidensintervall.\nSjekk ut videoer om reliabilitet og validitet på youtube. For eksempel er det en serie med tre videoer her: Reliabilitet og validitet\nLes om hvordan vi måler jobb-stress i artikkelen Sevic 2024 2019\nLast ned pakkene psych i R som kan regne ut reliabilitet, for eksempel Cronbach’s \\(\\alpha\\). Når du laster psych pakken inn i R sesjonen så får du tilgang til et datasett bfi som har 25 personlighet items. De fem første er “Agreeableness”, osv.\n\nLa oss prøve dette på bfi datasettet (becks depression inventory)\n\n# last ned et datasett med Eysenck personality og Big Five \n     #kikke på de første radene\nlibrary(psych)#loade psych pakken\n\n#definere constructene i bfi datasettet\n#legg merke til at feks A1 item \"Am indifferent to the feelings of others\"\n# har feil retning og må snus med et minustegn:\nkeys.list &lt;- list(agree=c(\"-A1\",\"A2\",\"A3\",\"A4\",\"A5\"),\n                  conscientious=c(\"C1\",\"C2\",\"C2\",\"-C4\",\"-C5\"),\n                  extraversion=c(\"-E1\",\"-E2\",\"E3\",\"E4\",\"E5\"),\n                  neuroticism=c(\"N1\",\"N2\",\"N3\",\"N4\",\"N5\"),\n                  openness = c(\"O1\",\"-O2\",\"O3\",\"O4\",\"-O5\"))\n#print ut flere forskjellige mål for reliabilitet, blant annet alpha\nreliability(keys=keys.list, items=bfi)\n\nLoading required namespace: GPArotation\n\n\nMeasures of reliability \nreliability(keys = keys.list, items = bfi)\n              omega_h alpha omega.tot  Uni r.fit fa.fit max.split min.split\nagree            0.64  0.71      0.75 0.89  0.90   0.99      0.75      0.62\nconscientious    0.58  0.69      0.74 0.93  0.96   0.97      0.74      0.61\nextraversion     0.55  0.76      0.82 0.97  0.97   0.99      0.78      0.71\nneuroticism      0.71  0.81      0.85 0.93  0.95   0.98      0.83      0.73\nopenness         0.39  0.61      0.70 0.85  0.88   0.97      0.66      0.53\n              mean.r med.r n.items\nagree           0.33  0.34       5\nconscientious   0.36  0.36       4\nextraversion    0.39  0.38       5\nneuroticism     0.47  0.41       5\nopenness        0.24  0.23       5"
+  },
+  {
+    "objectID": "R/R1.html#housing-dataene",
+    "href": "R/R1.html#housing-dataene",
+    "title": "R for samling 1",
+    "section": "Housing dataene",
+    "text": "Housing dataene\nVi må installere noen pakker og da får vi Housing datafilen gjennom pakken Ecdat.\n\nlibrary(Ecdat)\nlibrary(tidyverse)\nHousing &lt;- Housing[, c(1:3, 10, 11:12)]# her velger vi ut søylene 1,2,3,10,11,12\n#View(Housing) kikker litt på dataene"
+  },
+  {
+    "objectID": "R/R1.html#histogram-for-pris",
+    "href": "R/R1.html#histogram-for-pris",
+    "title": "R for samling 1",
+    "section": "Histogram for pris",
+    "text": "Histogram for pris\nEnten bruker vi base R eller den mer kraftige pakken ggplot som vi fikk via tidyverse."
+  },
+  {
+    "objectID": "R/R1.html#stolpediagram-for-preferred-area",
+    "href": "R/R1.html#stolpediagram-for-preferred-area",
+    "title": "R for samling 1",
+    "section": "Stolpediagram for preferred area",
+    "text": "Stolpediagram for preferred area\nStolpediagram for preferred area:\n\n#ggplot\nggplot(Housing, aes(prefarea))+geom_bar()"
+  },
+  {
+    "objectID": "R/R1.html#separere-på-preferreed-area-og-se-på-fordelingene",
+    "href": "R/R1.html#separere-på-preferreed-area-og-se-på-fordelingene",
+    "title": "R for samling 1",
+    "section": "Separere på preferreed area og se på fordelingene",
+    "text": "Separere på preferreed area og se på fordelingene\n\nggplot(Housing, aes(price, color=prefarea))+geom_density()"
+  },
+  {
+    "objectID": "R/R1.html#krysstabell",
+    "href": "R/R1.html#krysstabell",
+    "title": "R for samling 1",
+    "section": "KRYSSTABELL",
+    "text": "KRYSSTABELL\n\ntable(Housing$airc, Housing$prefarea)\n\n     \n       no yes\n  no  298  75\n  yes 120  53"
+  },
+  {
+    "objectID": "R/R1.html#spredningsdiagram",
+    "href": "R/R1.html#spredningsdiagram",
+    "title": "R for samling 1",
+    "section": "spredningsdiagram",
+    "text": "spredningsdiagram\n\nggplot(Housing, aes(lotsize,price))+geom_point()"
+  },
+  {
+    "objectID": "R/R1.html#korrelasjon",
+    "href": "R/R1.html#korrelasjon",
+    "title": "R for samling 1",
+    "section": "Korrelasjon",
+    "text": "Korrelasjon\n\nx &lt;- c(-5 , 10 , 15 , 31 , 42)\ny &lt;- c( 3 , 3 , 0 , 1 , -1)\ncor(x, y)\n\n[1] -0.82\n\n#base R\nplot(x,y)\n\n\n\n#ggplot\nggplot(data.frame(x,y), aes(x,y))+geom_point(size=3)"
+  },
+  {
+    "objectID": "R/R1.html#cornflakes",
+    "href": "R/R1.html#cornflakes",
+    "title": "R for samling 1",
+    "section": "Cornflakes",
+    "text": "Cornflakes\n\nvekt &lt;- c(502, 498, 479, 492, 488, 494, 494)\nt.test(vekt, mu=500)\n\n\n    One Sample t-test\n\ndata:  vekt\nt = -2.7105, df = 6, p-value = 0.03508\nalternative hypothesis: true mean is not equal to 500\n95 percent confidence interval:\n 485.5935 499.2636\nsample estimates:\nmean of x \n 492.4286"
+  },
+  {
+    "objectID": "R/R1.html#oppgave-13",
+    "href": "R/R1.html#oppgave-13",
+    "title": "R for samling 1",
+    "section": "Oppgave 13",
+    "text": "Oppgave 13\n\nalder &lt;- c(20, 20, 19, 23, 29, 27, 25, 21)#legge inn i vektor\nsd(alder)\n\n[1] 3.664502"
+  },
+  {
+    "objectID": "R/R1.html#oppgave-24",
+    "href": "R/R1.html#oppgave-24",
+    "title": "R for samling 1",
+    "section": "Oppgave 24",
+    "text": "Oppgave 24\n\ntimer &lt;- c(23, 55, 60, 70, 65 , 60)\nsd(timer)\n\n[1] 16.71825"
+  },
+  {
+    "objectID": "R/R1.html#oppgave-27",
+    "href": "R/R1.html#oppgave-27",
+    "title": "R for samling 1",
+    "section": "Oppgave 27",
+    "text": "Oppgave 27\n\nprop.test(x=26, n=240)\n\n\n    1-sample proportions test with continuity correction\n\ndata:  26 out of 240, null probability 0.5\nX-squared = 145.7, df = 1, p-value &lt; 2.2e-16\nalternative hypothesis: true p is not equal to 0.5\n95 percent confidence interval:\n 0.0732806 0.1563674\nsample estimates:\n        p \n0.1083333"
+  },
+  {
+    "objectID": "R/R1.html#oppgave-28",
+    "href": "R/R1.html#oppgave-28",
+    "title": "R for samling 1",
+    "section": "Oppgave 28",
+    "text": "Oppgave 28\n\nprop.test(x=28, n=56, conf.level=.9)#stemmer!\n\n\n    1-sample proportions test without continuity correction\n\ndata:  28 out of 56, null probability 0.5\nX-squared = 0, df = 1, p-value = 1\nalternative hypothesis: true p is not equal to 0.5\n90 percent confidence interval:\n 0.392661 0.607339\nsample estimates:\n  p \n0.5"
+  },
+  {
+    "objectID": "R/R1.html#oppgave-30",
+    "href": "R/R1.html#oppgave-30",
+    "title": "R for samling 1",
+    "section": "Oppgave 30",
+    "text": "Oppgave 30\n\n\n\n    One Sample t-test\n\ndata:  alder\nt = 9.5681, df = 5, p-value = 0.0002112\nalternative hypothesis: true mean is not equal to 0\n95 percent confidence interval:\n 29.61922 51.38078\nsample estimates:\nmean of x \n     40.5"
+  },
+  {
+    "objectID": "R/R1.html#oppgave-31",
+    "href": "R/R1.html#oppgave-31",
+    "title": "R for samling 1",
+    "section": "Oppgave 31",
+    "text": "Oppgave 31\n\npinge &lt;- read.csv(\"agePingelab.csv\")\nalder &lt;- pinge[, 1]# bare en søyle, vi velger denne. \nmean(alder)\n\n[1] 41.16667"
+  },
+  {
+    "objectID": "R/R1.html#oppgave-32",
+    "href": "R/R1.html#oppgave-32",
+    "title": "R for samling 1",
+    "section": "Oppgave 32",
+    "text": "Oppgave 32\n\nt.test(alder)\n\n\n    One Sample t-test\n\ndata:  alder\nt = 20.769, df = 59, p-value &lt; 2.2e-16\nalternative hypothesis: true mean is not equal to 0\n95 percent confidence interval:\n 37.20040 45.13293\nsample estimates:\nmean of x \n 41.16667"
+  },
+  {
+    "objectID": "R/R1.html#oppgave-42",
+    "href": "R/R1.html#oppgave-42",
+    "title": "R for samling 1",
+    "section": "Oppgave 42",
+    "text": "Oppgave 42\n\noppmøte &lt;- c( 2 , 15 , 8 , 14, 8 , 12 , 13 , 2 , 5, 4 )\npoeng &lt;- c( 13 , 26, 20 ,27, 16, 24 , 20, 11 , 16, 20)\nplot(oppmøte, poeng)"
+  },
+  {
+    "objectID": "R/R1.html#oppgave-44",
+    "href": "R/R1.html#oppgave-44",
+    "title": "R for samling 1",
+    "section": "Oppgave 44",
+    "text": "Oppgave 44\n\nreg &lt;- lm(oppmøte~ poeng)\nsummary(reg)\n\n\nCall:\nlm(formula = oppmøte ~ poeng)\n\nResiduals:\n    Min      1Q  Median      3Q     Max \n-4.8698 -0.8058 -0.3470  1.0486  4.1302 \n\nCoefficients:\n            Estimate Std. Error t value Pr(&gt;|t|)    \n(Intercept)  -7.4107     3.1388  -2.361 0.045887 *  \npoeng         0.8140     0.1573   5.176 0.000847 ***\n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nResidual standard error: 2.527 on 8 degrees of freedom\nMultiple R-squared:   0.77, Adjusted R-squared:  0.7413 \nF-statistic: 26.79 on 1 and 8 DF,  p-value: 0.0008471"
+  },
+  {
+    "objectID": "R/digR1.html#pakker-vi-trenger-å-loade",
+    "href": "R/digR1.html#pakker-vi-trenger-å-loade",
+    "title": "R for digital samling 1",
+    "section": "Pakker vi trenger å loade",
+    "text": "Pakker vi trenger å loade\n\nlibrary(tidyverse)\nlibrary(kableExtra)\nlibrary(broom)"
+  },
+  {
+    "objectID": "R/digR1.html#lekeeksempel",
+    "href": "R/digR1.html#lekeeksempel",
+    "title": "R for digital samling 1",
+    "section": "Lekeeksempel",
+    "text": "Lekeeksempel\n\nx &lt;- c(-5, 10, 15, 31, 42)\ny &lt;- c(3,3,0,1, -1)\nmodel &lt;- lm(y~x)\nqplot(x,y)+geom_smooth(method=\"lm\", se=F)"
+  },
+  {
+    "objectID": "R/digR1.html#lekeeksempel-1",
+    "href": "R/digR1.html#lekeeksempel-1",
+    "title": "R for digital samling 1",
+    "section": "Lekeeksempel",
+    "text": "Lekeeksempel\n\nsummary(model)\n\n\nCall:\nlm(formula = y ~ x)\n\nResiduals:\n       1        2        3        4        5 \n-0.08772  1.11210 -1.48796  0.79185 -0.32828 \n\nCoefficients:\n            Estimate Std. Error t value Pr(&gt;|t|)  \n(Intercept)  2.68778    0.79939   3.362   0.0437 *\nx           -0.07999    0.03223  -2.481   0.0892 .\n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nResidual standard error: 1.182 on 3 degrees of freedom\nMultiple R-squared:  0.6724,    Adjusted R-squared:  0.5632 \nF-statistic: 6.158 on 1 and 3 DF,  p-value: 0.08916"
+  },
+  {
+    "objectID": "R/digR1.html#predikere-ny-verdi-for-x20",
+    "href": "R/digR1.html#predikere-ny-verdi-for-x20",
+    "title": "R for digital samling 1",
+    "section": "Predikere ny verdi for \\(x=20\\)",
+    "text": "Predikere ny verdi for \\(x=20\\)\n\nyhat &lt;- predict(model, newdata=data.frame(x=20))\nyhat\n\n       1 \n1.088017 \n\nqplot(x,y, size=3)+geom_smooth(method=\"lm\", se=F)+geom_point(aes(x=20, y=yhat),size=5, color=\"red\")"
+  },
+  {
+    "objectID": "R/digR1.html#trivsel-og-well-being-populasjon",
+    "href": "R/digR1.html#trivsel-og-well-being-populasjon",
+    "title": "R for digital samling 1",
+    "section": "Trivsel og well-being populasjon",
+    "text": "Trivsel og well-being populasjon\nLast ned datasettene først! Se Data til venstre i margen\n\npopulasjon &lt;- readRDS(\"../data/smartphone_wellbeing.rds\")#du må endre på adressen selv. Avhenger av hvilken folder du la dataene i\nhist(populasjon$tot_wellbeing)\n\n\n\nhist(populasjon$tothours)"
+  },
+  {
+    "objectID": "R/digR1.html#regresjonen-i-populasjonen",
+    "href": "R/digR1.html#regresjonen-i-populasjonen",
+    "title": "R for digital samling 1",
+    "section": "Regresjonen i populasjonen",
+    "text": "Regresjonen i populasjonen\n\npopmodel &lt;- lm(tot_wellbeing~ tothours, data=populasjon)\npopmodel %&gt;% tidy() %&gt;% kable(digits=2)\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n50.31\n0.09\n585.03\n0\n\n\ntothours\n-0.81\n0.02\n-43.99\n0"
+  },
+  {
+    "objectID": "R/digR1.html#regresjon-i-utvalget-last-ned-først",
+    "href": "R/digR1.html#regresjon-i-utvalget-last-ned-først",
+    "title": "R for digital samling 1",
+    "section": "Regresjon i utvalget (last ned først)",
+    "text": "Regresjon i utvalget (last ned først)\n\nutvalg &lt;- readRDS(\"../data/goldilocksutvalg.rds\")\nggplot(utvalg, aes(tothours, tot_wellbeing))+geom_jitter(height=0) +geom_smooth(method=\"lm\", se=F)+xlab(\"Antall timer daglig\")+ylab(\"Total trivsel\")"
+  },
+  {
+    "objectID": "R/digR1.html#regresjon-i-utvalget",
+    "href": "R/digR1.html#regresjon-i-utvalget",
+    "title": "R for digital samling 1",
+    "section": "Regresjon i utvalget",
+    "text": "Regresjon i utvalget\n\nmodel &lt;- lm(tot_wellbeing~ tothours, data=utvalg)\nmodel %&gt;% tidy() %&gt;% kable(digits=2)\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n50.89\n1.09\n46.55\n0\n\n\ntothours\n-0.93\n0.23\n-4.01\n0"
+  },
+  {
+    "objectID": "R/digR1.html#multippel-regresjon-i-r",
+    "href": "R/digR1.html#multippel-regresjon-i-r",
+    "title": "R for digital samling 1",
+    "section": "Multippel regresjon i R",
+    "text": "Multippel regresjon i R\n\\[ \\text{tot_wellbeing} = \\beta_0+ \\beta_1 \\cdot \\text{tothours}+ \\beta_2 \\cdot \\text{male}+\\epsilon\\]\n\nmultmodel &lt;- lm(tot_wellbeing~ tothours+male, data=utvalg)\nmultmodel %&gt;% tidy() %&gt;% kable(digits=2)\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n47.57\n1.14\n41.74\n0\n\n\ntothours\n-0.69\n0.22\n-3.08\n0\n\n\nmale1\n6.07\n0.88\n6.92\n0"
+  },
+  {
+    "objectID": "R/digR1.html#anova",
+    "href": "R/digR1.html#anova",
+    "title": "R for digital samling 1",
+    "section": "ANOVA",
+    "text": "ANOVA\n\naov(tot_wellbeing~ school, utvalg) %&gt;% tidy() %&gt;% kable(digits=2) \n\n\n\n\nterm\ndf\nsumsq\nmeansq\nstatistic\np.value\n\n\n\n\nschool\n3\n92.19\n30.73\n0.38\n0.77\n\n\nResiduals\n396\n32388.05\n81.79\nNA\nNA"
+  },
+  {
+    "objectID": "R/digR1.html#oppg-2",
+    "href": "R/digR1.html#oppg-2",
+    "title": "R for digital samling 1",
+    "section": "Oppg 2",
+    "text": "Oppg 2\n\nmotivasjon &lt;- c(9, 4, 7, 1, 2, 7)\noppmøte &lt;- c(12,6, 9, 4, 5, 8)\nplot(motivasjon , oppmøte)"
+  },
+  {
+    "objectID": "R/digR1.html#oppg-3",
+    "href": "R/digR1.html#oppg-3",
+    "title": "R for digital samling 1",
+    "section": "Oppg 3",
+    "text": "Oppg 3\n\nsd(oppmøte)\n\n[1] 2.94392"
+  },
+  {
+    "objectID": "R/digR1.html#oppg-4",
+    "href": "R/digR1.html#oppg-4",
+    "title": "R for digital samling 1",
+    "section": "Oppg 4",
+    "text": "Oppg 4\n\nmymodel &lt;- lm(oppmøte~motivasjon)\nmymodel\n\n\nCall:\nlm(formula = oppmøte ~ motivasjon)\n\nCoefficients:\n(Intercept)   motivasjon  \n      2.833        0.900  \n\nqplot(motivasjon, oppmøte)+geom_smooth(method=\"lm\")"
+  },
+  {
+    "objectID": "R/digR1.html#oppg-6-og-7",
+    "href": "R/digR1.html#oppg-6-og-7",
+    "title": "R for digital samling 1",
+    "section": "Oppg 6 og 7",
+    "text": "Oppg 6 og 7\n\nsummary(mymodel)\n\n\nCall:\nlm(formula = oppmøte ~ motivasjon)\n\nResiduals:\n      1       2       3       4       5       6 \n 1.0667 -0.4333 -0.1333  0.2667  0.3667 -1.1333 \n\nCoefficients:\n            Estimate Std. Error t value Pr(&gt;|t|)   \n(Intercept)   2.8333     0.6872   4.123  0.01458 * \nmotivasjon    0.9000     0.1190   7.562  0.00164 **\n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nResidual standard error: 0.8416 on 4 degrees of freedom\nMultiple R-squared:  0.9346,    Adjusted R-squared:  0.9183 \nF-statistic: 57.18 on 1 and 4 DF,  p-value: 0.001639\n\n\nID1 har residual 1.0667.\nAdjusted R-squared: 0.9183: 92% av variasjon i oppmøte forklare vha av varierende motivasjon. 8% av variasjonen skyldes andre faktorer enn motivasjon"
+  },
+  {
+    "objectID": "R/digR1.html#oppg-8",
+    "href": "R/digR1.html#oppg-8",
+    "title": "R for digital samling 1",
+    "section": "Oppg 8",
+    "text": "Oppg 8\n\nMinstTo &lt;- c(1, 0, 1, 0, 0, 1)# 1=MinstTO\nmymodel &lt;- lm(motivasjon~MinstTo)\nmymodel# Vi forventer at MinstTo gir et motivasjon som er 5.33 høyere enn når MinstTO=0\n\n\nCall:\nlm(formula = motivasjon ~ MinstTo)\n\nCoefficients:\n(Intercept)      MinstTo  \n      2.333        5.333"
+  },
+  {
+    "objectID": "R/digR1.html#oppg-9",
+    "href": "R/digR1.html#oppg-9",
+    "title": "R for digital samling 1",
+    "section": "Oppg 9",
+    "text": "Oppg 9\n\neksamensscore &lt;- c(15, 7, 12.5, 3, 4.5, 11)\nmymodel &lt;- lm(eksamensscore~oppmøte)\nmymodel# effekt av oppmøte: Ett ekstra oppmøte gir en forventa økning i eksamensscore på 1.577\n\n\nCall:\nlm(formula = eksamensscore ~ oppmøte)\n\nCoefficients:\n(Intercept)      oppmøte  \n     -2.731        1.577"
+  },
+  {
+    "objectID": "R/digR1.html#oppg-10",
+    "href": "R/digR1.html#oppg-10",
+    "title": "R for digital samling 1",
+    "section": "Oppg 10",
+    "text": "Oppg 10\n\npredict(mymodel, newdata=data.frame(oppmøte=5))\n\n       1 \n5.153846"
+  },
+  {
+    "objectID": "R/digR1.html#oppg-12",
+    "href": "R/digR1.html#oppg-12",
+    "title": "R for digital samling 1",
+    "section": "Oppg 12",
+    "text": "Oppg 12\n\nmymodel &lt;- lm(eksamensscore ~ oppmøte + motivasjon)\nsummary(mymodel)\n\n\nCall:\nlm(formula = eksamensscore ~ oppmøte + motivasjon)\n\nResiduals:\n        1         2         3         4         5         6 \n-0.276471 -0.147059  0.747059  0.005882 -0.029412 -0.300000 \n\nCoefficients:\n            Estimate Std. Error t value Pr(&gt;|t|)  \n(Intercept)   0.1000     0.9336   0.107   0.9215  \noppmøte       0.4529     0.2965   1.528   0.2240  \nmotivasjon    1.0823     0.2760   3.922   0.0295 *\n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nResidual standard error: 0.499 on 3 degrees of freedom\nMultiple R-squared:  0.9933,    Adjusted R-squared:  0.9889 \nF-statistic: 224.1 on 2 and 3 DF,  p-value: 0.0005423"
+  },
+  {
+    "objectID": "R/digR1.html#oppg-13",
+    "href": "R/digR1.html#oppg-13",
+    "title": "R for digital samling 1",
+    "section": "Oppg 13",
+    "text": "Oppg 13\nEtt ekstra oppmøte gir 0.45 ekstra poeng på eksamen, gitt at vi kontrollerer for motivasjon"
+  },
+  {
+    "objectID": "R/digR1.html#oppg-14",
+    "href": "R/digR1.html#oppg-14",
+    "title": "R for digital samling 1",
+    "section": "Oppg 14",
+    "text": "Oppg 14\nEtt ekstra poeng i motivasjon gir en forventet økning i eksamensscore på 1.08"
+  },
+  {
+    "objectID": "R/digR1.html#oppg-15",
+    "href": "R/digR1.html#oppg-15",
+    "title": "R for digital samling 1",
+    "section": "Oppg 15",
+    "text": "Oppg 15\n99%"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "MPS 140: Kvantitativ forskningsmetode og statistikk",
+    "section": "",
+    "text": "FYSISKE SAMLINGER\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nDato\nTema\nForberedelser\nPresentasjoner\nR\nOppgaver\n\n\n\n\n23.01: 1215-16\nIntro og grunnleggende statistikk\n📖\n🖥 🖥\n📋\n📋\n\n\n05.03: 815-16\nPsykometri\n📖\n\n\n\n\n\n09.04: 815-16\nLatente variable\n\n\n\n\n\n\n03.06\nEksamen\n\n\n\n\n\n\n\n\n\n\nDIGITALE SAMLINGER\n\n\n\n\n\n\n\n\n\n\n\n\nDato\nTema\nForberedelser\nPresentasjon\nR\nOppgaver\n\n\n\n\n06.02: 9-12\nR og regresjonsmodellen\n📖\n🖥\n📋\n📋\n\n\n19.03: 9-12\nProgramvaren R og psykometri\n\n\n\n\n\n\n23.04:9-12\nLatente variable\n\n\n\n\n\n\n07.05: 9-12\nEksamensforberedelse"
+  },
+  {
+    "objectID": "slides/slides1.html#mps-140",
+    "href": "slides/slides1.html#mps-140",
+    "title": "Velkommen til MPS140",
+    "section": "MPS 140",
+    "text": "MPS 140\n\nKursmateriale legges ut på github"
+  },
+  {
+    "objectID": "slides/slides1.html#statistikk",
+    "href": "slides/slides1.html#statistikk",
+    "title": "Velkommen til MPS140",
+    "section": "Statistikk",
+    "text": "Statistikk\n\nStatistikk handler om hvordan vi best samler inn og analyserer data, og hvordan vi trekker riktige konklusjoner fra våre data.\n\n\nFra “pensumboka” R for Data Science https://r4ds.hadley.nz/"
+  },
+  {
+    "objectID": "slides/slides1.html#section",
+    "href": "slides/slides1.html#section",
+    "title": "Velkommen til MPS140",
+    "section": "",
+    "text": "Vi skal i MPS140 repetere elementære statistikk og så utvide til multippel regresjon og psykometriske modeller. Her er noen nye ting vi skal lære:\n\n\nå jobbe med data på en transparent og reproduserbar måte (i R)\nvisualisere og sammenfatte data med nøkkeltall (R)\nat vi må ha et kritisk blikk på bruk av statistikk i forskning\nlære om måling av psykologiske begrep som stress, lojalitet, trivsel etc"
+  },
+  {
+    "objectID": "slides/slides1.html#section-1",
+    "href": "slides/slides1.html#section-1",
+    "title": "Velkommen til MPS140",
+    "section": "",
+    "text": "Koding 🙀\n\n\nI praksis er koding (skrive syntaks i statistikkprogram) en sentral del av statistisk praksis.\n\n\n\nI klassen har vi stor variasjon i talenter og interesser\nDet blir en del R koding for å illustrere konsepter\nBruk studiekamerater til å lære"
+  },
+  {
+    "objectID": "slides/slides1.html#section-2",
+    "href": "slides/slides1.html#section-2",
+    "title": "Velkommen til MPS140",
+    "section": "",
+    "text": "Komponenter\n\n\n\n\nFør samling\n\n\nDet er viktig å være forberedt til samling:\nTekster\nVideoer\nR stoff\n\n\n\n\n\nUnder samling\n\n\nForelesning\nOppgaver som skal løses i grupper. Basert på forberedelsesstoffet.\nDebriefing"
+  },
+  {
+    "objectID": "slides/slides1.html#dagens-plan",
+    "href": "slides/slides1.html#dagens-plan",
+    "title": "Velkommen til MPS140",
+    "section": "Dagens plan",
+    "text": "Dagens plan\n\nForelese cirka 1 time\nJobbe med oppgaver\n\nFørst individuelt 1 time\nGrupper ca 1 time\nGruppene ligger på canvas\n\nDebriefing"
+  },
+  {
+    "objectID": "slides/slides1.html#samlæring-i-flipped-classroom",
+    "href": "slides/slides1.html#samlæring-i-flipped-classroom",
+    "title": "Velkommen til MPS140",
+    "section": "Samlæring i flipped classroom",
+    "text": "Samlæring i flipped classroom\n\nTa plass og gi plass\nElsk frustrasjon og forvirring\nÅ hjelpe noen er å forklare hvordan du tenker, ikke å bare gi svar eller gjøre utregninger for andre\nDu har rett til å spørre alle i gruppen om hjelp\nDu har plikt til å prøve å hjelpe enhver i gruppen som spør\nDu lager på slutten en tilbamelding til hver av gruppemedlemmene !\nTeam 1 - Team 4 er opprettet ved tilfeldig uttrekk. Se canvas."
   },
   {
     "objectID": "slides/slides2.html#lekeeksempel",
@@ -182,363 +546,6 @@
     "text": "Eksempel\nVi antar at i utvalget var det 4 skoler. Vi ønsker å teste om well-being er den samme på alle skolene:\n\naov(tot_wellbeing~ school, utvalg) %&gt;% tidy() %&gt;% kable(digits=2) \n\n\n\n\nterm\ndf\nsumsq\nmeansq\nstatistic\np.value\n\n\n\n\nschool\n3\n92.19\n30.73\n0.38\n0.77\n\n\nResiduals\n396\n32388.05\n81.79\nNA\nNA\n\n\n\n\n\n\n\nVi har ikke støtte for å hevde at det er forskjell i well-being mellom de 4 skolene (p-verdi=.77 vi beholder \\(H_0\\))"
   },
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "MPS 140: Kvantitativ forskningsmetode og statistikk",
-    "section": "",
-    "text": "FYSISKE SAMLINGER\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nDato\nTema\nForberedelser\nPresentasjoner\nR\nOppgaver\n\n\n\n\n23.01: 1215-16\nIntro og grunnleggende statistikk\n📖\n🖥 🖥\n📋\n📋\n\n\n05.03: 815-16\nPsykometri\n\n\n\n\n\n\n09.04: 815-16\nLatente variable\n\n\n\n\n\n\n03.06\nEksamen\n\n\n\n\n\n\n\n\n\n\nDIGITALE SAMLINGER\n\n\n\n\n\n\n\n\n\n\n\n\nDato\nTema\nForberedelser\nPresentasjon\nR\nOppgaver\n\n\n\n\n06.02: 9-12\nR og regresjonsmodellen\n📖\n🖥\n📋\n📋\n\n\n19.03: 9-12\nProgramvaren R og psykometri\n\n\n\n\n\n\n23.04:9-12\nLatente variable\n\n\n\n\n\n\n07.05: 9-12\nEksamensforberedelse"
-  },
-  {
-    "objectID": "R/R1.html#housing-dataene",
-    "href": "R/R1.html#housing-dataene",
-    "title": "R for samling 1",
-    "section": "Housing dataene",
-    "text": "Housing dataene\nVi må installere noen pakker og da får vi Housing datafilen gjennom pakken Ecdat.\n\nlibrary(Ecdat)\nlibrary(tidyverse)\nHousing &lt;- Housing[, c(1:3, 10, 11:12)]# her velger vi ut søylene 1,2,3,10,11,12\n#View(Housing) kikker litt på dataene"
-  },
-  {
-    "objectID": "R/R1.html#histogram-for-pris",
-    "href": "R/R1.html#histogram-for-pris",
-    "title": "R for samling 1",
-    "section": "Histogram for pris",
-    "text": "Histogram for pris\nEnten bruker vi base R eller den mer kraftige pakken ggplot som vi fikk via tidyverse."
-  },
-  {
-    "objectID": "R/R1.html#stolpediagram-for-preferred-area",
-    "href": "R/R1.html#stolpediagram-for-preferred-area",
-    "title": "R for samling 1",
-    "section": "Stolpediagram for preferred area",
-    "text": "Stolpediagram for preferred area\nStolpediagram for preferred area:\n\n#ggplot\nggplot(Housing, aes(prefarea))+geom_bar()"
-  },
-  {
-    "objectID": "R/R1.html#separere-på-preferreed-area-og-se-på-fordelingene",
-    "href": "R/R1.html#separere-på-preferreed-area-og-se-på-fordelingene",
-    "title": "R for samling 1",
-    "section": "Separere på preferreed area og se på fordelingene",
-    "text": "Separere på preferreed area og se på fordelingene\n\nggplot(Housing, aes(price, color=prefarea))+geom_density()"
-  },
-  {
-    "objectID": "R/R1.html#krysstabell",
-    "href": "R/R1.html#krysstabell",
-    "title": "R for samling 1",
-    "section": "KRYSSTABELL",
-    "text": "KRYSSTABELL\n\ntable(Housing$airc, Housing$prefarea)\n\n     \n       no yes\n  no  298  75\n  yes 120  53"
-  },
-  {
-    "objectID": "R/R1.html#spredningsdiagram",
-    "href": "R/R1.html#spredningsdiagram",
-    "title": "R for samling 1",
-    "section": "spredningsdiagram",
-    "text": "spredningsdiagram\n\nggplot(Housing, aes(lotsize,price))+geom_point()"
-  },
-  {
-    "objectID": "R/R1.html#korrelasjon",
-    "href": "R/R1.html#korrelasjon",
-    "title": "R for samling 1",
-    "section": "Korrelasjon",
-    "text": "Korrelasjon\n\nx &lt;- c(-5 , 10 , 15 , 31 , 42)\ny &lt;- c( 3 , 3 , 0 , 1 , -1)\ncor(x, y)\n\n[1] -0.82\n\n#base R\nplot(x,y)\n\n\n\n#ggplot\nggplot(data.frame(x,y), aes(x,y))+geom_point(size=3)"
-  },
-  {
-    "objectID": "R/R1.html#cornflakes",
-    "href": "R/R1.html#cornflakes",
-    "title": "R for samling 1",
-    "section": "Cornflakes",
-    "text": "Cornflakes\n\nvekt &lt;- c(502, 498, 479, 492, 488, 494, 494)\nt.test(vekt, mu=500)\n\n\n    One Sample t-test\n\ndata:  vekt\nt = -2.7105, df = 6, p-value = 0.03508\nalternative hypothesis: true mean is not equal to 500\n95 percent confidence interval:\n 485.5935 499.2636\nsample estimates:\nmean of x \n 492.4286"
-  },
-  {
-    "objectID": "R/R1.html#oppgave-13",
-    "href": "R/R1.html#oppgave-13",
-    "title": "R for samling 1",
-    "section": "Oppgave 13",
-    "text": "Oppgave 13\n\nalder &lt;- c(20, 20, 19, 23, 29, 27, 25, 21)#legge inn i vektor\nsd(alder)\n\n[1] 3.664502"
-  },
-  {
-    "objectID": "R/R1.html#oppgave-24",
-    "href": "R/R1.html#oppgave-24",
-    "title": "R for samling 1",
-    "section": "Oppgave 24",
-    "text": "Oppgave 24\n\ntimer &lt;- c(23, 55, 60, 70, 65 , 60)\nsd(timer)\n\n[1] 16.71825"
-  },
-  {
-    "objectID": "R/R1.html#oppgave-27",
-    "href": "R/R1.html#oppgave-27",
-    "title": "R for samling 1",
-    "section": "Oppgave 27",
-    "text": "Oppgave 27\n\nprop.test(x=26, n=240)\n\n\n    1-sample proportions test with continuity correction\n\ndata:  26 out of 240, null probability 0.5\nX-squared = 145.7, df = 1, p-value &lt; 2.2e-16\nalternative hypothesis: true p is not equal to 0.5\n95 percent confidence interval:\n 0.0732806 0.1563674\nsample estimates:\n        p \n0.1083333"
-  },
-  {
-    "objectID": "R/R1.html#oppgave-28",
-    "href": "R/R1.html#oppgave-28",
-    "title": "R for samling 1",
-    "section": "Oppgave 28",
-    "text": "Oppgave 28\n\nprop.test(x=28, n=56, conf.level=.9)#stemmer!\n\n\n    1-sample proportions test without continuity correction\n\ndata:  28 out of 56, null probability 0.5\nX-squared = 0, df = 1, p-value = 1\nalternative hypothesis: true p is not equal to 0.5\n90 percent confidence interval:\n 0.392661 0.607339\nsample estimates:\n  p \n0.5"
-  },
-  {
-    "objectID": "R/R1.html#oppgave-30",
-    "href": "R/R1.html#oppgave-30",
-    "title": "R for samling 1",
-    "section": "Oppgave 30",
-    "text": "Oppgave 30\n\n\n\n    One Sample t-test\n\ndata:  alder\nt = 9.5681, df = 5, p-value = 0.0002112\nalternative hypothesis: true mean is not equal to 0\n95 percent confidence interval:\n 29.61922 51.38078\nsample estimates:\nmean of x \n     40.5"
-  },
-  {
-    "objectID": "R/R1.html#oppgave-31",
-    "href": "R/R1.html#oppgave-31",
-    "title": "R for samling 1",
-    "section": "Oppgave 31",
-    "text": "Oppgave 31\n\npinge &lt;- read.csv(\"agePingelab.csv\")\nalder &lt;- pinge[, 1]# bare en søyle, vi velger denne. \nmean(alder)\n\n[1] 41.16667"
-  },
-  {
-    "objectID": "R/R1.html#oppgave-32",
-    "href": "R/R1.html#oppgave-32",
-    "title": "R for samling 1",
-    "section": "Oppgave 32",
-    "text": "Oppgave 32\n\nt.test(alder)\n\n\n    One Sample t-test\n\ndata:  alder\nt = 20.769, df = 59, p-value &lt; 2.2e-16\nalternative hypothesis: true mean is not equal to 0\n95 percent confidence interval:\n 37.20040 45.13293\nsample estimates:\nmean of x \n 41.16667"
-  },
-  {
-    "objectID": "R/R1.html#oppgave-42",
-    "href": "R/R1.html#oppgave-42",
-    "title": "R for samling 1",
-    "section": "Oppgave 42",
-    "text": "Oppgave 42\n\noppmøte &lt;- c( 2 , 15 , 8 , 14, 8 , 12 , 13 , 2 , 5, 4 )\npoeng &lt;- c( 13 , 26, 20 ,27, 16, 24 , 20, 11 , 16, 20)\nplot(oppmøte, poeng)"
-  },
-  {
-    "objectID": "R/R1.html#oppgave-44",
-    "href": "R/R1.html#oppgave-44",
-    "title": "R for samling 1",
-    "section": "Oppgave 44",
-    "text": "Oppgave 44\n\nreg &lt;- lm(oppmøte~ poeng)\nsummary(reg)\n\n\nCall:\nlm(formula = oppmøte ~ poeng)\n\nResiduals:\n    Min      1Q  Median      3Q     Max \n-4.8698 -0.8058 -0.3470  1.0486  4.1302 \n\nCoefficients:\n            Estimate Std. Error t value Pr(&gt;|t|)    \n(Intercept)  -7.4107     3.1388  -2.361 0.045887 *  \npoeng         0.8140     0.1573   5.176 0.000847 ***\n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nResidual standard error: 2.527 on 8 degrees of freedom\nMultiple R-squared:   0.77, Adjusted R-squared:  0.7413 \nF-statistic: 26.79 on 1 and 8 DF,  p-value: 0.0008471"
-  },
-  {
-    "objectID": "samlinger/samling1.html",
-    "href": "samlinger/samling1.html",
-    "title": "Første samling: Grunnleggende statistikk",
-    "section": "",
-    "text": "Velkommen!\nBLA BLA\nI denne samlingen får vi et overblikk over kurset, og vi frisker opp statistikken fra introkurset. Vi snakker også litt om metodologi i psykologi (kvantitativ vs kvalitativ tilnærming), og vi jobber i grupper.\nI gruppearbeidet vil dere få oppgaver på introkurs i statistikk nivå som er svært viktige å beherske for resten av kurset."
-  },
-  {
-    "objectID": "samlinger/samling1.html#læringsmål",
-    "href": "samlinger/samling1.html#læringsmål",
-    "title": "Første samling: Grunnleggende statistikk",
-    "section": "Læringsmål",
-    "text": "Læringsmål\nEtter denne samlingen har du repetert (eller lært) å:\n\nbeskrive et datasett ved hjelp av nøkkeltall som gjennomsnitt, standardavvik og korrelasjon.\nForklare variablers målenivå\nForstå forskjell på avhengig og uavhengiv variabel\nForstå forskjell på observasjonell og eksperimentell studie\nForstå forskjell på populasjon og utvalg\nKjenne til bekvemmelighetsutvalg, klyngeutvalg og stratifisert utvalg\nForstå konfidensintervall og hypotesetesting\nForklare hva “signifikant” betyr i statistikk\nInstallere R og Rstudio på din laptop"
-  },
-  {
-    "objectID": "omeksamen.html",
-    "href": "omeksamen.html",
-    "title": "MPS 140",
-    "section": "",
-    "text": "5 timer skriftlig eksamen på UiS.\nSe emnebeskrivelsen for detaljer"
-  },
-  {
-    "objectID": "samlinger/samling2.html",
-    "href": "samlinger/samling2.html",
-    "title": "Digital samling - 6 feb",
-    "section": "",
-    "text": "Important\n\n\n\n\nDigital samling på Teams.\nLæringsmål:"
-  },
-  {
-    "objectID": "samlinger/samling2.html#forbered-deg-til-6-feb",
-    "href": "samlinger/samling2.html#forbered-deg-til-6-feb",
-    "title": "Digital samling - 6 feb",
-    "section": "Forbered deg til 6 feb!",
-    "text": "Forbered deg til 6 feb!\n\n📖 Repeter stoffet i kapittel 22 om enkel regresjon i Statistikk og Dataanalyse\nLes og reflekter rundt de to første sidene i artikkelen Orben 2019\nKjør dette og prøv å forstå hvordan det skal tolkes ift neuroticism (epiNeur) og bdi (becks depression inventory)\n\n\n# last ned et datasett med Eysenck personality og Big Five \ndatafilename=\"https://personality-project.org/r/datasets/maps.mixx.epi.bfi.data\"  \npersonality.data =read.delim(url(datafilename))\nhead(personality.data)     #kikke på de første radene\n\n  epiE epiS epiImp epilie epiNeur bfagree bfcon bfext bfneur bfopen bdi\n1   18   10      7      3       9     138    96   141     51    138   1\n2   16    8      5      1      12     101    99   107    116    132   7\n3    6    1      3      2       5     143   118    38     68     90   4\n4   12    6      4      3      15     104   106    64    114    101   8\n5   14    6      5      3       2     115   102   103     86    118   8\n6    6    4      2      5      15     110   113    61     54    149   5\n  traitanx stateanx\n1       24       22\n2       41       40\n3       37       44\n4       54       40\n5       39       67\n6       51       38\n\nplot(personality.data$epiNeur,personality.data$bdi)# spredningsplott viser korrelasjon.. \n\n\n\nmodel1 = lm(bdi~epiNeur,data=personality.data)  #enkel regresjon: beck depression forklares av neuroticism (1 av big five)\nsummary(model1)   # basic statistical summary\n\n\nCall:\nlm(formula = bdi ~ epiNeur, data = personality.data)\n\nResiduals:\n     Min       1Q   Median       3Q      Max \n-11.9548  -3.1577  -0.7707   2.0452  16.4092 \n\nCoefficients:\n            Estimate Std. Error t value Pr(&gt;|t|)    \n(Intercept) -0.32129    0.73070   -0.44    0.661    \nepiNeur      0.68200    0.06353   10.74   &lt;2e-16 ***\n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nResidual standard error: 4.721 on 229 degrees of freedom\nMultiple R-squared:  0.3348,    Adjusted R-squared:  0.3319 \nF-statistic: 115.3 on 1 and 229 DF,  p-value: &lt; 2.2e-16"
-  },
-  {
-    "objectID": "R/digR1.html#pakker-vi-trenger-å-loade",
-    "href": "R/digR1.html#pakker-vi-trenger-å-loade",
-    "title": "R for digital samling 1",
-    "section": "Pakker vi trenger å loade",
-    "text": "Pakker vi trenger å loade\n\nlibrary(tidyverse)\nlibrary(kableExtra)\nlibrary(broom)"
-  },
-  {
-    "objectID": "R/digR1.html#lekeeksempel",
-    "href": "R/digR1.html#lekeeksempel",
-    "title": "R for digital samling 1",
-    "section": "Lekeeksempel",
-    "text": "Lekeeksempel\n\nx &lt;- c(-5, 10, 15, 31, 42)\ny &lt;- c(3,3,0,1, -1)\nmodel &lt;- lm(y~x)\nqplot(x,y)+geom_smooth(method=\"lm\", se=F)"
-  },
-  {
-    "objectID": "R/digR1.html#lekeeksempel-1",
-    "href": "R/digR1.html#lekeeksempel-1",
-    "title": "R for digital samling 1",
-    "section": "Lekeeksempel",
-    "text": "Lekeeksempel\n\nsummary(model)\n\n\nCall:\nlm(formula = y ~ x)\n\nResiduals:\n       1        2        3        4        5 \n-0.08772  1.11210 -1.48796  0.79185 -0.32828 \n\nCoefficients:\n            Estimate Std. Error t value Pr(&gt;|t|)  \n(Intercept)  2.68778    0.79939   3.362   0.0437 *\nx           -0.07999    0.03223  -2.481   0.0892 .\n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nResidual standard error: 1.182 on 3 degrees of freedom\nMultiple R-squared:  0.6724,    Adjusted R-squared:  0.5632 \nF-statistic: 6.158 on 1 and 3 DF,  p-value: 0.08916"
-  },
-  {
-    "objectID": "R/digR1.html#predikere-ny-verdi-for-x20",
-    "href": "R/digR1.html#predikere-ny-verdi-for-x20",
-    "title": "R for digital samling 1",
-    "section": "Predikere ny verdi for \\(x=20\\)",
-    "text": "Predikere ny verdi for \\(x=20\\)\n\nyhat &lt;- predict(model, newdata=data.frame(x=20))\nyhat\n\n       1 \n1.088017 \n\nqplot(x,y, size=3)+geom_smooth(method=\"lm\", se=F)+geom_point(aes(x=20, y=yhat),size=5, color=\"red\")"
-  },
-  {
-    "objectID": "R/digR1.html#trivsel-og-well-being-populasjon",
-    "href": "R/digR1.html#trivsel-og-well-being-populasjon",
-    "title": "R for digital samling 1",
-    "section": "Trivsel og well-being populasjon",
-    "text": "Trivsel og well-being populasjon\nLast ned datasettene først! Se Data til venstre i margen\n\npopulasjon &lt;- readRDS(\"../data/smartphone_wellbeing.rds\")#du må endre på adressen selv. Avhenger av hvilken folder du la dataene i\nhist(populasjon$tot_wellbeing)\n\n\n\nhist(populasjon$tothours)"
-  },
-  {
-    "objectID": "R/digR1.html#regresjonen-i-populasjonen",
-    "href": "R/digR1.html#regresjonen-i-populasjonen",
-    "title": "R for digital samling 1",
-    "section": "Regresjonen i populasjonen",
-    "text": "Regresjonen i populasjonen\n\npopmodel &lt;- lm(tot_wellbeing~ tothours, data=populasjon)\npopmodel %&gt;% tidy() %&gt;% kable(digits=2)\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n50.31\n0.09\n585.03\n0\n\n\ntothours\n-0.81\n0.02\n-43.99\n0"
-  },
-  {
-    "objectID": "R/digR1.html#regresjon-i-utvalget-last-ned-først",
-    "href": "R/digR1.html#regresjon-i-utvalget-last-ned-først",
-    "title": "R for digital samling 1",
-    "section": "Regresjon i utvalget (last ned først)",
-    "text": "Regresjon i utvalget (last ned først)\n\nutvalg &lt;- readRDS(\"../data/goldilocksutvalg.rds\")\nggplot(utvalg, aes(tothours, tot_wellbeing))+geom_jitter(height=0) +geom_smooth(method=\"lm\", se=F)+xlab(\"Antall timer daglig\")+ylab(\"Total trivsel\")"
-  },
-  {
-    "objectID": "R/digR1.html#regresjon-i-utvalget",
-    "href": "R/digR1.html#regresjon-i-utvalget",
-    "title": "R for digital samling 1",
-    "section": "Regresjon i utvalget",
-    "text": "Regresjon i utvalget\n\nmodel &lt;- lm(tot_wellbeing~ tothours, data=utvalg)\nmodel %&gt;% tidy() %&gt;% kable(digits=2)\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n50.89\n1.09\n46.55\n0\n\n\ntothours\n-0.93\n0.23\n-4.01\n0"
-  },
-  {
-    "objectID": "R/digR1.html#multippel-regresjon-i-r",
-    "href": "R/digR1.html#multippel-regresjon-i-r",
-    "title": "R for digital samling 1",
-    "section": "Multippel regresjon i R",
-    "text": "Multippel regresjon i R\n\\[ \\text{tot_wellbeing} = \\beta_0+ \\beta_1 \\cdot \\text{tothours}+ \\beta_2 \\cdot \\text{male}+\\epsilon\\]\n\nmultmodel &lt;- lm(tot_wellbeing~ tothours+male, data=utvalg)\nmultmodel %&gt;% tidy() %&gt;% kable(digits=2)\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n47.57\n1.14\n41.74\n0\n\n\ntothours\n-0.69\n0.22\n-3.08\n0\n\n\nmale1\n6.07\n0.88\n6.92\n0"
-  },
-  {
-    "objectID": "R/digR1.html#anova",
-    "href": "R/digR1.html#anova",
-    "title": "R for digital samling 1",
-    "section": "ANOVA",
-    "text": "ANOVA\n\naov(tot_wellbeing~ school, utvalg) %&gt;% tidy() %&gt;% kable(digits=2) \n\n\n\n\nterm\ndf\nsumsq\nmeansq\nstatistic\np.value\n\n\n\n\nschool\n3\n92.19\n30.73\n0.38\n0.77\n\n\nResiduals\n396\n32388.05\n81.79\nNA\nNA"
-  },
-  {
-    "objectID": "R/digR1.html#oppg-2",
-    "href": "R/digR1.html#oppg-2",
-    "title": "R for digital samling 1",
-    "section": "Oppg 2",
-    "text": "Oppg 2\n\nmotivasjon &lt;- c(9, 4, 7, 1, 2, 7)\noppmøte &lt;- c(12,6, 9, 4, 5, 8)\nplot(motivasjon , oppmøte)"
-  },
-  {
-    "objectID": "R/digR1.html#oppg-3",
-    "href": "R/digR1.html#oppg-3",
-    "title": "R for digital samling 1",
-    "section": "Oppg 3",
-    "text": "Oppg 3\n\nsd(oppmøte)\n\n[1] 2.94392"
-  },
-  {
-    "objectID": "R/digR1.html#oppg-4",
-    "href": "R/digR1.html#oppg-4",
-    "title": "R for digital samling 1",
-    "section": "Oppg 4",
-    "text": "Oppg 4\n\nmymodel &lt;- lm(oppmøte~motivasjon)\nmymodel\n\n\nCall:\nlm(formula = oppmøte ~ motivasjon)\n\nCoefficients:\n(Intercept)   motivasjon  \n      2.833        0.900  \n\nqplot(motivasjon, oppmøte)+geom_smooth(method=\"lm\")"
-  },
-  {
-    "objectID": "R/digR1.html#oppg-6-og-7",
-    "href": "R/digR1.html#oppg-6-og-7",
-    "title": "R for digital samling 1",
-    "section": "Oppg 6 og 7",
-    "text": "Oppg 6 og 7\n\nsummary(mymodel)\n\n\nCall:\nlm(formula = oppmøte ~ motivasjon)\n\nResiduals:\n      1       2       3       4       5       6 \n 1.0667 -0.4333 -0.1333  0.2667  0.3667 -1.1333 \n\nCoefficients:\n            Estimate Std. Error t value Pr(&gt;|t|)   \n(Intercept)   2.8333     0.6872   4.123  0.01458 * \nmotivasjon    0.9000     0.1190   7.562  0.00164 **\n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nResidual standard error: 0.8416 on 4 degrees of freedom\nMultiple R-squared:  0.9346,    Adjusted R-squared:  0.9183 \nF-statistic: 57.18 on 1 and 4 DF,  p-value: 0.001639\n\n\nID1 har residual 1.0667.\nAdjusted R-squared: 0.9183: 92% av variasjon i oppmøte forklare vha av varierende motivasjon. 8% av variasjonen skyldes andre faktorer enn motivasjon"
-  },
-  {
-    "objectID": "R/digR1.html#oppg-8",
-    "href": "R/digR1.html#oppg-8",
-    "title": "R for digital samling 1",
-    "section": "Oppg 8",
-    "text": "Oppg 8\n\nMinstTo &lt;- c(1, 0, 1, 0, 0, 1)# 1=MinstTO\nmymodel &lt;- lm(motivasjon~MinstTo)\nmymodel# Vi forventer at MinstTo gir et motivasjon som er 5.33 høyere enn når MinstTO=0\n\n\nCall:\nlm(formula = motivasjon ~ MinstTo)\n\nCoefficients:\n(Intercept)      MinstTo  \n      2.333        5.333"
-  },
-  {
-    "objectID": "R/digR1.html#oppg-9",
-    "href": "R/digR1.html#oppg-9",
-    "title": "R for digital samling 1",
-    "section": "Oppg 9",
-    "text": "Oppg 9\n\neksamensscore &lt;- c(15, 7, 12.5, 3, 4.5, 11)\nmymodel &lt;- lm(eksamensscore~oppmøte)\nmymodel# effekt av oppmøte: Ett ekstra oppmøte gir en forventa økning i eksamensscore på 1.577\n\n\nCall:\nlm(formula = eksamensscore ~ oppmøte)\n\nCoefficients:\n(Intercept)      oppmøte  \n     -2.731        1.577"
-  },
-  {
-    "objectID": "R/digR1.html#oppg-10",
-    "href": "R/digR1.html#oppg-10",
-    "title": "R for digital samling 1",
-    "section": "Oppg 10",
-    "text": "Oppg 10\n\npredict(mymodel, newdata=data.frame(oppmøte=5))\n\n       1 \n5.153846"
-  },
-  {
-    "objectID": "R/digR1.html#oppg-12",
-    "href": "R/digR1.html#oppg-12",
-    "title": "R for digital samling 1",
-    "section": "Oppg 12",
-    "text": "Oppg 12\n\nmymodel &lt;- lm(eksamensscore ~ oppmøte + motivasjon)\nsummary(mymodel)\n\n\nCall:\nlm(formula = eksamensscore ~ oppmøte + motivasjon)\n\nResiduals:\n        1         2         3         4         5         6 \n-0.276471 -0.147059  0.747059  0.005882 -0.029412 -0.300000 \n\nCoefficients:\n            Estimate Std. Error t value Pr(&gt;|t|)  \n(Intercept)   0.1000     0.9336   0.107   0.9215  \noppmøte       0.4529     0.2965   1.528   0.2240  \nmotivasjon    1.0824     0.2760   3.922   0.0295 *\n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nResidual standard error: 0.499 on 3 degrees of freedom\nMultiple R-squared:  0.9933,    Adjusted R-squared:  0.9889 \nF-statistic: 224.1 on 2 and 3 DF,  p-value: 0.0005423"
-  },
-  {
-    "objectID": "R/digR1.html#oppg-13",
-    "href": "R/digR1.html#oppg-13",
-    "title": "R for digital samling 1",
-    "section": "Oppg 13",
-    "text": "Oppg 13\nEtt ekstra oppmøte gir 0.45 ekstra poeng på eksamen, gitt at vi kontrollerer for motivasjon"
-  },
-  {
-    "objectID": "R/digR1.html#oppg-14",
-    "href": "R/digR1.html#oppg-14",
-    "title": "R for digital samling 1",
-    "section": "Oppg 14",
-    "text": "Oppg 14\nEtt ekstra poeng i motivasjon gir en forventet økning i eksamensscore på 1.08"
-  },
-  {
-    "objectID": "R/digR1.html#oppg-15",
-    "href": "R/digR1.html#oppg-15",
-    "title": "R for digital samling 1",
-    "section": "Oppg 15",
-    "text": "Oppg 15\n99%"
-  },
-  {
-    "objectID": "slides/slides1.html#mps-140",
-    "href": "slides/slides1.html#mps-140",
-    "title": "Velkommen til MPS140",
-    "section": "MPS 140",
-    "text": "MPS 140\n\nKursmateriale legges ut på github"
-  },
-  {
-    "objectID": "slides/slides1.html#statistikk",
-    "href": "slides/slides1.html#statistikk",
-    "title": "Velkommen til MPS140",
-    "section": "Statistikk",
-    "text": "Statistikk\n\nStatistikk handler om hvordan vi best samler inn og analyserer data, og hvordan vi trekker riktige konklusjoner fra våre data.\n\n\nFra “pensumboka” R for Data Science https://r4ds.hadley.nz/"
-  },
-  {
-    "objectID": "slides/slides1.html#section",
-    "href": "slides/slides1.html#section",
-    "title": "Velkommen til MPS140",
-    "section": "",
-    "text": "Vi skal i MPS140 repetere elementære statistikk og så utvide til multippel regresjon og psykometriske modeller. Her er noen nye ting vi skal lære:\n\n\nå jobbe med data på en transparent og reproduserbar måte (i R)\nvisualisere og sammenfatte data med nøkkeltall (R)\nat vi må ha et kritisk blikk på bruk av statistikk i forskning\nlære om måling av psykologiske begrep som stress, lojalitet, trivsel etc"
-  },
-  {
-    "objectID": "slides/slides1.html#section-1",
-    "href": "slides/slides1.html#section-1",
-    "title": "Velkommen til MPS140",
-    "section": "",
-    "text": "Koding 🙀\n\n\nI praksis er koding (skrive syntaks i statistikkprogram) en sentral del av statistisk praksis.\n\n\n\nI klassen har vi stor variasjon i talenter og interesser\nDet blir en del R koding for å illustrere konsepter\nBruk studiekamerater til å lære"
-  },
-  {
-    "objectID": "slides/slides1.html#section-2",
-    "href": "slides/slides1.html#section-2",
-    "title": "Velkommen til MPS140",
-    "section": "",
-    "text": "Komponenter\n\n\n\n\nFør samling\n\n\nDet er viktig å være forberedt til samling:\nTekster\nVideoer\nR stoff\n\n\n\n\n\nUnder samling\n\n\nForelesning\nOppgaver som skal løses i grupper. Basert på forberedelsesstoffet.\nDebriefing"
-  },
-  {
-    "objectID": "slides/slides1.html#dagens-plan",
-    "href": "slides/slides1.html#dagens-plan",
-    "title": "Velkommen til MPS140",
-    "section": "Dagens plan",
-    "text": "Dagens plan\n\nForelese cirka 1 time\nJobbe med oppgaver\n\nFørst individuelt 1 time\nGrupper ca 1 time\nGruppene ligger på canvas\n\nDebriefing"
-  },
-  {
-    "objectID": "slides/slides1.html#samlæring-i-flipped-classroom",
-    "href": "slides/slides1.html#samlæring-i-flipped-classroom",
-    "title": "Velkommen til MPS140",
-    "section": "Samlæring i flipped classroom",
-    "text": "Samlæring i flipped classroom\n\nTa plass og gi plass\nElsk frustrasjon og forvirring\nÅ hjelpe noen er å forklare hvordan du tenker, ikke å bare gi svar eller gjøre utregninger for andre\nDu har rett til å spørre alle i gruppen om hjelp\nDu har plikt til å prøve å hjelpe enhver i gruppen som spør\nDu lager på slutten en tilbamelding til hver av gruppemedlemmene !\nTeam 1 - Team 4 er opprettet ved tilfeldig uttrekk. Se canvas."
-  },
-  {
     "objectID": "about.html",
     "href": "about.html",
     "title": "Emnebeskrivelse",
@@ -550,13 +557,20 @@
     "href": "Ressurser.html",
     "title": "Programvaren R",
     "section": "",
-    "text": "R er en open source og gratis programvare for statistikk.\nFor installasjon på din computer følg oppskriften her: https://posit.co/download/rstudio-desktop/\nSå kan du lage noen tilfeldige tall og lage et histogram og regne ut snittet og median:\n\nminetall &lt;- rnorm(200)# 200 tilfeldige tall trekkes fra standard normalfordeling. Ser ganske normalfordelt ut ja\nhist(minetall)\n\n\n\nmean(minetall)\n\n[1] 0.01831938\n\nmedian(minetall)\n\n[1] 0.09010692"
+    "text": "R er en open source og gratis programvare for statistikk.\nFor installasjon på din computer følg oppskriften her: https://posit.co/download/rstudio-desktop/\nSå kan du lage noen tilfeldige tall og lage et histogram og regne ut snittet og median:\n\nminetall &lt;- rnorm(200)# 200 tilfeldige tall trekkes fra standard normalfordeling. Ser ganske normalfordelt ut ja\nhist(minetall)\n\n\n\nmean(minetall)\n\n[1] 0.067984\n\nmedian(minetall)\n\n[1] 0.09777575"
   },
   {
     "objectID": "Ressurser.html#r-og-rstudio",
     "href": "Ressurser.html#r-og-rstudio",
     "title": "Programvaren R",
     "section": "",
-    "text": "R er en open source og gratis programvare for statistikk.\nFor installasjon på din computer følg oppskriften her: https://posit.co/download/rstudio-desktop/\nSå kan du lage noen tilfeldige tall og lage et histogram og regne ut snittet og median:\n\nminetall &lt;- rnorm(200)# 200 tilfeldige tall trekkes fra standard normalfordeling. Ser ganske normalfordelt ut ja\nhist(minetall)\n\n\n\nmean(minetall)\n\n[1] 0.01831938\n\nmedian(minetall)\n\n[1] 0.09010692"
+    "text": "R er en open source og gratis programvare for statistikk.\nFor installasjon på din computer følg oppskriften her: https://posit.co/download/rstudio-desktop/\nSå kan du lage noen tilfeldige tall og lage et histogram og regne ut snittet og median:\n\nminetall &lt;- rnorm(200)# 200 tilfeldige tall trekkes fra standard normalfordeling. Ser ganske normalfordelt ut ja\nhist(minetall)\n\n\n\nmean(minetall)\n\n[1] 0.067984\n\nmedian(minetall)\n\n[1] 0.09777575"
+  },
+  {
+    "objectID": "emnebeskrivelse.html",
+    "href": "emnebeskrivelse.html",
+    "title": "Emnebeskrivelse",
+    "section": "",
+    "text": "Denne websiden inneholder kursmateriell for statistikkurset i 2-årig psykologi master ved UiS. Emnebeskrivelsen: https://www.uis.no/nb/course/MPS140_1"
   }
 ]

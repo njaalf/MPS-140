@@ -13,7 +13,7 @@ tbl-colwidths: [10,30,10,10,10]
 | Dato           | Tema                              |              Forberedelser               |                               Presentasjoner                                | R                       |                Oppgaver                 |
 |------------|------------|:----------:|:----------:|------------|:----------:|
 | 23.01: 1215-16 | Intro og grunnleggende statistikk | [📖](samlinger/samling1.qmd "Samling 1") | [🖥](slides/slides1.qmd "Foiler 1") [🖥](slides/stat_review.pdf "Repetisjon") | [📋](R/R1.qmd "R kode") | [📋](quiz/samling1_mps140.pdf "Oppg 1") |
-| 05.03: 815-16  | Psykometri                        |                                          |                                                                             |                         |                                         |
+| 05.03: 815-16  | Psykometri                        |  [📖](samlinger/samling3.qmd "Samling 3")                                        |                                                                             |                         |                                         |
 | 09.04: 815-16  | Latente variable                  |                                          |                                                                             |                         |                                         |
 | 03.06          | Eksamen                           |                                          |                                                                             |                         |                                         |
 :::
