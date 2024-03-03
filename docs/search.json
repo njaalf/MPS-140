@@ -508,7 +508,7 @@
     "href": "slides/slides2.html#eksempel-effekt-av-telefonbruk-på-well-being-kontrollert-for-kjønn",
     "title": "Lineær Regresjon. Digital samling 1",
     "section": "Eksempel: Effekt av telefonbruk på Well-being, kontrollert for kjønn",
-    "text": "Eksempel: Effekt av telefonbruk på Well-being, kontrollert for kjønn\nGutter har høyere trivsel (6.5 poeng) og lavere mobilforbruk:\n\nutvalg %&gt;% group_by(male) %&gt;%\n  summarise(wbsnitt=mean(tot_wellbeing),\n            tothoursnitt=mean(tothours))\n\n\n\n  \n\n\n\nVi tar med kjønn som forklaringsvariabel. Dette er en kategorisk variabel, vi koder den med en dummy variabel: male=0 betyr jente, male=1 betyr gutt."
+    "text": "Eksempel: Effekt av telefonbruk på Well-being, kontrollert for kjønn\nGutter har høyere trivsel (6.5 poeng) og lavere mobilforbruk:\n\nutvalg %&gt;% group_by(male) %&gt;%\n  summarise(wbsnitt=mean(tot_wellbeing),\n            tothoursnitt=mean(tothours))\n\n# A tibble: 2 × 3\n  male  wbsnitt tothoursnitt\n  &lt;fct&gt;   &lt;dbl&gt;        &lt;dbl&gt;\n1 0        44.5         4.52\n2 1        51.0         3.89\n\n\nVi tar med kjønn som forklaringsvariabel. Dette er en kategorisk variabel, vi koder den med en dummy variabel: male=0 betyr jente, male=1 betyr gutt."
   },
   {
     "objectID": "slides/slides2.html#kategoriske-variabler-og-dummy-koding",
@@ -543,7 +543,7 @@
     "href": "slides/slides2.html#eksempel",
     "title": "Lineær Regresjon. Digital samling 1",
     "section": "Eksempel",
-    "text": "Eksempel\nVi antar at i utvalget var det 4 skoler. Vi ønsker å teste om well-being er den samme på alle skolene:\n\naov(tot_wellbeing~ school, utvalg) %&gt;% tidy() %&gt;% kable(digits=2) \n\n\n\n\nterm\ndf\nsumsq\nmeansq\nstatistic\np.value\n\n\n\n\nschool\n3\n92.19\n30.73\n0.38\n0.77\n\n\nResiduals\n396\n32388.05\n81.79\nNA\nNA\n\n\n\n\n\n\n\nVi har ikke støtte for å hevde at det er forskjell i well-being mellom de 4 skolene (p-verdi=.77 vi beholder \\(H_0\\))"
+    "text": "Eksempel\nVi antar at i utvalget var det 4 skoler. Vi ønsker å teste om well-being er den samme på alle skolene:\n\naov(tot_wellbeing~ school, utvalg) %&gt;% tidy() %&gt;% kable(digits=2) \n\n\n\n\nterm\ndf\nsumsq\nmeansq\nstatistic\np.value\n\n\n\n\nschool\n3\n92.19\n30.73\n0.38\n0.77\n\n\nResiduals\n396\n32388.05\n81.79\nNA\nNA\n\n\n\n\n\n\n\nVi har ikke støtte for å hevde at det er forskjell i well-being mellom de 4 skolene (p-verdi=.77 vi beholder \\(H_0\\))\n\n\nhjem"
   },
   {
     "objectID": "about.html",
@@ -572,5 +572,229 @@
     "title": "Emnebeskrivelse",
     "section": "",
     "text": "Denne websiden inneholder kursmateriell for statistikkurset i 2-årig psykologi master ved UiS. Emnebeskrivelsen: https://www.uis.no/nb/course/MPS140_1"
+  },
+  {
+    "objectID": "slides/slides3a.html#lekeeksempel",
+    "href": "slides/slides3a.html#lekeeksempel",
+    "title": "Fysisk samling 5. mars. Mer om mutlippel regresjon",
+    "section": "Lekeeksempel",
+    "text": "Lekeeksempel"
+  },
+  {
+    "objectID": "slides/slides3a.html#estimere-modellen-med-textsflm-og-plotte",
+    "href": "slides/slides3a.html#estimere-modellen-med-textsflm-og-plotte",
+    "title": "Fysisk samling 5. mars. Mer om mutlippel regresjon",
+    "section": "Estimere modellen med \\(\\textsf{lm()}\\) og plotte",
+    "text": "Estimere modellen med \\(\\textsf{lm()}\\) og plotte\n\nx &lt;- c(-5, 10, 15, 31, 42)\ny &lt;- c(3,3,0,1, -1)\nmodel &lt;- lm(y~x)\nqplot(x,y)+geom_smooth(method=\"lm\", se=F)"
+  },
+  {
+    "objectID": "slides/slides3a.html#utskrift-fra-textsflm",
+    "href": "slides/slides3a.html#utskrift-fra-textsflm",
+    "title": "Fysisk samling 5. mars. Mer om mutlippel regresjon",
+    "section": "Utskrift fra \\(\\textsf{lm()}\\)",
+    "text": "Utskrift fra \\(\\textsf{lm()}\\)\n\nsummary(model)\n\n\nCall:\nlm(formula = y ~ x)\n\nResiduals:\n       1        2        3        4        5 \n-0.08772  1.11210 -1.48796  0.79185 -0.32828 \n\nCoefficients:\n            Estimate Std. Error t value Pr(&gt;|t|)  \n(Intercept)  2.68778    0.79939   3.362   0.0437 *\nx           -0.07999    0.03223  -2.481   0.0892 .\n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nResidual standard error: 1.182 on 3 degrees of freedom\nMultiple R-squared:  0.6724,    Adjusted R-squared:  0.5632 \nF-statistic: 6.158 on 1 and 3 DF,  p-value: 0.08916"
+  },
+  {
+    "objectID": "slides/slides3a.html#r2-forklart-varians",
+    "href": "slides/slides3a.html#r2-forklart-varians",
+    "title": "Fysisk samling 5. mars. Mer om mutlippel regresjon",
+    "section": "\\(R^2\\): forklart varians",
+    "text": "\\(R^2\\): forklart varians\n\nResidualet: Avstand fra den faktiske \\(y\\) verdien til den \\(y\\) som modellen predikerer (på linja)\n\\(R^2\\): Andel av variasjonen i \\(y\\) som kan forklares av \\(x\\) (to versjoner). Jo høyere, jo bedre er linja som forklaringsmodell"
+  },
+  {
+    "objectID": "slides/slides3a.html#predikere-nye-verdier",
+    "href": "slides/slides3a.html#predikere-nye-verdier",
+    "title": "Fysisk samling 5. mars. Mer om mutlippel regresjon",
+    "section": "Predikere nye verdier",
+    "text": "Predikere nye verdier\nDersom vi har en ny verdie, \\(x=20\\) kan vi bruke linja til en kvalifisert gjetning på hva \\(y\\) vil være:\n\nyhat &lt;- predict(model, newdata=data.frame(x=20))\nyhat\n\n       1 \n1.088017 \n\nqplot(x,y, size=3)+geom_smooth(method=\"lm\", se=F)+geom_point(aes(x=20, y=yhat),size=5, color=\"red\")"
+  },
+  {
+    "objectID": "slides/slides3a.html#enkel-regresjon",
+    "href": "slides/slides3a.html#enkel-regresjon",
+    "title": "Fysisk samling 5. mars. Mer om mutlippel regresjon",
+    "section": "Enkel regresjon",
+    "text": "Enkel regresjon\nVi ønsker å studere en kontinuerlig variabel \\(y\\). Denne kalles den avhengige variabelen.\nVi forklarer variasjonen i \\(y\\) ved hjelp av en enkel forklaringsvariabel \\(x\\) og en lineær sammenheng\n\\[ y = \\beta_0+ \\beta_1 x + \\epsilon\\]\n\n\\(\\beta_1 &gt; 0\\): positiv sammenheng mellom \\(x\\) og \\(y\\)\n\\(\\beta_1 &lt; 0\\): negativ sammenheng mellom \\(x\\) og \\(y\\)\n\\(\\beta_1 = 0\\): ingen sammenheng mellom \\(x\\) og \\(y\\)"
+  },
+  {
+    "objectID": "slides/slides3a.html#antagelser-i-lineær-regresjon",
+    "href": "slides/slides3a.html#antagelser-i-lineær-regresjon",
+    "title": "Fysisk samling 5. mars. Mer om mutlippel regresjon",
+    "section": "Antagelser i lineær regresjon",
+    "text": "Antagelser i lineær regresjon\n\nLinearitet!\nHomoskedastisitet: Residualene må ha samme varians uansett hva \\(x\\) er. Kan sjekkes med å plotte residualene vs de predikerte (fitted values)\nHvis det er et lite utvalg så bør residualene være normalfordelte"
+  },
+  {
+    "objectID": "slides/slides3a.html#ok-lineært-og-homoskedastisk",
+    "href": "slides/slides3a.html#ok-lineært-og-homoskedastisk",
+    "title": "Fysisk samling 5. mars. Mer om mutlippel regresjon",
+    "section": "OK: lineært og homoskedastisk",
+    "text": "OK: lineært og homoskedastisk\n\nPerfekt"
+  },
+  {
+    "objectID": "slides/slides3a.html#ikke-ok-ikke-lineært",
+    "href": "slides/slides3a.html#ikke-ok-ikke-lineært",
+    "title": "Fysisk samling 5. mars. Mer om mutlippel regresjon",
+    "section": "IKKE OK: ikke lineært!",
+    "text": "IKKE OK: ikke lineært!\n\nSammenhengen er ikke lineærKan fikses ved å ta med \\(x^2\\) som uavhengig variabel"
+  },
+  {
+    "objectID": "slides/slides3a.html#ikke-ok-homoskedastiske-feilledd",
+    "href": "slides/slides3a.html#ikke-ok-homoskedastiske-feilledd",
+    "title": "Fysisk samling 5. mars. Mer om mutlippel regresjon",
+    "section": "IKKE OK: homoskedastiske feilledd",
+    "text": "IKKE OK: homoskedastiske feilledd\n\nResidualene varierer mer jo større \\(x\\) erKan fikses ved å bruke en robust estimator av White-typen"
+  },
+  {
+    "objectID": "slides/slides3a.html#trivsel-og-sosiale-medier-engelske-15-åringer",
+    "href": "slides/slides3a.html#trivsel-og-sosiale-medier-engelske-15-åringer",
+    "title": "Fysisk samling 5. mars. Mer om mutlippel regresjon",
+    "section": "Trivsel og sosiale medier engelske 15 åringer",
+    "text": "Trivsel og sosiale medier engelske 15 åringer\nPrzybylski, A. & Weinstein, N. (2017). A Large-Scale Test of the Goldilocks Hypothesis. Psychological Science, 28, 204–215.\nStorskala studie som finner støtte til “Goldilocks” hypotesen.\nDataene er tilgjengelige her"
+  },
+  {
+    "objectID": "slides/slides3a.html#trivsel---wellbeing",
+    "href": "slides/slides3a.html#trivsel---wellbeing",
+    "title": "Fysisk samling 5. mars. Mer om mutlippel regresjon",
+    "section": "Trivsel - Wellbeing",
+    "text": "Trivsel - Wellbeing\nVi ønsker å studere trivsel. Det er vår avhengige variabel:\nTrivsel målt med Warwick-Edinburgh Mental Well-Being Scale (WEMWBS). Spørreskjema med 14 items og 5 responsnivå. Vi bruker summescoren\n\n\n\n\n\n\n\n\nVi har 71033 deltagere! La oss tenke på dette som POPULASJONEN"
+  },
+  {
+    "objectID": "slides/slides3a.html#negativ-trivsel-og-telefonbruk-i-populasjonen",
+    "href": "slides/slides3a.html#negativ-trivsel-og-telefonbruk-i-populasjonen",
+    "title": "Fysisk samling 5. mars. Mer om mutlippel regresjon",
+    "section": "Negativ trivsel og telefonbruk i “populasjonen”",
+    "text": "Negativ trivsel og telefonbruk i “populasjonen”\n\npopmodel &lt;- lm(tot_wellbeing~ tothours, data=populasjon)\npopmodel %&gt;% tidy() %&gt;% kable(digits=2)\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n50.31\n0.09\n585.03\n0\n\n\ntothours\n-0.81\n0.02\n-43.99\n0\n\n\n\n\n\n\n\nEn time ekstra daglig mobilbruk gir en forventet nedgang i trivsel på 0.81"
+  },
+  {
+    "objectID": "slides/slides3a.html#sammenheng-trivsel-og-telefonbruk-i-et-tilfeldig-utvalg-av-400-15-åringer",
+    "href": "slides/slides3a.html#sammenheng-trivsel-og-telefonbruk-i-et-tilfeldig-utvalg-av-400-15-åringer",
+    "title": "Fysisk samling 5. mars. Mer om mutlippel regresjon",
+    "section": "Sammenheng trivsel og telefonbruk i et tilfeldig utvalg av 400 15-åringer",
+    "text": "Sammenheng trivsel og telefonbruk i et tilfeldig utvalg av 400 15-åringer"
+  },
+  {
+    "objectID": "slides/slides3a.html#regresjon-i-utvalget",
+    "href": "slides/slides3a.html#regresjon-i-utvalget",
+    "title": "Fysisk samling 5. mars. Mer om mutlippel regresjon",
+    "section": "Regresjon i utvalget",
+    "text": "Regresjon i utvalget\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n50.89\n1.09\n46.55\n0\n\n\ntothours\n-0.93\n0.23\n-4.01\n0\n\n\n\n\n\n\n\nGanske likt populasjonsverdiene! Vi har linearitet."
+  },
+  {
+    "objectID": "slides/slides3a.html#homoskedastiske-feilledd",
+    "href": "slides/slides3a.html#homoskedastiske-feilledd",
+    "title": "Fysisk samling 5. mars. Mer om mutlippel regresjon",
+    "section": "Homoskedastiske feilledd?",
+    "text": "Homoskedastiske feilledd?\n\nHer har vi tilnærmet homoskedastisitet!"
+  },
+  {
+    "objectID": "slides/slides3a.html#husk-at-estimatene-er-usikre",
+    "href": "slides/slides3a.html#husk-at-estimatene-er-usikre",
+    "title": "Fysisk samling 5. mars. Mer om mutlippel regresjon",
+    "section": "Husk at estimatene er usikre!",
+    "text": "Husk at estimatene er usikre!\nHer er fire andre utvalg av størrelse \\(n=400\\). Vi ser at intercept og slope varierer endel!"
+  },
+  {
+    "objectID": "slides/slides3a.html#multippel-regresjon-1",
+    "href": "slides/slides3a.html#multippel-regresjon-1",
+    "title": "Fysisk samling 5. mars. Mer om mutlippel regresjon",
+    "section": "Multippel regresjon",
+    "text": "Multippel regresjon\nEn enkel uvidelse av enkel regresjon, der vi har flere uavhengige variable\n\\[ y = \\beta_0+ \\beta_1 x_1 +  \\beta_2 x_2+ \\beta_3 x_3+ \\epsilon\\] Her har vi TRE forklaringsvariabler \\(x_1,x_2, x_3\\) som forklarer hvorfor \\(y\\) varierer!"
+  },
+  {
+    "objectID": "slides/slides3a.html#ceteris-paribus",
+    "href": "slides/slides3a.html#ceteris-paribus",
+    "title": "Fysisk samling 5. mars. Mer om mutlippel regresjon",
+    "section": "Ceteris paribus",
+    "text": "Ceteris paribus\nCeteris paribus [keːˈtɛ.riːsˈpa.rɪ.bʊs] latinsk for “alt annet likt”\nI multippel regresjon får vi effekten av en variabel på \\(y\\), “alt annet likt”. Vi kontrollerer for de andre variablene!\nFor eksempel: \\[ y = 1+ 2 \\cdot x_1 - x_2+ 0.5 \\cdot x_3+ \\epsilon\\] Når \\(x_1\\) øker med 1 enhet, så øker \\(y\\) med 2 enheter, alt annet likt. Dvs at vi holder \\(x_2\\) og \\(x_3\\) fast, og får isolert sammenhengen mellom \\(x_1\\) og \\(y\\)."
+  },
+  {
+    "objectID": "slides/slides3a.html#eksempel-effekt-av-telefonbruk-på-well-being-kontrollert-for-kjønn",
+    "href": "slides/slides3a.html#eksempel-effekt-av-telefonbruk-på-well-being-kontrollert-for-kjønn",
+    "title": "Fysisk samling 5. mars. Mer om mutlippel regresjon",
+    "section": "Eksempel: Effekt av telefonbruk på Well-being, kontrollert for kjønn",
+    "text": "Eksempel: Effekt av telefonbruk på Well-being, kontrollert for kjønn\nGutter har høyere trivsel (6.5 poeng) og lavere mobilforbruk:\n\nutvalg %&gt;% group_by(male) %&gt;%\n  summarise(wbsnitt=mean(tot_wellbeing),\n            tothoursnitt=mean(tothours))\n\n# A tibble: 2 × 3\n  male  wbsnitt tothoursnitt\n  &lt;fct&gt;   &lt;dbl&gt;        &lt;dbl&gt;\n1 0        44.5         4.52\n2 1        51.0         3.89\n\n\nVi tar med kjønn som forklaringsvariabel. Dette er en kategorisk variabel, vi koder den med en dummy variabel: male=0 betyr jente, male=1 betyr gutt."
+  },
+  {
+    "objectID": "slides/slides3a.html#kategoriske-variabler-og-dummy-koding",
+    "href": "slides/slides3a.html#kategoriske-variabler-og-dummy-koding",
+    "title": "Fysisk samling 5. mars. Mer om mutlippel regresjon",
+    "section": "Kategoriske variabler og dummy-koding",
+    "text": "Kategoriske variabler og dummy-koding\nkategoriske variabler kan kodes med dummyvariabler i regresjon. Dersom vi har \\(K\\) kategorier, trenger vi \\(K-1\\) dummy variabler:\n\nKjønn: \\(K=2\\). Vi har \\(K-1=2-1=1\\) dummy variabel.\nUSA politisk tilørighet: Dem, Rep, Ind: \\(K=3\\). Vi har \\(K-1=2-1=2\\) dummy variabler. For eksempel kan vi har \\(R=1\\) hvis republikaner, og \\(D=1\\) hvis demokrat. Vi trenger ikke \\(Ind\\), siden dersom \\(R=0\\) og \\(D=0\\) så vet vi at det er en independent velger."
+  },
+  {
+    "objectID": "slides/slides3a.html#multippel-regresjon-i-r",
+    "href": "slides/slides3a.html#multippel-regresjon-i-r",
+    "title": "Fysisk samling 5. mars. Mer om mutlippel regresjon",
+    "section": "Multippel regresjon i R",
+    "text": "Multippel regresjon i R\n\\[ \\text{tot_wellbeing} = \\beta_0+ \\beta_1 \\cdot \\text{tothours}+ \\beta_2 \\cdot \\text{male}+\\epsilon\\]\n\nmultmodel &lt;- lm(tot_wellbeing~ tothours+male, data=utvalg)\nmultmodel %&gt;% tidy() %&gt;% kable(digits=2)\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n47.57\n1.14\n41.74\n0\n\n\ntothours\n-0.69\n0.22\n-3.08\n0\n\n\nmale1\n6.07\n0.88\n6.92\n0"
+  },
+  {
+    "objectID": "slides/slides3a.html#telefonbruk-kjønn-og-well-being",
+    "href": "slides/slides3a.html#telefonbruk-kjønn-og-well-being",
+    "title": "Fysisk samling 5. mars. Mer om mutlippel regresjon",
+    "section": "Telefonbruk, kjønn og well-being",
+    "text": "Telefonbruk, kjønn og well-being\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n47.57\n1.14\n41.74\n0\n\n\ntothours\n-0.69\n0.22\n-3.08\n0\n\n\nmale1\n6.07\n0.88\n6.92\n0\n\n\n\n\n\n\n\nEffekten av telefonbruk er litt mindre når vi kontrollerer for kjønn (-0.934 \\(\\rightarrow\\) -0.688 )\nOg effekt av kjønn på trivsel, når vi kontrollerer for telefonbruk, er lavere nå, 6.07. Så noe av den observerte trivselforskjellen på 6.5 kan forklares ved at guttene er mindre på mobil, og at mobil ikke er bra for wellbeing!"
+  },
+  {
+    "objectID": "slides/slides3a.html#anova-analysis-of-variance",
+    "href": "slides/slides3a.html#anova-analysis-of-variance",
+    "title": "Fysisk samling 5. mars. Mer om mutlippel regresjon",
+    "section": "ANOVA analysis of variance",
+    "text": "ANOVA analysis of variance\nI intro statistikk så lærer man anova. - Du har flere grupper i populasjonen - Du lurer på om \\(y\\) har samme gjennomsnitt i alle gruppene - \\(H_0:\\mu_1=\\mu_2=\\cdots=\\mu_g\\) - Alternativhypotesen er at gruppegjennomsnittene ikke alle er like!"
+  },
+  {
+    "objectID": "slides/slides3a.html#eksempel",
+    "href": "slides/slides3a.html#eksempel",
+    "title": "Fysisk samling 5. mars. Mer om mutlippel regresjon",
+    "section": "Eksempel",
+    "text": "Eksempel\nVi antar at i utvalget var det 4 skoler. Vi ønsker å teste om well-being er den samme på alle skolene:\n\naov(tot_wellbeing~ school, utvalg) %&gt;% tidy() %&gt;% kable(digits=2) \n\n\n\n\nterm\ndf\nsumsq\nmeansq\nstatistic\np.value\n\n\n\n\nschool\n3\n92.19\n30.73\n0.38\n0.77\n\n\nResiduals\n396\n32388.05\n81.79\nNA\nNA\n\n\n\n\n\n\n\nVi har ikke støtte for å hevde at det er forskjell i well-being mellom de 4 skolene (p-verdi=.77 vi beholder \\(H_0\\))\n\n\nhjem"
+  },
+  {
+    "objectID": "slides/slides3a.html#multippel-regresjon-er-helt-sentralt-i-kvantitativ-psykologi",
+    "href": "slides/slides3a.html#multippel-regresjon-er-helt-sentralt-i-kvantitativ-psykologi",
+    "title": "Fysisk samling 05.03. Multippel og logistisk regresjon",
+    "section": "Multippel regresjon er helt sentralt i kvantitativ psykologi",
+    "text": "Multippel regresjon er helt sentralt i kvantitativ psykologi\n\\[ Y = \\beta_0 + \\beta_1 X_1+ \\beta_1 X_2+\\ldots +  \\beta_k X_k+\\epsilon\\] - Vi identifiserer en avhengig variabelen \\(Y\\) som vi vil forklare variasjonen til - Vi identifiserer prediktorer \\(X_1, X_2, \\ldots, X_k\\)"
+  },
+  {
+    "objectID": "slides/slides3a.html#prosessen",
+    "href": "slides/slides3a.html#prosessen",
+    "title": "Fysisk samling 5. mars. Mer om mutlippel regresjon",
+    "section": "Prosessen",
+    "text": "Prosessen\n\nFinne de viktigste prediktorene\nSjekke forutsetninger: stort nok utvalg, unngå multikollinearitet1, sammenhengene er lineære, homoskedastisitet2, normalfordelte residualer\nSjekke modellens totale forklaringskraft (Adjusted R^2 og \\(F\\) verdien)\nSjekke individuelle prediktorers forklaringskraft (feks \\(\\hat \\beta_1\\) og dens p-verdi )\nSammenfatte dette og besvare forskningsspørsmålet\n\n\n\nhjem\n\ndvs at prediktorene er høyt korrelertedvs at residualene har konstant varians"
+  },
+  {
+    "objectID": "slides/slides3a.html#forskningsspørsmålet-blir-ofte-oversatt-til-en-regresjonslikning",
+    "href": "slides/slides3a.html#forskningsspørsmålet-blir-ofte-oversatt-til-en-regresjonslikning",
+    "title": "Fysisk samling 5. mars. Mer om mutlippel regresjon",
+    "section": "Forskningsspørsmålet blir ofte “oversatt” til en regresjonslikning",
+    "text": "Forskningsspørsmålet blir ofte “oversatt” til en regresjonslikning\n\nFinne de viktigste prediktorene\nSjekke forutsetninger: stort nok utvalg, unngå multikollinearitet1, sammenhengene er lineære, homoskedastisitet2, normalfordelte residualer\nSjekke modellens totale forklaringskraft (Adjusted R^2 og \\(F\\) verdien)\nSjekke individuelle prediktorers forklaringskraft (feks \\(\\hat \\beta_1\\) og dens p-verdi )\nSammenfatte dette og besvare forskningsspørsmålet\n\n\n\nhjem\n\ndvs at prediktorene er høyt korrelertedvs at residualene har konstant varians"
+  },
+  {
+    "objectID": "slides/slides3a.html#forskningsspørsmålet-rightarrow-regresjonslikning",
+    "href": "slides/slides3a.html#forskningsspørsmålet-rightarrow-regresjonslikning",
+    "title": "Fysisk samling 5. mars. Mer om mutlippel regresjon",
+    "section": "Forskningsspørsmålet \\(\\rightarrow\\) regresjonslikning",
+    "text": "Forskningsspørsmålet \\(\\rightarrow\\) regresjonslikning\n\nFinne de viktigste prediktorene\nSjekke forutsetninger: stort nok utvalg, unngå multikollinearitet1, sammenhengene er lineære, homoskedastisitet2, normalfordelte residualer\nSjekke modellens totale forklaringskraft (Adjusted R^2 og \\(F\\) verdien)\nSjekke individuelle prediktorers forklaringskraft (feks \\(\\hat \\beta_1\\) og dens p-verdi )\nSammenfatte dette og besvare forskningsspørsmålet\n\n\n\nhjem\n\ndvs at prediktorene er høyt korrelertedvs at residualene har konstant varians"
+  },
+  {
+    "objectID": "slides/slides3a.html#fra-forskningsspørsmål-til-regresjon",
+    "href": "slides/slides3a.html#fra-forskningsspørsmål-til-regresjon",
+    "title": "Fysisk samling 05.03. Multippel og logistisk regresjon",
+    "section": "Fra forskningsspørsmål til regresjon",
+    "text": "Fra forskningsspørsmål til regresjon\n\nFinne de viktigste prediktorene\nSjekke forutsetninger: stort nok utvalg, unngå multikollinearitet1, sammenhengene er lineære, homoskedastisitet2, normalfordelte residualer\nSjekke modellens totale forklaringskraft (Adjusted \\(R^2\\) og \\(F\\))\nSjekke hver prediktors forklaringskraft\nBesvare forskningsspørsmålet\n\nunngå høyt korrelerte prediktorer residualene har konstant varians"
+  },
+  {
+    "objectID": "slides/slides3a.html#når-y-er-binær-logistisk-regresjon",
+    "href": "slides/slides3a.html#når-y-er-binær-logistisk-regresjon",
+    "title": "Fysisk samling 05.03. Multippel og logistisk regresjon",
+    "section": "Når \\(Y\\) er binær: Logistisk regresjon",
+    "text": "Når \\(Y\\) er binær: Logistisk regresjon\n\nI multippel regresjon er \\(Y\\) kontinuerlig\n\nFor eksempel \\(Y\\)= well-being på en skala fra 0-10\nModellen gir forventet well-being gitt feks kjønn og alder\n\nHvis \\(Y\\) er binær så må vi bruke logistisk regresjon\n\nFor eksempel \\(Y\\)=depressiv (Ja/Nei)\nModellen gir da sannsynlighet for at en person er depressiv, gitt feks kjønn og alder\n\n\n\n\nhjem"
+  },
+  {
+    "objectID": "slides/slides3a.html#multippel-regresjon-er-et-hovedverktøy-i-psykologi",
+    "href": "slides/slides3a.html#multippel-regresjon-er-et-hovedverktøy-i-psykologi",
+    "title": "Fysisk samling 05.03. Multippel og logistisk regresjon",
+    "section": "Multippel regresjon er et hovedverktøy i psykologi",
+    "text": "Multippel regresjon er et hovedverktøy i psykologi\n\nFra forskningsspørsmålet identifiserer vi en avhengig variabel \\(Y\\) som vi vil forklare variasjonen til\nOg en rekke prediktorer \\(X_1, X_2, \\ldots, X_k\\) som skal forklare variasjonen i \\(Y\\)\nModellen:\n\n\\[ Y = \\beta_0 + \\beta_1 X_1+ \\beta_1 X_2+\\ldots +  \\beta_k X_k+\\epsilon\\]"
   }
 ]

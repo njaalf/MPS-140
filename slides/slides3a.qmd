@@ -1,0 +1,72 @@
+---
+title: "Fysisk samling 05.03. Multippel og logistisk regresjon"
+author: "Njål Foldnes"
+footer:  "[hjem](https://njaalf.github.io/MPS-140/)"
+   
+format: 
+  revealjs: 
+    multiplex: true
+    transition: fade
+    slide-number: true
+    theme: slides.scss
+    chalkboard: true
+    
+editor: visual
+execute:
+  echo: false
+  message: false
+  warning: false
+
+---
+
+
+
+
+```{r, echo=F, message=F, warning=FALSE}
+knitr::opts_chunk$set(message = FALSE)
+knitr::opts_chunk$set(warning = FALSE)
+library(kableExtra)
+library(broom)
+library(modelsummary)
+library("pwr")
+library("see")
+library("performance")
+library("report")
+library("tidyverse")
+theme_set(theme_minimal())
+
+```
+
+# Multippel og logistisk regresjon
+
+## Multippel regresjon er et hovedverktøy i psykologi
+
+- Fra forskningsspørsmålet identifiserer vi en  *avhengig variabel* $Y$ som vi vil forklare variasjonen til
+- Og en rekke *prediktorer* $X_1, X_2, \ldots, X_k$ som skal forklare variasjonen i $Y$
+- Modellen:
+
+$$ Y = \beta_0 + \beta_1 X_1+ \beta_1 X_2+\ldots +  \beta_k X_k+\epsilon$$
+
+## Fra forskningsspørsmål til regresjon
+
+- Finne de viktigste prediktorene
+- Sjekke forutsetninger: stort nok utvalg, unngå multikollinearitet^[unngå høyt korrelerte prediktorer], sammenhengene er lineære, homoskedastisitet^[ residualene har konstant varians], normalfordelte residualer
+- Sjekke modellens totale forklaringskraft (Adjusted $R^2$ og $F$)
+- Sjekke hver prediktors forklaringskraft 
+- Besvare forskningsspørsmålet
+
+## Eksempel
+
+
+
+
+
+## Når $Y$ er binær: Logistisk regresjon
+
+- I multippel regresjon er $Y$ kontinuerlig
+  + For eksempel $Y$= well-being på en skala fra 0-10
+  + Modellen gir forventet well-being gitt feks kjønn og alder
+- Hvis $Y$ er binær så må vi bruke *logistisk* regresjon
+  + For eksempel $Y$=depressiv (Ja/Nei)
+  + Modellen gir da sannsynlighet for at en person er depressiv, gitt feks kjønn og alder
+
