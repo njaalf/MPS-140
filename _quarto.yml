@@ -36,6 +36,8 @@ website:
               text: "Goldilocks hele datasett"
             - href: data/goldilocksutvalg.rds
               text: "Goldilocks utvalg av 400 ungdommer"
+            - href: data/stress_complete.csv
+              text: "Digital jobbstress"
         - section: "Eksamen"
           contents:
             - href: omeksamen.qmd

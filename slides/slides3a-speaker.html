@@ -8,7 +8,7 @@
 <link href="../site_libs/quarto-html/light-border.css" rel="stylesheet">
 <link href="../site_libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.3.353">
+  <meta name="generator" content="quarto-1.3.450">
 
   <meta name="author" content="Njål Foldnes">
   <title>MPS 140 - Fysisk samling 05.03. Multippel og logistisk regresjon</title>
@@ -29,6 +29,71 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
+    /* CSS for syntax highlighting */
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      { color: #003b4f; background-color: #f1f3f5; }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #003b4f; } /* Normal */
+    code span.al { color: #ad0000; } /* Alert */
+    code span.an { color: #5e5e5e; } /* Annotation */
+    code span.at { color: #657422; } /* Attribute */
+    code span.bn { color: #ad0000; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #003b4f; } /* ControlFlow */
+    code span.ch { color: #20794d; } /* Char */
+    code span.cn { color: #8f5902; } /* Constant */
+    code span.co { color: #5e5e5e; } /* Comment */
+    code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
+    code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
+    code span.dt { color: #ad0000; } /* DataType */
+    code span.dv { color: #ad0000; } /* DecVal */
+    code span.er { color: #ad0000; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #ad0000; } /* Float */
+    code span.fu { color: #4758ab; } /* Function */
+    code span.im { color: #00769e; } /* Import */
+    code span.in { color: #5e5e5e; } /* Information */
+    code span.kw { color: #003b4f; } /* Keyword */
+    code span.op { color: #5e5e5e; } /* Operator */
+    code span.ot { color: #003b4f; } /* Other */
+    code span.pp { color: #ad0000; } /* Preprocessor */
+    code span.sc { color: #5e5e5e; } /* SpecialChar */
+    code span.ss { color: #20794d; } /* SpecialString */
+    code span.st { color: #20794d; } /* String */
+    code span.va { color: #111111; } /* Variable */
+    code span.vs { color: #20794d; } /* VerbatimString */
+    code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
   <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto.css">
   <link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
@@ -361,7 +426,310 @@ Njål Foldnes
 <li>Sjekke hver prediktors forklaringskraft</li>
 <li>Besvare forskningsspørsmålet</li>
 </ul>
-<aside><ol class="aside-footnotes"><li id="fn1"><p>unngå høyt korrelerte prediktorer</p></li><li id="fn2"><p> residualene har konstant varians</p></li></ol></aside></section>
+<aside><ol class="aside-footnotes"><li id="fn1"><p>unngå høyt korrelerte prediktorer</p></li><li id="fn2"><p>residualene har konstant varians</p></li></ol></aside></section>
+<section id="digitalt-stress" class="slide level2">
+<h2>Digitalt stress</h2>
+<p>Vi ser på noen data fra <a href="https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2024.1297194/full">stress-studien</a>. Dataene er i comma separated format og lastes ned <a href="../data/stress_complete.csv">her</a></p>
+<p>For å lese inn data i mange format (excel, csv, spss, osv) trykk på <em>File&gt;Import dataset</em> i Rstudio</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="fu">library</span>(<span class="st">"tidyverse"</span>)</span>
+<span id="cb1-2"><a href="#cb1-2"></a>stressdata <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"../data/stress_complete.csv"</span>) </span>
+<span id="cb1-3"><a href="#cb1-3"></a>stressdata<span class="sc">$</span>X <span class="ot">&lt;-</span> NULL<span class="co">#fjerne unødvendig variabel "X"</span></span>
+<span id="cb1-4"><a href="#cb1-4"></a><span class="fu">dim</span>(stressdata)<span class="co">#rader og søyler</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 581  23</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a><span class="fu">colnames</span>(stressdata)<span class="co">#hvilke variabler</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] "age"                     "sex"                    
+ [3] "civil_status"            "education"              
+ [5] "professional_experience" "COMP1"                  
+ [7] "COMP2"                   "COMP3"                  
+ [9] "COMP4"                   "COMP5"                  
+[11] "CONF1"                   "CONF2"                  
+[13] "CONF3"                   "CONF4"                  
+[15] "CONF5"                   "INSE1"                  
+[17] "INSE2"                   "INSE3"                  
+[19] "INSE4"                   "INSE5"                  
+[21] "alene"                   "leder"                  
+[23] "bransje"                </code></pre>
+</div>
+</div>
+</section>
+<section id="beskrivende-statistikk---alder" class="slide level2">
+<h2>Beskrivende statistikk - Alder</h2>
+<p>Vi begynner alltid med å se på grafer</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a><span class="fu">hist</span>(stressdata<span class="sc">$</span>age)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img data-src="slides3a_files/figure-revealjs/unnamed-chunk-3-1.png" width="960"></p>
+</div>
+</div>
+<p>Vi har outlier. Gjennomsnitt 52.6 og median: 42. Fjern outlier:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a>stressdata <span class="ot">&lt;-</span> <span class="fu">filter</span>(stressdata, age <span class="sc">&lt;</span> <span class="dv">70</span>)</span>
+<span id="cb6-2"><a href="#cb6-2"></a><span class="fu">nrow</span>(stressdata)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 576</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a><span class="fu">hist</span>(stressdata<span class="sc">$</span>age)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img data-src="slides3a_files/figure-revealjs/unnamed-chunk-4-1.png" width="960"></p>
+</div>
+</div>
+</section>
+<section id="beskrivende-statistikk---utdanningsnivå" class="slide level2">
+<h2>Beskrivende statistikk - Utdanningsnivå</h2>
+<p>Fire utdanningsnivå (grunnskole, vid.g, bachelor, master/phd)</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a><span class="fu">qplot</span>(stressdata<span class="sc">$</span>education)<span class="sc">+</span><span class="fu">geom_bar</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+
+</div>
+<img data-src="slides3a_files/figure-revealjs/unnamed-chunk-5-1.png" width="960" class="r-stretch"><p>Andeler</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a><span class="fu">prop.table</span>(<span class="fu">table</span>(stressdata<span class="sc">$</span>education))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+         1          2          3          4 
+0.01388889 0.30034722 0.39409722 0.29166667 </code></pre>
+</div>
+</div>
+</section>
+<section id="beskrivende-statistikk-kjønn" class="slide level2">
+<h2>Beskrivende statistikk kjønn</h2>
+<p>Variabelen “sex” er kodet slik: 1=kvinne, 2=mann, 3=ikke oppgitt.</p>
+<p>Vi forenkler med å lage en ny binær variabel “kjønn”</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1"></a>stressdata<span class="sc">$</span>kjønn <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(stressdata<span class="sc">$</span>sex <span class="sc">==</span> <span class="dv">2</span>,<span class="st">"mann"</span>, <span class="st">"kvinne"</span>)</span>
+<span id="cb12-2"><a href="#cb12-2"></a><span class="fu">qplot</span>(stressdata<span class="sc">$</span>kjønn)<span class="sc">+</span><span class="fu">geom_bar</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+
+</div>
+<img data-src="slides3a_files/figure-revealjs/unnamed-chunk-7-1.png" width="960" class="r-stretch"></section>
+<section id="beskrivende-statistikk-bransje" class="slide level2">
+<h2>Beskrivende statistikk bransje</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1"></a><span class="fu">table</span>(stressdata<span class="sc">$</span>bransje )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+                    annet            Bygg og anlegg         Faglige tjenester 
+                       47                        14                         5 
+     Finans og forsikring Forskning og undervisning           Helse og omsorg 
+                       10                        47                       347 
+                 Industri                        IT  Offentlig administrasjon 
+                        7                        23                        25 
+             Olje og gass                Varehandel 
+                       34                        17 </code></pre>
+</div>
+</div>
+<p>Vi forenkler ved å lage ny binær variabel for bransje (vi overskriver den gamle bransje)</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1"></a>stressdata<span class="sc">$</span>bransje <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(stressdata<span class="sc">$</span>bransje <span class="sc">==</span><span class="st">"Helse og omsorg"</span>, <span class="st">"Helse og omsorg"</span>, <span class="st">"Annet"</span>)</span>
+<span id="cb15-2"><a href="#cb15-2"></a><span class="fu">table</span>(stressdata<span class="sc">$</span>bransje)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+          Annet Helse og omsorg 
+            229             347 </code></pre>
+</div>
+</div>
+</section>
+<section id="complexity-ict-er-et-aspekt-med-digitalt-stress" class="slide level2">
+<h2>Complexity ICT er et aspekt med digitalt stress</h2>
+<p>Fem items som tilhører “Complexity ICT” er bra korrelert</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1"></a>comp <span class="ot">&lt;-</span> <span class="fu">select</span>(stressdata, <span class="fu">contains</span>(<span class="st">"COMP"</span>))<span class="co">#velge ut bare disse 5</span></span>
+<span id="cb17-2"><a href="#cb17-2"></a><span class="fu">cor</span>(comp) <span class="sc">%&gt;%</span> <span class="fu">round</span>(<span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>      COMP1 COMP2 COMP3 COMP4 COMP5
+COMP1   1.0   0.8   0.8   0.7   0.7
+COMP2   0.8   1.0   0.8   0.7   0.7
+COMP3   0.8   0.8   1.0   0.7   0.7
+COMP4   0.7   0.7   0.7   1.0   0.8
+COMP5   0.7   0.7   0.7   0.8   1.0</code></pre>
+</div>
+</div>
+</section>
+<section id="oppsummere-complexity-med-en-summeskår" class="slide level2">
+<h2>Oppsummere complexity med en summeskår</h2>
+<p>Lage summeskår som et mål på Complexity stress</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1"></a>stressdata<span class="sc">$</span>complexity <span class="ot">&lt;-</span> stressdata<span class="sc">$</span>COMP1<span class="sc">+</span>stressdata<span class="sc">$</span>COMP2<span class="sc">+</span>stressdata<span class="sc">$</span>COMP3<span class="sc">+</span>stressdata<span class="sc">$</span>COMP4<span class="sc">+</span>stressdata<span class="sc">$</span>COMP5</span>
+<span id="cb19-2"><a href="#cb19-2"></a><span class="fu">summary</span>(stressdata<span class="sc">$</span>complexity)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+   5.00   11.00   19.00   18.66   26.00   35.00 </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1"></a><span class="fu">hist</span>(stressdata<span class="sc">$</span>complexity)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+
+</div>
+<img data-src="slides3a_files/figure-revealjs/unnamed-chunk-11-1.png" width="960" class="r-stretch"></section>
+<section id="kan-vi-forklare-noe-i-variasjonen-til-complexity-stress" class="slide level2">
+<h2>Kan vi forklare noe i variasjonen til complexity stress?</h2>
+<p>Kan kjønn og alder forklare noe av stresset?</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1"></a>mod <span class="ot">&lt;-</span> <span class="fu">lm</span>(complexity <span class="sc">~</span> kjønn<span class="sc">+</span>age, <span class="at">data=</span>stressdata) </span>
+<span id="cb22-2"><a href="#cb22-2"></a><span class="fu">summary</span>(mod)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = complexity ~ kjønn + age, data = stressdata)
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-15.1812  -7.1336  -0.1302   6.9751  18.6830 
+
+Coefficients:
+            Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept) 17.22973    1.44498  11.924  &lt; 2e-16 ***
+kjønnmann   -2.91213    0.88412  -3.294  0.00105 ** 
+age          0.04760    0.03322   1.433  0.15244    
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 8.452 on 573 degrees of freedom
+Multiple R-squared:  0.02046,   Adjusted R-squared:  0.01704 
+F-statistic: 5.983 on 2 and 573 DF,  p-value: 0.002681</code></pre>
+</div>
+</div>
+<ul>
+<li>p-verdien til F-testen er signifikant. Det betyr at kjønn og alder forklarer mer enn ingenting</li>
+<li><span class="math inline">\(R^2\)</span> er imidlertid veldig lav</li>
+</ul>
+</section>
+<section id="endre-modell" class="slide level2">
+<h2>Endre modell</h2>
+<p>Ta bort alder og ta heller med bransje</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1"></a>mod <span class="ot">&lt;-</span> <span class="fu">lm</span>(complexity <span class="sc">~</span> kjønn<span class="sc">+</span>bransje, <span class="at">data=</span>stressdata) </span>
+<span id="cb24-2"><a href="#cb24-2"></a><span class="fu">summary</span>(mod)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = complexity ~ kjønn + bransje, data = stressdata)
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-16.3573  -6.3573   0.3255   6.3696  19.3255 
+
+Coefficients:
+                       Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)             14.6745     0.6052  24.247   &lt;2e-16 ***
+kjønnmann               -0.1764     0.8628  -0.204    0.838    
+bransjeHelse og omsorg   6.6828     0.7071   9.452   &lt;2e-16 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 7.875 on 573 degrees of freedom
+Multiple R-squared:  0.1495,    Adjusted R-squared:  0.1466 
+F-statistic: 50.38 on 2 and 573 DF,  p-value: &lt; 2.2e-16</code></pre>
+</div>
+</div>
+<ul>
+<li>p-verdien til F-testen er signifikant og <span class="math inline">\(R^2\)</span> er mye høyere nå</li>
+<li>Nå er ikke kjønn signifikant lengre.</li>
+</ul>
+</section>
+<section id="helsesektor-er-full-av-kvinner.." class="slide level2">
+<h2>Helsesektor er full av kvinner..</h2>
+<p>Det er helsesektoren som forklarer stress! Grunnen til at kjønn var signifikant før var at det er mange damer i den stressfulle helsesektoren</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1"></a>stressdata <span class="sc">%&gt;%</span> <span class="fu">group_by</span>(bransje) <span class="sc">%&gt;%</span> <span class="fu">summarise</span>(<span class="at">andel_menn=</span><span class="fu">mean</span>(kjønn<span class="sc">==</span><span class="st">"mann"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 2 × 2
+  bransje         andel_menn
+  &lt;chr&gt;                &lt;dbl&gt;
+1 Annet               0.358 
+2 Helse og omsorg     0.0980</code></pre>
+</div>
+</div>
+</section>
+<section id="bransje-og-lederansvar" class="slide level2">
+<h2>Bransje og lederansvar</h2>
+<p>Ta bort kjønn og ta med lederansvar</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1"></a>mod <span class="ot">&lt;-</span> <span class="fu">lm</span>(complexity <span class="sc">~</span> leder<span class="sc">+</span>bransje, <span class="at">data=</span>stressdata) </span>
+<span id="cb28-2"><a href="#cb28-2"></a><span class="fu">summary</span>(mod)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = complexity ~ leder + bransje, data = stressdata)
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-16.3492  -6.3492   0.3539   6.3871  19.3539 
+
+Coefficients:
+                       Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)             14.6461     0.5786  25.314   &lt;2e-16 ***
+lederTRUE               -0.1327     0.9649  -0.138    0.891    
+bransjeHelse og omsorg   6.7031     0.6958   9.633   &lt;2e-16 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 7.875 on 573 degrees of freedom
+Multiple R-squared:  0.1495,    Adjusted R-squared:  0.1465 
+F-statistic: 50.36 on 2 and 573 DF,  p-value: &lt; 2.2e-16</code></pre>
+</div>
+</div>
+<p>Leder er ikke signifikant.</p>
+</section>
+<section id="utdanningsnivå-og-stress" class="slide level2">
+<h2>Utdanningsnivå og stress</h2>
+<p>Utdanningsnivå er på ordinal skala så vi gjør det om til factor:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1"></a>mod <span class="ot">&lt;-</span> <span class="fu">lm</span>(complexity <span class="sc">~</span> education<span class="sc">+</span>bransje, <span class="at">data=</span>stressdata) </span>
+<span id="cb30-2"><a href="#cb30-2"></a><span class="fu">summary</span>(mod)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = complexity ~ education + bransje, data = stressdata)
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-16.6117  -6.3274   0.2403   6.5246  19.3824 
+
+Coefficients:
+                       Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)             15.0441     1.3507  11.138   &lt;2e-16 ***
+education               -0.1422     0.4095  -0.347    0.729    
+bransjeHelse og omsorg   6.7098     0.6727   9.975   &lt;2e-16 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 7.875 on 573 degrees of freedom
+Multiple R-squared:  0.1497,    Adjusted R-squared:  0.1467 
+F-statistic: 50.42 on 2 and 573 DF,  p-value: &lt; 2.2e-16</code></pre>
+</div>
+</div>
+<p>Utdanningsnivå er heller ikke signifikant prediktor</p>
+</section>
+<section id="parsimony-enkelhetsprinsippet" class="slide level2">
+<h2>Parsimony = Enkelhetsprinsippet</h2>
+<p>Den enkleste modellen og den som ser ut til å ha best forklaringskraft (15% er forklart, 85% er ikke forklart)</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1"></a>mod <span class="ot">&lt;-</span> <span class="fu">lm</span>(complexity <span class="sc">~</span> bransje, <span class="at">data=</span>stressdata) </span>
+<span id="cb32-2"><a href="#cb32-2"></a><span class="fu">summary</span>(mod)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = complexity ~ bransje, data = stressdata)
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-16.3401  -6.3401   0.3886   6.3886  19.3886 
+
+Coefficients:
+                       Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)             14.6114     0.5200   28.10   &lt;2e-16 ***
+bransjeHelse og omsorg   6.7287     0.6699   10.04   &lt;2e-16 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 7.869 on 574 degrees of freedom
+Multiple R-squared:  0.1495,    Adjusted R-squared:  0.148 
+F-statistic: 100.9 on 1 and 574 DF,  p-value: &lt; 2.2e-16</code></pre>
+</div>
+</div>
+</section>
 <section id="når-y-er-binær-logistisk-regresjon" class="slide level2">
 <h2>Når <span class="math inline">\(Y\)</span> er binær: Logistisk regresjon</h2>
 <ul>
@@ -395,6 +763,7 @@ Njål Foldnes
   <script src="../site_libs/revealjs/plugin/reveal-chalkboard/plugin.js"></script>
   <script src="../site_libs/revealjs/plugin/multiplex/socket.io.js"></script>
   <script src="../site_libs/revealjs/plugin/multiplex/multiplex.js"></script>
+  <script src="../site_libs/revealjs/plugin/reveal-text-resizer/revealjs-text-resizer.js"></script>
   <script src="../site_libs/revealjs/plugin/quarto-support/support.js"></script>
   
 
@@ -589,7 +958,7 @@ Njål Foldnes
         },
 
         // reveal.js plugins
-        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, RevealChalkboard, QuartoSupport,
+        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, RevealChalkboard, RevealTextResizer, QuartoSupport,
 
           RevealMath,
           RevealNotes,

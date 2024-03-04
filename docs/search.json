@@ -1,171 +1,136 @@
 [
   {
-    "objectID": "omeksamen.html",
-    "href": "omeksamen.html",
-    "title": "MPS 140",
+    "objectID": "emnebeskrivelse.html",
+    "href": "emnebeskrivelse.html",
+    "title": "Emnebeskrivelse",
     "section": "",
-    "text": "5 timer skriftlig eksamen på UiS.\nSe emnebeskrivelsen for detaljer"
+    "text": "Denne websiden inneholder kursmateriell for statistikkurset i 2-årig psykologi master ved UiS. Emnebeskrivelsen: https://www.uis.no/nb/course/MPS140_1"
   },
   {
-    "objectID": "samlinger/samling1.html",
-    "href": "samlinger/samling1.html",
-    "title": "Første samling: Grunnleggende statistikk",
+    "objectID": "slides/slides3a.html#multippel-regresjon-er-et-hovedverktøy-i-psykologi",
+    "href": "slides/slides3a.html#multippel-regresjon-er-et-hovedverktøy-i-psykologi",
+    "title": "Fysisk samling 05.03. Multippel og logistisk regresjon",
     "section": "",
-    "text": "Velkommen!\nBLA BLA\nI denne samlingen får vi et overblikk over kurset, og vi frisker opp statistikken fra introkurset. Vi snakker også litt om metodologi i psykologi (kvantitativ vs kvalitativ tilnærming), og vi jobber i grupper.\nI gruppearbeidet vil dere få oppgaver på introkurs i statistikk nivå som er svært viktige å beherske for resten av kurset."
+    "text": "Fra forskningsspørsmålet identifiserer vi en avhengig variabel \\(Y\\) som vi vil forklare variasjonen til\nOg en rekke prediktorer \\(X_1, X_2, \\ldots, X_k\\) som skal forklare variasjonen i \\(Y\\)\nModellen:\n\n\\[ Y = \\beta_0 + \\beta_1 X_1+ \\beta_1 X_2+\\ldots +  \\beta_k X_k+\\epsilon\\]"
   },
   {
-    "objectID": "samlinger/samling1.html#læringsmål",
-    "href": "samlinger/samling1.html#læringsmål",
-    "title": "Første samling: Grunnleggende statistikk",
-    "section": "Læringsmål",
-    "text": "Læringsmål\nEtter denne samlingen har du repetert (eller lært) å:\n\nbeskrive et datasett ved hjelp av nøkkeltall som gjennomsnitt, standardavvik og korrelasjon.\nForklare variablers målenivå\nForstå forskjell på avhengig og uavhengiv variabel\nForstå forskjell på observasjonell og eksperimentell studie\nForstå forskjell på populasjon og utvalg\nKjenne til bekvemmelighetsutvalg, klyngeutvalg og stratifisert utvalg\nForstå konfidensintervall og hypotesetesting\nForklare hva “signifikant” betyr i statistikk\nInstallere R og Rstudio på din laptop"
-  },
-  {
-    "objectID": "samlinger/samling2.html",
-    "href": "samlinger/samling2.html",
-    "title": "Digital samling - 6 feb",
+    "objectID": "slides/slides3a.html#fra-forskningsspørsmål-til-regresjon",
+    "href": "slides/slides3a.html#fra-forskningsspørsmål-til-regresjon",
+    "title": "Fysisk samling 05.03. Multippel og logistisk regresjon",
     "section": "",
-    "text": "Important\n\n\n\n\nDigital samling på Teams.\nLæringsmål:"
+    "text": "Finne de viktigste prediktorene\nSjekke forutsetninger: stort nok utvalg, unngå multikollinearitet1, sammenhengene er lineære, homoskedastisitet2, normalfordelte residualer\nSjekke modellens totale forklaringskraft (Adjusted \\(R^2\\) og \\(F\\))\nSjekke hver prediktors forklaringskraft\nBesvare forskningsspørsmålet"
   },
   {
-    "objectID": "samlinger/samling2.html#forbered-deg-til-6-feb",
-    "href": "samlinger/samling2.html#forbered-deg-til-6-feb",
-    "title": "Digital samling - 6 feb",
-    "section": "Forbered deg til 6 feb!",
-    "text": "Forbered deg til 6 feb!\n\n📖 Repeter stoffet i kapittel 22 om enkel regresjon i Statistikk og Dataanalyse\nLes og reflekter rundt de to første sidene i artikkelen Orben 2019\nKjør dette og prøv å forstå hvordan det skal tolkes ift neuroticism (epiNeur) og bdi (becks depression inventory)\n\n\n# last ned et datasett med Eysenck personality og Big Five \ndatafilename=\"https://personality-project.org/r/datasets/maps.mixx.epi.bfi.data\"  \npersonality.data =read.delim(url(datafilename))\nhead(personality.data)     #kikke på de første radene\n\n  epiE epiS epiImp epilie epiNeur bfagree bfcon bfext bfneur bfopen bdi\n1   18   10      7      3       9     138    96   141     51    138   1\n2   16    8      5      1      12     101    99   107    116    132   7\n3    6    1      3      2       5     143   118    38     68     90   4\n4   12    6      4      3      15     104   106    64    114    101   8\n5   14    6      5      3       2     115   102   103     86    118   8\n6    6    4      2      5      15     110   113    61     54    149   5\n  traitanx stateanx\n1       24       22\n2       41       40\n3       37       44\n4       54       40\n5       39       67\n6       51       38\n\nplot(personality.data$epiNeur,personality.data$bdi)# spredningsplott viser korrelasjon.. \n\n\n\nmodel1 = lm(bdi~epiNeur,data=personality.data)  #enkel regresjon: beck depression forklares av neuroticism (1 av big five)\nsummary(model1)   # basic statistical summary\n\n\nCall:\nlm(formula = bdi ~ epiNeur, data = personality.data)\n\nResiduals:\n     Min       1Q   Median       3Q      Max \n-11.9548  -3.1577  -0.7707   2.0452  16.4092 \n\nCoefficients:\n            Estimate Std. Error t value Pr(&gt;|t|)    \n(Intercept) -0.32129    0.73070   -0.44    0.661    \nepiNeur      0.68200    0.06353   10.74   &lt;2e-16 ***\n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nResidual standard error: 4.721 on 229 degrees of freedom\nMultiple R-squared:  0.3348,    Adjusted R-squared:  0.3319 \nF-statistic: 115.3 on 1 and 229 DF,  p-value: &lt; 2.2e-16"
-  },
-  {
-    "objectID": "samlinger/samling3.html",
-    "href": "samlinger/samling3.html",
-    "title": "Fysisk samling - 5 mars",
+    "objectID": "slides/slides3a.html#digitalt-stress",
+    "href": "slides/slides3a.html#digitalt-stress",
+    "title": "Fysisk samling 05.03. Multippel og logistisk regresjon",
     "section": "",
-    "text": "Læringsmål:"
+    "text": "Vi ser på noen data fra stress-studien. Dataene er i comma separated format og lastes ned her\nFor å lese inn data i mange format (excel, csv, spss, osv) trykk på File&gt;Import dataset i Rstudio\n\nlibrary(\"tidyverse\")\nstressdata &lt;- read.csv(\"../data/stress_complete.csv\") \nstressdata$X &lt;- NULL#fjerne unødvendig variabel \"X\"\ndim(stressdata)#rader og søyler\n\n[1] 581  23\n\ncolnames(stressdata)#hvilke variabler\n\n [1] \"age\"                     \"sex\"                    \n [3] \"civil_status\"            \"education\"              \n [5] \"professional_experience\" \"COMP1\"                  \n [7] \"COMP2\"                   \"COMP3\"                  \n [9] \"COMP4\"                   \"COMP5\"                  \n[11] \"CONF1\"                   \"CONF2\"                  \n[13] \"CONF3\"                   \"CONF4\"                  \n[15] \"CONF5\"                   \"INSE1\"                  \n[17] \"INSE2\"                   \"INSE3\"                  \n[19] \"INSE4\"                   \"INSE5\"                  \n[21] \"alene\"                   \"leder\"                  \n[23] \"bransje\""
   },
   {
-    "objectID": "samlinger/samling3.html#forberedelser",
-    "href": "samlinger/samling3.html#forberedelser",
-    "title": "Fysisk samling - 5 mars",
-    "section": "Forberedelser",
-    "text": "Forberedelser\n\n📖 Repeter stoffet i kapittel 22 om enkel regresjon i Statistikk og Dataanalyse. Vi skal også repetere p-verdi og konfidensintervall.\nSjekk ut videoer om reliabilitet og validitet på youtube. For eksempel er det en serie med tre videoer her: Reliabilitet og validitet\nLes om hvordan vi måler jobb-stress i artikkelen Sevic Foldnes og Brønnick 2024\nLast ned pakkene psych i R som kan regne ut reliabilitet, for eksempel Cronbach’s \\(\\alpha\\). Når du laster psych pakken inn i R sesjonen så får du tilgang til et datasett bfi som har 25 personlighet items. De fem første er “Agreeableness”, osv.\n\nLa oss prøve dette på bfi datasettet (becks depression inventory)\n\n# last ned et datasett med Eysenck personality og Big Five \n     #kikke på de første radene\nlibrary(psych)#loade psych pakken\n\n#definere constructene i bfi datasettet\n#legg merke til at feks A1 item \"Am indifferent to the feelings of others\"\n# har feil retning og må snus med et minustegn:\nkeys.list &lt;- list(agree=c(\"-A1\",\"A2\",\"A3\",\"A4\",\"A5\"),\n                  conscientious=c(\"C1\",\"C2\",\"C2\",\"-C4\",\"-C5\"),\n                  extraversion=c(\"-E1\",\"-E2\",\"E3\",\"E4\",\"E5\"),\n                  neuroticism=c(\"N1\",\"N2\",\"N3\",\"N4\",\"N5\"),\n                  openness = c(\"O1\",\"-O2\",\"O3\",\"O4\",\"-O5\"))\n#print ut flere forskjellige mål for reliabilitet, blant annet alpha\nreliability(keys=keys.list, items=bfi)\n\nLoading required namespace: GPArotation\n\n\nMeasures of reliability \nreliability(keys = keys.list, items = bfi)\n              omega_h alpha omega.tot  Uni r.fit fa.fit max.split min.split\nagree            0.64  0.71      0.75 0.89  0.90   0.99      0.75      0.62\nconscientious    0.58  0.69      0.74 0.93  0.96   0.97      0.74      0.61\nextraversion     0.55  0.76      0.82 0.97  0.97   0.99      0.78      0.71\nneuroticism      0.71  0.81      0.85 0.93  0.95   0.98      0.83      0.73\nopenness         0.39  0.61      0.70 0.85  0.88   0.97      0.66      0.53\n              mean.r med.r n.items\nagree           0.33  0.34       5\nconscientious   0.36  0.36       4\nextraversion    0.39  0.38       5\nneuroticism     0.47  0.41       5\nopenness        0.24  0.23       5"
+    "objectID": "slides/slides3a.html#beskrivende-statistikk---alder",
+    "href": "slides/slides3a.html#beskrivende-statistikk---alder",
+    "title": "Fysisk samling 05.03. Multippel og logistisk regresjon",
+    "section": "",
+    "text": "Vi begynner alltid med å se på grafer\n\nhist(stressdata$age)\n\n\n\n\nVi har outlier. Gjennomsnitt 52.6 og median: 42. Fjern outlier:\n\nstressdata &lt;- filter(stressdata, age &lt; 70)\nnrow(stressdata)\n\n[1] 576\n\nhist(stressdata$age)"
   },
   {
-    "objectID": "R/R1.html#housing-dataene",
-    "href": "R/R1.html#housing-dataene",
-    "title": "R for samling 1",
-    "section": "Housing dataene",
-    "text": "Housing dataene\nVi må installere noen pakker og da får vi Housing datafilen gjennom pakken Ecdat.\n\nlibrary(Ecdat)\nlibrary(tidyverse)\nHousing &lt;- Housing[, c(1:3, 10, 11:12)]# her velger vi ut søylene 1,2,3,10,11,12\n#View(Housing) kikker litt på dataene"
+    "objectID": "slides/slides3a.html#beskrivende-statistikk---utdanningsnivå",
+    "href": "slides/slides3a.html#beskrivende-statistikk---utdanningsnivå",
+    "title": "Fysisk samling 05.03. Multippel og logistisk regresjon",
+    "section": "",
+    "text": "Fire utdanningsnivå (grunnskole, vid.g, bachelor, master/phd)\n\nqplot(stressdata$education)+geom_bar()\n\n\n\n\nAndeler\n\nprop.table(table(stressdata$education))\n\n\n         1          2          3          4 \n0.01388889 0.30034722 0.39409722 0.29166667"
   },
   {
-    "objectID": "R/R1.html#histogram-for-pris",
-    "href": "R/R1.html#histogram-for-pris",
-    "title": "R for samling 1",
-    "section": "Histogram for pris",
-    "text": "Histogram for pris\nEnten bruker vi base R eller den mer kraftige pakken ggplot som vi fikk via tidyverse."
+    "objectID": "slides/slides3a.html#beskrivende-statistikk-kjønn",
+    "href": "slides/slides3a.html#beskrivende-statistikk-kjønn",
+    "title": "Fysisk samling 05.03. Multippel og logistisk regresjon",
+    "section": "",
+    "text": "Variabelen “sex” er kodet slik: 1=kvinne, 2=mann, 3=ikke oppgitt.\nVi forenkler med å lage en ny binær variabel “kjønn”\n\nstressdata$kjønn &lt;- ifelse(stressdata$sex == 2,\"mann\", \"kvinne\")\nqplot(stressdata$kjønn)+geom_bar()"
   },
   {
-    "objectID": "R/R1.html#stolpediagram-for-preferred-area",
-    "href": "R/R1.html#stolpediagram-for-preferred-area",
-    "title": "R for samling 1",
-    "section": "Stolpediagram for preferred area",
-    "text": "Stolpediagram for preferred area\nStolpediagram for preferred area:\n\n#ggplot\nggplot(Housing, aes(prefarea))+geom_bar()"
+    "objectID": "slides/slides3a.html#beskrivende-statistikk-bransje",
+    "href": "slides/slides3a.html#beskrivende-statistikk-bransje",
+    "title": "Fysisk samling 05.03. Multippel og logistisk regresjon",
+    "section": "",
+    "text": "table(stressdata$bransje )\n\n\n                    annet            Bygg og anlegg         Faglige tjenester \n                       47                        14                         5 \n     Finans og forsikring Forskning og undervisning           Helse og omsorg \n                       10                        47                       347 \n                 Industri                        IT  Offentlig administrasjon \n                        7                        23                        25 \n             Olje og gass                Varehandel \n                       34                        17 \n\n\nVi forenkler ved å lage ny binær variabel for bransje (vi overskriver den gamle bransje)\n\nstressdata$bransje &lt;- ifelse(stressdata$bransje ==\"Helse og omsorg\", \"Helse og omsorg\", \"Annet\")\ntable(stressdata$bransje)\n\n\n          Annet Helse og omsorg \n            229             347"
   },
   {
-    "objectID": "R/R1.html#separere-på-preferreed-area-og-se-på-fordelingene",
-    "href": "R/R1.html#separere-på-preferreed-area-og-se-på-fordelingene",
-    "title": "R for samling 1",
-    "section": "Separere på preferreed area og se på fordelingene",
-    "text": "Separere på preferreed area og se på fordelingene\n\nggplot(Housing, aes(price, color=prefarea))+geom_density()"
+    "objectID": "slides/slides3a.html#complexity-ict-er-et-aspekt-med-digitalt-stress",
+    "href": "slides/slides3a.html#complexity-ict-er-et-aspekt-med-digitalt-stress",
+    "title": "Fysisk samling 05.03. Multippel og logistisk regresjon",
+    "section": "",
+    "text": "Fem items som tilhører “Complexity ICT” er bra korrelert\n\ncomp &lt;- select(stressdata, contains(\"COMP\"))#velge ut bare disse 5\ncor(comp) %&gt;% round(1)\n\n      COMP1 COMP2 COMP3 COMP4 COMP5\nCOMP1   1.0   0.8   0.8   0.7   0.7\nCOMP2   0.8   1.0   0.8   0.7   0.7\nCOMP3   0.8   0.8   1.0   0.7   0.7\nCOMP4   0.7   0.7   0.7   1.0   0.8\nCOMP5   0.7   0.7   0.7   0.8   1.0"
   },
   {
-    "objectID": "R/R1.html#krysstabell",
-    "href": "R/R1.html#krysstabell",
-    "title": "R for samling 1",
-    "section": "KRYSSTABELL",
-    "text": "KRYSSTABELL\n\ntable(Housing$airc, Housing$prefarea)\n\n     \n       no yes\n  no  298  75\n  yes 120  53"
+    "objectID": "slides/slides3a.html#oppsummere-complexity-med-en-summeskår",
+    "href": "slides/slides3a.html#oppsummere-complexity-med-en-summeskår",
+    "title": "Fysisk samling 05.03. Multippel og logistisk regresjon",
+    "section": "",
+    "text": "Lage summeskår som et mål på Complexity stress\n\nstressdata$complexity &lt;- stressdata$COMP1+stressdata$COMP2+stressdata$COMP3+stressdata$COMP4+stressdata$COMP5\nsummary(stressdata$complexity)\n\n   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. \n   5.00   11.00   19.00   18.66   26.00   35.00 \n\nhist(stressdata$complexity)"
   },
   {
-    "objectID": "R/R1.html#spredningsdiagram",
-    "href": "R/R1.html#spredningsdiagram",
-    "title": "R for samling 1",
-    "section": "spredningsdiagram",
-    "text": "spredningsdiagram\n\nggplot(Housing, aes(lotsize,price))+geom_point()"
+    "objectID": "slides/slides3a.html#beskrivende-statistikk-med-nøkkeltall",
+    "href": "slides/slides3a.html#beskrivende-statistikk-med-nøkkeltall",
+    "title": "Fysisk samling 05.03. Multippel og logistisk regresjon",
+    "section": "Beskrivende statistikk med nøkkeltall",
+    "text": "Beskrivende statistikk med nøkkeltall\nVi s\n\nlibrary(psych)\nutvalgte &lt;- select(stressdata, c(\"age\", \"professional_experience\", ))\ndescribe(stressdata)\n\n                         vars   n  mean    sd median trimmed   mad min  max\nage                         1 576 42.47 10.68     42   42.28 11.86  20   67\nsex                         2 576  1.21  0.41      1    1.13  0.00   1    3\ncivil_status                3 576  2.45  1.13      2    2.32  1.48   1    6\neducation                   4 576  2.96  0.80      3    2.97  1.48   1    4\nprofessional_experience*    5 576 23.93 15.18     22   22.68 17.79   1   57\nCOMP1                       6 576  3.33  1.79      3    3.24  2.97   1    7\nCOMP2                       7 576  3.62  1.98      4    3.55  2.97   1    7\nCOMP3                       8 576  3.38  1.82      3    3.29  1.48   1    7\nCOMP4                       9 576  4.35  1.99      5    4.44  1.48   1    7\nCOMP5                      10 576  3.98  2.06      4    3.97  2.97   1    7\nCONF1                      11 576  3.10  1.88      3    2.93  2.97   1    7\nCONF2                      12 576  2.89  1.83      2    2.69  1.48   1    7\nCONF3                      13 576  3.24  1.93      3    3.11  2.97   1    7\nCONF4                      14 576  2.85  1.78      2    2.64  1.48   1    7\nCONF5                      15 576  3.02  1.80      2    2.85  1.48   1    7\nINSE1                      16 576  2.12  1.48      2    1.83  1.48   1    7\nINSE2                      17 576  1.89  1.39      1    1.57  0.00   1    7\nINSE3                      18 576  2.01  1.43      1    1.71  0.00   1    7\nINSE4                      19 576  1.75  1.32      1    1.42  0.00   1    7\nINSE5                      20 576  1.76  1.32      1    1.43  0.00   1    7\nalene                      21 576   NaN    NA     NA     NaN    NA Inf -Inf\nleder                      22 576   NaN    NA     NA     NaN    NA Inf -Inf\nbransje*                   23 576  1.60  0.49      2    1.63  0.00   1    2\nkjønn*                     24 576  1.20  0.40      1    1.13  0.00   1    2\ncomplexity                 25 576 18.66  8.52     19   18.62 10.38   5   35\n                         range  skew kurtosis   se\nage                         47  0.16    -0.81 0.45\nsex                          2  1.58     0.93 0.02\ncivil_status                 5  0.78     0.60 0.05\neducation                    3 -0.09    -1.09 0.03\nprofessional_experience*    56  0.55    -0.71 0.63\nCOMP1                        6  0.24    -1.10 0.07\nCOMP2                        6  0.17    -1.30 0.08\nCOMP3                        6  0.32    -1.11 0.08\nCOMP4                        6 -0.32    -1.21 0.08\nCOMP5                        6 -0.03    -1.37 0.09\nCONF1                        6  0.55    -0.88 0.08\nCONF2                        6  0.68    -0.77 0.08\nCONF3                        6  0.39    -1.19 0.08\nCONF4                        6  0.74    -0.62 0.07\nCONF5                        6  0.59    -0.83 0.07\nINSE1                        6  1.49     1.59 0.06\nINSE2                        6  1.88     3.00 0.06\nINSE3                        6  1.66     2.17 0.06\nINSE4                        6  2.09     3.77 0.05\nINSE5                        6  2.18     4.42 0.05\nalene                     -Inf    NA       NA   NA\nleder                     -Inf    NA       NA   NA\nbransje*                     1 -0.42    -1.83 0.02\nkjønn*                       1  1.49     0.21 0.02\ncomplexity                  30  0.03    -1.11 0.36"
   },
   {
-    "objectID": "R/R1.html#korrelasjon",
-    "href": "R/R1.html#korrelasjon",
-    "title": "R for samling 1",
-    "section": "Korrelasjon",
-    "text": "Korrelasjon\n\nx &lt;- c(-5 , 10 , 15 , 31 , 42)\ny &lt;- c( 3 , 3 , 0 , 1 , -1)\ncor(x, y)\n\n[1] -0.82\n\n#base R\nplot(x,y)\n\n\n\n#ggplot\nggplot(data.frame(x,y), aes(x,y))+geom_point(size=3)"
+    "objectID": "slides/slides3a.html#når-y-er-binær-logistisk-regresjon",
+    "href": "slides/slides3a.html#når-y-er-binær-logistisk-regresjon",
+    "title": "Fysisk samling 05.03. Multippel og logistisk regresjon",
+    "section": "",
+    "text": "I multippel regresjon er \\(Y\\) kontinuerlig\n\nFor eksempel \\(Y\\)= well-being på en skala fra 0-10\nModellen gir forventet well-being gitt feks kjønn og alder\n\nHvis \\(Y\\) er binær så må vi bruke logistisk regresjon\n\nFor eksempel \\(Y\\)=depressiv (Ja/Nei)\nModellen gir da sannsynlighet for at en person er depressiv, gitt feks kjønn og alder"
   },
   {
-    "objectID": "R/R1.html#cornflakes",
-    "href": "R/R1.html#cornflakes",
-    "title": "R for samling 1",
-    "section": "Cornflakes",
-    "text": "Cornflakes\n\nvekt &lt;- c(502, 498, 479, 492, 488, 494, 494)\nt.test(vekt, mu=500)\n\n\n    One Sample t-test\n\ndata:  vekt\nt = -2.7105, df = 6, p-value = 0.03508\nalternative hypothesis: true mean is not equal to 500\n95 percent confidence interval:\n 485.5935 499.2636\nsample estimates:\nmean of x \n 492.4286"
+    "objectID": "slides/slides1.html#mps-140",
+    "href": "slides/slides1.html#mps-140",
+    "title": "Velkommen til MPS140",
+    "section": "MPS 140",
+    "text": "MPS 140\n\nKursmateriale legges ut på github"
   },
   {
-    "objectID": "R/R1.html#oppgave-13",
-    "href": "R/R1.html#oppgave-13",
-    "title": "R for samling 1",
-    "section": "Oppgave 13",
-    "text": "Oppgave 13\n\nalder &lt;- c(20, 20, 19, 23, 29, 27, 25, 21)#legge inn i vektor\nsd(alder)\n\n[1] 3.664502"
+    "objectID": "slides/slides1.html#statistikk",
+    "href": "slides/slides1.html#statistikk",
+    "title": "Velkommen til MPS140",
+    "section": "Statistikk",
+    "text": "Statistikk\n\nStatistikk handler om hvordan vi best samler inn og analyserer data, og hvordan vi trekker riktige konklusjoner fra våre data.\n\n\nFra “pensumboka” R for Data Science https://r4ds.hadley.nz/"
   },
   {
-    "objectID": "R/R1.html#oppgave-24",
-    "href": "R/R1.html#oppgave-24",
-    "title": "R for samling 1",
-    "section": "Oppgave 24",
-    "text": "Oppgave 24\n\ntimer &lt;- c(23, 55, 60, 70, 65 , 60)\nsd(timer)\n\n[1] 16.71825"
+    "objectID": "slides/slides1.html#section",
+    "href": "slides/slides1.html#section",
+    "title": "Velkommen til MPS140",
+    "section": "",
+    "text": "Vi skal i MPS140 repetere elementære statistikk og så utvide til multippel regresjon og psykometriske modeller. Her er noen nye ting vi skal lære:\n\n\nå jobbe med data på en transparent og reproduserbar måte (i R)\nvisualisere og sammenfatte data med nøkkeltall (R)\nat vi må ha et kritisk blikk på bruk av statistikk i forskning\nlære om måling av psykologiske begrep som stress, lojalitet, trivsel etc"
   },
   {
-    "objectID": "R/R1.html#oppgave-27",
-    "href": "R/R1.html#oppgave-27",
-    "title": "R for samling 1",
-    "section": "Oppgave 27",
-    "text": "Oppgave 27\n\nprop.test(x=26, n=240)\n\n\n    1-sample proportions test with continuity correction\n\ndata:  26 out of 240, null probability 0.5\nX-squared = 145.7, df = 1, p-value &lt; 2.2e-16\nalternative hypothesis: true p is not equal to 0.5\n95 percent confidence interval:\n 0.0732806 0.1563674\nsample estimates:\n        p \n0.1083333"
+    "objectID": "slides/slides1.html#section-1",
+    "href": "slides/slides1.html#section-1",
+    "title": "Velkommen til MPS140",
+    "section": "",
+    "text": "Koding 🙀\n\n\nI praksis er koding (skrive syntaks i statistikkprogram) en sentral del av statistisk praksis.\n\n\n\nI klassen har vi stor variasjon i talenter og interesser\nDet blir en del R koding for å illustrere konsepter\nBruk studiekamerater til å lære"
   },
   {
-    "objectID": "R/R1.html#oppgave-28",
-    "href": "R/R1.html#oppgave-28",
-    "title": "R for samling 1",
-    "section": "Oppgave 28",
-    "text": "Oppgave 28\n\nprop.test(x=28, n=56, conf.level=.9)#stemmer!\n\n\n    1-sample proportions test without continuity correction\n\ndata:  28 out of 56, null probability 0.5\nX-squared = 0, df = 1, p-value = 1\nalternative hypothesis: true p is not equal to 0.5\n90 percent confidence interval:\n 0.392661 0.607339\nsample estimates:\n  p \n0.5"
+    "objectID": "slides/slides1.html#section-2",
+    "href": "slides/slides1.html#section-2",
+    "title": "Velkommen til MPS140",
+    "section": "",
+    "text": "Komponenter\n\n\n\n\nFør samling\n\n\nDet er viktig å være forberedt til samling:\nTekster\nVideoer\nR stoff\n\n\n\n\n\nUnder samling\n\n\nForelesning\nOppgaver som skal løses i grupper. Basert på forberedelsesstoffet.\nDebriefing"
   },
   {
-    "objectID": "R/R1.html#oppgave-30",
-    "href": "R/R1.html#oppgave-30",
-    "title": "R for samling 1",
-    "section": "Oppgave 30",
-    "text": "Oppgave 30\n\n\n\n    One Sample t-test\n\ndata:  alder\nt = 9.5681, df = 5, p-value = 0.0002112\nalternative hypothesis: true mean is not equal to 0\n95 percent confidence interval:\n 29.61922 51.38078\nsample estimates:\nmean of x \n     40.5"
+    "objectID": "slides/slides1.html#dagens-plan",
+    "href": "slides/slides1.html#dagens-plan",
+    "title": "Velkommen til MPS140",
+    "section": "Dagens plan",
+    "text": "Dagens plan\n\nForelese cirka 1 time\nJobbe med oppgaver\n\nFørst individuelt 1 time\nGrupper ca 1 time\nGruppene ligger på canvas\n\nDebriefing"
   },
   {
-    "objectID": "R/R1.html#oppgave-31",
-    "href": "R/R1.html#oppgave-31",
-    "title": "R for samling 1",
-    "section": "Oppgave 31",
-    "text": "Oppgave 31\n\npinge &lt;- read.csv(\"agePingelab.csv\")\nalder &lt;- pinge[, 1]# bare en søyle, vi velger denne. \nmean(alder)\n\n[1] 41.16667"
-  },
-  {
-    "objectID": "R/R1.html#oppgave-32",
-    "href": "R/R1.html#oppgave-32",
-    "title": "R for samling 1",
-    "section": "Oppgave 32",
-    "text": "Oppgave 32\n\nt.test(alder)\n\n\n    One Sample t-test\n\ndata:  alder\nt = 20.769, df = 59, p-value &lt; 2.2e-16\nalternative hypothesis: true mean is not equal to 0\n95 percent confidence interval:\n 37.20040 45.13293\nsample estimates:\nmean of x \n 41.16667"
-  },
-  {
-    "objectID": "R/R1.html#oppgave-42",
-    "href": "R/R1.html#oppgave-42",
-    "title": "R for samling 1",
-    "section": "Oppgave 42",
-    "text": "Oppgave 42\n\noppmøte &lt;- c( 2 , 15 , 8 , 14, 8 , 12 , 13 , 2 , 5, 4 )\npoeng &lt;- c( 13 , 26, 20 ,27, 16, 24 , 20, 11 , 16, 20)\nplot(oppmøte, poeng)"
-  },
-  {
-    "objectID": "R/R1.html#oppgave-44",
-    "href": "R/R1.html#oppgave-44",
-    "title": "R for samling 1",
-    "section": "Oppgave 44",
-    "text": "Oppgave 44\n\nreg &lt;- lm(oppmøte~ poeng)\nsummary(reg)\n\n\nCall:\nlm(formula = oppmøte ~ poeng)\n\nResiduals:\n    Min      1Q  Median      3Q     Max \n-4.8698 -0.8058 -0.3470  1.0486  4.1302 \n\nCoefficients:\n            Estimate Std. Error t value Pr(&gt;|t|)    \n(Intercept)  -7.4107     3.1388  -2.361 0.045887 *  \npoeng         0.8140     0.1573   5.176 0.000847 ***\n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nResidual standard error: 2.527 on 8 degrees of freedom\nMultiple R-squared:   0.77, Adjusted R-squared:  0.7413 \nF-statistic: 26.79 on 1 and 8 DF,  p-value: 0.0008471"
+    "objectID": "slides/slides1.html#samlæring-i-flipped-classroom",
+    "href": "slides/slides1.html#samlæring-i-flipped-classroom",
+    "title": "Velkommen til MPS140",
+    "section": "Samlæring i flipped classroom",
+    "text": "Samlæring i flipped classroom\n\nTa plass og gi plass\nElsk frustrasjon og forvirring\nÅ hjelpe noen er å forklare hvordan du tenker, ikke å bare gi svar eller gjøre utregninger for andre\nDu har rett til å spørre alle i gruppen om hjelp\nDu har plikt til å prøve å hjelpe enhver i gruppen som spør\nDu lager på slutten en tilbamelding til hver av gruppemedlemmene !\nTeam 1 - Team 4 er opprettet ved tilfeldig uttrekk. Se canvas."
   },
   {
     "objectID": "R/digR1.html#pakker-vi-trenger-å-loade",
@@ -291,7 +256,7 @@
     "href": "R/digR1.html#oppg-12",
     "title": "R for digital samling 1",
     "section": "Oppg 12",
-    "text": "Oppg 12\n\nmymodel &lt;- lm(eksamensscore ~ oppmøte + motivasjon)\nsummary(mymodel)\n\n\nCall:\nlm(formula = eksamensscore ~ oppmøte + motivasjon)\n\nResiduals:\n        1         2         3         4         5         6 \n-0.276471 -0.147059  0.747059  0.005882 -0.029412 -0.300000 \n\nCoefficients:\n            Estimate Std. Error t value Pr(&gt;|t|)  \n(Intercept)   0.1000     0.9336   0.107   0.9215  \noppmøte       0.4529     0.2965   1.528   0.2240  \nmotivasjon    1.0823     0.2760   3.922   0.0295 *\n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nResidual standard error: 0.499 on 3 degrees of freedom\nMultiple R-squared:  0.9933,    Adjusted R-squared:  0.9889 \nF-statistic: 224.1 on 2 and 3 DF,  p-value: 0.0005423"
+    "text": "Oppg 12\n\nmymodel &lt;- lm(eksamensscore ~ oppmøte + motivasjon)\nsummary(mymodel)\n\n\nCall:\nlm(formula = eksamensscore ~ oppmøte + motivasjon)\n\nResiduals:\n        1         2         3         4         5         6 \n-0.276471 -0.147059  0.747059  0.005882 -0.029412 -0.300000 \n\nCoefficients:\n            Estimate Std. Error t value Pr(&gt;|t|)  \n(Intercept)   0.1000     0.9336   0.107   0.9215  \noppmøte       0.4529     0.2965   1.528   0.2240  \nmotivasjon    1.0824     0.2760   3.922   0.0295 *\n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nResidual standard error: 0.499 on 3 degrees of freedom\nMultiple R-squared:  0.9933,    Adjusted R-squared:  0.9889 \nF-statistic: 224.1 on 2 and 3 DF,  p-value: 0.0005423"
   },
   {
     "objectID": "R/digR1.html#oppg-13",
@@ -315,60 +280,179 @@
     "text": "Oppg 15\n99%"
   },
   {
+    "objectID": "samlinger/samling3.html",
+    "href": "samlinger/samling3.html",
+    "title": "Fysisk samling - 5 mars",
+    "section": "",
+    "text": "Læringsmål:"
+  },
+  {
+    "objectID": "samlinger/samling3.html#forberedelser",
+    "href": "samlinger/samling3.html#forberedelser",
+    "title": "Fysisk samling - 5 mars",
+    "section": "Forberedelser",
+    "text": "Forberedelser\n\n📖 Repeter stoffet i kapittel 22 om enkel regresjon i Statistikk og Dataanalyse. Vi skal også repetere p-verdi og konfidensintervall.\nSjekk ut videoer om reliabilitet og validitet på youtube. For eksempel er det en serie med tre videoer her: Reliabilitet og validitet\nLes om hvordan vi måler jobb-stress i artikkelen Sevic Foldnes og Brønnick 2024\nLast ned pakkene psych i R som kan regne ut reliabilitet, for eksempel Cronbach’s \\(\\alpha\\). Når du laster psych pakken inn i R sesjonen så får du tilgang til et datasett bfi som har 25 personlighet items. De fem første er “Agreeableness”, osv.\n\nLa oss prøve dette på bfi datasettet (becks depression inventory)\n\n# last ned et datasett med Eysenck personality og Big Five \n     #kikke på de første radene\nlibrary(psych)#loade psych pakken\n\n#definere constructene i bfi datasettet\n#legg merke til at feks A1 item \"Am indifferent to the feelings of others\"\n# har feil retning og må snus med et minustegn:\nkeys.list &lt;- list(agree=c(\"-A1\",\"A2\",\"A3\",\"A4\",\"A5\"),\n                  conscientious=c(\"C1\",\"C2\",\"C2\",\"-C4\",\"-C5\"),\n                  extraversion=c(\"-E1\",\"-E2\",\"E3\",\"E4\",\"E5\"),\n                  neuroticism=c(\"N1\",\"N2\",\"N3\",\"N4\",\"N5\"),\n                  openness = c(\"O1\",\"-O2\",\"O3\",\"O4\",\"-O5\"))\n#print ut flere forskjellige mål for reliabilitet, blant annet alpha\nreliability(keys=keys.list, items=bfi)\n\nLoading required namespace: GPArotation\n\n\nMeasures of reliability \nreliability(keys = keys.list, items = bfi)\n              omega_h alpha omega.tot  Uni r.fit fa.fit max.split min.split\nagree            0.64  0.71      0.75 0.89  0.90   0.99      0.75      0.62\nconscientious    0.58  0.69      0.74 0.93  0.96   0.97      0.74      0.61\nextraversion     0.55  0.76      0.82 0.97  0.97   0.99      0.78      0.71\nneuroticism      0.71  0.81      0.85 0.93  0.95   0.98      0.83      0.73\nopenness         0.39  0.61      0.70 0.85  0.88   0.97      0.66      0.53\n              mean.r med.r n.items\nagree           0.33  0.34       5\nconscientious   0.36  0.36       4\nextraversion    0.39  0.38       5\nneuroticism     0.47  0.41       5\nopenness        0.24  0.23       5"
+  },
+  {
+    "objectID": "samlinger/samling1.html",
+    "href": "samlinger/samling1.html",
+    "title": "Første samling: Grunnleggende statistikk",
+    "section": "",
+    "text": "Velkommen!\nBLA BLA\nI denne samlingen får vi et overblikk over kurset, og vi frisker opp statistikken fra introkurset. Vi snakker også litt om metodologi i psykologi (kvantitativ vs kvalitativ tilnærming), og vi jobber i grupper.\nI gruppearbeidet vil dere få oppgaver på introkurs i statistikk nivå som er svært viktige å beherske for resten av kurset."
+  },
+  {
+    "objectID": "samlinger/samling1.html#læringsmål",
+    "href": "samlinger/samling1.html#læringsmål",
+    "title": "Første samling: Grunnleggende statistikk",
+    "section": "Læringsmål",
+    "text": "Læringsmål\nEtter denne samlingen har du repetert (eller lært) å:\n\nbeskrive et datasett ved hjelp av nøkkeltall som gjennomsnitt, standardavvik og korrelasjon.\nForklare variablers målenivå\nForstå forskjell på avhengig og uavhengiv variabel\nForstå forskjell på observasjonell og eksperimentell studie\nForstå forskjell på populasjon og utvalg\nKjenne til bekvemmelighetsutvalg, klyngeutvalg og stratifisert utvalg\nForstå konfidensintervall og hypotesetesting\nForklare hva “signifikant” betyr i statistikk\nInstallere R og Rstudio på din laptop"
+  },
+  {
+    "objectID": "omeksamen.html",
+    "href": "omeksamen.html",
+    "title": "MPS 140",
+    "section": "",
+    "text": "5 timer skriftlig eksamen på UiS.\nSe emnebeskrivelsen for detaljer"
+  },
+  {
+    "objectID": "samlinger/samling2.html",
+    "href": "samlinger/samling2.html",
+    "title": "Digital samling - 6 feb",
+    "section": "",
+    "text": "Important\n\n\n\n\nDigital samling på Teams.\nLæringsmål:"
+  },
+  {
+    "objectID": "samlinger/samling2.html#forbered-deg-til-6-feb",
+    "href": "samlinger/samling2.html#forbered-deg-til-6-feb",
+    "title": "Digital samling - 6 feb",
+    "section": "Forbered deg til 6 feb!",
+    "text": "Forbered deg til 6 feb!\n\n📖 Repeter stoffet i kapittel 22 om enkel regresjon i Statistikk og Dataanalyse\nLes og reflekter rundt de to første sidene i artikkelen Orben 2019\nKjør dette og prøv å forstå hvordan det skal tolkes ift neuroticism (epiNeur) og bdi (becks depression inventory)\n\n\n# last ned et datasett med Eysenck personality og Big Five \ndatafilename=\"https://personality-project.org/r/datasets/maps.mixx.epi.bfi.data\"  \npersonality.data =read.delim(url(datafilename))\nhead(personality.data)     #kikke på de første radene\n\n  epiE epiS epiImp epilie epiNeur bfagree bfcon bfext bfneur bfopen bdi\n1   18   10      7      3       9     138    96   141     51    138   1\n2   16    8      5      1      12     101    99   107    116    132   7\n3    6    1      3      2       5     143   118    38     68     90   4\n4   12    6      4      3      15     104   106    64    114    101   8\n5   14    6      5      3       2     115   102   103     86    118   8\n6    6    4      2      5      15     110   113    61     54    149   5\n  traitanx stateanx\n1       24       22\n2       41       40\n3       37       44\n4       54       40\n5       39       67\n6       51       38\n\nplot(personality.data$epiNeur,personality.data$bdi)# spredningsplott viser korrelasjon.. \n\n\n\nmodel1 = lm(bdi~epiNeur,data=personality.data)  #enkel regresjon: beck depression forklares av neuroticism (1 av big five)\nsummary(model1)   # basic statistical summary\n\n\nCall:\nlm(formula = bdi ~ epiNeur, data = personality.data)\n\nResiduals:\n     Min       1Q   Median       3Q      Max \n-11.9548  -3.1577  -0.7707   2.0452  16.4092 \n\nCoefficients:\n            Estimate Std. Error t value Pr(&gt;|t|)    \n(Intercept) -0.32129    0.73070   -0.44    0.661    \nepiNeur      0.68200    0.06353   10.74   &lt;2e-16 ***\n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nResidual standard error: 4.721 on 229 degrees of freedom\nMultiple R-squared:  0.3348,    Adjusted R-squared:  0.3319 \nF-statistic: 115.3 on 1 and 229 DF,  p-value: &lt; 2.2e-16"
+  },
+  {
+    "objectID": "R/R1.html#housing-dataene",
+    "href": "R/R1.html#housing-dataene",
+    "title": "R for samling 1",
+    "section": "Housing dataene",
+    "text": "Housing dataene\nVi må installere noen pakker og da får vi Housing datafilen gjennom pakken Ecdat.\n\nlibrary(Ecdat)\nlibrary(tidyverse)\nHousing &lt;- Housing[, c(1:3, 10, 11:12)]# her velger vi ut søylene 1,2,3,10,11,12\n#View(Housing) kikker litt på dataene"
+  },
+  {
+    "objectID": "R/R1.html#histogram-for-pris",
+    "href": "R/R1.html#histogram-for-pris",
+    "title": "R for samling 1",
+    "section": "Histogram for pris",
+    "text": "Histogram for pris\nEnten bruker vi base R eller den mer kraftige pakken ggplot som vi fikk via tidyverse."
+  },
+  {
+    "objectID": "R/R1.html#stolpediagram-for-preferred-area",
+    "href": "R/R1.html#stolpediagram-for-preferred-area",
+    "title": "R for samling 1",
+    "section": "Stolpediagram for preferred area",
+    "text": "Stolpediagram for preferred area\nStolpediagram for preferred area:\n\n#ggplot\nggplot(Housing, aes(prefarea))+geom_bar()"
+  },
+  {
+    "objectID": "R/R1.html#separere-på-preferreed-area-og-se-på-fordelingene",
+    "href": "R/R1.html#separere-på-preferreed-area-og-se-på-fordelingene",
+    "title": "R for samling 1",
+    "section": "Separere på preferreed area og se på fordelingene",
+    "text": "Separere på preferreed area og se på fordelingene\n\nggplot(Housing, aes(price, color=prefarea))+geom_density()"
+  },
+  {
+    "objectID": "R/R1.html#krysstabell",
+    "href": "R/R1.html#krysstabell",
+    "title": "R for samling 1",
+    "section": "KRYSSTABELL",
+    "text": "KRYSSTABELL\n\ntable(Housing$airc, Housing$prefarea)\n\n     \n       no yes\n  no  298  75\n  yes 120  53"
+  },
+  {
+    "objectID": "R/R1.html#spredningsdiagram",
+    "href": "R/R1.html#spredningsdiagram",
+    "title": "R for samling 1",
+    "section": "spredningsdiagram",
+    "text": "spredningsdiagram\n\nggplot(Housing, aes(lotsize,price))+geom_point()"
+  },
+  {
+    "objectID": "R/R1.html#korrelasjon",
+    "href": "R/R1.html#korrelasjon",
+    "title": "R for samling 1",
+    "section": "Korrelasjon",
+    "text": "Korrelasjon\n\nx &lt;- c(-5 , 10 , 15 , 31 , 42)\ny &lt;- c( 3 , 3 , 0 , 1 , -1)\ncor(x, y)\n\n[1] -0.82\n\n#base R\nplot(x,y)\n\n\n\n#ggplot\nggplot(data.frame(x,y), aes(x,y))+geom_point(size=3)"
+  },
+  {
+    "objectID": "R/R1.html#cornflakes",
+    "href": "R/R1.html#cornflakes",
+    "title": "R for samling 1",
+    "section": "Cornflakes",
+    "text": "Cornflakes\n\nvekt &lt;- c(502, 498, 479, 492, 488, 494, 494)\nt.test(vekt, mu=500)\n\n\n    One Sample t-test\n\ndata:  vekt\nt = -2.7105, df = 6, p-value = 0.03508\nalternative hypothesis: true mean is not equal to 500\n95 percent confidence interval:\n 485.5935 499.2636\nsample estimates:\nmean of x \n 492.4286"
+  },
+  {
+    "objectID": "R/R1.html#oppgave-13",
+    "href": "R/R1.html#oppgave-13",
+    "title": "R for samling 1",
+    "section": "Oppgave 13",
+    "text": "Oppgave 13\n\nalder &lt;- c(20, 20, 19, 23, 29, 27, 25, 21)#legge inn i vektor\nsd(alder)\n\n[1] 3.664502"
+  },
+  {
+    "objectID": "R/R1.html#oppgave-24",
+    "href": "R/R1.html#oppgave-24",
+    "title": "R for samling 1",
+    "section": "Oppgave 24",
+    "text": "Oppgave 24\n\ntimer &lt;- c(23, 55, 60, 70, 65 , 60)\nsd(timer)\n\n[1] 16.71825"
+  },
+  {
+    "objectID": "R/R1.html#oppgave-27",
+    "href": "R/R1.html#oppgave-27",
+    "title": "R for samling 1",
+    "section": "Oppgave 27",
+    "text": "Oppgave 27\n\nprop.test(x=26, n=240)\n\n\n    1-sample proportions test with continuity correction\n\ndata:  26 out of 240, null probability 0.5\nX-squared = 145.7, df = 1, p-value &lt; 2.2e-16\nalternative hypothesis: true p is not equal to 0.5\n95 percent confidence interval:\n 0.0732806 0.1563674\nsample estimates:\n        p \n0.1083333"
+  },
+  {
+    "objectID": "R/R1.html#oppgave-28",
+    "href": "R/R1.html#oppgave-28",
+    "title": "R for samling 1",
+    "section": "Oppgave 28",
+    "text": "Oppgave 28\n\nprop.test(x=28, n=56, conf.level=.9)#stemmer!\n\n\n    1-sample proportions test without continuity correction\n\ndata:  28 out of 56, null probability 0.5\nX-squared = 0, df = 1, p-value = 1\nalternative hypothesis: true p is not equal to 0.5\n90 percent confidence interval:\n 0.392661 0.607339\nsample estimates:\n  p \n0.5"
+  },
+  {
+    "objectID": "R/R1.html#oppgave-30",
+    "href": "R/R1.html#oppgave-30",
+    "title": "R for samling 1",
+    "section": "Oppgave 30",
+    "text": "Oppgave 30\n\n\n\n    One Sample t-test\n\ndata:  alder\nt = 9.5681, df = 5, p-value = 0.0002112\nalternative hypothesis: true mean is not equal to 0\n95 percent confidence interval:\n 29.61922 51.38078\nsample estimates:\nmean of x \n     40.5"
+  },
+  {
+    "objectID": "R/R1.html#oppgave-31",
+    "href": "R/R1.html#oppgave-31",
+    "title": "R for samling 1",
+    "section": "Oppgave 31",
+    "text": "Oppgave 31\n\npinge &lt;- read.csv(\"agePingelab.csv\")\nalder &lt;- pinge[, 1]# bare en søyle, vi velger denne. \nmean(alder)\n\n[1] 41.16667"
+  },
+  {
+    "objectID": "R/R1.html#oppgave-32",
+    "href": "R/R1.html#oppgave-32",
+    "title": "R for samling 1",
+    "section": "Oppgave 32",
+    "text": "Oppgave 32\n\nt.test(alder)\n\n\n    One Sample t-test\n\ndata:  alder\nt = 20.769, df = 59, p-value &lt; 2.2e-16\nalternative hypothesis: true mean is not equal to 0\n95 percent confidence interval:\n 37.20040 45.13293\nsample estimates:\nmean of x \n 41.16667"
+  },
+  {
+    "objectID": "R/R1.html#oppgave-42",
+    "href": "R/R1.html#oppgave-42",
+    "title": "R for samling 1",
+    "section": "Oppgave 42",
+    "text": "Oppgave 42\n\noppmøte &lt;- c( 2 , 15 , 8 , 14, 8 , 12 , 13 , 2 , 5, 4 )\npoeng &lt;- c( 13 , 26, 20 ,27, 16, 24 , 20, 11 , 16, 20)\nplot(oppmøte, poeng)"
+  },
+  {
+    "objectID": "R/R1.html#oppgave-44",
+    "href": "R/R1.html#oppgave-44",
+    "title": "R for samling 1",
+    "section": "Oppgave 44",
+    "text": "Oppgave 44\n\nreg &lt;- lm(oppmøte~ poeng)\nsummary(reg)\n\n\nCall:\nlm(formula = oppmøte ~ poeng)\n\nResiduals:\n    Min      1Q  Median      3Q     Max \n-4.8698 -0.8058 -0.3470  1.0486  4.1302 \n\nCoefficients:\n            Estimate Std. Error t value Pr(&gt;|t|)    \n(Intercept)  -7.4107     3.1388  -2.361 0.045887 *  \npoeng         0.8140     0.1573   5.176 0.000847 ***\n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nResidual standard error: 2.527 on 8 degrees of freedom\nMultiple R-squared:   0.77, Adjusted R-squared:  0.7413 \nF-statistic: 26.79 on 1 and 8 DF,  p-value: 0.0008471"
+  },
+  {
     "objectID": "index.html",
     "href": "index.html",
     "title": "MPS 140: Kvantitativ forskningsmetode og statistikk",
     "section": "",
     "text": "FYSISKE SAMLINGER\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nDato\nTema\nForberedelser\nPresentasjoner\nR\nOppgaver\n\n\n\n\n23.01: 1215-16\nIntro og grunnleggende statistikk\n📖\n🖥 🖥\n📋\n📋\n\n\n05.03: 815-16\nPsykometri\n📖\n\n\n\n\n\n09.04: 815-16\nLatente variable\n\n\n\n\n\n\n03.06\nEksamen\n\n\n\n\n\n\n\n\n\n\nDIGITALE SAMLINGER\n\n\n\n\n\n\n\n\n\n\n\n\nDato\nTema\nForberedelser\nPresentasjon\nR\nOppgaver\n\n\n\n\n06.02: 9-12\nR og regresjonsmodellen\n📖\n🖥\n📋\n📋\n\n\n19.03: 9-12\nProgramvaren R og psykometri\n\n\n\n\n\n\n23.04:9-12\nLatente variable\n\n\n\n\n\n\n07.05: 9-12\nEksamensforberedelse"
-  },
-  {
-    "objectID": "slides/slides1.html#mps-140",
-    "href": "slides/slides1.html#mps-140",
-    "title": "Velkommen til MPS140",
-    "section": "MPS 140",
-    "text": "MPS 140\n\nKursmateriale legges ut på github"
-  },
-  {
-    "objectID": "slides/slides1.html#statistikk",
-    "href": "slides/slides1.html#statistikk",
-    "title": "Velkommen til MPS140",
-    "section": "Statistikk",
-    "text": "Statistikk\n\nStatistikk handler om hvordan vi best samler inn og analyserer data, og hvordan vi trekker riktige konklusjoner fra våre data.\n\n\nFra “pensumboka” R for Data Science https://r4ds.hadley.nz/"
-  },
-  {
-    "objectID": "slides/slides1.html#section",
-    "href": "slides/slides1.html#section",
-    "title": "Velkommen til MPS140",
-    "section": "",
-    "text": "Vi skal i MPS140 repetere elementære statistikk og så utvide til multippel regresjon og psykometriske modeller. Her er noen nye ting vi skal lære:\n\n\nå jobbe med data på en transparent og reproduserbar måte (i R)\nvisualisere og sammenfatte data med nøkkeltall (R)\nat vi må ha et kritisk blikk på bruk av statistikk i forskning\nlære om måling av psykologiske begrep som stress, lojalitet, trivsel etc"
-  },
-  {
-    "objectID": "slides/slides1.html#section-1",
-    "href": "slides/slides1.html#section-1",
-    "title": "Velkommen til MPS140",
-    "section": "",
-    "text": "Koding 🙀\n\n\nI praksis er koding (skrive syntaks i statistikkprogram) en sentral del av statistisk praksis.\n\n\n\nI klassen har vi stor variasjon i talenter og interesser\nDet blir en del R koding for å illustrere konsepter\nBruk studiekamerater til å lære"
-  },
-  {
-    "objectID": "slides/slides1.html#section-2",
-    "href": "slides/slides1.html#section-2",
-    "title": "Velkommen til MPS140",
-    "section": "",
-    "text": "Komponenter\n\n\n\n\nFør samling\n\n\nDet er viktig å være forberedt til samling:\nTekster\nVideoer\nR stoff\n\n\n\n\n\nUnder samling\n\n\nForelesning\nOppgaver som skal løses i grupper. Basert på forberedelsesstoffet.\nDebriefing"
-  },
-  {
-    "objectID": "slides/slides1.html#dagens-plan",
-    "href": "slides/slides1.html#dagens-plan",
-    "title": "Velkommen til MPS140",
-    "section": "Dagens plan",
-    "text": "Dagens plan\n\nForelese cirka 1 time\nJobbe med oppgaver\n\nFørst individuelt 1 time\nGrupper ca 1 time\nGruppene ligger på canvas\n\nDebriefing"
-  },
-  {
-    "objectID": "slides/slides1.html#samlæring-i-flipped-classroom",
-    "href": "slides/slides1.html#samlæring-i-flipped-classroom",
-    "title": "Velkommen til MPS140",
-    "section": "Samlæring i flipped classroom",
-    "text": "Samlæring i flipped classroom\n\nTa plass og gi plass\nElsk frustrasjon og forvirring\nÅ hjelpe noen er å forklare hvordan du tenker, ikke å bare gi svar eller gjøre utregninger for andre\nDu har rett til å spørre alle i gruppen om hjelp\nDu har plikt til å prøve å hjelpe enhver i gruppen som spør\nDu lager på slutten en tilbamelding til hver av gruppemedlemmene !\nTeam 1 - Team 4 er opprettet ved tilfeldig uttrekk. Se canvas."
   },
   {
     "objectID": "slides/slides2.html#lekeeksempel",
@@ -557,244 +641,90 @@
     "href": "Ressurser.html",
     "title": "Programvaren R",
     "section": "",
-    "text": "R er en open source og gratis programvare for statistikk.\nFor installasjon på din computer følg oppskriften her: https://posit.co/download/rstudio-desktop/\nSå kan du lage noen tilfeldige tall og lage et histogram og regne ut snittet og median:\n\nminetall &lt;- rnorm(200)# 200 tilfeldige tall trekkes fra standard normalfordeling. Ser ganske normalfordelt ut ja\nhist(minetall)\n\n\n\nmean(minetall)\n\n[1] 0.1599482\n\nmedian(minetall)\n\n[1] 0.1729386"
+    "text": "R er en open source og gratis programvare for statistikk.\nFor installasjon på din computer følg oppskriften her: https://posit.co/download/rstudio-desktop/\nSå kan du lage noen tilfeldige tall og lage et histogram og regne ut snittet og median:\n\nminetall &lt;- rnorm(200)# 200 tilfeldige tall trekkes fra standard normalfordeling. Ser ganske normalfordelt ut ja\nhist(minetall)\n\n\n\nmean(minetall)\n\n[1] 0.1124\n\nmedian(minetall)\n\n[1] 0.06679215"
   },
   {
     "objectID": "Ressurser.html#r-og-rstudio",
     "href": "Ressurser.html#r-og-rstudio",
     "title": "Programvaren R",
     "section": "",
-    "text": "R er en open source og gratis programvare for statistikk.\nFor installasjon på din computer følg oppskriften her: https://posit.co/download/rstudio-desktop/\nSå kan du lage noen tilfeldige tall og lage et histogram og regne ut snittet og median:\n\nminetall &lt;- rnorm(200)# 200 tilfeldige tall trekkes fra standard normalfordeling. Ser ganske normalfordelt ut ja\nhist(minetall)\n\n\n\nmean(minetall)\n\n[1] 0.1599482\n\nmedian(minetall)\n\n[1] 0.1729386"
+    "text": "R er en open source og gratis programvare for statistikk.\nFor installasjon på din computer følg oppskriften her: https://posit.co/download/rstudio-desktop/\nSå kan du lage noen tilfeldige tall og lage et histogram og regne ut snittet og median:\n\nminetall &lt;- rnorm(200)# 200 tilfeldige tall trekkes fra standard normalfordeling. Ser ganske normalfordelt ut ja\nhist(minetall)\n\n\n\nmean(minetall)\n\n[1] 0.1124\n\nmedian(minetall)\n\n[1] 0.06679215"
   },
   {
-    "objectID": "emnebeskrivelse.html",
-    "href": "emnebeskrivelse.html",
-    "title": "Emnebeskrivelse",
+    "objectID": "slides/slides3a.html#kan-vi-forklare-noe-i-variasjonen-til-complexity-stress",
+    "href": "slides/slides3a.html#kan-vi-forklare-noe-i-variasjonen-til-complexity-stress",
+    "title": "Fysisk samling 05.03. Multippel og logistisk regresjon",
     "section": "",
-    "text": "Denne websiden inneholder kursmateriell for statistikkurset i 2-årig psykologi master ved UiS. Emnebeskrivelsen: https://www.uis.no/nb/course/MPS140_1"
+    "text": "Kan kjønn og alder forklare noe av stresset?\n\nmod &lt;- lm(complexity ~ kjønn+age, data=stressdata) \nsummary(mod)\n\n\nCall:\nlm(formula = complexity ~ kjønn + age, data = stressdata)\n\nResiduals:\n     Min       1Q   Median       3Q      Max \n-15.1812  -7.1336  -0.1302   6.9751  18.6830 \n\nCoefficients:\n            Estimate Std. Error t value Pr(&gt;|t|)    \n(Intercept) 17.22973    1.44498  11.924  &lt; 2e-16 ***\nkjønnmann   -2.91213    0.88412  -3.294  0.00105 ** \nage          0.04760    0.03322   1.433  0.15244    \n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nResidual standard error: 8.452 on 573 degrees of freedom\nMultiple R-squared:  0.02046,   Adjusted R-squared:  0.01704 \nF-statistic: 5.983 on 2 and 573 DF,  p-value: 0.002681\n\n\n\np-verdien til F-testen er signifikant. Det betyr at kjønn og alder forklarer mer enn ingenting\n\\(R^2\\) er imidlertid veldig lav"
   },
   {
-    "objectID": "slides/slides3a.html#lekeeksempel",
-    "href": "slides/slides3a.html#lekeeksempel",
-    "title": "Fysisk samling 5. mars. Mer om mutlippel regresjon",
-    "section": "Lekeeksempel",
-    "text": "Lekeeksempel"
-  },
-  {
-    "objectID": "slides/slides3a.html#estimere-modellen-med-textsflm-og-plotte",
-    "href": "slides/slides3a.html#estimere-modellen-med-textsflm-og-plotte",
-    "title": "Fysisk samling 5. mars. Mer om mutlippel regresjon",
-    "section": "Estimere modellen med \\(\\textsf{lm()}\\) og plotte",
-    "text": "Estimere modellen med \\(\\textsf{lm()}\\) og plotte\n\nx &lt;- c(-5, 10, 15, 31, 42)\ny &lt;- c(3,3,0,1, -1)\nmodel &lt;- lm(y~x)\nqplot(x,y)+geom_smooth(method=\"lm\", se=F)"
-  },
-  {
-    "objectID": "slides/slides3a.html#utskrift-fra-textsflm",
-    "href": "slides/slides3a.html#utskrift-fra-textsflm",
-    "title": "Fysisk samling 5. mars. Mer om mutlippel regresjon",
-    "section": "Utskrift fra \\(\\textsf{lm()}\\)",
-    "text": "Utskrift fra \\(\\textsf{lm()}\\)\n\nsummary(model)\n\n\nCall:\nlm(formula = y ~ x)\n\nResiduals:\n       1        2        3        4        5 \n-0.08772  1.11210 -1.48796  0.79185 -0.32828 \n\nCoefficients:\n            Estimate Std. Error t value Pr(&gt;|t|)  \n(Intercept)  2.68778    0.79939   3.362   0.0437 *\nx           -0.07999    0.03223  -2.481   0.0892 .\n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nResidual standard error: 1.182 on 3 degrees of freedom\nMultiple R-squared:  0.6724,    Adjusted R-squared:  0.5632 \nF-statistic: 6.158 on 1 and 3 DF,  p-value: 0.08916"
-  },
-  {
-    "objectID": "slides/slides3a.html#r2-forklart-varians",
-    "href": "slides/slides3a.html#r2-forklart-varians",
-    "title": "Fysisk samling 5. mars. Mer om mutlippel regresjon",
-    "section": "\\(R^2\\): forklart varians",
-    "text": "\\(R^2\\): forklart varians\n\nResidualet: Avstand fra den faktiske \\(y\\) verdien til den \\(y\\) som modellen predikerer (på linja)\n\\(R^2\\): Andel av variasjonen i \\(y\\) som kan forklares av \\(x\\) (to versjoner). Jo høyere, jo bedre er linja som forklaringsmodell"
-  },
-  {
-    "objectID": "slides/slides3a.html#predikere-nye-verdier",
-    "href": "slides/slides3a.html#predikere-nye-verdier",
-    "title": "Fysisk samling 5. mars. Mer om mutlippel regresjon",
-    "section": "Predikere nye verdier",
-    "text": "Predikere nye verdier\nDersom vi har en ny verdie, \\(x=20\\) kan vi bruke linja til en kvalifisert gjetning på hva \\(y\\) vil være:\n\nyhat &lt;- predict(model, newdata=data.frame(x=20))\nyhat\n\n       1 \n1.088017 \n\nqplot(x,y, size=3)+geom_smooth(method=\"lm\", se=F)+geom_point(aes(x=20, y=yhat),size=5, color=\"red\")"
-  },
-  {
-    "objectID": "slides/slides3a.html#enkel-regresjon",
-    "href": "slides/slides3a.html#enkel-regresjon",
-    "title": "Fysisk samling 5. mars. Mer om mutlippel regresjon",
-    "section": "Enkel regresjon",
-    "text": "Enkel regresjon\nVi ønsker å studere en kontinuerlig variabel \\(y\\). Denne kalles den avhengige variabelen.\nVi forklarer variasjonen i \\(y\\) ved hjelp av en enkel forklaringsvariabel \\(x\\) og en lineær sammenheng\n\\[ y = \\beta_0+ \\beta_1 x + \\epsilon\\]\n\n\\(\\beta_1 &gt; 0\\): positiv sammenheng mellom \\(x\\) og \\(y\\)\n\\(\\beta_1 &lt; 0\\): negativ sammenheng mellom \\(x\\) og \\(y\\)\n\\(\\beta_1 = 0\\): ingen sammenheng mellom \\(x\\) og \\(y\\)"
-  },
-  {
-    "objectID": "slides/slides3a.html#antagelser-i-lineær-regresjon",
-    "href": "slides/slides3a.html#antagelser-i-lineær-regresjon",
-    "title": "Fysisk samling 5. mars. Mer om mutlippel regresjon",
-    "section": "Antagelser i lineær regresjon",
-    "text": "Antagelser i lineær regresjon\n\nLinearitet!\nHomoskedastisitet: Residualene må ha samme varians uansett hva \\(x\\) er. Kan sjekkes med å plotte residualene vs de predikerte (fitted values)\nHvis det er et lite utvalg så bør residualene være normalfordelte"
-  },
-  {
-    "objectID": "slides/slides3a.html#ok-lineært-og-homoskedastisk",
-    "href": "slides/slides3a.html#ok-lineært-og-homoskedastisk",
-    "title": "Fysisk samling 5. mars. Mer om mutlippel regresjon",
-    "section": "OK: lineært og homoskedastisk",
-    "text": "OK: lineært og homoskedastisk\n\nPerfekt"
-  },
-  {
-    "objectID": "slides/slides3a.html#ikke-ok-ikke-lineært",
-    "href": "slides/slides3a.html#ikke-ok-ikke-lineært",
-    "title": "Fysisk samling 5. mars. Mer om mutlippel regresjon",
-    "section": "IKKE OK: ikke lineært!",
-    "text": "IKKE OK: ikke lineært!\n\nSammenhengen er ikke lineærKan fikses ved å ta med \\(x^2\\) som uavhengig variabel"
-  },
-  {
-    "objectID": "slides/slides3a.html#ikke-ok-homoskedastiske-feilledd",
-    "href": "slides/slides3a.html#ikke-ok-homoskedastiske-feilledd",
-    "title": "Fysisk samling 5. mars. Mer om mutlippel regresjon",
-    "section": "IKKE OK: homoskedastiske feilledd",
-    "text": "IKKE OK: homoskedastiske feilledd\n\nResidualene varierer mer jo større \\(x\\) erKan fikses ved å bruke en robust estimator av White-typen"
-  },
-  {
-    "objectID": "slides/slides3a.html#trivsel-og-sosiale-medier-engelske-15-åringer",
-    "href": "slides/slides3a.html#trivsel-og-sosiale-medier-engelske-15-åringer",
-    "title": "Fysisk samling 5. mars. Mer om mutlippel regresjon",
-    "section": "Trivsel og sosiale medier engelske 15 åringer",
-    "text": "Trivsel og sosiale medier engelske 15 åringer\nPrzybylski, A. & Weinstein, N. (2017). A Large-Scale Test of the Goldilocks Hypothesis. Psychological Science, 28, 204–215.\nStorskala studie som finner støtte til “Goldilocks” hypotesen.\nDataene er tilgjengelige her"
-  },
-  {
-    "objectID": "slides/slides3a.html#trivsel---wellbeing",
-    "href": "slides/slides3a.html#trivsel---wellbeing",
-    "title": "Fysisk samling 5. mars. Mer om mutlippel regresjon",
-    "section": "Trivsel - Wellbeing",
-    "text": "Trivsel - Wellbeing\nVi ønsker å studere trivsel. Det er vår avhengige variabel:\nTrivsel målt med Warwick-Edinburgh Mental Well-Being Scale (WEMWBS). Spørreskjema med 14 items og 5 responsnivå. Vi bruker summescoren\n\n\n\n\n\n\n\n\nVi har 71033 deltagere! La oss tenke på dette som POPULASJONEN"
-  },
-  {
-    "objectID": "slides/slides3a.html#negativ-trivsel-og-telefonbruk-i-populasjonen",
-    "href": "slides/slides3a.html#negativ-trivsel-og-telefonbruk-i-populasjonen",
-    "title": "Fysisk samling 5. mars. Mer om mutlippel regresjon",
-    "section": "Negativ trivsel og telefonbruk i “populasjonen”",
-    "text": "Negativ trivsel og telefonbruk i “populasjonen”\n\npopmodel &lt;- lm(tot_wellbeing~ tothours, data=populasjon)\npopmodel %&gt;% tidy() %&gt;% kable(digits=2)\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n50.31\n0.09\n585.03\n0\n\n\ntothours\n-0.81\n0.02\n-43.99\n0\n\n\n\n\n\n\n\nEn time ekstra daglig mobilbruk gir en forventet nedgang i trivsel på 0.81"
-  },
-  {
-    "objectID": "slides/slides3a.html#sammenheng-trivsel-og-telefonbruk-i-et-tilfeldig-utvalg-av-400-15-åringer",
-    "href": "slides/slides3a.html#sammenheng-trivsel-og-telefonbruk-i-et-tilfeldig-utvalg-av-400-15-åringer",
-    "title": "Fysisk samling 5. mars. Mer om mutlippel regresjon",
-    "section": "Sammenheng trivsel og telefonbruk i et tilfeldig utvalg av 400 15-åringer",
-    "text": "Sammenheng trivsel og telefonbruk i et tilfeldig utvalg av 400 15-åringer"
-  },
-  {
-    "objectID": "slides/slides3a.html#regresjon-i-utvalget",
-    "href": "slides/slides3a.html#regresjon-i-utvalget",
-    "title": "Fysisk samling 5. mars. Mer om mutlippel regresjon",
-    "section": "Regresjon i utvalget",
-    "text": "Regresjon i utvalget\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n50.89\n1.09\n46.55\n0\n\n\ntothours\n-0.93\n0.23\n-4.01\n0\n\n\n\n\n\n\n\nGanske likt populasjonsverdiene! Vi har linearitet."
-  },
-  {
-    "objectID": "slides/slides3a.html#homoskedastiske-feilledd",
-    "href": "slides/slides3a.html#homoskedastiske-feilledd",
-    "title": "Fysisk samling 5. mars. Mer om mutlippel regresjon",
-    "section": "Homoskedastiske feilledd?",
-    "text": "Homoskedastiske feilledd?\n\nHer har vi tilnærmet homoskedastisitet!"
-  },
-  {
-    "objectID": "slides/slides3a.html#husk-at-estimatene-er-usikre",
-    "href": "slides/slides3a.html#husk-at-estimatene-er-usikre",
-    "title": "Fysisk samling 5. mars. Mer om mutlippel regresjon",
-    "section": "Husk at estimatene er usikre!",
-    "text": "Husk at estimatene er usikre!\nHer er fire andre utvalg av størrelse \\(n=400\\). Vi ser at intercept og slope varierer endel!"
-  },
-  {
-    "objectID": "slides/slides3a.html#multippel-regresjon-1",
-    "href": "slides/slides3a.html#multippel-regresjon-1",
-    "title": "Fysisk samling 5. mars. Mer om mutlippel regresjon",
-    "section": "Multippel regresjon",
-    "text": "Multippel regresjon\nEn enkel uvidelse av enkel regresjon, der vi har flere uavhengige variable\n\\[ y = \\beta_0+ \\beta_1 x_1 +  \\beta_2 x_2+ \\beta_3 x_3+ \\epsilon\\] Her har vi TRE forklaringsvariabler \\(x_1,x_2, x_3\\) som forklarer hvorfor \\(y\\) varierer!"
-  },
-  {
-    "objectID": "slides/slides3a.html#ceteris-paribus",
-    "href": "slides/slides3a.html#ceteris-paribus",
-    "title": "Fysisk samling 5. mars. Mer om mutlippel regresjon",
-    "section": "Ceteris paribus",
-    "text": "Ceteris paribus\nCeteris paribus [keːˈtɛ.riːsˈpa.rɪ.bʊs] latinsk for “alt annet likt”\nI multippel regresjon får vi effekten av en variabel på \\(y\\), “alt annet likt”. Vi kontrollerer for de andre variablene!\nFor eksempel: \\[ y = 1+ 2 \\cdot x_1 - x_2+ 0.5 \\cdot x_3+ \\epsilon\\] Når \\(x_1\\) øker med 1 enhet, så øker \\(y\\) med 2 enheter, alt annet likt. Dvs at vi holder \\(x_2\\) og \\(x_3\\) fast, og får isolert sammenhengen mellom \\(x_1\\) og \\(y\\)."
-  },
-  {
-    "objectID": "slides/slides3a.html#eksempel-effekt-av-telefonbruk-på-well-being-kontrollert-for-kjønn",
-    "href": "slides/slides3a.html#eksempel-effekt-av-telefonbruk-på-well-being-kontrollert-for-kjønn",
-    "title": "Fysisk samling 5. mars. Mer om mutlippel regresjon",
-    "section": "Eksempel: Effekt av telefonbruk på Well-being, kontrollert for kjønn",
-    "text": "Eksempel: Effekt av telefonbruk på Well-being, kontrollert for kjønn\nGutter har høyere trivsel (6.5 poeng) og lavere mobilforbruk:\n\nutvalg %&gt;% group_by(male) %&gt;%\n  summarise(wbsnitt=mean(tot_wellbeing),\n            tothoursnitt=mean(tothours))\n\n# A tibble: 2 × 3\n  male  wbsnitt tothoursnitt\n  &lt;fct&gt;   &lt;dbl&gt;        &lt;dbl&gt;\n1 0        44.5         4.52\n2 1        51.0         3.89\n\n\nVi tar med kjønn som forklaringsvariabel. Dette er en kategorisk variabel, vi koder den med en dummy variabel: male=0 betyr jente, male=1 betyr gutt."
-  },
-  {
-    "objectID": "slides/slides3a.html#kategoriske-variabler-og-dummy-koding",
-    "href": "slides/slides3a.html#kategoriske-variabler-og-dummy-koding",
-    "title": "Fysisk samling 5. mars. Mer om mutlippel regresjon",
-    "section": "Kategoriske variabler og dummy-koding",
-    "text": "Kategoriske variabler og dummy-koding\nkategoriske variabler kan kodes med dummyvariabler i regresjon. Dersom vi har \\(K\\) kategorier, trenger vi \\(K-1\\) dummy variabler:\n\nKjønn: \\(K=2\\). Vi har \\(K-1=2-1=1\\) dummy variabel.\nUSA politisk tilørighet: Dem, Rep, Ind: \\(K=3\\). Vi har \\(K-1=2-1=2\\) dummy variabler. For eksempel kan vi har \\(R=1\\) hvis republikaner, og \\(D=1\\) hvis demokrat. Vi trenger ikke \\(Ind\\), siden dersom \\(R=0\\) og \\(D=0\\) så vet vi at det er en independent velger."
-  },
-  {
-    "objectID": "slides/slides3a.html#multippel-regresjon-i-r",
-    "href": "slides/slides3a.html#multippel-regresjon-i-r",
-    "title": "Fysisk samling 5. mars. Mer om mutlippel regresjon",
-    "section": "Multippel regresjon i R",
-    "text": "Multippel regresjon i R\n\\[ \\text{tot_wellbeing} = \\beta_0+ \\beta_1 \\cdot \\text{tothours}+ \\beta_2 \\cdot \\text{male}+\\epsilon\\]\n\nmultmodel &lt;- lm(tot_wellbeing~ tothours+male, data=utvalg)\nmultmodel %&gt;% tidy() %&gt;% kable(digits=2)\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n47.57\n1.14\n41.74\n0\n\n\ntothours\n-0.69\n0.22\n-3.08\n0\n\n\nmale1\n6.07\n0.88\n6.92\n0"
-  },
-  {
-    "objectID": "slides/slides3a.html#telefonbruk-kjønn-og-well-being",
-    "href": "slides/slides3a.html#telefonbruk-kjønn-og-well-being",
-    "title": "Fysisk samling 5. mars. Mer om mutlippel regresjon",
-    "section": "Telefonbruk, kjønn og well-being",
-    "text": "Telefonbruk, kjønn og well-being\n\n\n\n\n\nterm\nestimate\nstd.error\nstatistic\np.value\n\n\n\n\n(Intercept)\n47.57\n1.14\n41.74\n0\n\n\ntothours\n-0.69\n0.22\n-3.08\n0\n\n\nmale1\n6.07\n0.88\n6.92\n0\n\n\n\n\n\n\n\nEffekten av telefonbruk er litt mindre når vi kontrollerer for kjønn (-0.934 \\(\\rightarrow\\) -0.688 )\nOg effekt av kjønn på trivsel, når vi kontrollerer for telefonbruk, er lavere nå, 6.07. Så noe av den observerte trivselforskjellen på 6.5 kan forklares ved at guttene er mindre på mobil, og at mobil ikke er bra for wellbeing!"
-  },
-  {
-    "objectID": "slides/slides3a.html#anova-analysis-of-variance",
-    "href": "slides/slides3a.html#anova-analysis-of-variance",
-    "title": "Fysisk samling 5. mars. Mer om mutlippel regresjon",
-    "section": "ANOVA analysis of variance",
-    "text": "ANOVA analysis of variance\nI intro statistikk så lærer man anova. - Du har flere grupper i populasjonen - Du lurer på om \\(y\\) har samme gjennomsnitt i alle gruppene - \\(H_0:\\mu_1=\\mu_2=\\cdots=\\mu_g\\) - Alternativhypotesen er at gruppegjennomsnittene ikke alle er like!"
-  },
-  {
-    "objectID": "slides/slides3a.html#eksempel",
-    "href": "slides/slides3a.html#eksempel",
-    "title": "Fysisk samling 5. mars. Mer om mutlippel regresjon",
-    "section": "Eksempel",
-    "text": "Eksempel\nVi antar at i utvalget var det 4 skoler. Vi ønsker å teste om well-being er den samme på alle skolene:\n\naov(tot_wellbeing~ school, utvalg) %&gt;% tidy() %&gt;% kable(digits=2) \n\n\n\n\nterm\ndf\nsumsq\nmeansq\nstatistic\np.value\n\n\n\n\nschool\n3\n92.19\n30.73\n0.38\n0.77\n\n\nResiduals\n396\n32388.05\n81.79\nNA\nNA\n\n\n\n\n\n\n\nVi har ikke støtte for å hevde at det er forskjell i well-being mellom de 4 skolene (p-verdi=.77 vi beholder \\(H_0\\))\n\n\nhjem"
-  },
-  {
-    "objectID": "slides/slides3a.html#multippel-regresjon-er-helt-sentralt-i-kvantitativ-psykologi",
-    "href": "slides/slides3a.html#multippel-regresjon-er-helt-sentralt-i-kvantitativ-psykologi",
+    "objectID": "slides/slides3a.html#kan-vi-forklare-noe-i-variasjonen-til-complexity-stress-1",
+    "href": "slides/slides3a.html#kan-vi-forklare-noe-i-variasjonen-til-complexity-stress-1",
     "title": "Fysisk samling 05.03. Multippel og logistisk regresjon",
-    "section": "Multippel regresjon er helt sentralt i kvantitativ psykologi",
-    "text": "Multippel regresjon er helt sentralt i kvantitativ psykologi\n\\[ Y = \\beta_0 + \\beta_1 X_1+ \\beta_1 X_2+\\ldots +  \\beta_k X_k+\\epsilon\\] - Vi identifiserer en avhengig variabelen \\(Y\\) som vi vil forklare variasjonen til - Vi identifiserer prediktorer \\(X_1, X_2, \\ldots, X_k\\)"
+    "section": "Kan vi forklare noe i variasjonen til complexity stress?",
+    "text": "Kan vi forklare noe i variasjonen til complexity stress?\nTa bort alder og ta heller med bransje\n\nmod &lt;- lm(complexity ~ kjønn+bransje, data=stressdata) \nsummary(mod)\n\n\nCall:\nlm(formula = complexity ~ kjønn + bransje, data = stressdata)\n\nResiduals:\n     Min       1Q   Median       3Q      Max \n-16.3573  -6.3573   0.3255   6.3696  19.3255 \n\nCoefficients:\n                       Estimate Std. Error t value Pr(&gt;|t|)    \n(Intercept)             14.6745     0.6052  24.247   &lt;2e-16 ***\nkjønnmann               -0.1764     0.8628  -0.204    0.838    \nbransjeHelse og omsorg   6.6828     0.7071   9.452   &lt;2e-16 ***\n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nResidual standard error: 7.875 on 573 degrees of freedom\nMultiple R-squared:  0.1495,    Adjusted R-squared:  0.1466 \nF-statistic: 50.38 on 2 and 573 DF,  p-value: &lt; 2.2e-16\n\n\n\np-verdien til F-testen er signifikant. Det betyr at kjønn og alder forklarer mer enn ingenting\n\\(R^2\\) er imidlertid veldig lav"
   },
   {
-    "objectID": "slides/slides3a.html#prosessen",
-    "href": "slides/slides3a.html#prosessen",
-    "title": "Fysisk samling 5. mars. Mer om mutlippel regresjon",
-    "section": "Prosessen",
-    "text": "Prosessen\n\nFinne de viktigste prediktorene\nSjekke forutsetninger: stort nok utvalg, unngå multikollinearitet1, sammenhengene er lineære, homoskedastisitet2, normalfordelte residualer\nSjekke modellens totale forklaringskraft (Adjusted R^2 og \\(F\\) verdien)\nSjekke individuelle prediktorers forklaringskraft (feks \\(\\hat \\beta_1\\) og dens p-verdi )\nSammenfatte dette og besvare forskningsspørsmålet\n\n\n\nhjem\n\ndvs at prediktorene er høyt korrelertedvs at residualene har konstant varians"
-  },
-  {
-    "objectID": "slides/slides3a.html#forskningsspørsmålet-blir-ofte-oversatt-til-en-regresjonslikning",
-    "href": "slides/slides3a.html#forskningsspørsmålet-blir-ofte-oversatt-til-en-regresjonslikning",
-    "title": "Fysisk samling 5. mars. Mer om mutlippel regresjon",
-    "section": "Forskningsspørsmålet blir ofte “oversatt” til en regresjonslikning",
-    "text": "Forskningsspørsmålet blir ofte “oversatt” til en regresjonslikning\n\nFinne de viktigste prediktorene\nSjekke forutsetninger: stort nok utvalg, unngå multikollinearitet1, sammenhengene er lineære, homoskedastisitet2, normalfordelte residualer\nSjekke modellens totale forklaringskraft (Adjusted R^2 og \\(F\\) verdien)\nSjekke individuelle prediktorers forklaringskraft (feks \\(\\hat \\beta_1\\) og dens p-verdi )\nSammenfatte dette og besvare forskningsspørsmålet\n\n\n\nhjem\n\ndvs at prediktorene er høyt korrelertedvs at residualene har konstant varians"
-  },
-  {
-    "objectID": "slides/slides3a.html#forskningsspørsmålet-rightarrow-regresjonslikning",
-    "href": "slides/slides3a.html#forskningsspørsmålet-rightarrow-regresjonslikning",
-    "title": "Fysisk samling 5. mars. Mer om mutlippel regresjon",
-    "section": "Forskningsspørsmålet \\(\\rightarrow\\) regresjonslikning",
-    "text": "Forskningsspørsmålet \\(\\rightarrow\\) regresjonslikning\n\nFinne de viktigste prediktorene\nSjekke forutsetninger: stort nok utvalg, unngå multikollinearitet1, sammenhengene er lineære, homoskedastisitet2, normalfordelte residualer\nSjekke modellens totale forklaringskraft (Adjusted R^2 og \\(F\\) verdien)\nSjekke individuelle prediktorers forklaringskraft (feks \\(\\hat \\beta_1\\) og dens p-verdi )\nSammenfatte dette og besvare forskningsspørsmålet\n\n\n\nhjem\n\ndvs at prediktorene er høyt korrelertedvs at residualene har konstant varians"
-  },
-  {
-    "objectID": "slides/slides3a.html#fra-forskningsspørsmål-til-regresjon",
-    "href": "slides/slides3a.html#fra-forskningsspørsmål-til-regresjon",
+    "objectID": "slides/slides3a.html#endre-modell",
+    "href": "slides/slides3a.html#endre-modell",
     "title": "Fysisk samling 05.03. Multippel og logistisk regresjon",
-    "section": "Fra forskningsspørsmål til regresjon",
-    "text": "Fra forskningsspørsmål til regresjon\n\nFinne de viktigste prediktorene\nSjekke forutsetninger: stort nok utvalg, unngå multikollinearitet1, sammenhengene er lineære, homoskedastisitet2, normalfordelte residualer\nSjekke modellens totale forklaringskraft (Adjusted \\(R^2\\) og \\(F\\))\nSjekke hver prediktors forklaringskraft\nBesvare forskningsspørsmålet\n\nunngå høyt korrelerte prediktorer residualene har konstant varians"
+    "section": "",
+    "text": "Ta bort alder og ta heller med bransje\n\nmod &lt;- lm(complexity ~ kjønn+bransje, data=stressdata) \nsummary(mod)\n\n\nCall:\nlm(formula = complexity ~ kjønn + bransje, data = stressdata)\n\nResiduals:\n     Min       1Q   Median       3Q      Max \n-16.3573  -6.3573   0.3255   6.3696  19.3255 \n\nCoefficients:\n                       Estimate Std. Error t value Pr(&gt;|t|)    \n(Intercept)             14.6745     0.6052  24.247   &lt;2e-16 ***\nkjønnmann               -0.1764     0.8628  -0.204    0.838    \nbransjeHelse og omsorg   6.6828     0.7071   9.452   &lt;2e-16 ***\n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nResidual standard error: 7.875 on 573 degrees of freedom\nMultiple R-squared:  0.1495,    Adjusted R-squared:  0.1466 \nF-statistic: 50.38 on 2 and 573 DF,  p-value: &lt; 2.2e-16\n\n\n\np-verdien til F-testen er signifikant og \\(R^2\\) er mye høyere nå\nNå er ikke kjønn signifikant lengre."
   },
   {
-    "objectID": "slides/slides3a.html#når-y-er-binær-logistisk-regresjon",
-    "href": "slides/slides3a.html#når-y-er-binær-logistisk-regresjon",
+    "objectID": "slides/slides3a.html#helsesektor-er-full-av-kvinner..",
+    "href": "slides/slides3a.html#helsesektor-er-full-av-kvinner..",
     "title": "Fysisk samling 05.03. Multippel og logistisk regresjon",
-    "section": "Når \\(Y\\) er binær: Logistisk regresjon",
-    "text": "Når \\(Y\\) er binær: Logistisk regresjon\n\nI multippel regresjon er \\(Y\\) kontinuerlig\n\nFor eksempel \\(Y\\)= well-being på en skala fra 0-10\nModellen gir forventet well-being gitt feks kjønn og alder\n\nHvis \\(Y\\) er binær så må vi bruke logistisk regresjon\n\nFor eksempel \\(Y\\)=depressiv (Ja/Nei)\nModellen gir da sannsynlighet for at en person er depressiv, gitt feks kjønn og alder\n\n\n\n\nhjem"
+    "section": "",
+    "text": "Det er helsesektoren som forklarer stress! Grunnen til at kjønn var signifikant før var at det er mange damer i den stressfulle helsesektoren\n\nstressdata %&gt;% group_by(bransje) %&gt;% summarise(andel_menn=mean(kjønn==\"mann\"))\n\n# A tibble: 2 × 2\n  bransje         andel_menn\n  &lt;chr&gt;                &lt;dbl&gt;\n1 Annet               0.358 \n2 Helse og omsorg     0.0980"
   },
   {
-    "objectID": "slides/slides3a.html#multippel-regresjon-er-et-hovedverktøy-i-psykologi",
-    "href": "slides/slides3a.html#multippel-regresjon-er-et-hovedverktøy-i-psykologi",
+    "objectID": "slides/slides3a.html#bransje-og-lederansvar",
+    "href": "slides/slides3a.html#bransje-og-lederansvar",
     "title": "Fysisk samling 05.03. Multippel og logistisk regresjon",
-    "section": "Multippel regresjon er et hovedverktøy i psykologi",
-    "text": "Multippel regresjon er et hovedverktøy i psykologi\n\nFra forskningsspørsmålet identifiserer vi en avhengig variabel \\(Y\\) som vi vil forklare variasjonen til\nOg en rekke prediktorer \\(X_1, X_2, \\ldots, X_k\\) som skal forklare variasjonen i \\(Y\\)\nModellen:\n\n\\[ Y = \\beta_0 + \\beta_1 X_1+ \\beta_1 X_2+\\ldots +  \\beta_k X_k+\\epsilon\\]"
+    "section": "",
+    "text": "Ta bort kjønn og ta med lederansvar\n\nmod &lt;- lm(complexity ~ leder+bransje, data=stressdata) \nsummary(mod)\n\n\nCall:\nlm(formula = complexity ~ leder + bransje, data = stressdata)\n\nResiduals:\n     Min       1Q   Median       3Q      Max \n-16.3492  -6.3492   0.3539   6.3871  19.3539 \n\nCoefficients:\n                       Estimate Std. Error t value Pr(&gt;|t|)    \n(Intercept)             14.6461     0.5786  25.314   &lt;2e-16 ***\nlederTRUE               -0.1327     0.9649  -0.138    0.891    \nbransjeHelse og omsorg   6.7031     0.6958   9.633   &lt;2e-16 ***\n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nResidual standard error: 7.875 on 573 degrees of freedom\nMultiple R-squared:  0.1495,    Adjusted R-squared:  0.1465 \nF-statistic: 50.36 on 2 and 573 DF,  p-value: &lt; 2.2e-16\n\n\nLeder er ikke signifikant."
+  },
+  {
+    "objectID": "slides/slides3a.html#utdanningsnivå-og-stress",
+    "href": "slides/slides3a.html#utdanningsnivå-og-stress",
+    "title": "Fysisk samling 05.03. Multippel og logistisk regresjon",
+    "section": "",
+    "text": "Utdanningsnivå er på ordinal skala så vi gjør det om til factor:\n\nmod &lt;- lm(complexity ~ education+bransje, data=stressdata) \nsummary(mod)\n\n\nCall:\nlm(formula = complexity ~ education + bransje, data = stressdata)\n\nResiduals:\n     Min       1Q   Median       3Q      Max \n-16.6117  -6.3274   0.2403   6.5246  19.3824 \n\nCoefficients:\n                       Estimate Std. Error t value Pr(&gt;|t|)    \n(Intercept)             15.0441     1.3507  11.138   &lt;2e-16 ***\neducation               -0.1422     0.4095  -0.347    0.729    \nbransjeHelse og omsorg   6.7098     0.6727   9.975   &lt;2e-16 ***\n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nResidual standard error: 7.875 on 573 degrees of freedom\nMultiple R-squared:  0.1497,    Adjusted R-squared:  0.1467 \nF-statistic: 50.42 on 2 and 573 DF,  p-value: &lt; 2.2e-16\n\n\nUtdanningsnivå er heller ikke signifikant prediktor"
+  },
+  {
+    "objectID": "slides/slides3a.html#parsimony-enkelhetsprinsippet",
+    "href": "slides/slides3a.html#parsimony-enkelhetsprinsippet",
+    "title": "Fysisk samling 05.03. Multippel og logistisk regresjon",
+    "section": "",
+    "text": "Ironisk nok ender vi opp med en enkel regresjon! Det er bare bransje som forklarer stress i våre data (15% er forklart, 85% er ikke forklart)\n\nmod &lt;- lm(complexity ~ bransje, data=stressdata) \nsummary(mod)\n\n\nCall:\nlm(formula = complexity ~ bransje, data = stressdata)\n\nResiduals:\n     Min       1Q   Median       3Q      Max \n-16.3401  -6.3401   0.3886   6.3886  19.3886 \n\nCoefficients:\n                       Estimate Std. Error t value Pr(&gt;|t|)    \n(Intercept)             14.6114     0.5200   28.10   &lt;2e-16 ***\nbransjeHelse og omsorg   6.7287     0.6699   10.04   &lt;2e-16 ***\n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nResidual standard error: 7.869 on 574 degrees of freedom\nMultiple R-squared:  0.1495,    Adjusted R-squared:  0.148 \nF-statistic: 100.9 on 1 and 574 DF,  p-value: &lt; 2.2e-16"
+  },
+  {
+    "objectID": "quiz 5mars.html",
+    "href": "quiz 5mars.html",
+    "title": "Quiz 5.mars regresjon",
+    "section": "",
+    "text": "First item\nFirst item\nFirst item"
+  },
+  {
+    "objectID": "slides/slides3a.html",
+    "href": "slides/slides3a.html",
+    "title": "Fysisk samling 05.03. Multippel og logistisk regresjon",
+    "section": "",
+    "text": "Fra forskningsspørsmålet identifiserer vi en avhengig variabel \\(Y\\) som vi vil forklare variasjonen til\nOg en rekke prediktorer \\(X_1, X_2, \\ldots, X_k\\) som skal forklare variasjonen i \\(Y\\)\nModellen:\n\n\\[ Y = \\beta_0 + \\beta_1 X_1+ \\beta_1 X_2+\\ldots +  \\beta_k X_k+\\epsilon\\]\n\n\n\n\nFinne de viktigste prediktorene\nSjekke forutsetninger: stort nok utvalg, unngå multikollinearitet1, sammenhengene er lineære, homoskedastisitet2, normalfordelte residualer\nSjekke modellens totale forklaringskraft (Adjusted \\(R^2\\) og \\(F\\))\nSjekke hver prediktors forklaringskraft\nBesvare forskningsspørsmålet\n\n\n\n\nVi ser på noen data fra stress-studien. Dataene er i comma separated format og lastes ned her\nFor å lese inn data i mange format (excel, csv, spss, osv) trykk på File&gt;Import dataset i Rstudio\n\nlibrary(\"tidyverse\")\nstressdata &lt;- read.csv(\"../data/stress_complete.csv\") \nstressdata$X &lt;- NULL#fjerne unødvendig variabel \"X\"\ndim(stressdata)#rader og søyler\n\n[1] 581  23\n\ncolnames(stressdata)#hvilke variabler\n\n [1] \"age\"                     \"sex\"                    \n [3] \"civil_status\"            \"education\"              \n [5] \"professional_experience\" \"COMP1\"                  \n [7] \"COMP2\"                   \"COMP3\"                  \n [9] \"COMP4\"                   \"COMP5\"                  \n[11] \"CONF1\"                   \"CONF2\"                  \n[13] \"CONF3\"                   \"CONF4\"                  \n[15] \"CONF5\"                   \"INSE1\"                  \n[17] \"INSE2\"                   \"INSE3\"                  \n[19] \"INSE4\"                   \"INSE5\"                  \n[21] \"alene\"                   \"leder\"                  \n[23] \"bransje\"                \n\n\n\n\n\nVi begynner alltid med å se på grafer\n\nhist(stressdata$age)\n\n\n\n\nVi har outlier. Gjennomsnitt 52.6 og median: 42. Fjern outlier:\n\nstressdata &lt;- filter(stressdata, age &lt; 70)\nnrow(stressdata)\n\n[1] 576\n\nhist(stressdata$age)\n\n\n\n\n\n\n\nFire utdanningsnivå (grunnskole, vid.g, bachelor, master/phd)\n\nqplot(stressdata$education)+geom_bar()\n\n\n\n\nAndeler\n\nprop.table(table(stressdata$education))\n\n\n         1          2          3          4 \n0.01388889 0.30034722 0.39409722 0.29166667 \n\n\n\n\n\nVariabelen “sex” er kodet slik: 1=kvinne, 2=mann, 3=ikke oppgitt.\nVi forenkler med å lage en ny binær variabel “kjønn”\n\nstressdata$kjønn &lt;- ifelse(stressdata$sex == 2,\"mann\", \"kvinne\")\nqplot(stressdata$kjønn)+geom_bar()\n\n\n\n\n\n\n\n\ntable(stressdata$bransje )\n\n\n                    annet            Bygg og anlegg         Faglige tjenester \n                       47                        14                         5 \n     Finans og forsikring Forskning og undervisning           Helse og omsorg \n                       10                        47                       347 \n                 Industri                        IT  Offentlig administrasjon \n                        7                        23                        25 \n             Olje og gass                Varehandel \n                       34                        17 \n\n\nVi forenkler ved å lage ny binær variabel for bransje (vi overskriver den gamle bransje)\n\nstressdata$bransje &lt;- ifelse(stressdata$bransje ==\"Helse og omsorg\", \"Helse og omsorg\", \"Annet\")\ntable(stressdata$bransje)\n\n\n          Annet Helse og omsorg \n            229             347 \n\n\n\n\n\nFem items som tilhører “Complexity ICT” er bra korrelert\n\ncomp &lt;- select(stressdata, contains(\"COMP\"))#velge ut bare disse 5\ncor(comp) %&gt;% round(1)\n\n      COMP1 COMP2 COMP3 COMP4 COMP5\nCOMP1   1.0   0.8   0.8   0.7   0.7\nCOMP2   0.8   1.0   0.8   0.7   0.7\nCOMP3   0.8   0.8   1.0   0.7   0.7\nCOMP4   0.7   0.7   0.7   1.0   0.8\nCOMP5   0.7   0.7   0.7   0.8   1.0\n\n\n\n\n\nLage summeskår som et mål på Complexity stress\n\nstressdata$complexity &lt;- stressdata$COMP1+stressdata$COMP2+stressdata$COMP3+stressdata$COMP4+stressdata$COMP5\nsummary(stressdata$complexity)\n\n   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. \n   5.00   11.00   19.00   18.66   26.00   35.00 \n\nhist(stressdata$complexity)\n\n\n\n\n\n\n\nKan kjønn og alder forklare noe av stresset?\n\nmod &lt;- lm(complexity ~ kjønn+age, data=stressdata) \nsummary(mod)\n\n\nCall:\nlm(formula = complexity ~ kjønn + age, data = stressdata)\n\nResiduals:\n     Min       1Q   Median       3Q      Max \n-15.1812  -7.1336  -0.1302   6.9751  18.6830 \n\nCoefficients:\n            Estimate Std. Error t value Pr(&gt;|t|)    \n(Intercept) 17.22973    1.44498  11.924  &lt; 2e-16 ***\nkjønnmann   -2.91213    0.88412  -3.294  0.00105 ** \nage          0.04760    0.03322   1.433  0.15244    \n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nResidual standard error: 8.452 on 573 degrees of freedom\nMultiple R-squared:  0.02046,   Adjusted R-squared:  0.01704 \nF-statistic: 5.983 on 2 and 573 DF,  p-value: 0.002681\n\n\n\np-verdien til F-testen er signifikant. Det betyr at kjønn og alder forklarer mer enn ingenting\n\\(R^2\\) er imidlertid veldig lav\n\n\n\n\nTa bort alder og ta heller med bransje\n\nmod &lt;- lm(complexity ~ kjønn+bransje, data=stressdata) \nsummary(mod)\n\n\nCall:\nlm(formula = complexity ~ kjønn + bransje, data = stressdata)\n\nResiduals:\n     Min       1Q   Median       3Q      Max \n-16.3573  -6.3573   0.3255   6.3696  19.3255 \n\nCoefficients:\n                       Estimate Std. Error t value Pr(&gt;|t|)    \n(Intercept)             14.6745     0.6052  24.247   &lt;2e-16 ***\nkjønnmann               -0.1764     0.8628  -0.204    0.838    \nbransjeHelse og omsorg   6.6828     0.7071   9.452   &lt;2e-16 ***\n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nResidual standard error: 7.875 on 573 degrees of freedom\nMultiple R-squared:  0.1495,    Adjusted R-squared:  0.1466 \nF-statistic: 50.38 on 2 and 573 DF,  p-value: &lt; 2.2e-16\n\n\n\np-verdien til F-testen er signifikant og \\(R^2\\) er mye høyere nå\nNå er ikke kjønn signifikant lengre.\n\n\n\n\nDet er helsesektoren som forklarer stress! Grunnen til at kjønn var signifikant før var at det er mange damer i den stressfulle helsesektoren\n\nstressdata %&gt;% group_by(bransje) %&gt;% summarise(andel_menn=mean(kjønn==\"mann\"))\n\n# A tibble: 2 × 2\n  bransje         andel_menn\n  &lt;chr&gt;                &lt;dbl&gt;\n1 Annet               0.358 \n2 Helse og omsorg     0.0980\n\n\n\n\n\nTa bort kjønn og ta med lederansvar\n\nmod &lt;- lm(complexity ~ leder+bransje, data=stressdata) \nsummary(mod)\n\n\nCall:\nlm(formula = complexity ~ leder + bransje, data = stressdata)\n\nResiduals:\n     Min       1Q   Median       3Q      Max \n-16.3492  -6.3492   0.3539   6.3871  19.3539 \n\nCoefficients:\n                       Estimate Std. Error t value Pr(&gt;|t|)    \n(Intercept)             14.6461     0.5786  25.314   &lt;2e-16 ***\nlederTRUE               -0.1327     0.9649  -0.138    0.891    \nbransjeHelse og omsorg   6.7031     0.6958   9.633   &lt;2e-16 ***\n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nResidual standard error: 7.875 on 573 degrees of freedom\nMultiple R-squared:  0.1495,    Adjusted R-squared:  0.1465 \nF-statistic: 50.36 on 2 and 573 DF,  p-value: &lt; 2.2e-16\n\n\nLeder er ikke signifikant.\n\n\n\nUtdanningsnivå er på ordinal skala så vi gjør det om til factor:\n\nmod &lt;- lm(complexity ~ education+bransje, data=stressdata) \nsummary(mod)\n\n\nCall:\nlm(formula = complexity ~ education + bransje, data = stressdata)\n\nResiduals:\n     Min       1Q   Median       3Q      Max \n-16.6117  -6.3274   0.2403   6.5246  19.3824 \n\nCoefficients:\n                       Estimate Std. Error t value Pr(&gt;|t|)    \n(Intercept)             15.0441     1.3507  11.138   &lt;2e-16 ***\neducation               -0.1422     0.4095  -0.347    0.729    \nbransjeHelse og omsorg   6.7098     0.6727   9.975   &lt;2e-16 ***\n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nResidual standard error: 7.875 on 573 degrees of freedom\nMultiple R-squared:  0.1497,    Adjusted R-squared:  0.1467 \nF-statistic: 50.42 on 2 and 573 DF,  p-value: &lt; 2.2e-16\n\n\nUtdanningsnivå er heller ikke signifikant prediktor\n\n\n\nIronisk nok ender vi opp med en enkel regresjon! Det er bare bransje som forklarer stress i våre data (15% er forklart, 85% er ikke forklart)\n\nmod &lt;- lm(complexity ~ bransje, data=stressdata) \nsummary(mod)\n\n\nCall:\nlm(formula = complexity ~ bransje, data = stressdata)\n\nResiduals:\n     Min       1Q   Median       3Q      Max \n-16.3401  -6.3401   0.3886   6.3886  19.3886 \n\nCoefficients:\n                       Estimate Std. Error t value Pr(&gt;|t|)    \n(Intercept)             14.6114     0.5200   28.10   &lt;2e-16 ***\nbransjeHelse og omsorg   6.7287     0.6699   10.04   &lt;2e-16 ***\n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nResidual standard error: 7.869 on 574 degrees of freedom\nMultiple R-squared:  0.1495,    Adjusted R-squared:  0.148 \nF-statistic: 100.9 on 1 and 574 DF,  p-value: &lt; 2.2e-16\n\n\n\n\n\n\nI multippel regresjon er \\(Y\\) kontinuerlig\n\nFor eksempel \\(Y\\)= well-being på en skala fra 0-10\nModellen gir forventet well-being gitt feks kjønn og alder\n\nHvis \\(Y\\) er binær så må vi bruke logistisk regresjon\n\nFor eksempel \\(Y\\)=depressiv (Ja/Nei)\nModellen gir da sannsynlighet for at en person er depressiv, gitt feks kjønn og alder"
+  },
+  {
+    "objectID": "slides/slides3a.html#footnotes",
+    "href": "slides/slides3a.html#footnotes",
+    "title": "Fysisk samling 05.03. Multippel og logistisk regresjon",
+    "section": "Footnotes",
+    "text": "Footnotes\n\n\nunngå høyt korrelerte prediktorer↩︎\nresidualene har konstant varians↩︎"
+  },
+  {
+    "objectID": "quiz/quiz 5mars.html",
+    "href": "quiz/quiz 5mars.html",
+    "title": "Quiz 5.mars regresjon",
+    "section": "",
+    "text": "Vi jobber med stressdata fila som er hentet fra denne studien\n\nEr dette et tverrsnitts- eller longitudinelt datasett?\nEr utvalget tilfeldig? Hvordan vil du karakterisere utvalget?\nHva er standardavviket til alder i datasettet?\nHvordan vil du definere en “uvanlig” høy alder?\nDet påstås at i populasjonen som dette utvalget er tatt ifra så er menn og kvinner like gamle. Skriv opp nullhypotesen og alternativhypotesen. Bruk symbolene \\(\\mu_M\\) og \\(\\mu_K\\).\nUtfør testen ved hjelp av\n\n\nt.test(age~kjønn, stressdata)"
   }
 ]

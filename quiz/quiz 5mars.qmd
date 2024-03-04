@@ -1,0 +1,31 @@
+---
+title: "Quiz 5.mars regresjon"
+format: 
+  html:
+    page-layout: article
+---
+
+Vi jobber med stressdata [fila](../data/stress_complete.csv) som er hentet fra [denne studien](https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2024.1297194/full)
+
+1.  Er dette et tverrsnitts- eller longitudinelt datasett?
+
+2.  Er utvalget tilfeldig? Hvordan vil du karakterisere utvalget?
+
+3.  Hva er standardavviket til alder i datasettet?
+
+4.  Hvordan vil du definere en "uvanlig" høy alder?
+
+5.  Lag et 95\\% konfidensintervall for alder.
+```{r, eval=F}
+t.test(age~kjønn, stressdata)
+```
+
+6.  Det påstås at i populasjonen som dette utvalget er tatt ifra så er menn og kvinner like gamle. Skriv opp nullhypotesen og alternativhypotesen. Bruk symbolene $\mu_M$ og $\mu_K$.
+
+7.  Utfør testen ved hjelp av
+
+```{r, eval=F}
+t.test(age~kjønn, stressdata)
+```
+
+7.  
