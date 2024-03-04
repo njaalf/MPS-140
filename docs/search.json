@@ -726,5 +726,159 @@
     "title": "Quiz 5.mars. Multippel og logistisk regresjon",
     "section": "",
     "text": "Vi jobber med stressdata fila som er hentet fra denne studien\n\nEr dette et tverrsnitts- eller longitudinelt datasett?\nEr utvalget tilfeldig? Hvordan vil du karakterisere utvalget?\nHva er standardavviket til alder i datasettet?\nHvordan vil du definere en “uvanlig” høy alder?\nLag et 95\\% konfidensintervall for alder.\n\n\nt.test(stressdata$age)\n\n\nDet påstås at i populasjonen som dette utvalget er tatt ifra så er menn og kvinner like gamle. Skriv opp nullhypotesen og alternativhypotesen. Bruk symbolene \\(\\mu_M\\) og \\(\\mu_K\\).\nUtfør testen ved hjelp av\n\n\nt.test(age~kjønn, stressdata)\n\n\nGå til artikkelen og last ned “supplemental data” dokumentet. Der finner du spørsmålene om Usikkerhet: INSE1-INSE5. Lag et spredningsplott av INSE1 vs INSE2 og forklar hvorfor det ikke er informativt\n\n\nplot(stressdata$INSE1, stressdata$INSE2)\n\n\nDu kan “jittre” observasjonene ved hjelp av ggplot2 pakken i tidyverset.\n\n\nqplot(stressdata$INSE1, stressdata$INSE2)+geom_jitter()\n\nLegg til regresjonslinja ved hjelp av +geom_smooth(method=“lm”) i kommandoen over. Er det negativ, ingen, eller positiv sammenheng mellom INSE1 og INSE2?\n\nBeregn korrelasjonen mellom INSE1 og INSE2 vha cor() funksjonen\nLag summescore for alle 5 INSE items, som en ny variabel:\n\n\nstressdata$insecurity &lt;- stressdata$INSE1+stressdata$INSE2+stressdata$INSE3+stressdata$INSE4+stressdata$INSE5\n\n\nKjør en regresjon med summescore for insecurity som avhengig variabel og kjønn og alder som prediktorer. Hva blir \\(R^2\\) adjusted?\n\n\nmod &lt;- lm(insecurity ~ kjønn+age, data=stressdata) \nsummary(mod)\n\nHar modellen noen som helst forklaringskraft?\n\nKjør en regresjon med summescore for insecurity som avhengig variabel og bransje som prediktor. Har denne modellen noen som helst forklaringskraft?\n\n\nmod &lt;- lm(insecurity ~ bransje, data=stressdata) \nsummary(mod)\n\nHar modellen noen som helst forklaringskraft?\n\nTolk Intercept verdien i modellen i oppgave 12.\nTolk regresjonskoeffisient for bransje:Helse og Omsorg, i oppgave 12.\nTa med summescoren complexity for COMP1-COMP5 som en prediktor i tillegg til bransje. Har denne modellen bedre forklaringskraft enn modellen i oppgave 12?\nTolk regresjonskoeffisienten til complexity.\nHvilken insecurity score forventer vi for en person som skåret 10 på complexity skalaen dersom denne personen jobber i Helse og omsorg?\nLag korrelasjonsmatrisen for alle INSE items og insecurity\n\n\ninse &lt;- select(stressdata, contains(\"INSE\"))\ncor(inse) %&gt;% round(2)\n\nHvilket item er minst korrelert med summeskåren?\n\nBeregn cronbach’s \\(\\alpha\\) for INSE\n\n\npsych::alpha(inse[, 1:5])\n\nHva blir \\(\\alpha\\) hvis vi fjerne det itement fra skalaen som er minst korrelert med summeskåren?\n\nI utgangspunktet fra den tyske originalstudien skulle det være 10 fasetter av digitalt jobbstress. Studien vår finner ikke støtte for dette. Vi fant støtte for 8 fasetter. Hvilke to fasetter av digital jobbstress fant vi ikke støtte for i det norske utvalget?"
+  },
+  {
+    "objectID": "slides/slides3b.html#psykologiske-skalaer-og-tester",
+    "href": "slides/slides3b.html#psykologiske-skalaer-og-tester",
+    "title": "Fysisk samling 05.03. Psykometri, reliabilitet og validitet",
+    "section": "Psykologiske skalaer og tester",
+    "text": "Psykologiske skalaer og tester\nVi trenger gode målingsverktøy i psykologisk teori og praksis. For å måle holdninger eller personlighet så har man utviklet batterier av items. (engelsk:scale, inventory, battery). Laget av en mengde påstander som typisk besvares på lukket form (ikke åpne svar).\n\nlibrary(tidyverse)\nlibrary(psych)#har data for Big Five Inventory\n?bfi\nnames(bfi)#variabler\n\n [1] \"A1\"        \"A2\"        \"A3\"        \"A4\"        \"A5\"        \"C1\"       \n [7] \"C2\"        \"C3\"        \"C4\"        \"C5\"        \"E1\"        \"E2\"       \n[13] \"E3\"        \"E4\"        \"E5\"        \"N1\"        \"N2\"        \"N3\"       \n[19] \"N4\"        \"N5\"        \"O1\"        \"O2\"        \"O3\"        \"O4\"       \n[25] \"O5\"        \"gender\"    \"education\" \"age\""
+  },
+  {
+    "objectID": "slides/slides3b.html#hva-trenger-vi-testbatterier-for",
+    "href": "slides/slides3b.html#hva-trenger-vi-testbatterier-for",
+    "title": "Fysisk samling 05.03. Psykometri, reliabilitet og validitet",
+    "section": "Hva trenger vi testbatterier for?",
+    "text": "Hva trenger vi testbatterier for?\n\nI organisasjoner: kan brukes til å teste om kandidater er passende for ulike yrkesoppgaver\nI klinisk psykologi: Måle grad av depresjon osv\nMåle kognitive eller personlighets (self-efficacy, self-esteem, motivation, osv) egenskaper når vi utvikler psykologiske teorier\n\nBatteriet av items er ment å fange opp forskjellige aspekter av det konstruktet som batteriet er ment å avdekke."
+  },
+  {
+    "objectID": "slides/slides3b.html#likert-rating-er-den-mest-brukte-skalaen",
+    "href": "slides/slides3b.html#likert-rating-er-den-mest-brukte-skalaen",
+    "title": "Fysisk samling 05.03. Psykometri, reliabilitet og validitet",
+    "section": "Likert rating er den mest brukte skalaen",
+    "text": "Likert rating er den mest brukte skalaen\nLikert foreslo i 1932 en skala fra svært uenig til svært enig i besvarelsen av nøye utvalgte påstander. Det er vanlig å bruke mellom 5 og 7 svaralternativ.\n\nqplot(bfi$A1)+geom_bar()"
+  },
+  {
+    "objectID": "slides/slides3b.html#likert-skalaen",
+    "href": "slides/slides3b.html#likert-skalaen",
+    "title": "Fysisk samling 05.03. Psykometri, reliabilitet og validitet",
+    "section": "Likert skalaen",
+    "text": "Likert skalaen\n\n\nhjem"
+  },
+  {
+    "objectID": "slides/slides3b.html#bfi-datasettet-bruker-likert-skala-med-6-nivå",
+    "href": "slides/slides3b.html#bfi-datasettet-bruker-likert-skala-med-6-nivå",
+    "title": "Fysisk samling 05.03. Psykometri, reliabilitet og validitet",
+    "section": "bfi datasettet bruker Likert skala med 6 nivå",
+    "text": "bfi datasettet bruker Likert skala med 6 nivå\n\n\nhjem"
+  },
+  {
+    "objectID": "slides/slides3b.html#et-batteri-av-5-items-for-å-måle-agreeableness",
+    "href": "slides/slides3b.html#et-batteri-av-5-items-for-å-måle-agreeableness",
+    "title": "Fysisk samling 05.03. Psykometri, reliabilitet og validitet",
+    "section": "Et batteri av 5 items for å måle AGREEABLENESS",
+    "text": "Et batteri av 5 items for å måle AGREEABLENESS\nFor eksempel, i big five har vi faktoren AGREEABLENESS. Påstander som tilsammen avdekker det latente konstruktet er i bfi\n\n\n\nOrdlyd\nReversert\n\n\n\n\nAm indifferent to the feelings of others.\nJa\n\n\nInquire about others’ well-being.\nNei\n\n\nKnow how to comfort others.\nNei\n\n\nLove children.\nNei\n\n\nMake people feel at ease.\nNei"
+  },
+  {
+    "objectID": "slides/slides3b.html#mye-arbeid-kreves-for-et-ferdig-batteri",
+    "href": "slides/slides3b.html#mye-arbeid-kreves-for-et-ferdig-batteri",
+    "title": "Fysisk samling 05.03. Psykometri, reliabilitet og validitet",
+    "section": "Mye arbeid kreves for et ferdig batteri",
+    "text": "Mye arbeid kreves for et ferdig batteri\n\nLag dobbelt så mange item som du har tenkt å bruke. Reverser noen av itemene. Prøv å dekke hele konstruktet (alle aspekter av feks self-esteem)\nTest ut på noen respondenter for å luke ut misforståelser, tolkningsproblemer, uklarheter\nLag nye items for hvert item som ikke er bra nok, og repeter trinn 2 igjen, helt til alt er ok\nTest ut på pilotutvalg med 50-100 respondenter\nSjekk reliabilitet og luk ut items / legg til bedre items slik at cronbach \\(\\alpha\\) &gt; .7\nUndersøk om batteriet har validitet"
+  },
+  {
+    "objectID": "slides/slides3b.html#noen-problemer-å-være-obs-på-ift-testbatterier",
+    "href": "slides/slides3b.html#noen-problemer-å-være-obs-på-ift-testbatterier",
+    "title": "Fysisk samling 05.03. Psykometri, reliabilitet og validitet",
+    "section": "Noen problemer å være obs på ift testbatterier",
+    "text": "Noen problemer å være obs på ift testbatterier\n\nSocial desirability: Man svarer ofte slik at man framstår i godt lys. Også under full anonymitet\nIkke bruk ladet språk, ikke bruke doble negativer, ikke ledende spørsmål\nIkke bruk tekniske termer\nOnline utfylling er ikke nødvendigvis verre enn papir Naus, Philipp, and Samsi (2009)"
+  },
+  {
+    "objectID": "slides/slides3b.html#noen-kjente-batterier",
+    "href": "slides/slides3b.html#noen-kjente-batterier",
+    "title": "Fysisk samling 05.03. Psykometri, reliabilitet og validitet",
+    "section": "Noen kjente batterier",
+    "text": "Noen kjente batterier\n\nEysenck and Eysenck (1968) Personality Inventory\nSpielberger (1983) State trait anxiety scale\nRotter (1966) locus of control\nRosenberg (1965) self-esteem"
+  },
+  {
+    "objectID": "slides/slides3b.html#referanser",
+    "href": "slides/slides3b.html#referanser",
+    "title": "Fysisk samling 05.03. Psykometri, reliabilitet og validitet",
+    "section": "Referanser",
+    "text": "Referanser\n\n\nCronbach, Lee J. 1951. “Coefficient Alpha and the Internal Structure of Tests.” Psychometrika 16 (3): 297–334.\n\n\nEysenck, Hans J, and Sybil BG Eysenck. 1968. “Eysenck Personality Inventory.” Journal of Clinical Psychology.\n\n\nNaus, Mary J, Laura M Philipp, and Mekhala Samsi. 2009. “From Paper to Pixels: A Comparison of Paper and Computer Formats in Psychological Assessment.” Computers in Human Behavior 25 (1): 1–7.\n\n\nRosenberg, Morris. 1965. “Rosenberg Self-Esteem Scale.” Journal of Religion and Health.\n\n\nRotter, Julian B. 1966. “Generalized Expectancies for Internal Versus External Control of Reinforcement.” Psychological Monographs: General and Applied 80 (1): 1.\n\n\nSpielberger, Charles D. 1983. “State-Trait Anxiety Inventory for Adults.”\n\n\n\n\nhjem"
+  },
+  {
+    "objectID": "slides/slides3b.html#reliabilitet",
+    "href": "slides/slides3b.html#reliabilitet",
+    "title": "Fysisk samling 05.03. Psykometri, reliabilitet og validitet",
+    "section": "Reliabilitet",
+    "text": "Reliabilitet\nPsykologi er ikke naturvitenskap. Det er mye mer komplisert å måle “Anxiety” enn det er å måle “Watt”.\nDet finnes mange ulike batterier for holdninger og ferdigheter, som feks “anxiety”, “motivation”, “intelligens”. De fleste batteriene for samme holdning er høyt korrelert.\nEt krav til et batteri er at det skal være konsistent over gjentatte målinger. Det må ikke variere for mye! Dette kalles reliabilitet og betyr at vi kan stole på målingen"
+  },
+  {
+    "objectID": "slides/slides3b.html#analogi-til-blodtrykk-målinger",
+    "href": "slides/slides3b.html#analogi-til-blodtrykk-målinger",
+    "title": "Fysisk samling 05.03. Psykometri, reliabilitet og validitet",
+    "section": "Analogi til blodtrykk målinger",
+    "text": "Analogi til blodtrykk målinger\nMåling av blodtrykk kan variere selv om de skjer nesten samtidig og på samme sted og person. Vi kan derfor ta flere målinger for å stabilisere.\nDet samme skjer med psykologiske konstrukt: Vi bruker mange items. Da unngår vi støy i form av at noen items blir misforstått av noen respondenter. Det er viktig at alle itemene tapper samme konstrukt, og at ikke noen item stikker seg ut\nReliabilitet betyr at vi får omtrent det samme svaret hvis samme person hadde tatt batteriet mange ganger etter hverandre fra scratch (dette er ikke mulig i virkeligheten)"
+  },
+  {
+    "objectID": "slides/slides3b.html#reliabilitet-betyr-pålitelighet-over-item-og-over-situasjoner",
+    "href": "slides/slides3b.html#reliabilitet-betyr-pålitelighet-over-item-og-over-situasjoner",
+    "title": "Fysisk samling 05.03. Psykometri, reliabilitet og validitet",
+    "section": "Reliabilitet betyr pålitelighet over item og over situasjoner",
+    "text": "Reliabilitet betyr pålitelighet over item og over situasjoner\nDet innebærer konsistens over items og testsituasjoner. Dvs at en person som scorer lavt på “anxiety” scorer lavt på alle items og i forskjellig testsituasjoner. Og en person som scorer høyt på “anxiety” scorer høyt på alle items og i alle situasjoner.\nDerfor er mange mål på reliabilitet avledet av item-korrelasjonene."
+  },
+  {
+    "objectID": "slides/slides3b.html#forskjellige-typer-reliabilitet",
+    "href": "slides/slides3b.html#forskjellige-typer-reliabilitet",
+    "title": "Fysisk samling 05.03. Psykometri, reliabilitet og validitet",
+    "section": "Forskjellige typer reliabilitet",
+    "text": "Forskjellige typer reliabilitet\n\nTest-retest reliabilitet. Måler pålitelighet over tid\nIntern konsistens reliabilitet. Måler hvor sterk sammenheng det er mellom items. Denne måles av bl.a. Cronbach’s \\(\\alpha\\) og er sentral i dette kurset."
+  },
+  {
+    "objectID": "slides/slides3b.html#internal-consistency-reliabilitet.",
+    "href": "slides/slides3b.html#internal-consistency-reliabilitet.",
+    "title": "Fysisk samling 05.03. Psykometri, reliabilitet og validitet",
+    "section": "Internal consistency reliabilitet.",
+    "text": "Internal consistency reliabilitet.\nDersom itemene ikke er godt utformet, så spriker de i forskjellige retninger. Da blir presisjonen, dvs reliabiliteten, lav. Derfor bør vi unngå uklare formuleringer, tekniske termer, dobbel negasjon, osv, når vi lager items.\nInternal consistency reliabilitet måles derfor ved å kikke på korrelasjonene til itemene og lage en formel. Hvis to items er høyt korrelerte så blir summen av dem et mål på den sanne underliggende verdien (“anxiety”)."
+  },
+  {
+    "objectID": "slides/slides3b.html#cronbachs-alpha",
+    "href": "slides/slides3b.html#cronbachs-alpha",
+    "title": "Fysisk samling 05.03. Psykometri, reliabilitet og validitet",
+    "section": "Cronbach’s alpha",
+    "text": "Cronbach’s alpha\nCronbach (1951) foreslo følgende formel for intern konsistens reliabilitet"
+  },
+  {
+    "objectID": "slides/slides3b.html#cronbachs-alpha-egenskaper",
+    "href": "slides/slides3b.html#cronbachs-alpha-egenskaper",
+    "title": "Fysisk samling 05.03. Psykometri, reliabilitet og validitet",
+    "section": "Cronbach’s alpha egenskaper",
+    "text": "Cronbach’s alpha egenskaper\n\nLigger mellom 0 (null reliabilitet) og 1 (max reliabilitet)\nBlir høyere jo flere items\nBlir høyere jo høyere korrelasjoner det er mellom items"
+  },
+  {
+    "objectID": "slides/slides3b.html#husk-å-reverse-slik-at-alle-items-peker-i-samme-retning",
+    "href": "slides/slides3b.html#husk-å-reverse-slik-at-alle-items-peker-i-samme-retning",
+    "title": "Fysisk samling 05.03. Psykometri, reliabilitet og validitet",
+    "section": "Husk å reverse slik at alle items peker i samme retning!",
+    "text": "Husk å reverse slik at alle items peker i samme retning!\nHvis vi glemmer at A1 er reversert i AGREEABLENESS får vi lav reliabilitet siden A1 peker i motsatt retning!\n\na &lt;- alpha(bfi[, c(\"A1\", \"A2\",  \"A3\",  \"A4\",  \"A5\")])\n\nSome items ( A1 ) were negatively correlated with the total scale and \nprobably should be reversed.  \nTo do this, run the function again with the 'check.keys=TRUE' option\n\na$total[1]\n\n raw_alpha\n 0.4314561\n\n\nMen det korrekte er\n\na&lt;-alpha(bfi[, c(\"A1\", \"A2\",  \"A3\",  \"A4\",  \"A5\")], keys=list(agree=c(\"-A1\",\"A2\",\"A3\",\"A4\",\"A5\")))\na$total[1]\n\n raw_alpha\n 0.7030184"
+  },
+  {
+    "objectID": "slides/slides3b.html#validitet-er-det-mest-sentrale-kravet-i-psykometri",
+    "href": "slides/slides3b.html#validitet-er-det-mest-sentrale-kravet-i-psykometri",
+    "title": "Fysisk samling 05.03. Psykometri, reliabilitet og validitet",
+    "section": "Validitet er det mest sentrale kravet i psykometri",
+    "text": "Validitet er det mest sentrale kravet i psykometri\nAt batteriet måler det det er tenkt å måle kalles validitet.\nDet er ikke enighet om hvordan vi definerer og evaluerer validitet.\nBibelen for validitet er utviklet av USA baserte organisasjonene AERA, APA og NCME\n“Validity refers to the degree to which evidence and theory support the interpretations of test scores for proposed uses of tests”\nHar å gjøre med testscorenes mening og hvordan vi bruker dem. Validitet støtter oss når vi tolker og bruker testscorer. Så validitet er knyttet til tolkning og bruk av testscorene, ikke testen i seg selv."
+  },
+  {
+    "objectID": "slides/slides3b.html#iq-tester-er-valide",
+    "href": "slides/slides3b.html#iq-tester-er-valide",
+    "title": "Fysisk samling 05.03. Psykometri, reliabilitet og validitet",
+    "section": "IQ tester er valide?",
+    "text": "IQ tester er valide?\n\nIQ test batterier er utviklet som er svært reliable\nMen er de egentlig valide? Disse testene er ganske smale, de måler kognitive ferdigheter, men ikke kreativitet som er en form for intelligens?"
+  },
+  {
+    "objectID": "slides/slides3b.html#tradisjonelle-typer-validitet",
+    "href": "slides/slides3b.html#tradisjonelle-typer-validitet",
+    "title": "Fysisk samling 05.03. Psykometri, reliabilitet og validitet",
+    "section": "Tradisjonelle typer validitet",
+    "text": "Tradisjonelle typer validitet\n\nFace validity. Det er klart for forskeren og respondenten hva itemene måler. “Det gir mening”\nContent validity. En ekspert ser nøye på itemene og avgjør om de er relevante for konstructet. Dette er mulig i feks matematikk, men ikke så lett i psykologi, for eksempel depresjon.\nCriterion validity. Testscoren fanger opp ulikheter i grupper vi vet er forskjellige med hensyn på det vi skal måle. For eksempel skal vi ha høyere depresjonsscore i en gruppe av mennesker som har vært innlagt for depresjon enn i en kontrollgruppe. Eller det skal være høy korrelasjon med et allerede utviklet batteri for samme konstrukt."
+  },
+  {
+    "objectID": "slides/slides3b.html#section",
+    "href": "slides/slides3b.html#section",
+    "title": "Fysisk samling 05.03. Psykometri, reliabilitet og validitet",
+    "section": "",
+    "text": "Construct validity. Dette gjelder psykologisk konstrukt som ikke er etablert. Dvs finnes denne konstrukten egentlig? Vi må finne bevis for at den finnes ved å linke konstruktet til eksisterende teori. ## Referanser\n\n\n\nCronbach, Lee J. 1951. “Coefficient Alpha and the Internal Structure of Tests.” Psychometrika 16 (3): 297–334.\n\n\nEysenck, Hans J, and Sybil BG Eysenck. 1968. “Eysenck Personality Inventory.” Journal of Clinical Psychology.\n\n\nNaus, Mary J, Laura M Philipp, and Mekhala Samsi. 2009. “From Paper to Pixels: A Comparison of Paper and Computer Formats in Psychological Assessment.” Computers in Human Behavior 25 (1): 1–7.\n\n\nRosenberg, Morris. 1965. “Rosenberg Self-Esteem Scale.” Journal of Religion and Health.\n\n\nRotter, Julian B. 1966. “Generalized Expectancies for Internal Versus External Control of Reinforcement.” Psychological Monographs: General and Applied 80 (1): 1.\n\n\nSpielberger, Charles D. 1983. “State-Trait Anxiety Inventory for Adults.”\n\n\n\n\nhjem"
   }
 ]
