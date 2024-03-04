@@ -1,5 +1,5 @@
 ---
-title: "Quiz 5.mars regresjon"
+title: "Quiz 5.mars. Multippel og logistisk regresjon"
 format: 
   html:
     page-layout: article
@@ -83,3 +83,17 @@ Har denne modellen bedre forklaringskraft enn modellen i oppgave 12?
 
 17. Hvilken *insecurity* score forventer vi for en person som skåret 10 på *complexity* skalaen dersom denne personen jobber i Helse og omsorg?
 
+18. Lag korrelasjonsmatrisen for alle INSE items og *insecurity* 
+```{r}
+inse <- select(stressdata, contains("INSE"))
+cor(inse) %>% round(2)
+```
+Hvilket item er minst korrelert med summeskåren?
+
+19. Beregn cronbach's $\alpha$ for INSE
+```{r}
+psych::alpha(inse[, 1:5])
+```
+Hva blir $\alpha$ hvis vi fjerne det itement fra skalaen som er minst korrelert med summeskåren?
+
+20. I utgangspunktet fra den tyske originalstudien skulle det være 10 fasetter av digitalt jobbstress. Studien vår finner ikke støtte for dette. Vi fant støtte for 8 fasetter. Hvilke to fasetter av digital jobbstress fant vi ikke støtte for i det norske utvalget?
