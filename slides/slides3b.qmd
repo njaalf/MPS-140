@@ -132,20 +132,23 @@ Internal consistency reliabilitet måles derfor ved å kikke på korrelasjonene 
 
 ## [![Formel for cronbachs alpha](alpha.png)](https://www.youtube.com/watch?v=W9uPvAmtTOk&t=248s)
 
-
 ## Cronbach's alpha egenskaper
 
-- Ligger mellom 0 (null reliabilitet) og 1 (max reliabilitet)
-- Blir høyere jo flere items
-- Blir høyere jo høyere korrelasjoner det er mellom items
+-   Ligger mellom 0 (null reliabilitet) og 1 (max reliabilitet)
+-   Blir høyere jo flere items
+-   Blir høyere jo høyere korrelasjoner det er mellom items
 
 ## Husk å reverse slik at alle items peker i samme retning!
+
 Hvis vi glemmer at A1 er reversert i AGREEABLENESS får vi lav reliabilitet siden A1 peker i motsatt retning!
+
 ```{r, eval=T}
 a <- alpha(bfi[, c("A1", "A2",  "A3",  "A4",  "A5")])
 a$total[1]
 ```
+
 Men det korrekte er
+
 ```{r, eval=T}
 a<-alpha(bfi[, c("A1", "A2",  "A3",  "A4",  "A5")], keys=list(agree=c("-A1","A2","A3","A4","A5")))
 a$total[1]
@@ -153,33 +156,32 @@ a$total[1]
 
 ## Validitet er det mest sentrale kravet i psykometri
 
-At batteriet måler det det er tenkt å måle kalles *validitet*. 
+At batteriet måler det det er tenkt å måle kalles *validitet*.
 
-Det er ikke enighet om hvordan vi definerer og evaluerer validitet. 
+Det er ikke enighet om hvordan vi definerer og evaluerer validitet.
 
-[Bibelen](https://www.apa.org/science/programs/testing/standards#overview) for validitet er utviklet av USA baserte organisasjonene AERA, APA og NCME 
+[Bibelen](https://www.apa.org/science/programs/testing/standards#overview) for validitet er utviklet av USA baserte organisasjonene AERA, APA og NCME
 
 "Validity refers to the degree to which evidence and theory support the interpretations of test scores for proposed uses of tests"
 
-Har å gjøre med testscorenes *mening* og hvordan vi *bruker* dem.
-Validitet støtter oss når vi tolker og bruker testscorer.
-Så validitet er knyttet til tolkning og bruk av testscorene, ikke testen i seg selv.
+Har å gjøre med testscorenes *mening* og hvordan vi *bruker* dem. Validitet støtter oss når vi tolker og bruker testscorer. Så validitet er knyttet til tolkning og bruk av testscorene, ikke testen i seg selv.
 
-## IQ tester er valide?   
+## IQ tester er valide?
 
-- IQ test batterier er utviklet som er svært reliable
-- Men er de egentlig valide? Disse testene er ganske smale, de måler kognitive ferdigheter, men ikke kreativitet som er en form for intelligens?
+-   IQ test batterier er utviklet som er svært reliable
+-   Men er de egentlig valide? Disse testene er ganske smale, de måler kognitive ferdigheter, men ikke kreativitet som er en form for intelligens?
 
 ## Tradisjonelle typer validitet
 
-- Face validity. Det er klart for forskeren og respondenten hva itemene måler.
-"Det gir mening"
-- Content validity. En ekspert ser nøye på itemene og avgjør om de er relevante for konstructet. Dette er mulig i feks matematikk, men ikke så lett i psykologi, for eksempel depresjon. 
-- Criterion validity. Testscoren fanger opp ulikheter i grupper vi vet er forskjellige med hensyn på det vi skal måle. For eksempel skal vi ha høyere depresjonsscore i en gruppe av mennesker som har vært innlagt for depresjon enn i en kontrollgruppe. Eller det skal være høy korrelasjon med et allerede utviklet batteri for samme konstrukt. 
+-   Face validity. Det er klart for forskeren og respondenten hva itemene måler. "Det gir mening"
+-   Content validity. En ekspert ser nøye på itemene og avgjør om de er relevante for konstructet. Dette er mulig i feks matematikk, men ikke så lett i psykologi, for eksempel depresjon.
+-   Criterion validity. Testscoren fanger opp ulikheter i grupper vi vet er forskjellige med hensyn på det vi skal måle. For eksempel skal vi ha høyere depresjonsscore i en gruppe av mennesker som har vært innlagt for depresjon enn i en kontrollgruppe. Eller det skal være høy korrelasjon med et allerede utviklet batteri for samme konstrukt.
 
 ## 
 
-- Construct validity. Dette gjelder psykologisk konstrukt som ikke er etablert. Dvs finnes denne konstrukten egentlig? Vi må finne bevis for at den finnes ved å linke konstruktet til eksisterende teori.
+-   Construct validity. Dette gjelder psykologisk konstrukt som ikke er etablert. Dvs finnes denne konstrukten egentlig? Vi må finne bevis for at den finnes ved å linke konstruktet til eksisterende teori. \## Referanser
+
+
 ## Referanser
 
 ::: {#refs}

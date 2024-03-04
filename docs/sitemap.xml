@@ -1,75 +1,71 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://njaalf.github.io/MPS-140/emnebeskrivelse.html</loc>
-    <lastmod>2024-03-04T12:08:59.162Z</lastmod>
-  </url>
-  <url>
-    <loc>https://njaalf.github.io/MPS-140/pensum.html</loc>
-    <lastmod>2024-03-04T12:08:57.772Z</lastmod>
-  </url>
-  <url>
-    <loc>https://njaalf.github.io/MPS-140/slides/slides3a.html</loc>
-    <lastmod>2024-03-04T21:18:15.306Z</lastmod>
-  </url>
-  <url>
-    <loc>https://njaalf.github.io/MPS-140/slides/slides1.html</loc>
-    <lastmod>2024-03-04T12:08:49.492Z</lastmod>
-  </url>
-  <url>
-    <loc>https://njaalf.github.io/MPS-140/R/digR1.html</loc>
-    <lastmod>2024-03-04T12:08:48.636Z</lastmod>
-  </url>
-  <url>
-    <loc>https://njaalf.github.io/MPS-140/samlinger/samling3.html</loc>
-    <lastmod>2024-03-04T12:08:39.811Z</lastmod>
-  </url>
-  <url>
-    <loc>https://njaalf.github.io/MPS-140/samlinger/samling1.html</loc>
-    <lastmod>2024-03-04T15:25:49.915Z</lastmod>
-  </url>
-  <url>
     <loc>https://njaalf.github.io/MPS-140/oversikt.html</loc>
-    <lastmod>2024-03-04T12:08:35.260Z</lastmod>
+    <lastmod>2024-03-04T22:17:52.920Z</lastmod>
   </url>
   <url>
     <loc>https://njaalf.github.io/MPS-140/omeksamen.html</loc>
-    <lastmod>2024-03-04T12:08:35.582Z</lastmod>
+    <lastmod>2024-03-04T22:17:53.282Z</lastmod>
+  </url>
+  <url>
+    <loc>https://njaalf.github.io/MPS-140/samlinger/samling1.html</loc>
+    <lastmod>2024-03-04T22:17:53.768Z</lastmod>
   </url>
   <url>
     <loc>https://njaalf.github.io/MPS-140/samlinger/samling2.html</loc>
-    <lastmod>2024-03-04T12:08:38.527Z</lastmod>
+    <lastmod>2024-03-04T22:17:56.215Z</lastmod>
+  </url>
+  <url>
+    <loc>https://njaalf.github.io/MPS-140/samlinger/samling3.html</loc>
+    <lastmod>2024-03-04T22:17:57.931Z</lastmod>
   </url>
   <url>
     <loc>https://njaalf.github.io/MPS-140/R/R1.html</loc>
-    <lastmod>2024-03-04T12:08:45.300Z</lastmod>
+    <lastmod>2024-03-04T22:18:03.280Z</lastmod>
   </url>
   <url>
-    <loc>https://njaalf.github.io/MPS-140/index.html</loc>
-    <lastmod>2024-03-04T16:40:58.369Z</lastmod>
-  </url>
-  <url>
-    <loc>https://njaalf.github.io/MPS-140/slides/slides2.html</loc>
-    <lastmod>2024-03-04T12:08:54.243Z</lastmod>
-  </url>
-  <url>
-    <loc>https://njaalf.github.io/MPS-140/about.html</loc>
-    <lastmod>2024-03-04T12:08:57.471Z</lastmod>
-  </url>
-  <url>
-    <loc>https://njaalf.github.io/MPS-140/Ressurser.html</loc>
-    <lastmod>2024-03-04T12:08:58.842Z</lastmod>
-  </url>
-  <url>
-    <loc>https://njaalf.github.io/MPS-140/quiz 5mars.html</loc>
-    <lastmod>2024-03-04T15:09:29.278Z</lastmod>
+    <loc>https://njaalf.github.io/MPS-140/R/digR1.html</loc>
+    <lastmod>2024-03-04T22:18:09.688Z</lastmod>
   </url>
   <url>
     <loc>https://njaalf.github.io/MPS-140/quiz/quiz 5mars.html</loc>
-    <lastmod>2024-03-04T22:07:14.113Z</lastmod>
+    <lastmod>2024-03-04T22:18:11.728Z</lastmod>
+  </url>
+  <url>
+    <loc>https://njaalf.github.io/MPS-140/index.html</loc>
+    <lastmod>2024-03-04T22:18:12.235Z</lastmod>
+  </url>
+  <url>
+    <loc>https://njaalf.github.io/MPS-140/slides/slides1.html</loc>
+    <lastmod>2024-03-04T22:18:12.769Z</lastmod>
+  </url>
+  <url>
+    <loc>https://njaalf.github.io/MPS-140/slides/slides2.html</loc>
+    <lastmod>2024-03-04T22:18:19.683Z</lastmod>
+  </url>
+  <url>
+    <loc>https://njaalf.github.io/MPS-140/slides/slides3a.html</loc>
+    <lastmod>2024-03-04T22:18:25.766Z</lastmod>
   </url>
   <url>
     <loc>https://njaalf.github.io/MPS-140/slides/slides3b.html</loc>
-    <lastmod>2024-03-04T19:47:09.524Z</lastmod>
+    <lastmod>2024-03-04T22:18:29.618Z</lastmod>
+  </url>
+  <url>
+    <loc>https://njaalf.github.io/MPS-140/about.html</loc>
+    <lastmod>2024-03-04T22:18:30.161Z</lastmod>
+  </url>
+  <url>
+    <loc>https://njaalf.github.io/MPS-140/pensum.html</loc>
+    <lastmod>2024-03-04T22:18:30.542Z</lastmod>
+  </url>
+  <url>
+    <loc>https://njaalf.github.io/MPS-140/Ressurser.html</loc>
+    <lastmod>2024-03-04T22:18:32.264Z</lastmod>
+  </url>
+  <url>
+    <loc>https://njaalf.github.io/MPS-140/emnebeskrivelse.html</loc>
+    <lastmod>2024-03-04T22:18:32.584Z</lastmod>
   </url>
 </urlset>

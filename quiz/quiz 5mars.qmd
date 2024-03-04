@@ -104,4 +104,6 @@ Hva blir $\alpha$ hvis vi fjerne det itement fra skalaen som er minst korrelert 
 stressdata$kvinne <- ifelse(stressdata$kjønn=="mann", 0, 1)
 ```
 
+22. Tolk koeffisientene i forrige oppgave, gjerne som prosentvis endring i oddsene
+
 
