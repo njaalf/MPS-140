@@ -10,64 +10,64 @@
     "objectID": "slides/slides3a.html#multippel-regresjon-er-et-hovedverktøy-i-psykologi",
     "href": "slides/slides3a.html#multippel-regresjon-er-et-hovedverktøy-i-psykologi",
     "title": "Fysisk samling 05.03. Multippel og logistisk regresjon",
-    "section": "",
-    "text": "Fra forskningsspørsmålet identifiserer vi en avhengig variabel \\(Y\\) som vi vil forklare variasjonen til\nOg en rekke prediktorer \\(X_1, X_2, \\ldots, X_k\\) som skal forklare variasjonen i \\(Y\\)\nModellen:\n\n\\[ Y = \\beta_0 + \\beta_1 X_1+ \\beta_1 X_2+\\ldots +  \\beta_k X_k+\\epsilon\\]"
+    "section": "Multippel regresjon er et hovedverktøy i psykologi",
+    "text": "Multippel regresjon er et hovedverktøy i psykologi\n\nFra forskningsspørsmålet identifiserer vi en avhengig variabel \\(Y\\) som vi vil forklare variasjonen til\nOg en rekke prediktorer \\(X_1, X_2, \\ldots, X_k\\) som skal forklare variasjonen i \\(Y\\)\nModellen:\n\n\\[ Y = \\beta_0 + \\beta_1 X_1+ \\beta_1 X_2+\\ldots +  \\beta_k X_k+\\epsilon\\]"
   },
   {
     "objectID": "slides/slides3a.html#fra-forskningsspørsmål-til-regresjon",
     "href": "slides/slides3a.html#fra-forskningsspørsmål-til-regresjon",
     "title": "Fysisk samling 05.03. Multippel og logistisk regresjon",
-    "section": "",
-    "text": "Finne de viktigste prediktorene\nSjekke forutsetninger: stort nok utvalg, unngå multikollinearitet1, sammenhengene er lineære, homoskedastisitet2, normalfordelte residualer\nSjekke modellens totale forklaringskraft (Adjusted \\(R^2\\) og \\(F\\))\nSjekke hver prediktors forklaringskraft\nBesvare forskningsspørsmålet"
+    "section": "Fra forskningsspørsmål til regresjon",
+    "text": "Fra forskningsspørsmål til regresjon\n\nFinne de viktigste prediktorene\nSjekke forutsetninger: stort nok utvalg, unngå multikollinearitet1, sammenhengene er lineære, homoskedastisitet2, normalfordelte residualer\nSjekke modellens totale forklaringskraft (Adjusted \\(R^2\\) og \\(F\\))\nSjekke hver prediktors forklaringskraft\nBesvare forskningsspørsmålet\n\nunngå høyt korrelerte prediktorerresidualene har konstant varians"
   },
   {
     "objectID": "slides/slides3a.html#digitalt-stress",
     "href": "slides/slides3a.html#digitalt-stress",
     "title": "Fysisk samling 05.03. Multippel og logistisk regresjon",
-    "section": "",
-    "text": "Vi ser på noen data fra stress-studien. Dataene er i comma separated format og lastes ned her\nFor å lese inn data i mange format (excel, csv, spss, osv) trykk på File&gt;Import dataset i Rstudio\n\nlibrary(\"tidyverse\")\nstressdata &lt;- read.csv(\"../data/stress_complete.csv\") \nstressdata$X &lt;- NULL#fjerne unødvendig variabel \"X\"\ndim(stressdata)#rader og søyler\n\n[1] 581  23\n\ncolnames(stressdata)#hvilke variabler\n\n [1] \"age\"                     \"sex\"                    \n [3] \"civil_status\"            \"education\"              \n [5] \"professional_experience\" \"COMP1\"                  \n [7] \"COMP2\"                   \"COMP3\"                  \n [9] \"COMP4\"                   \"COMP5\"                  \n[11] \"CONF1\"                   \"CONF2\"                  \n[13] \"CONF3\"                   \"CONF4\"                  \n[15] \"CONF5\"                   \"INSE1\"                  \n[17] \"INSE2\"                   \"INSE3\"                  \n[19] \"INSE4\"                   \"INSE5\"                  \n[21] \"alene\"                   \"leder\"                  \n[23] \"bransje\""
+    "section": "Digitalt stress",
+    "text": "Digitalt stress\nVi ser på noen data fra stress-studien. Dataene er i comma separated format og lastes ned her\nFor å lese inn data i mange format (excel, csv, spss, osv) trykk på File&gt;Import dataset i Rstudio\n\nlibrary(\"tidyverse\")\nstressdata &lt;- read.csv(\"../data/stress_complete.csv\") \nstressdata$X &lt;- NULL#fjerne unødvendig variabel \"X\"\ndim(stressdata)#rader og søyler\n\n[1] 581  23\n\ncolnames(stressdata)#hvilke variabler\n\n [1] \"age\"                     \"sex\"                    \n [3] \"civil_status\"            \"education\"              \n [5] \"professional_experience\" \"COMP1\"                  \n [7] \"COMP2\"                   \"COMP3\"                  \n [9] \"COMP4\"                   \"COMP5\"                  \n[11] \"CONF1\"                   \"CONF2\"                  \n[13] \"CONF3\"                   \"CONF4\"                  \n[15] \"CONF5\"                   \"INSE1\"                  \n[17] \"INSE2\"                   \"INSE3\"                  \n[19] \"INSE4\"                   \"INSE5\"                  \n[21] \"alene\"                   \"leder\"                  \n[23] \"bransje\""
   },
   {
     "objectID": "slides/slides3a.html#beskrivende-statistikk---alder",
     "href": "slides/slides3a.html#beskrivende-statistikk---alder",
     "title": "Fysisk samling 05.03. Multippel og logistisk regresjon",
-    "section": "",
-    "text": "Vi begynner alltid med å se på grafer\n\nhist(stressdata$age)\n\n\n\n\nVi har outlier. Gjennomsnitt 52.6 og median: 42. Fjern outlier:\n\nstressdata &lt;- filter(stressdata, age &lt; 70)\nnrow(stressdata)\n\n[1] 576\n\nhist(stressdata$age)"
+    "section": "Beskrivende statistikk - Alder",
+    "text": "Beskrivende statistikk - Alder\nVi begynner alltid med å se på grafer\n\nhist(stressdata$age)\n\n\n\n\nVi har outlier. Gjennomsnitt 52.6 og median: 42. Fjern outlier:\n\nstressdata &lt;- filter(stressdata, age &lt; 70)\nnrow(stressdata)\n\n[1] 576\n\nhist(stressdata$age)"
   },
   {
     "objectID": "slides/slides3a.html#beskrivende-statistikk---utdanningsnivå",
     "href": "slides/slides3a.html#beskrivende-statistikk---utdanningsnivå",
     "title": "Fysisk samling 05.03. Multippel og logistisk regresjon",
-    "section": "",
-    "text": "Fire utdanningsnivå (grunnskole, vid.g, bachelor, master/phd)\n\nqplot(stressdata$education)+geom_bar()\n\n\n\n\nAndeler\n\nprop.table(table(stressdata$education))\n\n\n         1          2          3          4 \n0.01388889 0.30034722 0.39409722 0.29166667"
+    "section": "Beskrivende statistikk - Utdanningsnivå",
+    "text": "Beskrivende statistikk - Utdanningsnivå\nFire utdanningsnivå (grunnskole, vid.g, bachelor, master/phd)\n\nqplot(stressdata$education)+geom_bar()\n\n\nAndeler\n\nprop.table(table(stressdata$education))\n\n\n         1          2          3          4 \n0.01388889 0.30034722 0.39409722 0.29166667"
   },
   {
     "objectID": "slides/slides3a.html#beskrivende-statistikk-kjønn",
     "href": "slides/slides3a.html#beskrivende-statistikk-kjønn",
     "title": "Fysisk samling 05.03. Multippel og logistisk regresjon",
-    "section": "",
-    "text": "Variabelen “sex” er kodet slik: 1=kvinne, 2=mann, 3=ikke oppgitt.\nVi forenkler med å lage en ny binær variabel “kjønn”\n\nstressdata$kjønn &lt;- ifelse(stressdata$sex == 2,\"mann\", \"kvinne\")\nqplot(stressdata$kjønn)+geom_bar()"
+    "section": "Beskrivende statistikk kjønn",
+    "text": "Beskrivende statistikk kjønn\nVariabelen “sex” er kodet slik: 1=kvinne, 2=mann, 3=ikke oppgitt.\nVi forenkler med å lage en ny binær variabel “kjønn”\n\nstressdata$kjønn &lt;- ifelse(stressdata$sex == 2,\"mann\", \"kvinne\")\nqplot(stressdata$kjønn)+geom_bar()"
   },
   {
     "objectID": "slides/slides3a.html#beskrivende-statistikk-bransje",
     "href": "slides/slides3a.html#beskrivende-statistikk-bransje",
     "title": "Fysisk samling 05.03. Multippel og logistisk regresjon",
-    "section": "",
-    "text": "table(stressdata$bransje )\n\n\n                    annet            Bygg og anlegg         Faglige tjenester \n                       47                        14                         5 \n     Finans og forsikring Forskning og undervisning           Helse og omsorg \n                       10                        47                       347 \n                 Industri                        IT  Offentlig administrasjon \n                        7                        23                        25 \n             Olje og gass                Varehandel \n                       34                        17 \n\n\nVi forenkler ved å lage ny binær variabel for bransje (vi overskriver den gamle bransje)\n\nstressdata$bransje &lt;- ifelse(stressdata$bransje ==\"Helse og omsorg\", \"Helse og omsorg\", \"Annet\")\ntable(stressdata$bransje)\n\n\n          Annet Helse og omsorg \n            229             347"
+    "section": "Beskrivende statistikk bransje",
+    "text": "Beskrivende statistikk bransje\n\ntable(stressdata$bransje )\n\n\n                    annet            Bygg og anlegg         Faglige tjenester \n                       47                        14                         5 \n     Finans og forsikring Forskning og undervisning           Helse og omsorg \n                       10                        47                       347 \n                 Industri                        IT  Offentlig administrasjon \n                        7                        23                        25 \n             Olje og gass                Varehandel \n                       34                        17 \n\n\nVi forenkler ved å lage ny binær variabel for bransje (vi overskriver den gamle bransje)\n\nstressdata$bransje &lt;- ifelse(stressdata$bransje ==\"Helse og omsorg\", \"Helse og omsorg\", \"Annet\")\ntable(stressdata$bransje)\n\n\n          Annet Helse og omsorg \n            229             347"
   },
   {
     "objectID": "slides/slides3a.html#complexity-ict-er-et-aspekt-med-digitalt-stress",
     "href": "slides/slides3a.html#complexity-ict-er-et-aspekt-med-digitalt-stress",
     "title": "Fysisk samling 05.03. Multippel og logistisk regresjon",
-    "section": "",
-    "text": "Fem items som tilhører “Complexity ICT” er bra korrelert\n\ncomp &lt;- select(stressdata, contains(\"COMP\"))#velge ut bare disse 5\ncor(comp) %&gt;% round(1)\n\n      COMP1 COMP2 COMP3 COMP4 COMP5\nCOMP1   1.0   0.8   0.8   0.7   0.7\nCOMP2   0.8   1.0   0.8   0.7   0.7\nCOMP3   0.8   0.8   1.0   0.7   0.7\nCOMP4   0.7   0.7   0.7   1.0   0.8\nCOMP5   0.7   0.7   0.7   0.8   1.0"
+    "section": "Complexity ICT er et aspekt med digitalt stress",
+    "text": "Complexity ICT er et aspekt med digitalt stress\nFem items som tilhører “Complexity ICT” er bra korrelert\n\ncomp &lt;- select(stressdata, contains(\"COMP\"))#velge ut bare disse 5\ncor(comp) %&gt;% round(1)\n\n      COMP1 COMP2 COMP3 COMP4 COMP5\nCOMP1   1.0   0.8   0.8   0.7   0.7\nCOMP2   0.8   1.0   0.8   0.7   0.7\nCOMP3   0.8   0.8   1.0   0.7   0.7\nCOMP4   0.7   0.7   0.7   1.0   0.8\nCOMP5   0.7   0.7   0.7   0.8   1.0"
   },
   {
     "objectID": "slides/slides3a.html#oppsummere-complexity-med-en-summeskår",
     "href": "slides/slides3a.html#oppsummere-complexity-med-en-summeskår",
     "title": "Fysisk samling 05.03. Multippel og logistisk regresjon",
-    "section": "",
-    "text": "Lage summeskår som et mål på Complexity stress\n\nstressdata$complexity &lt;- stressdata$COMP1+stressdata$COMP2+stressdata$COMP3+stressdata$COMP4+stressdata$COMP5\nsummary(stressdata$complexity)\n\n   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. \n   5.00   11.00   19.00   18.66   26.00   35.00 \n\nhist(stressdata$complexity)"
+    "section": "Oppsummere complexity med en summeskår",
+    "text": "Oppsummere complexity med en summeskår\nLage summeskår som et mål på Complexity stress\n\nstressdata$complexity &lt;- stressdata$COMP1+stressdata$COMP2+stressdata$COMP3+stressdata$COMP4+stressdata$COMP5\nsummary(stressdata$complexity)\n\n   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. \n   5.00   11.00   19.00   18.66   26.00   35.00 \n\nhist(stressdata$complexity)"
   },
   {
     "objectID": "slides/slides3a.html#beskrivende-statistikk-med-nøkkeltall",
@@ -80,8 +80,8 @@
     "objectID": "slides/slides3a.html#når-y-er-binær-logistisk-regresjon",
     "href": "slides/slides3a.html#når-y-er-binær-logistisk-regresjon",
     "title": "Fysisk samling 05.03. Multippel og logistisk regresjon",
-    "section": "",
-    "text": "I multippel regresjon er \\(Y\\) kontinuerlig\n\nFor eksempel \\(Y\\)= well-being på en skala fra 0-10\nModellen gir forventet well-being gitt feks kjønn og alder\n\nHvis \\(Y\\) er binær så må vi bruke logistisk regresjon\n\nFor eksempel \\(Y\\)=depressiv (Ja/Nei)\nModellen gir da sannsynlighet for at en person er depressiv, gitt feks kjønn og alder"
+    "section": "Når \\(Y\\) er binær: Logistisk regresjon",
+    "text": "Når \\(Y\\) er binær: Logistisk regresjon\n\nI multippel regresjon er \\(Y\\) kontinuerlig\n\nFor eksempel \\(Y\\)= well-being på en skala fra 0-10\nModellen gir forventet well-being gitt feks kjønn og alder\n\nHvis \\(Y\\) er binær så må vi bruke logistisk regresjon\n\nFor eksempel \\(Y\\)=depressiv (Ja/Nei)\nModellen gir da odds/sannsynlighet for at en person er depressiv, gitt feks kjønn og alder"
   },
   {
     "objectID": "slides/slides1.html#mps-140",
@@ -654,8 +654,8 @@
     "objectID": "slides/slides3a.html#kan-vi-forklare-noe-i-variasjonen-til-complexity-stress",
     "href": "slides/slides3a.html#kan-vi-forklare-noe-i-variasjonen-til-complexity-stress",
     "title": "Fysisk samling 05.03. Multippel og logistisk regresjon",
-    "section": "",
-    "text": "Kan kjønn og alder forklare noe av stresset?\n\nmod &lt;- lm(complexity ~ kjønn+age, data=stressdata) \nsummary(mod)\n\n\nCall:\nlm(formula = complexity ~ kjønn + age, data = stressdata)\n\nResiduals:\n     Min       1Q   Median       3Q      Max \n-15.1812  -7.1336  -0.1302   6.9751  18.6830 \n\nCoefficients:\n            Estimate Std. Error t value Pr(&gt;|t|)    \n(Intercept) 17.22973    1.44498  11.924  &lt; 2e-16 ***\nkjønnmann   -2.91213    0.88412  -3.294  0.00105 ** \nage          0.04760    0.03322   1.433  0.15244    \n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nResidual standard error: 8.452 on 573 degrees of freedom\nMultiple R-squared:  0.02046,   Adjusted R-squared:  0.01704 \nF-statistic: 5.983 on 2 and 573 DF,  p-value: 0.002681\n\n\n\np-verdien til F-testen er signifikant. Det betyr at kjønn og alder forklarer mer enn ingenting\n\\(R^2\\) er imidlertid veldig lav"
+    "section": "Kan vi forklare noe i variasjonen til complexity stress?",
+    "text": "Kan vi forklare noe i variasjonen til complexity stress?\nKan kjønn og alder forklare noe av stresset?\n\nmod &lt;- lm(complexity ~ kjønn+age, data=stressdata) \nsummary(mod)\n\n\nCall:\nlm(formula = complexity ~ kjønn + age, data = stressdata)\n\nResiduals:\n     Min       1Q   Median       3Q      Max \n-15.1812  -7.1336  -0.1302   6.9751  18.6830 \n\nCoefficients:\n            Estimate Std. Error t value Pr(&gt;|t|)    \n(Intercept) 17.22973    1.44498  11.924  &lt; 2e-16 ***\nkjønnmann   -2.91213    0.88412  -3.294  0.00105 ** \nage          0.04760    0.03322   1.433  0.15244    \n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nResidual standard error: 8.452 on 573 degrees of freedom\nMultiple R-squared:  0.02046,   Adjusted R-squared:  0.01704 \nF-statistic: 5.983 on 2 and 573 DF,  p-value: 0.002681\n\n\n\np-verdien til F-testen er signifikant. Det betyr at kjønn og alder forklarer mer enn ingenting\n\\(R^2\\) er imidlertid veldig lav"
   },
   {
     "objectID": "slides/slides3a.html#kan-vi-forklare-noe-i-variasjonen-til-complexity-stress-1",
@@ -668,36 +668,36 @@
     "objectID": "slides/slides3a.html#endre-modell",
     "href": "slides/slides3a.html#endre-modell",
     "title": "Fysisk samling 05.03. Multippel og logistisk regresjon",
-    "section": "",
-    "text": "Ta bort alder og ta heller med bransje\n\nmod &lt;- lm(complexity ~ kjønn+bransje, data=stressdata) \nsummary(mod)\n\n\nCall:\nlm(formula = complexity ~ kjønn + bransje, data = stressdata)\n\nResiduals:\n     Min       1Q   Median       3Q      Max \n-16.3573  -6.3573   0.3255   6.3696  19.3255 \n\nCoefficients:\n                       Estimate Std. Error t value Pr(&gt;|t|)    \n(Intercept)             14.6745     0.6052  24.247   &lt;2e-16 ***\nkjønnmann               -0.1764     0.8628  -0.204    0.838    \nbransjeHelse og omsorg   6.6828     0.7071   9.452   &lt;2e-16 ***\n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nResidual standard error: 7.875 on 573 degrees of freedom\nMultiple R-squared:  0.1495,    Adjusted R-squared:  0.1466 \nF-statistic: 50.38 on 2 and 573 DF,  p-value: &lt; 2.2e-16\n\n\n\np-verdien til F-testen er signifikant og \\(R^2\\) er mye høyere nå\nNå er ikke kjønn signifikant lengre."
+    "section": "Endre modell",
+    "text": "Endre modell\nTa bort alder og ta heller med bransje\n\nmod &lt;- lm(complexity ~ kjønn+bransje, data=stressdata) \nsummary(mod)\n\n\nCall:\nlm(formula = complexity ~ kjønn + bransje, data = stressdata)\n\nResiduals:\n     Min       1Q   Median       3Q      Max \n-16.3573  -6.3573   0.3255   6.3696  19.3255 \n\nCoefficients:\n                       Estimate Std. Error t value Pr(&gt;|t|)    \n(Intercept)             14.6745     0.6052  24.247   &lt;2e-16 ***\nkjønnmann               -0.1764     0.8628  -0.204    0.838    \nbransjeHelse og omsorg   6.6828     0.7071   9.452   &lt;2e-16 ***\n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nResidual standard error: 7.875 on 573 degrees of freedom\nMultiple R-squared:  0.1495,    Adjusted R-squared:  0.1466 \nF-statistic: 50.38 on 2 and 573 DF,  p-value: &lt; 2.2e-16\n\n\n\np-verdien til F-testen er signifikant og \\(R^2\\) er mye høyere nå\nNå er ikke kjønn signifikant lengre."
   },
   {
     "objectID": "slides/slides3a.html#helsesektor-er-full-av-kvinner..",
     "href": "slides/slides3a.html#helsesektor-er-full-av-kvinner..",
     "title": "Fysisk samling 05.03. Multippel og logistisk regresjon",
-    "section": "",
-    "text": "Det er helsesektoren som forklarer stress! Grunnen til at kjønn var signifikant før var at det er mange damer i den stressfulle helsesektoren\n\nstressdata %&gt;% group_by(bransje) %&gt;% summarise(andel_menn=mean(kjønn==\"mann\"))\n\n# A tibble: 2 × 2\n  bransje         andel_menn\n  &lt;chr&gt;                &lt;dbl&gt;\n1 Annet               0.358 \n2 Helse og omsorg     0.0980"
+    "section": "Helsesektor er full av kvinner..",
+    "text": "Helsesektor er full av kvinner..\nDet er helsesektoren som forklarer stress! Grunnen til at kjønn var signifikant før var at det er mange damer i den stressfulle helsesektoren\n\nstressdata %&gt;% group_by(bransje) %&gt;% summarise(andel_menn=mean(kjønn==\"mann\"))\n\n# A tibble: 2 × 2\n  bransje         andel_menn\n  &lt;chr&gt;                &lt;dbl&gt;\n1 Annet               0.358 \n2 Helse og omsorg     0.0980"
   },
   {
     "objectID": "slides/slides3a.html#bransje-og-lederansvar",
     "href": "slides/slides3a.html#bransje-og-lederansvar",
     "title": "Fysisk samling 05.03. Multippel og logistisk regresjon",
-    "section": "",
-    "text": "Ta bort kjønn og ta med lederansvar\n\nmod &lt;- lm(complexity ~ leder+bransje, data=stressdata) \nsummary(mod)\n\n\nCall:\nlm(formula = complexity ~ leder + bransje, data = stressdata)\n\nResiduals:\n     Min       1Q   Median       3Q      Max \n-16.3492  -6.3492   0.3539   6.3871  19.3539 \n\nCoefficients:\n                       Estimate Std. Error t value Pr(&gt;|t|)    \n(Intercept)             14.6461     0.5786  25.314   &lt;2e-16 ***\nlederTRUE               -0.1327     0.9649  -0.138    0.891    \nbransjeHelse og omsorg   6.7031     0.6958   9.633   &lt;2e-16 ***\n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nResidual standard error: 7.875 on 573 degrees of freedom\nMultiple R-squared:  0.1495,    Adjusted R-squared:  0.1465 \nF-statistic: 50.36 on 2 and 573 DF,  p-value: &lt; 2.2e-16\n\n\nLeder er ikke signifikant."
+    "section": "Bransje og lederansvar",
+    "text": "Bransje og lederansvar\nTa bort kjønn og ta med lederansvar\n\nmod &lt;- lm(complexity ~ leder+bransje, data=stressdata) \nsummary(mod)\n\n\nCall:\nlm(formula = complexity ~ leder + bransje, data = stressdata)\n\nResiduals:\n     Min       1Q   Median       3Q      Max \n-16.3492  -6.3492   0.3539   6.3871  19.3539 \n\nCoefficients:\n                       Estimate Std. Error t value Pr(&gt;|t|)    \n(Intercept)             14.6461     0.5786  25.314   &lt;2e-16 ***\nlederTRUE               -0.1327     0.9649  -0.138    0.891    \nbransjeHelse og omsorg   6.7031     0.6958   9.633   &lt;2e-16 ***\n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nResidual standard error: 7.875 on 573 degrees of freedom\nMultiple R-squared:  0.1495,    Adjusted R-squared:  0.1465 \nF-statistic: 50.36 on 2 and 573 DF,  p-value: &lt; 2.2e-16\n\n\nLeder er ikke signifikant."
   },
   {
     "objectID": "slides/slides3a.html#utdanningsnivå-og-stress",
     "href": "slides/slides3a.html#utdanningsnivå-og-stress",
     "title": "Fysisk samling 05.03. Multippel og logistisk regresjon",
-    "section": "",
-    "text": "Utdanningsnivå er på ordinal skala så vi gjør det om til factor:\n\nmod &lt;- lm(complexity ~ education+bransje, data=stressdata) \nsummary(mod)\n\n\nCall:\nlm(formula = complexity ~ education + bransje, data = stressdata)\n\nResiduals:\n     Min       1Q   Median       3Q      Max \n-16.6117  -6.3274   0.2403   6.5246  19.3824 \n\nCoefficients:\n                       Estimate Std. Error t value Pr(&gt;|t|)    \n(Intercept)             15.0441     1.3507  11.138   &lt;2e-16 ***\neducation               -0.1422     0.4095  -0.347    0.729    \nbransjeHelse og omsorg   6.7098     0.6727   9.975   &lt;2e-16 ***\n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nResidual standard error: 7.875 on 573 degrees of freedom\nMultiple R-squared:  0.1497,    Adjusted R-squared:  0.1467 \nF-statistic: 50.42 on 2 and 573 DF,  p-value: &lt; 2.2e-16\n\n\nUtdanningsnivå er heller ikke signifikant prediktor"
+    "section": "Utdanningsnivå og stress",
+    "text": "Utdanningsnivå og stress\nUtdanningsnivå er på ordinal skala så vi gjør det om til factor:\n\nmod &lt;- lm(complexity ~ education+bransje, data=stressdata) \nsummary(mod)\n\n\nCall:\nlm(formula = complexity ~ education + bransje, data = stressdata)\n\nResiduals:\n     Min       1Q   Median       3Q      Max \n-16.6117  -6.3274   0.2403   6.5246  19.3824 \n\nCoefficients:\n                       Estimate Std. Error t value Pr(&gt;|t|)    \n(Intercept)             15.0441     1.3507  11.138   &lt;2e-16 ***\neducation               -0.1422     0.4095  -0.347    0.729    \nbransjeHelse og omsorg   6.7098     0.6727   9.975   &lt;2e-16 ***\n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nResidual standard error: 7.875 on 573 degrees of freedom\nMultiple R-squared:  0.1497,    Adjusted R-squared:  0.1467 \nF-statistic: 50.42 on 2 and 573 DF,  p-value: &lt; 2.2e-16\n\n\nUtdanningsnivå er heller ikke signifikant prediktor"
   },
   {
     "objectID": "slides/slides3a.html#parsimony-enkelhetsprinsippet",
     "href": "slides/slides3a.html#parsimony-enkelhetsprinsippet",
     "title": "Fysisk samling 05.03. Multippel og logistisk regresjon",
-    "section": "",
-    "text": "Ironisk nok ender vi opp med en enkel regresjon! Det er bare bransje som forklarer stress i våre data (15% er forklart, 85% er ikke forklart)\n\nmod &lt;- lm(complexity ~ bransje, data=stressdata) \nsummary(mod)\n\n\nCall:\nlm(formula = complexity ~ bransje, data = stressdata)\n\nResiduals:\n     Min       1Q   Median       3Q      Max \n-16.3401  -6.3401   0.3886   6.3886  19.3886 \n\nCoefficients:\n                       Estimate Std. Error t value Pr(&gt;|t|)    \n(Intercept)             14.6114     0.5200   28.10   &lt;2e-16 ***\nbransjeHelse og omsorg   6.7287     0.6699   10.04   &lt;2e-16 ***\n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nResidual standard error: 7.869 on 574 degrees of freedom\nMultiple R-squared:  0.1495,    Adjusted R-squared:  0.148 \nF-statistic: 100.9 on 1 and 574 DF,  p-value: &lt; 2.2e-16"
+    "section": "Parsimony = Enkelhetsprinsippet",
+    "text": "Parsimony = Enkelhetsprinsippet\nIronisk nok ender vi opp med en enkel regresjon! Det er bare bransje som forklarer stress i våre data (15% er forklart, 85% er ikke forklart)\n\nmod &lt;- lm(complexity ~ bransje, data=stressdata) \nsummary(mod)\n\n\nCall:\nlm(formula = complexity ~ bransje, data = stressdata)\n\nResiduals:\n     Min       1Q   Median       3Q      Max \n-16.3401  -6.3401   0.3886   6.3886  19.3886 \n\nCoefficients:\n                       Estimate Std. Error t value Pr(&gt;|t|)    \n(Intercept)             14.6114     0.5200   28.10   &lt;2e-16 ***\nbransjeHelse og omsorg   6.7287     0.6699   10.04   &lt;2e-16 ***\n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nResidual standard error: 7.869 on 574 degrees of freedom\nMultiple R-squared:  0.1495,    Adjusted R-squared:  0.148 \nF-statistic: 100.9 on 1 and 574 DF,  p-value: &lt; 2.2e-16"
   },
   {
     "objectID": "quiz 5mars.html",
@@ -880,5 +880,47 @@
     "title": "Fysisk samling 05.03. Psykometri, reliabilitet og validitet",
     "section": "",
     "text": "Construct validity. Dette gjelder psykologisk konstrukt som ikke er etablert. Dvs finnes denne konstrukten egentlig? Vi må finne bevis for at den finnes ved å linke konstruktet til eksisterende teori. ## Referanser\n\n\n\nCronbach, Lee J. 1951. “Coefficient Alpha and the Internal Structure of Tests.” Psychometrika 16 (3): 297–334.\n\n\nEysenck, Hans J, and Sybil BG Eysenck. 1968. “Eysenck Personality Inventory.” Journal of Clinical Psychology.\n\n\nNaus, Mary J, Laura M Philipp, and Mekhala Samsi. 2009. “From Paper to Pixels: A Comparison of Paper and Computer Formats in Psychological Assessment.” Computers in Human Behavior 25 (1): 1–7.\n\n\nRosenberg, Morris. 1965. “Rosenberg Self-Esteem Scale.” Journal of Religion and Health.\n\n\nRotter, Julian B. 1966. “Generalized Expectancies for Internal Versus External Control of Reinforcement.” Psychological Monographs: General and Applied 80 (1): 1.\n\n\nSpielberger, Charles D. 1983. “State-Trait Anxiety Inventory for Adults.”\n\n\n\n\nhjem"
+  },
+  {
+    "objectID": "slides/slides3a.html#eksempel-extramarital-affairs",
+    "href": "slides/slides3a.html#eksempel-extramarital-affairs",
+    "title": "Fysisk samling 05.03. Multippel og logistisk regresjon",
+    "section": "Eksempel: Extramarital affairs",
+    "text": "Eksempel: Extramarital affairs\n\nlibrary(AER)#install first if needed\ndata(\"Affairs\")#loader datasettet\nsummary(Affairs)\n\n    affairs          gender         age         yearsmarried    children \n Min.   : 0.000   female:315   Min.   :17.50   Min.   : 0.125   no :171  \n 1st Qu.: 0.000   male  :286   1st Qu.:27.00   1st Qu.: 4.000   yes:430  \n Median : 0.000                Median :32.00   Median : 7.000            \n Mean   : 1.456                Mean   :32.49   Mean   : 8.178            \n 3rd Qu.: 0.000                3rd Qu.:37.00   3rd Qu.:15.000            \n Max.   :12.000                Max.   :57.00   Max.   :15.000            \n religiousness     education       occupation        rating     \n Min.   :1.000   Min.   : 9.00   Min.   :1.000   Min.   :1.000  \n 1st Qu.:2.000   1st Qu.:14.00   1st Qu.:3.000   1st Qu.:3.000  \n Median :3.000   Median :16.00   Median :5.000   Median :4.000  \n Mean   :3.116   Mean   :16.17   Mean   :4.195   Mean   :3.932  \n 3rd Qu.:4.000   3rd Qu.:18.00   3rd Qu.:6.000   3rd Qu.:5.000  \n Max.   :5.000   Max.   :20.00   Max.   :7.000   Max.   :5.000  \n\nAffairs$utro &lt;- ifelse(Affairs$affairs == 0, 0, 1)#binær variabel"
+  },
+  {
+    "objectID": "slides/slides3a.html#hva-hvis-vi-prøver-vanlig-multippel-regresjon-for-å-forklare-utro",
+    "href": "slides/slides3a.html#hva-hvis-vi-prøver-vanlig-multippel-regresjon-for-å-forklare-utro",
+    "title": "Fysisk samling 05.03. Multippel og logistisk regresjon",
+    "section": "Hva hvis vi prøver vanlig multippel regresjon for å forklare UTRO?",
+    "text": "Hva hvis vi prøver vanlig multippel regresjon for å forklare UTRO?\n\nreg_mod &lt;- lm(utro ~ factor(gender) + age + yearsmarried + \n   factor(children) + religiousness + education + occupation + \n    rating, Affairs)\nsummary(reg_mod)\n\n\nCall:\nlm(formula = utro ~ factor(gender) + age + yearsmarried + factor(children) + \n    religiousness + education + occupation + rating, data = Affairs)\n\nResiduals:\n    Min      1Q  Median      3Q     Max \n-0.6336 -0.2691 -0.1632  0.1151  1.0659 \n\nCoefficients:\n                     Estimate Std. Error t value Pr(&gt;|t|)    \n(Intercept)          0.736107   0.151502   4.859 1.51e-06 ***\nfactor(gender)male   0.045201   0.040022   1.129 0.259180    \nage                 -0.007420   0.003013  -2.463 0.014057 *  \nyearsmarried         0.015981   0.005491   2.911 0.003743 ** \nfactor(children)yes  0.054487   0.046642   1.168 0.243198    \nreligiousness       -0.053698   0.014881  -3.608 0.000334 ***\neducation            0.003078   0.008542   0.360 0.718699    \noccupation           0.005913   0.011838   0.499 0.617643    \nrating              -0.087455   0.015984  -5.472 6.59e-08 ***\n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nResidual standard error: 0.4122 on 592 degrees of freedom\nMultiple R-squared:  0.1066,    Adjusted R-squared:  0.09452 \nF-statistic: 8.829 on 8 and 592 DF,  p-value: 1.884e-11\n\n\n\n\nhjem"
+  },
+  {
+    "objectID": "slides/slides3a.html#logistisk-regresjon-når-y-01",
+    "href": "slides/slides3a.html#logistisk-regresjon-når-y-01",
+    "title": "Fysisk samling 05.03. Multippel og logistisk regresjon",
+    "section": "Logistisk regresjon når \\(Y\\)= 0/1",
+    "text": "Logistisk regresjon når \\(Y\\)= 0/1\nVi ønsker å bruke rating og children som prediktorer for utroskap Modellen er \\[ log(\\frac{p}{1-p})=\\beta_0+ \\beta_1 rating + \\beta_2 children + \\epsilon\\]\nHer er \\(p\\) sannsynlighet for utroskap, og \\(\\frac{p}{1-p}\\) er oddsen Oddsen er alltid positiv men når vi tar logaritmen så får vi dekket både negative og positive tall!\nTolkningen av \\(\\beta\\)-ene blir mer komplisert!"
+  },
+  {
+    "objectID": "slides/slides3a.html#prediksjon",
+    "href": "slides/slides3a.html#prediksjon",
+    "title": "Fysisk samling 05.03. Multippel og logistisk regresjon",
+    "section": "Prediksjon",
+    "text": "Prediksjon\n\n\nhjem"
+  },
+  {
+    "objectID": "slides/slides3a.html#i-r-bruker-vi-glm-funksjonen",
+    "href": "slides/slides3a.html#i-r-bruker-vi-glm-funksjonen",
+    "title": "Fysisk samling 05.03. Multippel og logistisk regresjon",
+    "section": "I R bruker vi glm() funksjonen",
+    "text": "I R bruker vi glm() funksjonen\n\nlog_mod &lt;- glm(utro ~ factor(children) +rating, data=Affairs, family=\"binomial\")\nsummary(log_mod)\n\n\nCall:\nglm(formula = utro ~ factor(children) + rating, family = \"binomial\", \n    data = Affairs)\n\nCoefficients:\n                    Estimate Std. Error z value Pr(&gt;|z|)    \n(Intercept)          0.28200    0.40264   0.700   0.4837    \nfactor(children)yes  0.55309    0.24291   2.277   0.0228 *  \nrating              -0.47532    0.08608  -5.522 3.36e-08 ***\n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\n(Dispersion parameter for binomial family taken to be 1)\n\n    Null deviance: 675.38  on 600  degrees of freedom\nResidual deviance: 632.80  on 598  degrees of freedom\nAIC: 638.8\n\nNumber of Fisher Scoring iterations: 4"
+  },
+  {
+    "objectID": "slides/slides3a.html#tolkning-av-beta-i-logistisk-regresjon",
+    "href": "slides/slides3a.html#tolkning-av-beta-i-logistisk-regresjon",
+    "title": "Fysisk samling 05.03. Multippel og logistisk regresjon",
+    "section": "Tolkning av \\(\\beta\\) i logistisk regresjon",
+    "text": "Tolkning av \\(\\beta\\) i logistisk regresjon\nSå barn øker log odds for utroskap, og høyer rating reduserer log odds for utroskap. Vi kan fjerne log ved å bruke eksponentialfunksjon\n\nexp(coef(log_mod))\n\n        (Intercept) factor(children)yes              rating \n          1.3257757           1.7386247           0.6216858 \n\n\nDet betyr at barn øker oddsen for utroskap med 74% og at en enhets økning i rating reduserer oddsen med 38%\n\n\nhjem"
   }
 ]
