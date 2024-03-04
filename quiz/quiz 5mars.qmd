@@ -5,6 +5,10 @@ format:
     page-layout: article
 ---
 
+```{r, echo=FALSE}
+knitr::opts_chunk$set(eval = FALSE)
+```
+
 Vi jobber med stressdata [fila](../data/stress_complete.csv) som er hentet fra [denne studien](https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2024.1297194/full)
 
 1.  Er dette et tverrsnitts- eller longitudinelt datasett?
@@ -16,8 +20,9 @@ Vi jobber med stressdata [fila](../data/stress_complete.csv) som er hentet fra [
 4.  Hvordan vil du definere en "uvanlig" høy alder?
 
 5.  Lag et 95\\% konfidensintervall for alder.
+
 ```{r, eval=F}
-t.test(age~kjønn, stressdata)
+t.test(stressdata$age)
 ```
 
 6.  Det påstås at i populasjonen som dette utvalget er tatt ifra så er menn og kvinner like gamle. Skriv opp nullhypotesen og alternativhypotesen. Bruk symbolene $\mu_M$ og $\mu_K$.
@@ -28,4 +33,53 @@ t.test(age~kjønn, stressdata)
 t.test(age~kjønn, stressdata)
 ```
 
-7.  
+8.  Gå til artikkelen og last ned "supplemental data" dokumentet. Der finner du spørsmålene om Usikkerhet: INSE1-INSE5. Lag et spredningsplott av INSE1 vs INSE2 og forklar hvorfor det ikke er informativt
+
+```{r, eval=F}
+plot(stressdata$INSE1, stressdata$INSE2)
+```
+
+9.  Du kan "jittre" observasjonene ved hjelp av ggplot2 pakken i tidyverset.
+
+```{r, eval=F}
+qplot(stressdata$INSE1, stressdata$INSE2)+geom_jitter()
+```
+
+Legg til regresjonslinja ved hjelp av *+geom_smooth(method="lm")* i kommandoen over. Er det negativ, ingen, eller positiv sammenheng mellom INSE1 og INSE2?
+
+10. Beregn korrelasjonen mellom INSE1 og INSE2 vha *cor()* funksjonen
+
+11. Lag summescore for alle 5 INSE items, som en ny variabel:
+
+```{r, eval=F}
+stressdata$insecurity <- stressdata$INSE1+stressdata$INSE2+stressdata$INSE3+stressdata$INSE4+stressdata$INSE5
+```
+
+12. Kjør en regresjon med summescore for insecurity som avhengig variabel og kjønn og alder som prediktorer. Hva blir $R^2$ adjusted?
+
+```{r, eval=F}
+mod <- lm(insecurity ~ kjønn+age, data=stressdata) 
+summary(mod)
+```
+
+Har modellen noen som helst forklaringskraft?
+
+12. Kjør en regresjon med summescore for insecurity som avhengig variabel og bransje som prediktor. Har denne modellen noen som helst forklaringskraft?
+
+```{r, eval=F}
+mod <- lm(insecurity ~ bransje, data=stressdata) 
+summary(mod)
+```
+Har modellen noen som helst forklaringskraft?
+
+13. Tolk Intercept verdien i modellen i oppgave 12. 
+
+14. Tolk regresjonskoeffisient for bransje:Helse og Omsorg, i oppgave 12. 
+
+15. Ta med summescoren *complexity* for COMP1-COMP5 som en prediktor i tillegg til bransje. 
+Har denne modellen bedre forklaringskraft enn modellen i oppgave 12?
+
+16. Tolk regresjonskoeffisienten til *complexity*.
+
+17. Hvilken *insecurity* score forventer vi for en person som skåret 10 på *complexity* skalaen dersom denne personen jobber i Helse og omsorg?
+

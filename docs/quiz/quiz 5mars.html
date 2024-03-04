@@ -266,12 +266,61 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><p>Er utvalget tilfeldig? Hvordan vil du karakterisere utvalget?</p></li>
 <li><p>Hva er standardavviket til alder i datasettet?</p></li>
 <li><p>Hvordan vil du definere en “uvanlig” høy alder?</p></li>
+<li><p>Lag et 95\% konfidensintervall for alder.</p></li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">t.test</span>(stressdata<span class="sc">$</span>age)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol start="6" type="1">
 <li><p>Det påstås at i populasjonen som dette utvalget er tatt ifra så er menn og kvinner like gamle. Skriv opp nullhypotesen og alternativhypotesen. Bruk symbolene <span class="math inline">\(\mu_M\)</span> og <span class="math inline">\(\mu_K\)</span>.</p></li>
 <li><p>Utfør testen ved hjelp av</p></li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">t.test</span>(age<span class="sc">~</span>kjønn, stressdata)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">t.test</span>(age<span class="sc">~</span>kjønn, stressdata)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+<ol start="8" type="1">
+<li>Gå til artikkelen og last ned “supplemental data” dokumentet. Der finner du spørsmålene om Usikkerhet: INSE1-INSE5. Lag et spredningsplott av INSE1 vs INSE2 og forklar hvorfor det ikke er informativt</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(stressdata<span class="sc">$</span>INSE1, stressdata<span class="sc">$</span>INSE2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol start="9" type="1">
+<li>Du kan “jittre” observasjonene ved hjelp av ggplot2 pakken i tidyverset.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">qplot</span>(stressdata<span class="sc">$</span>INSE1, stressdata<span class="sc">$</span>INSE2)<span class="sc">+</span><span class="fu">geom_jitter</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Legg til regresjonslinja ved hjelp av <em>+geom_smooth(method=“lm”)</em> i kommandoen over. Er det negativ, ingen, eller positiv sammenheng mellom INSE1 og INSE2?</p>
+<ol start="10" type="1">
+<li><p>Beregn korrelasjonen mellom INSE1 og INSE2 vha <em>cor()</em> funksjonen</p></li>
+<li><p>Lag summescore for alle 5 INSE items, som en ny variabel:</p></li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>stressdata<span class="sc">$</span>insecurity <span class="ot">&lt;-</span> stressdata<span class="sc">$</span>INSE1<span class="sc">+</span>stressdata<span class="sc">$</span>INSE2<span class="sc">+</span>stressdata<span class="sc">$</span>INSE3<span class="sc">+</span>stressdata<span class="sc">$</span>INSE4<span class="sc">+</span>stressdata<span class="sc">$</span>INSE5</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol start="12" type="1">
+<li>Kjør en regresjon med summescore for insecurity som avhengig variabel og kjønn og alder som prediktorer. Hva blir <span class="math inline">\(R^2\)</span> adjusted?</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>mod <span class="ot">&lt;-</span> <span class="fu">lm</span>(insecurity <span class="sc">~</span> kjønn<span class="sc">+</span>age, <span class="at">data=</span>stressdata) </span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(mod)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Har modellen noen som helst forklaringskraft?</p>
+<ol start="12" type="1">
+<li>Kjør en regresjon med summescore for insecurity som avhengig variabel og bransje som prediktor. Har denne modellen noen som helst forklaringskraft?</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>mod <span class="ot">&lt;-</span> <span class="fu">lm</span>(insecurity <span class="sc">~</span> bransje, <span class="at">data=</span>stressdata) </span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(mod)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Har modellen noen som helst forklaringskraft?</p>
+<ol start="13" type="1">
+<li><p>Tolk Intercept verdien i modellen i oppgave 12.</p></li>
+<li><p>Tolk regresjonskoeffisient for bransje:Helse og Omsorg, i oppgave 12.</p></li>
+<li><p>Ta med summescoren <em>complexity</em> for COMP1-COMP5 som en prediktor i tillegg til bransje. Har denne modellen bedre forklaringskraft enn modellen i oppgave 12?</p></li>
+<li><p>Tolk regresjonskoeffisienten til <em>complexity</em>.</p></li>
+<li><p>Hvilken <em>insecurity</em> score forventer vi for en person som skåret 10 på <em>complexity</em> skalaen dersom denne personen jobber i Helse og omsorg?</p></li>
+</ol>
 
 
 
