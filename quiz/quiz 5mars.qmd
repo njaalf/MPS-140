@@ -9,7 +9,7 @@ format:
 knitr::opts_chunk$set(eval = FALSE)
 ```
 
-Vi jobber med stressdata [fila](../data/stress_complete.csv) som er hentet fra [denne studien](https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2024.1297194/full)
+Vi jobber videre med stressdata [fila](../data/stressdata_for_quiz.csv) fra slides  som er hentet fra [denne studien](https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2024.1297194/full)
 
 1.  Er dette et tverrsnitts- eller longitudinelt datasett?
 
@@ -97,3 +97,11 @@ psych::alpha(inse[, 1:5])
 Hva blir $\alpha$ hvis vi fjerne det itement fra skalaen som er minst korrelert med summeskåren?
 
 20. I utgangspunktet fra den tyske originalstudien skulle det være 10 fasetter av digitalt jobbstress. Studien vår finner ikke støtte for dette. Vi fant støtte for 8 fasetter. Hvilke to fasetter av digital jobbstress fant vi ikke støtte for i det norske utvalget?
+
+
+21. Logistisk regresjon. Bruk stressdataene til å predikere kjønn ut ifra bransje og leder (to binære prediktorer). Du må gjøre kjønn om til 0/1 (1 =kvinne) først:
+```{r}
+stressdata$kvinne <- ifelse(stressdata$kjønn=="mann", 0, 1)
+```
+
+
