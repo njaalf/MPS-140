@@ -1,5 +1,7 @@
 ---
 title: "Quiz 5.mars. Multippel og logistisk regresjon"
+bibliography: ../references.bib 
+
 format: 
   html:
     page-layout: article
@@ -106,4 +108,10 @@ stressdata$kvinne <- ifelse(stressdata$kjønn=="mann", 0, 1)
 
 22. Tolk koeffisientene i forrige oppgave, gjerne som prosentvis endring i oddsene
 
+23. Noen kjente tester er
+-   @eysenck1968eysenck Personality Inventory
+-   @spielberger1983state State trait anxiety scale
+-   @rotter1966generalized locus of control
+-   @rosenberg1965rosenberg self-esteem
 
+Hvor mange items er det i hvert av disse? Hvilken Likert skala er brukt?

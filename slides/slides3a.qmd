@@ -253,6 +253,6 @@ Så barn øker log odds for utroskap, og høyer rating reduserer log odds for ut
 ```{r}
 exp(coef(log_mod))
 ```
-Det betyr at barn øker oddsen for utroskap med 74\% og at en enhets økning i rating reduserer oddsen med 38\%
+Tolkning: barn øker oddsen for utroskap med 74\% og at en enhets økning i rating reduserer oddsen med 38\%
 
 

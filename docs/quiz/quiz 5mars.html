@@ -54,7 +54,26 @@ div.sourceCode
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
@@ -341,12 +360,34 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>stressdata<span class="sc">$</span>kvinne <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(stressdata<span class="sc">$</span>kjønn<span class="sc">==</span><span class="st">"mann"</span>, <span class="dv">0</span>, <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ol start="22" type="1">
-<li>Tolk koeffisientene i forrige oppgave, gjerne som prosentvis endring i oddsene</li>
+<li><p>Tolk koeffisientene i forrige oppgave, gjerne som prosentvis endring i oddsene</p></li>
+<li><p>Noen kjente tester er</p></li>
 </ol>
+<ul>
+<li><span class="citation" data-cites="eysenck1968eysenck">Eysenck and Eysenck (<a href="#ref-eysenck1968eysenck" role="doc-biblioref">1968</a>)</span> Personality Inventory</li>
+<li><span class="citation" data-cites="spielberger1983state">Spielberger (<a href="#ref-spielberger1983state" role="doc-biblioref">1983</a>)</span> State trait anxiety scale</li>
+<li><span class="citation" data-cites="rotter1966generalized">Rotter (<a href="#ref-rotter1966generalized" role="doc-biblioref">1966</a>)</span> locus of control</li>
+<li><span class="citation" data-cites="rosenberg1965rosenberg">Rosenberg (<a href="#ref-rosenberg1965rosenberg" role="doc-biblioref">1965</a>)</span> self-esteem</li>
+</ul>
+<p>Hvor mange items er det i hvert av disse? Hvilken Likert skala er brukt?</p>
 
 
 
-</main> <!-- /main -->
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<div id="ref-eysenck1968eysenck" class="csl-entry" role="listitem">
+Eysenck, Hans J, and Sybil BG Eysenck. 1968. <span>“Eysenck Personality Inventory.”</span> <em>Journal of Clinical Psychology</em>.
+</div>
+<div id="ref-rosenberg1965rosenberg" class="csl-entry" role="listitem">
+Rosenberg, Morris. 1965. <span>“Rosenberg Self-Esteem Scale.”</span> <em>Journal of Religion and Health</em>.
+</div>
+<div id="ref-rotter1966generalized" class="csl-entry" role="listitem">
+Rotter, Julian B. 1966. <span>“Generalized Expectancies for Internal Versus External Control of Reinforcement.”</span> <em>Psychological Monographs: General and Applied</em> 80 (1): 1.
+</div>
+<div id="ref-spielberger1983state" class="csl-entry" role="listitem">
+Spielberger, Charles D. 1983. <span>“State-Trait Anxiety Inventory for Adults.”</span>
+</div>
+</div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
