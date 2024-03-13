@@ -6,29 +6,23 @@ editor: visual
 
 Læringsmål:
 
--   Å bli enda mere kjent med 
-    multippel regresjon
-    
--  Å forstå hvordan psykologer forsøker å måle psykologiske konstrukt, slik som stress, angst og motivasjon
+-   Å bli enda mere kjent med multippel regresjon
 
-- Validitet og reliabilitet til psykologiske målinger
+-   Å forstå hvordan psykologer forsøker å måle psykologiske konstrukt, slik som stress, angst og motivasjon
 
+-   Validitet og reliabilitet til psykologiske målinger
 
 ## Forberedelser
 
--   📖 Repeter stoffet i kapittel 22 om enkel regresjon i Statistikk og Dataanalyse. Vi skal også repetere p-verdi og konfidensintervall. 
+-   📖 Repeter stoffet i kapittel 22 om enkel regresjon i Statistikk og Dataanalyse. Vi skal også repetere p-verdi og konfidensintervall.
 
-- Sjekk ut videoer om reliabilitet og validitet på youtube. For eksempel er det en serie med tre videoer her: [Reliabilitet og validitet](https://www.youtube.com/watch?v=DS8Hw0Ort4w)
+-   Sjekk ut videoer om reliabilitet og validitet på youtube. For eksempel er det en serie med tre videoer her: [Reliabilitet og validitet](https://www.youtube.com/watch?v=DS8Hw0Ort4w)
 
+-   Les om hvordan vi måler jobb-stress i artikkelen [Sevic Foldnes og Brønnick 2024](https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2024.1297194/full "Measuring digital stress in Norway")
 
-- Les om hvordan vi måler jobb-stress i artikkelen [Sevic Foldnes og Brønnick 2024](https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2024.1297194/full "Measuring digital stress in Norway")
+-   Last ned pakkene *psych* i R som kan regne ut reliabilitet, for eksempel Cronbach's $\alpha$. Når du laster psych pakken inn i R sesjonen så får du tilgang til et datasett bfi som har 25 personlighet items. De fem første er "Agreeableness", osv.
 
-
-
-- Last ned pakkene *psych* i R som kan regne ut reliabilitet,  for eksempel Cronbach's  $\alpha$. Når du laster psych pakken inn i R sesjonen så får du tilgang til et datasett bfi som har 25 personlighet items. De fem første er "Agreeableness", osv.
-
-
-La oss prøve dette på  bfi datasettet (becks depression inventory)
+La oss prøve dette på bfi datasettet (becks depression inventory)
 
 ```{r}
 # last ned et datasett med Eysenck personality og Big Five 

@@ -24,7 +24,7 @@ tbl-colwidths: [10,30,10,10,10]
 | Dato        | Tema                         |              Forberedelser               |            Presentasjon            | R                          |                   Oppgaver                    |
 |------------|------------|:----------:|:----------:|------------|:----------:|
 | 06.02: 9-12 | R og regresjonsmodellen      | [📖](samlinger/samling2.qmd "Samling 1") | [🖥](slides/slides2.qmd "Foiler 2") | [📋](R/digR1.qmd "R kode") | [📋](quiz/digsamling1_mps140.pdf "Oppg 2") |
-| 19.03: 9-12 | Programvaren R og psykometri |                                          |                                    |                            |                                               |
+| 19.03: 9-12 | Forskningsmetoder i psykologi + Forutsetninger for regresjon |    [📖](samlinger/samling4.qmd "Samling 4")                                       |                                    |                            |                                               |
 | 23.04:9-12  | Latente variable             |                                          |                                    |                            |                                               |
 | 07.05: 9-12 | Eksamensforberedelse         |                                          |                                    |                            |                                               |
 :::
