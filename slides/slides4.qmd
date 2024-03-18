@@ -21,6 +21,7 @@ execute:
   echo: true
   message: false
   warning: false
+  freeze: auto 
 ---
 # Om meta analyser og Cohens d
 

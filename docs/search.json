@@ -340,7 +340,7 @@
     "href": "index.html",
     "title": "MPS 140: Kvantitativ forskningsmetode og statistikk",
     "section": "",
-    "text": "FYSISKE SAMLINGER\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nDato\nTema\nForberedelser\nPresentasjoner\nR\nOppgaver\n\n\n\n\n23.01: 1215-16\nIntro og grunnleggende statistikk\n📖\n🖥 🖥\n📋\n📋\n\n\n05.03: 815-16\nPsykometri\n📖\n🖥 🖥\n\n📋\n\n\n09.04: 815-16\nLatente variable\n\n\n\n\n\n\n03.06\nEksamen\n\n\n\n\n\n\n\n\n\n\nDIGITALE SAMLINGER\n\n\n\n\n\n\n\n\n\n\n\n\nDato\nTema\nForberedelser\nPresentasjon\nR\nOppgaver\n\n\n\n\n06.02: 9-12\nR og regresjonsmodellen\n📖\n🖥\n📋\n📋\n\n\n19.03: 9-12\nForskningsmetoder i psykologi + Forutsetninger for regresjon\n📖\n\n\n\n\n\n23.04:9-12\nLatente variable\n\n\n\n\n\n\n07.05: 9-12\nEksamensforberedelse"
+    "text": "FYSISKE SAMLINGER\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nDato\nTema\nForberedelser\nPresentasjoner\nR\nOppgaver\n\n\n\n\n23.01: 1215-16\nIntro og grunnleggende statistikk\n📖\n🖥 🖥\n📋\n📋\n\n\n05.03: 815-16\nPsykometri\n📖\n🖥 🖥\n\n📋\n\n\n09.04: 815-16\nLatente variable\n\n\n\n\n\n\n03.06\nEksamen\n\n\n\n\n\n\n\n\n\n\nDIGITALE SAMLINGER\n\n\n\n\n\n\n\n\n\n\n\n\nDato\nTema\nForberedelser\nPresentasjon\nR\nOppgaver\n\n\n\n\n06.02: 9-12\nR og regresjonsmodellen\n📖\n🖥\n📋\n📋\n\n\n19.03: 9-12\nForskningsmetoder i psykologi + Forutsetninger for regresjon\n📖\n🖥\n\n\n\n\n23.04:9-12\nLatente variable\n\n\n\n\n\n\n07.05: 9-12\nEksamensforberedelse"
   },
   {
     "objectID": "slides/slides4.html#metaanalyse-og-effektstørrelse",
@@ -977,14 +977,14 @@
     "href": "Ressurser.html",
     "title": "Programvaren R",
     "section": "",
-    "text": "R er en open source og gratis programvare for statistikk.\nFor installasjon på din computer følg oppskriften her: https://posit.co/download/rstudio-desktop/\nSå kan du lage noen tilfeldige tall og lage et histogram og regne ut snittet og median:\n\nminetall &lt;- rnorm(200)# 200 tilfeldige tall trekkes fra standard normalfordeling. Ser ganske normalfordelt ut ja\nhist(minetall)\n\n\n\nmean(minetall)\n\n[1] 0.06904487\n\nmedian(minetall)\n\n[1] 0.036402"
+    "text": "R er en open source og gratis programvare for statistikk.\nFor installasjon på din computer følg oppskriften her: https://posit.co/download/rstudio-desktop/\nSå kan du lage noen tilfeldige tall og lage et histogram og regne ut snittet og median:\n\nminetall &lt;- rnorm(200)# 200 tilfeldige tall trekkes fra standard normalfordeling. Ser ganske normalfordelt ut ja\nhist(minetall)\n\n\n\nmean(minetall)\n\n[1] 0.100849\n\nmedian(minetall)\n\n[1] 0.1154816"
   },
   {
     "objectID": "Ressurser.html#r-og-rstudio",
     "href": "Ressurser.html#r-og-rstudio",
     "title": "Programvaren R",
     "section": "",
-    "text": "R er en open source og gratis programvare for statistikk.\nFor installasjon på din computer følg oppskriften her: https://posit.co/download/rstudio-desktop/\nSå kan du lage noen tilfeldige tall og lage et histogram og regne ut snittet og median:\n\nminetall &lt;- rnorm(200)# 200 tilfeldige tall trekkes fra standard normalfordeling. Ser ganske normalfordelt ut ja\nhist(minetall)\n\n\n\nmean(minetall)\n\n[1] 0.06904487\n\nmedian(minetall)\n\n[1] 0.036402"
+    "text": "R er en open source og gratis programvare for statistikk.\nFor installasjon på din computer følg oppskriften her: https://posit.co/download/rstudio-desktop/\nSå kan du lage noen tilfeldige tall og lage et histogram og regne ut snittet og median:\n\nminetall &lt;- rnorm(200)# 200 tilfeldige tall trekkes fra standard normalfordeling. Ser ganske normalfordelt ut ja\nhist(minetall)\n\n\n\nmean(minetall)\n\n[1] 0.100849\n\nmedian(minetall)\n\n[1] 0.1154816"
   },
   {
     "objectID": "emnebeskrivelse.html",
@@ -992,5 +992,12 @@
     "title": "Emnebeskrivelse",
     "section": "",
     "text": "Denne websiden inneholder kursmateriell for statistikkurset i 2-årig psykologi master ved UiS. Emnebeskrivelsen: https://www.uis.no/nb/course/MPS140_1"
+  },
+  {
+    "objectID": "quiz/quiz 19mars.html",
+    "href": "quiz/quiz 19mars.html",
+    "title": "Quiz 19.mars",
+    "section": "",
+    "text": "Hva regnes som en stor effektstørrelse for Cohens \\(d\\)?\nCohen \\(d=0.2\\) for en intervensjon, tolk dette tallet i en setning som inneholder ordene “standardavvik” og “økning i gjennomsnittsscore”.\nEn mindfulness-intervensjon gjør at konsentrasjonen i intervensjonsgruppa er 3 poeng høyere enn i kontrollgrupa. Hvis den poolede standardavviket \\(s_p\\) er 10 poeng, hva er da effektstørrelsen?\nVi genererer et datasett som måler konsentrasjon på en skala 1-20 etter en mindfulness-intervensjon:\n\n\nset.seed(1)\ngruppe &lt;- sample(c(\"I\",\"K\"), size=100,replace=T)\nkonsentrasjon &lt;- 10+as.numeric(gruppe==\"I\")+runif(length(gruppe), -6,6) %&gt;% round(0)\nminedata &lt;- data.frame(gruppe, konsentrasjon)\n\nHvor mange deltagere var i kontroll og i intervensjonsgruppa? Hint:\n\ntable(gruppe)\n\n\nLag et histogram over konsentrasjon\n\n\nhist(minedata$konsentrasjon)\n\n\nHva er max verdi av konsentrasjon?\nLag et boksplot over konsentrasjon og bruk det til å anslå interkvartilbredden.\n\n\nboxplot(minedata$konsentrasjon)\n\n\nHva er standardavviket til konsentrasjon?\nEr det forskjell i konsentrasjon i de to gruppene? Bruk en t-test\n\n\nt.test(konsentrasjon~gruppe, data=minedata)\n\n\nHva var differansen i gjennomsnitt?\nBeregn cohens d for effektstørrelsen av intervensjonen.\n\n\nlibrary(psych)\ncohen.d(konsentrasjon~gruppe, data=minedata)\n\n\nHva er konfidensintervallet for \\(d\\). Gi en tolkning av det faktum at det ikke inneholder \\(0\\).\nVi Lager et nytt simulert datasett for effekt av konsentrasjon på eksamensresultat:\n\n\nset.seed(1)\npoeng &lt;- 25+2*konsentrasjon+rnorm(length(konsentrasjon), mean=0, sd=10)\neksamendata &lt;- data.frame(poeng, konsentrasjon)\n\n\nPlott konsentrasjon mot eksamensresultat og beregn korrelasjonen\n\n\nplot(eksamendata$konsentrasjon, eksamendata$poeng)\n\n\nEstimer regresjonsmodellen \\(Poeng=\\beta_0+ \\beta_1 konsentrasjon + \\epsilon\\) og tolk stigningstallet \\(\\beta_1\\) på en lettfattelig måte\n\n\nmodel &lt;- lm(poeng~konsentrasjon, data=eksamendata)\nsummary(model)\n\n\nHva er forklaringskraften til modellen?\nSjekk at de tre forutsetningene (linearitet, homoskedastisitet og normalitet av residualer) ser ut til å være oppfylt\n\n\nlibrary(performance)\ncheck_model(model, check=c(\"linearity\", \"homogeneity\", \"normality\"))\n\n\nVi simulerer poengscore på ny, men nå med et ikke-normalt residual (khi-kvadrat fordelt)\n\n\nset.seed(1)\npoeng &lt;- 25+2*konsentrasjon+rchisq(length(konsentrasjon), df=2)\neksamendata &lt;- data.frame(poeng, konsentrasjon)\n\nKontroller at normalitetsantagelsen er brutt:\n\ncheck_model(model, check=c(\"normality\"))"
   }
 ]

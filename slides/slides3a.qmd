@@ -18,6 +18,7 @@ execute:
   echo: false
   message: false
   warning: false
+  freeze: auto
 ---
 
 ```{r, echo=F, message=F, warning=FALSE}
@@ -222,6 +223,7 @@ summary(mod)
     -   Modellen gir da odds/sannsynlighet for at en person er depressiv, gitt feks kjønn og alder
 
 ## Eksempel: Extramarital affairs
+
 ```{r}
 library(AER)#install first if needed
 data("Affairs")#loader datasettet
@@ -229,14 +231,11 @@ summary(Affairs)
 Affairs$utro <- ifelse(Affairs$affairs == 0, 0, 1)#binær variabel
 ```
 
-## Logistisk regresjon når  $Y$= 0/1
+## Logistisk regresjon når $Y$= 0/1
 
-Vi ønsker å bruke rating og children som prediktorer for utroskap
-Modellen er
-$$ log(\frac{p}{1-p})=\beta_0+ \beta_1 rating + \beta_2 children + \epsilon$$
+Vi ønsker å bruke rating og children som prediktorer for utroskap Modellen er $$ log(\frac{p}{1-p})=\beta_0+ \beta_1 rating + \beta_2 children + \epsilon$$
 
-Her er $p$ sannsynlighet for utroskap, og $\frac{p}{1-p}$ er *oddsen*
-Oddsen er alltid positiv men når vi tar logaritmen så får vi dekket både negative og positive tall!
+Her er $p$ sannsynlighet for utroskap, og $\frac{p}{1-p}$ er *oddsen* Oddsen er alltid positiv men når vi tar logaritmen så får vi dekket både negative og positive tall!
 
 Tolkningen av $\beta$-ene blir mer komplisert!
 
@@ -247,12 +246,13 @@ Tolkningen av $\beta$-ene blir mer komplisert!
 log_mod <- glm(utro ~ factor(children) +rating, data=Affairs, family="binomial")
 summary(log_mod)
 ```
+
 ## Tolkning av $\beta$ i logistisk regresjon
 
 Så barn øker log odds for utroskap, og høyer rating reduserer log odds for utroskap. Vi kan fjerne log ved å bruke eksponentialfunksjon
+
 ```{r}
 exp(coef(log_mod))
 ```
-Tolkning: barn øker oddsen for utroskap med 74\% og at en enhets økning i rating reduserer oddsen med 38\%
 
-
+Tolkning: barn øker oddsen for utroskap med 74% og at en enhets økning i rating reduserer oddsen med 38%
