@@ -23,6 +23,7 @@ execute:
   warning: false
   freeze: auto 
 ---
+
 # Om meta analyser og Cohens d
 
 ## Metaanalyse og effektstørrelse
@@ -39,21 +40,18 @@ De siste årene har oppsummeringsartikler blitt vanlige
 
 Vanligste effektstørrelse er Cohens (1988) $d$. Kontroll vs intervensjon:
 
-$$ d =\frac{\overline{x_I}-\overline{x_K}}{s_p}$$
-Hvor $s$ er den kombinerte (pooled) standardavviket i de to gruppene.
-
+$$ d =\frac{\overline{x_I}-\overline{x_K}}{s_p}$$ Hvor $s$ er den kombinerte (pooled) standardavviket i de to gruppene.
 
 Cohen ga følgende tommelfingerregel for størrelsen
 
-- Liten: d = .2
-- Medium: d = .5
-- Large d = .8
-
-
+-   Liten: d = .2
+-   Medium: d = .5
+-   Large d = .8
 
 ## Simulere data fra en mindfulness intervensjon
 
-Vi ser på IQ score. Kontrollgruppen er hentet fra en populasjon der IQ er 100 i snitt og med standardavvik 15. Vi tenker oss at en mindfulness-intervensjon gir en forventet økning i IQ på 5 poeng. 
+Vi ser på IQ score. Kontrollgruppen er hentet fra en populasjon der IQ er 100 i snitt og med standardavvik 15. Vi tenker oss at en mindfulness-intervensjon gir en forventet økning i IQ på 5 poeng.
+
 ```{r}
 nK <- 50#antall i kontrollgruppen
 nI <- 48#antall i intervensjonsgruppen
@@ -64,7 +62,6 @@ simdata <- data.frame(gruppe=c(rep("K", nK)), IQ=iqK)
 simdata <- rbind(simdata, data.frame(gruppe=c(rep("I", nI)), IQ=iqI))
 ```
 
-
 ## Se på forskjellene og gjøre en t.test
 
 ```{r}
@@ -72,13 +69,13 @@ library(tidyverse)
 ggplot(data=simdata, aes(x=gruppe, y=IQ))+geom_boxplot()
 t.test(IQ~gruppe, data=simdata)
 ```
+
 ## Beregner Cohens d i R: 0.44
 
 ```{r}
 library(psych)
 cohen.d(IQ~gruppe, data=simdata)
 ```
-
 
 ## Trinn i en metaanalyse
 
@@ -102,12 +99,11 @@ cohen.d(IQ~gruppe, data=simdata)
 
 @scholtz2020use gikk gjennom forskningsmetoder i en [systemised revies](https://www.frontiersin.org/articles/10.3389/frma.2020.00001/full) av 999 artikler i topp fem journaler over 5 år
 
-" researchers are more likely to use quantitative research methods (90.22%) compared to all other research methods. Qualitative research was the second most common research method but only made up about 4.79% of the general method usage. Reviews occurred almost as much as qualitative studies (3.91%), as the third most popular method. Mixed-methods research studies (0.98%)" 
+" researchers are more likely to use quantitative research methods (90.22%) compared to all other research methods. Qualitative research was the second most common research method but only made up about 4.79% of the general method usage. Reviews occurred almost as much as qualitative studies (3.91%), as the third most popular method. Mixed-methods research studies (0.98%)"
 
+## Oversikt over kvantitative metoder i ledende kanadiske journaler
 
-##  Oversikt over kvantitative metoder i ledende kanadiske journaler
-
-@counsell2017reporting gikk gjennom mest brukte statistiske metoder i kanadiske psykologi journaler: ANOVA, t-test og  multippel regresjon 
+@counsell2017reporting gikk gjennom mest brukte statistiske metoder i kanadiske psykologi journaler: ANOVA, t-test og multippel regresjon
 
 APA anbefaler å rapportere p-verdier + konfidensintervall+ effektstørrelser.
 
@@ -115,16 +111,17 @@ Endel metodeforskere mener at effektstørrelsen med tilhørende konfidensinterva
 
 Altfor få studier rapporterer missing data og sjekk av statisiske forutsetninger
 
+# Sjekke forutsetninger for multippel regresjon
 
 ## Forutsetninger for multippel regresjon
 
-p-verdiene og konfidensintervaller for stigningstallene i regresjon er bare til å stole på dersom vi har 
+p-verdiene og konfidensintervaller for stigningstallene i regresjon er bare til å stole på dersom vi har
 
-- Linearitet
-- Homoskedastiske feilledd
-- Normalfordelte residualer dersom $n$ er lav
+-   Linearitet
+-   Homoskedastiske feilledd
+-   Normalfordelte residualer dersom $n$ er lav
 
-Vi begrenser oss til disse tre forutsetningene her. 
+Vi begrenser oss til disse tre forutsetningene her.
 
 ## Simulere data fra en perfekt modell
 
@@ -142,11 +139,11 @@ summary(model)
 ```
 
 ## Se på de 3 forutsetningene i de perfekte dataene
+
 ```{r}
 library(performance)#visuelt sjekke forutsetninger
 check_model(model, check=c("linearity", "homogeneity", "normality"))
 ```
-
 
 ## Simulere data fra en ikke-lineær modell
 
@@ -164,32 +161,30 @@ summary(model)
 ```
 
 ## Se på de 3 forutsetningene i de ikke-lineære dataene
+
 ```{r}
 library(performance)#visuelt sjekke forutsetninger
 check_model(model, check=c("linearity", "homogeneity", "normality"))
 ```
+
 Her ser at ting går galt og vi kan ikke stole på modellen!
 
 ## Man kan modellere den ikke-lineære effekten!
 
 Vi lar effekt av mattescore være kvadratisk
+
 ```{r}
 iqdata$mattescore2 <- iqdata$mattescore*iqdata$mattescore
 model_kvad <-
   lm(IQ~hjerne+mattescore+mattescore2, data=iqdata)
 coef(model_kvad)
 ```
+
 ## Regresjonsmodell med kvadratisk term er OK
+
 ```{r}
 check_model(model_kvad, check=c("linearity", "homogeneity", "normality"))
 ```
-
-
-
-
-
-
-
 
 ## Referanser
 

@@ -1,0 +1,103 @@
+---
+title: "Quiz 19.mars"
+bibliography: ../references.bib 
+
+format: 
+  html:
+    page-layout: article
+---
+
+```{r, echo=FALSE}
+knitr::opts_chunk$set(eval = FALSE)
+```
+
+
+1.  Hva regnes som en stor effektstørrelse for Cohens $d$?
+
+2.  Cohen $d=0.2$ for en intervensjon, tolk dette tallet i en setning som inneholder ordene "standardavvik" og "økning i gjennomsnittsscore".
+
+3.  En mindfulness-intervensjon gjør at konsentrasjonen i intervensjonsgruppa er 3 poeng høyere enn i kontrollgrupa. Hvis den poolede standardavviket $s_p$ er 10 poeng, hva er da effektstørrelsen?
+
+4. Vi genererer et datasett som måler konsentrasjon på en skala 1-20 etter en mindfulness-intervensjon:
+
+```{r}
+set.seed(1)
+gruppe <- sample(c("I","K"), size=100,replace=T)
+konsentrasjon <- 10+as.numeric(gruppe=="I")+runif(length(gruppe), -6,6) %>% round(0)
+minedata <- data.frame(gruppe, konsentrasjon)
+```
+Hvor mange deltagere var i kontroll og i intervensjonsgruppa? Hint:
+```{r}
+table(gruppe)
+```
+
+5. Lag et histogram over konsentrasjon
+```{r}
+hist(minedata$konsentrasjon)
+```
+
+6. Hva er max verdi av konsentrasjon?
+
+5. Lag et boksplot over konsentrasjon og bruk det til å anslå interkvartilbredden.
+```{r}
+boxplot(minedata$konsentrasjon)
+```
+
+5. Hva er standardavviket til konsentrasjon? 
+
+
+6. Er det forskjell i konsentrasjon i de to gruppene? Bruk en t-test
+```{r, eval=F}
+t.test(konsentrasjon~gruppe, data=minedata)
+```
+
+7. Hva var differansen i gjennomsnitt?
+
+
+8. Beregn cohens d for effektstørrelsen av intervensjonen. 
+```{r}
+library(psych)
+cohen.d(konsentrasjon~gruppe, data=minedata)
+```
+
+9. Hva er konfidensintervallet for $d$. Gi en tolkning av det faktum at det ikke inneholder $0$.
+
+
+10. Vi Lager et nytt simulert datasett for effekt av konsentrasjon på eksamensresultat:
+```{r}
+set.seed(1)
+poeng <- 25+2*konsentrasjon+rnorm(length(konsentrasjon), mean=0, sd=10)
+eksamendata <- data.frame(poeng, konsentrasjon)
+```
+
+11. Plott konsentrasjon mot eksamensresultat og beregn korrelasjonen
+```{r}
+plot(eksamendata$konsentrasjon, eksamendata$poeng)
+```
+12. Estimer regresjonsmodellen $Poeng=\beta_0+ \beta_1 konsentrasjon + \epsilon$ og tolk stigningstallet $\beta_1$ på en lettfattelig måte
+
+```{r}
+model <- lm(poeng~konsentrasjon, data=eksamendata)
+summary(model)
+```
+
+13. Hva er forklaringskraften til modellen?
+
+14. Sjekk at de tre forutsetningene (linearitet, homoskedastisitet og normalitet av residualer) ser ut til å være oppfylt
+
+```{r}
+library(performance)
+check_model(model, check=c("linearity", "homogeneity", "normality"))
+```
+15. Vi simulerer poengscore på ny, men nå med et ikke-normalt residual (khi-kvadrat fordelt)
+```{r}
+set.seed(1)
+poeng <- 25+2*konsentrasjon+rchisq(length(konsentrasjon), df=2)
+eksamendata <- data.frame(poeng, konsentrasjon)
+```
+Kontroller at normalitetsantagelsen er brutt: 
+```{r}
+check_model(model, check=c("normality"))
+```
+
+
