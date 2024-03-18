@@ -181,7 +181,6 @@ Har å gjøre med testscorenes *mening* og hvordan vi *bruker* dem. Validitet st
 
 -   Construct validity. Dette gjelder psykologisk konstrukt som ikke er etablert. Dvs finnes denne konstrukten egentlig? Vi må finne bevis for at den finnes ved å linke konstruktet til eksisterende teori. \## Referanser
 
-
 ## Referanser
 
 ::: {#refs}

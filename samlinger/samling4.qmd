@@ -16,7 +16,7 @@ Læringsmål:
 
 -   Kjenne til forutsetninger for regresjon og kunne sjekke disse i R
 
-## Forbered deg til 19 feb
+## Forbered deg til 19 mars
 
 -   Sjekk definisjoner av hva en systematic review og en metaanalyse er for noe (feks wikipedia)
 
