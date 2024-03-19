@@ -259,91 +259,151 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </header>
 
+<ol start="0" type="1">
+<li>Forklar hvorfor publikasjonsbias kan være en av årsakene til replikasjonskrisen.</li>
+</ol>
+<p>Svar: Det er vanskelig å replikere en studie som er en falsk positiv. Falske positive er overrepresentert i den publiserte litteraturen, grunnet publikasjonsbias.</p>
 <ol type="1">
-<li><p>Hva regnes som en stor effektstørrelse for Cohens <span class="math inline">\(d\)</span>?</p></li>
+<li>Hva regnes som en stor effektstørrelse for Cohens <span class="math inline">\(d\)</span>?</li>
+</ol>
+<p>Svar: I mange felt er <span class="math inline">\(d\)</span> større ennn .5 regnet som stor.</p>
+<ol start="2" type="1">
 <li><p>Cohen <span class="math inline">\(d=0.2\)</span> for en intervensjon, tolk dette tallet i en setning som inneholder ordene “standardavvik” og “økning i gjennomsnittsscore”.</p></li>
 <li><p>En mindfulness-intervensjon gjør at konsentrasjonen i intervensjonsgruppa er 3 poeng høyere enn i kontrollgrupa. Hvis den poolede standardavviket <span class="math inline">\(s_p\)</span> er 10 poeng, hva er da effektstørrelsen?</p></li>
 <li><p>Vi genererer et datasett som måler konsentrasjon på en skala 1-20 etter en mindfulness-intervensjon:</p></li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1</span>)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>gruppe <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="fu">c</span>(<span class="st">"I"</span>,<span class="st">"K"</span>), <span class="at">size=</span><span class="dv">100</span>,<span class="at">replace=</span>T)</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>konsentrasjon <span class="ot">&lt;-</span> <span class="dv">10</span><span class="sc">+</span><span class="fu">as.numeric</span>(gruppe<span class="sc">==</span><span class="st">"I"</span>)<span class="sc">+</span><span class="fu">runif</span>(<span class="fu">length</span>(gruppe), <span class="sc">-</span><span class="dv">6</span>,<span class="dv">6</span>) <span class="sc">%&gt;%</span> <span class="fu">round</span>(<span class="dv">0</span>)</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>minedata <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(gruppe, konsentrasjon)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1</span>)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>gruppe <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="fu">c</span>(<span class="st">"I"</span>,<span class="st">"K"</span>), <span class="at">size=</span><span class="dv">100</span>,<span class="at">replace=</span>T)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>konsentrasjon <span class="ot">&lt;-</span> <span class="dv">10</span><span class="sc">+</span><span class="fu">as.numeric</span>(gruppe<span class="sc">==</span><span class="st">"I"</span>)<span class="sc">+</span><span class="fu">runif</span>(<span class="fu">length</span>(gruppe), <span class="sc">-</span><span class="dv">6</span>,<span class="dv">6</span>) <span class="sc">%&gt;%</span> <span class="fu">round</span>(<span class="dv">0</span>)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>minedata <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(gruppe, konsentrasjon)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Hvor mange deltagere var i kontroll og i intervensjonsgruppa? Hint:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(gruppe)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>gruppe
+ I  K 
+49 51 </code></pre>
+</div>
 </div>
 <ol start="5" type="1">
 <li>Lag et histogram over konsentrasjon</li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(minedata<span class="sc">$</span>konsentrasjon)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(minedata<span class="sc">$</span>konsentrasjon)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="quiz19mars_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid" width="672"></p>
+</div>
 </div>
 <ol start="6" type="1">
 <li><p>Hva er max verdi av konsentrasjon?</p></li>
 <li><p>Lag et boksplot over konsentrasjon og bruk det til å anslå interkvartilbredden.</p></li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(minedata<span class="sc">$</span>konsentrasjon)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(minedata<span class="sc">$</span>konsentrasjon)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="quiz19mars_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid" width="672"></p>
+</div>
 </div>
 <ol start="5" type="1">
 <li><p>Hva er standardavviket til konsentrasjon?</p></li>
 <li><p>Er det forskjell i konsentrasjon i de to gruppene? Bruk en t-test</p></li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">t.test</span>(konsentrasjon<span class="sc">~</span>gruppe, <span class="at">data=</span>minedata)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">t.test</span>(konsentrasjon<span class="sc">~</span>gruppe, <span class="at">data=</span>minedata)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ol start="7" type="1">
 <li><p>Hva var differansen i gjennomsnitt?</p></li>
 <li><p>Beregn cohens d for effektstørrelsen av intervensjonen.</p></li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(psych)</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">cohen.d</span>(konsentrasjon<span class="sc">~</span>gruppe, <span class="at">data=</span>minedata)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(psych)</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">cohen.d</span>(konsentrasjon<span class="sc">~</span>gruppe, <span class="at">data=</span>minedata)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Call: cohen.d(x = konsentrasjon ~ gruppe, data = minedata)
+Cohen d statistic of difference between two means
+              lower effect upper
+konsentrasjon -0.64  -0.25  0.14
+
+Multivariate (Mahalanobis) distance between groups
+[1] 0.25
+r equivalent of difference between two means
+konsentrasjon 
+        -0.12 </code></pre>
+</div>
 </div>
 <ol start="9" type="1">
 <li><p>Hva er konfidensintervallet for <span class="math inline">\(d\)</span>. Gi en tolkning av det faktum at det ikke inneholder <span class="math inline">\(0\)</span>.</p></li>
 <li><p>Vi Lager et nytt simulert datasett for effekt av konsentrasjon på eksamensresultat:</p></li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1</span>)</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>poeng <span class="ot">&lt;-</span> <span class="dv">25</span><span class="sc">+</span><span class="dv">2</span><span class="sc">*</span>konsentrasjon<span class="sc">+</span><span class="fu">rnorm</span>(<span class="fu">length</span>(konsentrasjon), <span class="at">mean=</span><span class="dv">0</span>, <span class="at">sd=</span><span class="dv">10</span>)</span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>eksamendata <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(poeng, konsentrasjon)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1</span>)</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>poeng <span class="ot">&lt;-</span> <span class="dv">25</span><span class="sc">+</span><span class="dv">2</span><span class="sc">*</span>konsentrasjon<span class="sc">+</span><span class="fu">rnorm</span>(<span class="fu">length</span>(konsentrasjon), <span class="at">mean=</span><span class="dv">0</span>, <span class="at">sd=</span><span class="dv">10</span>)</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>eksamendata <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(poeng, konsentrasjon)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ol start="11" type="1">
 <li>Plott konsentrasjon mot eksamensresultat og beregn korrelasjonen</li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(eksamendata<span class="sc">$</span>konsentrasjon, eksamendata<span class="sc">$</span>poeng)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(eksamendata<span class="sc">$</span>konsentrasjon, eksamendata<span class="sc">$</span>poeng)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="quiz19mars_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid" width="672"></p>
+</div>
 </div>
 <ol start="12" type="1">
 <li>Estimer regresjonsmodellen <span class="math inline">\(Poeng=\beta_0+ \beta_1 konsentrasjon + \epsilon\)</span> og tolk stigningstallet <span class="math inline">\(\beta_1\)</span> på en lettfattelig måte</li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">lm</span>(poeng<span class="sc">~</span>konsentrasjon, <span class="at">data=</span>eksamendata)</span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(model)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">lm</span>(poeng<span class="sc">~</span>konsentrasjon, <span class="at">data=</span>eksamendata)</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(model)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = poeng ~ konsentrasjon, data = eksamendata)
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-23.0078  -6.1458   0.0825   5.8221  23.8069 
+
+Coefficients:
+              Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)    22.6031     3.0129   7.502 2.88e-11 ***
+konsentrasjon   2.3258     0.2688   8.651 1.02e-13 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 8.961 on 98 degrees of freedom
+Multiple R-squared:  0.433, Adjusted R-squared:  0.4272 
+F-statistic: 74.84 on 1 and 98 DF,  p-value: 1.015e-13</code></pre>
+</div>
 </div>
 <ol start="13" type="1">
 <li><p>Hva er forklaringskraften til modellen?</p></li>
 <li><p>Sjekk at de tre forutsetningene (linearitet, homoskedastisitet og normalitet av residualer) ser ut til å være oppfylt</p></li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(performance)</span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="fu">check_model</span>(model, <span class="at">check=</span><span class="fu">c</span>(<span class="st">"linearity"</span>, <span class="st">"homogeneity"</span>, <span class="st">"normality"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(performance)</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="fu">check_model</span>(model, <span class="at">check=</span><span class="fu">c</span>(<span class="st">"linearity"</span>, <span class="st">"homogeneity"</span>, <span class="st">"normality"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="quiz19mars_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid" width="672"></p>
+</div>
 </div>
 <ol start="15" type="1">
 <li>Vi simulerer poengscore på ny, men nå med et ikke-normalt residual (khi-kvadrat fordelt)</li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1</span>)</span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>poeng <span class="ot">&lt;-</span> <span class="dv">25</span><span class="sc">+</span><span class="dv">2</span><span class="sc">*</span>konsentrasjon<span class="sc">+</span><span class="fu">rchisq</span>(<span class="fu">length</span>(konsentrasjon), <span class="at">df=</span><span class="dv">2</span>)</span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>eksamendata <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(poeng, konsentrasjon)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1</span>)</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>poeng <span class="ot">&lt;-</span> <span class="dv">25</span><span class="sc">+</span><span class="dv">2</span><span class="sc">*</span>konsentrasjon<span class="sc">+</span><span class="fu">rchisq</span>(<span class="fu">length</span>(konsentrasjon), <span class="at">df=</span><span class="dv">2</span>)</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>eksamendata <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(poeng, konsentrasjon)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Kontroller at normalitetsantagelsen er brutt:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">check_model</span>(model, <span class="at">check=</span><span class="fu">c</span>(<span class="st">"normality"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">check_model</span>(model, <span class="at">check=</span><span class="fu">c</span>(<span class="st">"normality"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="quiz19mars_files/figure-html/unnamed-chunk-13-1.png" class="img-fluid" width="672"></p>
+</div>
 </div>
 
 
