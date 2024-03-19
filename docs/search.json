@@ -420,6 +420,20 @@
     "text": "Oversikt over kvantitative metoder i ledende kanadiske journaler\nCounsell, Harlow, et al. (2017) gikk gjennom mest brukte statistiske metoder i kanadiske psykologi journaler: ANOVA, t-test og multippel regresjon\nAPA anbefaler å rapportere p-verdier + konfidensintervall+ effektstørrelser.\nEndel metodeforskere mener at effektstørrelsen med tilhørende konfidensintervall er nok (se side 2 i artikkelen)\nAltfor få studier rapporterer missing data og sjekk av statisiske forutsetninger"
   },
   {
+    "objectID": "slides/slides4.html#replikasjonskrisen",
+    "href": "slides/slides4.html#replikasjonskrisen",
+    "title": "Digital samling 19.03. Forskningsmetoder i psykologi, replikasjonskrisen og å sjekke antagelser for regresjon",
+    "section": "Replikasjonskrisen",
+    "text": "Replikasjonskrisen\nNosek et al. (2022) diskuterer replikasjon og reproduksjon av psykologiske forskningsfunn\n\nReplikasjon: Å imitere en studie med nye data for å bekrefte at funnet kan gjenskapes. Gjennom 2010 årene ble flere replikasjonsstudier utført. Mange publiserte funn ble ikke replikert! (replikasjonskrisen)\nCamerer et al. (2018) replikerte 21 eksperiment fra to toppjournaler (Nature og Science) bare 62% var signifikante i samme retning. Effekstørrelsene mye mindre."
+  },
+  {
+    "objectID": "slides/slides4.html#publikasjonsbias",
+    "href": "slides/slides4.html#publikasjonsbias",
+    "title": "Digital samling 19.03. Forskningsmetoder i psykologi, replikasjonskrisen og å sjekke antagelser for regresjon",
+    "section": "Publikasjonsbias",
+    "text": "Publikasjonsbias\nNosek et al. (2022) (side 724) nevner at de fleste studier har lav teststyrke (mindre en 50%). Da skulle man forvente at mer enn halvparten av studiene rapporterer om ikke-signifikant funn. Men ca 90% av funnene i forskningsartikler er signifikante. Dette tyder på at publikasjonsbias eksisterer!\n\nEn studie som har et positivt funn (forkaste \\(H_0\\) siden p-verdi &lt; 0.05) har en større sjanse til å bli antatt i en journal enn en studie med nullfunn…\nDet øker sjansen for at effekter som i virkeligheten er nær null kan framstå som viktige i forskningslitteraturen"
+  },
+  {
     "objectID": "slides/slides4.html#forutsetninger-for-multippel-regresjon",
     "href": "slides/slides4.html#forutsetninger-for-multippel-regresjon",
     "title": "Digital samling 19.03. Forskningsmetoder i psykologi, replikasjonskrisen og å sjekke antagelser for regresjon",
@@ -473,7 +487,7 @@
     "href": "slides/slides4.html#referanser",
     "title": "Digital samling 19.03. Forskningsmetoder i psykologi, replikasjonskrisen og å sjekke antagelser for regresjon",
     "section": "Referanser",
-    "text": "Referanser\n\n\nCounsell, Alyssa, Lisa Harlow, et al. 2017. “Reporting Practices and Use of Quantitative Methods in Canadian Journal Articles in Psychology.” Canadian Psychology/Psychologie Canadienne 58 (2): 140.\n\n\nScholtz, Salomé Elizabeth, Werner de Klerk, and Leon T de Beer. 2020. “The Use of Research Methods in Psychological Research: A Systematised Review.” Frontiers in Research Metrics and Analytics 5: 1.\n\n\n\n\nhjem"
+    "text": "Referanser\n\n\nCamerer, Colin F, Anna Dreber, Felix Holzmeister, Teck-Hua Ho, Jürgen Huber, Magnus Johannesson, Michael Kirchler, et al. 2018. “Evaluating the Replicability of Social Science Experiments in Nature and Science Between 2010 and 2015.” Nature Human Behaviour 2 (9): 637–44.\n\n\nCounsell, Alyssa, Lisa Harlow, et al. 2017. “Reporting Practices and Use of Quantitative Methods in Canadian Journal Articles in Psychology.” Canadian Psychology/Psychologie Canadienne 58 (2): 140.\n\n\nNosek, Brian A, Tom E Hardwicke, Hannah Moshontz, Aurélien Allard, Katherine S Corker, Anna Dreber, Fiona Fidler, et al. 2022. “Replicability, Robustness, and Reproducibility in Psychological Science.” Annual Review of Psychology 73: 719–48.\n\n\nScholtz, Salomé Elizabeth, Werner de Klerk, and Leon T de Beer. 2020. “The Use of Research Methods in Psychological Research: A Systematised Review.” Frontiers in Research Metrics and Analytics 5: 1.\n\n\n\n\nhjem"
   },
   {
     "objectID": "slides/slides1.html#mps-140",
@@ -991,14 +1005,14 @@
     "href": "Ressurser.html",
     "title": "Programvaren R",
     "section": "",
-    "text": "R er en open source og gratis programvare for statistikk.\nFor installasjon på din computer følg oppskriften her: https://posit.co/download/rstudio-desktop/\nSå kan du lage noen tilfeldige tall og lage et histogram og regne ut snittet og median:\n\nminetall &lt;- rnorm(200)# 200 tilfeldige tall trekkes fra standard normalfordeling. Ser ganske normalfordelt ut ja\nhist(minetall)\n\n\n\nmean(minetall)\n\n[1] 0.06033251\n\nmedian(minetall)\n\n[1] 0.07137761"
+    "text": "R er en open source og gratis programvare for statistikk.\nFor installasjon på din computer følg oppskriften her: https://posit.co/download/rstudio-desktop/\nSå kan du lage noen tilfeldige tall og lage et histogram og regne ut snittet og median:\n\nminetall &lt;- rnorm(200)# 200 tilfeldige tall trekkes fra standard normalfordeling. Ser ganske normalfordelt ut ja\nhist(minetall)\n\n\n\nmean(minetall)\n\n[1] 0.1472403\n\nmedian(minetall)\n\n[1] 0.1702996"
   },
   {
     "objectID": "Ressurser.html#r-og-rstudio",
     "href": "Ressurser.html#r-og-rstudio",
     "title": "Programvaren R",
     "section": "",
-    "text": "R er en open source og gratis programvare for statistikk.\nFor installasjon på din computer følg oppskriften her: https://posit.co/download/rstudio-desktop/\nSå kan du lage noen tilfeldige tall og lage et histogram og regne ut snittet og median:\n\nminetall &lt;- rnorm(200)# 200 tilfeldige tall trekkes fra standard normalfordeling. Ser ganske normalfordelt ut ja\nhist(minetall)\n\n\n\nmean(minetall)\n\n[1] 0.06033251\n\nmedian(minetall)\n\n[1] 0.07137761"
+    "text": "R er en open source og gratis programvare for statistikk.\nFor installasjon på din computer følg oppskriften her: https://posit.co/download/rstudio-desktop/\nSå kan du lage noen tilfeldige tall og lage et histogram og regne ut snittet og median:\n\nminetall &lt;- rnorm(200)# 200 tilfeldige tall trekkes fra standard normalfordeling. Ser ganske normalfordelt ut ja\nhist(minetall)\n\n\n\nmean(minetall)\n\n[1] 0.1472403\n\nmedian(minetall)\n\n[1] 0.1702996"
   },
   {
     "objectID": "emnebeskrivelse.html",

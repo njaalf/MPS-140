@@ -111,6 +111,31 @@ Endel metodeforskere mener at effektstørrelsen med tilhørende konfidensinterva
 
 Altfor få studier rapporterer missing data og sjekk av statisiske forutsetninger
 
+# Om replikasjon
+
+## Replikasjonskrisen
+
+@nosek diskuterer replikasjon og reproduksjon av psykologiske forskningsfunn
+
+- Replikasjon: Å imitere en studie med nye data for å bekrefte at funnet kan gjenskapes. Gjennom 2010 årene ble flere replikasjonsstudier utført. Mange publiserte funn ble ikke replikert! (replikasjonskrisen)
+
+- @camerer2018evaluating replikerte 21 eksperiment fra to toppjournaler (Nature og Science) bare 62\% var signifikante i samme retning. Effekstørrelsene mye mindre.  
+
+## Publikasjonsbias
+
+@nosek (side 724) nevner at de fleste studier har lav teststyrke (mindre en 50\%). Da skulle man forvente at mer enn halvparten av studiene rapporterer om ikke-signifikant funn. Men ca 90\% av funnene i forskningsartikler er signifikante. Dette tyder på at publikasjonsbias eksisterer!
+
+
+- En studie som har et positivt funn (forkaste $H_0$ siden p-verdi < 0.05) har en større sjanse til å bli antatt i en journal enn en studie med nullfunn...
+
+- Det øker sjansen for at effekter som i virkeligheten er nær null kan framstå som viktige i forskningslitteraturen
+
+
+
+
+
+
+
 # Sjekke forutsetninger for multippel regresjon
 
 ## Forutsetninger for multippel regresjon
