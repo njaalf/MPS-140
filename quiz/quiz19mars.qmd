@@ -11,6 +11,7 @@ format:
 knitr::opts_chunk$set(eval = FALSE)
 ```
 
+0. Forklar hvorfor publikasjonsbias kan være en av årsakene til replikasjonskrisen
 
 1.  Hva regnes som en stor effektstørrelse for Cohens $d$?
 
