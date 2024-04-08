@@ -931,11 +931,11 @@
     "text": "Bestemme antall faktorer\nvanskelig problem: Hvor mange faktorer ligger til grunn for en skala? I stress-studien trodde vi på 10 faktorer i utgangspunktet, men endte opp med 7 faktorer.\nVi skal bruke parallel-analyse for å studere dette.\nMerk at det finnes mange metoder, som ofte ikke er enige!\nHer må man bruke sin forståelse av feltet og itemene til å finne den beste løsningen!"
   },
   {
-    "objectID": "slides/slides5a.html#scree-plot",
-    "href": "slides/slides5a.html#scree-plot",
+    "objectID": "slides/slides5a.html#parallell-analyse-for-finne-antall-faktorer",
+    "href": "slides/slides5a.html#parallell-analyse-for-finne-antall-faktorer",
     "title": "Samling 9. april. Latente variabler og EFA",
-    "section": "Scree plot",
-    "text": "Scree plot\nEt scree plot (Catell, 1966) viser de såkalte egenverdiene. Hver egenverdi svarer til en faktor. Typisk vil plottet ha en “knekk” og antall faktorer er da antall egenverdier før knekken. Vi prøver med alle 50 indikatorer i stressdataene\n\nfa.parallel(select(data, 11:ncol(data)))\n\n\nParallel analysis suggests that the number of factors =  8  and the number of components =  7 \n\n\n\n\nhjem"
+    "section": "Parallell analyse for finne antall faktorer",
+    "text": "Parallell analyse for finne antall faktorer\nEt scree plot (Catell, 1966) viser de såkalte egenverdiene. Hver egenverdi svarer til en faktor. Typisk vil plottet ha en “knekk” og antall faktorer er da antall egenverdier før knekken. Parallell analyse er en videreutvikling av dette. Vi prøver med alle 50 indikatorer i stressdataene\n\nfa.parallel(select(data, 11:ncol(data)))\n\n\nParallel analysis suggests that the number of factors =  8  and the number of components =  7 \n\n\n\n\nhjem"
   },
   {
     "objectID": "slides/slides1.html#mps-140",
@@ -1138,13 +1138,13 @@
     "href": "Ressurser.html",
     "title": "Programvaren R",
     "section": "",
-    "text": "R er en open source og gratis programvare for statistikk.\nFor installasjon på din computer følg oppskriften her: https://posit.co/download/rstudio-desktop/\nSå kan du lage noen tilfeldige tall og lage et histogram og regne ut snittet og median:\n\nminetall &lt;- rnorm(200)# 200 tilfeldige tall trekkes fra standard normalfordeling. Ser ganske normalfordelt ut ja\nhist(minetall)\n\n\n\nmean(minetall)\n\n[1] 0.03899975\n\nmedian(minetall)\n\n[1] 0.02888658"
+    "text": "R er en open source og gratis programvare for statistikk.\nFor installasjon på din computer følg oppskriften her: https://posit.co/download/rstudio-desktop/\nSå kan du lage noen tilfeldige tall og lage et histogram og regne ut snittet og median:\n\nminetall &lt;- rnorm(200)# 200 tilfeldige tall trekkes fra standard normalfordeling. Ser ganske normalfordelt ut ja\nhist(minetall)\n\n\n\nmean(minetall)\n\n[1] -0.06420167\n\nmedian(minetall)\n\n[1] -0.03598701"
   },
   {
     "objectID": "Ressurser.html#r-og-rstudio",
     "href": "Ressurser.html#r-og-rstudio",
     "title": "Programvaren R",
     "section": "",
-    "text": "R er en open source og gratis programvare for statistikk.\nFor installasjon på din computer følg oppskriften her: https://posit.co/download/rstudio-desktop/\nSå kan du lage noen tilfeldige tall og lage et histogram og regne ut snittet og median:\n\nminetall &lt;- rnorm(200)# 200 tilfeldige tall trekkes fra standard normalfordeling. Ser ganske normalfordelt ut ja\nhist(minetall)\n\n\n\nmean(minetall)\n\n[1] 0.03899975\n\nmedian(minetall)\n\n[1] 0.02888658"
+    "text": "R er en open source og gratis programvare for statistikk.\nFor installasjon på din computer følg oppskriften her: https://posit.co/download/rstudio-desktop/\nSå kan du lage noen tilfeldige tall og lage et histogram og regne ut snittet og median:\n\nminetall &lt;- rnorm(200)# 200 tilfeldige tall trekkes fra standard normalfordeling. Ser ganske normalfordelt ut ja\nhist(minetall)\n\n\n\nmean(minetall)\n\n[1] -0.06420167\n\nmedian(minetall)\n\n[1] -0.03598701"
   }
 ]

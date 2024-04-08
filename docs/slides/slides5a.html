@@ -616,9 +616,9 @@ Cumulative Var 0.357 0.620</code></pre>
 <p>Merk at det finnes mange metoder, som ofte ikke er enige!</p>
 <p>Her må man bruke sin forståelse av feltet og itemene til å finne den beste løsningen!</p>
 </section>
-<section id="scree-plot" class="slide level2">
-<h2>Scree plot</h2>
-<p>Et scree plot (Catell, 1966) viser de såkalte <em>egenverdiene</em>. Hver egenverdi svarer til en faktor. Typisk vil plottet ha en “knekk” og antall faktorer er da antall egenverdier <em>før</em> knekken. Vi prøver med alle 50 indikatorer i stressdataene</p>
+<section id="parallell-analyse-for-finne-antall-faktorer" class="slide level2">
+<h2>Parallell analyse for finne antall faktorer</h2>
+<p>Et scree plot (Catell, 1966) viser de såkalte <em>egenverdiene</em>. Hver egenverdi svarer til en faktor. Typisk vil plottet ha en “knekk” og antall faktorer er da antall egenverdier <em>før</em> knekken. Parallell analyse er en videreutvikling av dette. Vi prøver med alle 50 indikatorer i stressdataene</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1"></a><span class="fu">fa.parallel</span>(<span class="fu">select</span>(data, <span class="dv">11</span><span class="sc">:</span><span class="fu">ncol</span>(data)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 

@@ -192,10 +192,10 @@ Merk at det finnes mange metoder, som ofte ikke er enige!
 Her må man bruke sin forståelse av feltet og itemene til å finne den beste løsningen!
 
 
-## Scree plot
+## Parallell analyse for finne antall faktorer
 
 
-Et scree plot (Catell, 1966) viser de såkalte *egenverdiene*. Hver egenverdi svarer til en faktor. Typisk vil plottet ha en "knekk" og antall faktorer er da antall egenverdier *før* knekken. Vi prøver med alle 50 indikatorer i stressdataene
+Et scree plot (Catell, 1966) viser de såkalte *egenverdiene*. Hver egenverdi svarer til en faktor. Typisk vil plottet ha en "knekk" og antall faktorer er da antall egenverdier *før* knekken. Parallell analyse er en videreutvikling av dette. Vi prøver med alle 50 indikatorer i stressdataene
 
 ```{r}
 fa.parallel(select(data, 11:ncol(data)))
