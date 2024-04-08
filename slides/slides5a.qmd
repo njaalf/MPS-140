@@ -44,15 +44,15 @@ execute:
 
 ## Terminologi
 
-- Latent variabel, konstrukt, faktor: synonymer for en variabel som vi ikke kan observere.
+-   Latent variabel, konstrukt, faktor: synonymer for en variabel som vi ikke kan observere.
 
-- Indikator, observerbar variabel, item. Synonymer for variabler vi faktisk kan observere i datasettet. Indikatorer blir ofte gruppert sammen og oppfattet som om de måler en faktor
+-   Indikator, observerbar variabel, item. Synonymer for variabler vi faktisk kan observere i datasettet. Indikatorer blir ofte gruppert sammen og oppfattet som om de måler en faktor
 
 -EFA eksplorative modellering med faktorer. Alle indikatorer har lov å lade på alle faktorer. Brukes til å finne ut hvilke faktorer som evt ligger bak de observerte dataene
 
-- CFA: confirmatory faktor analyse. Her vet man hvilke item som lader på hvilke indikatorer. 
+-   CFA: confirmatory faktor analyse. Her vet man hvilke item som lader på hvilke indikatorer.
 
-- SEM strukturell equation modeling. Dette er som CFA bare at vi har regresjoner mellom de latente variablene
+-   SEM strukturell equation modeling. Dette er som CFA bare at vi har regresjoner mellom de latente variablene
 
 ## Statistisk modell for konstrukter:
 
@@ -183,7 +183,7 @@ f$loadings
 
 ## Bestemme antall faktorer
 
-vanskelig problem: Hvor mange faktorer ligger til grunn for en skala?  I stress-studien trodde vi på 10 faktorer i utgangspunktet, men endte opp med 7 faktorer. 
+vanskelig problem: Hvor mange faktorer ligger til grunn for en skala? I stress-studien trodde vi på 10 faktorer i utgangspunktet, men endte opp med 7 faktorer.
 
 Vi skal bruke parallel-analyse for å studere dette.
 
@@ -191,16 +191,10 @@ Merk at det finnes mange metoder, som ofte ikke er enige!
 
 Her må man bruke sin forståelse av feltet og itemene til å finne den beste løsningen!
 
-
 ## Parallell analyse for finne antall faktorer
-
 
 Et scree plot (Catell, 1966) viser de såkalte *egenverdiene*. Hver egenverdi svarer til en faktor. Typisk vil plottet ha en "knekk" og antall faktorer er da antall egenverdier *før* knekken. Parallell analyse er en videreutvikling av dette. Vi prøver med alle 50 indikatorer i stressdataene
 
 ```{r}
 fa.parallel(select(data, 11:ncol(data)))
 ```
-
-
-
-
