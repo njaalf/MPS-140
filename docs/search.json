@@ -455,18 +455,221 @@
     "text": "Referanser\n\n\nCamerer, Colin F, Anna Dreber, Felix Holzmeister, Teck-Hua Ho, Jürgen Huber, Magnus Johannesson, Michael Kirchler, et al. 2018. “Evaluating the Replicability of Social Science Experiments in Nature and Science Between 2010 and 2015.” Nature Human Behaviour 2 (9): 637–44.\n\n\nCounsell, Alyssa, Lisa Harlow, et al. 2017. “Reporting Practices and Use of Quantitative Methods in Canadian Journal Articles in Psychology.” Canadian Psychology/Psychologie Canadienne 58 (2): 140.\n\n\nNosek, Brian A, Tom E Hardwicke, Hannah Moshontz, Aurélien Allard, Katherine S Corker, Anna Dreber, Fiona Fidler, et al. 2022. “Replicability, Robustness, and Reproducibility in Psychological Science.” Annual Review of Psychology 73: 719–48.\n\n\nScholtz, Salomé Elizabeth, Werner de Klerk, and Leon T de Beer. 2020. “The Use of Research Methods in Psychological Research: A Systematised Review.” Frontiers in Research Metrics and Analytics 5: 1.\n\n\n\n\nhjem"
   },
   {
-    "objectID": "quiz/quiz19mars_medfasit.html",
-    "href": "quiz/quiz19mars_medfasit.html",
-    "title": "Quiz 19.mars",
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "MPS 140: Kvantitativ forskningsmetode og statistikk",
     "section": "",
-    "text": "Forklar hvorfor publikasjonsbias kan være en av årsakene til replikasjonskrisen.\n\nSvar: Det er vanskelig å replikere en studie som er en falsk positiv. Falske positive er overrepresentert i den publiserte litteraturen, grunnet publikasjonsbias.\n\nHva regnes som en stor effektstørrelse for Cohens \\(d\\)?\n\nSvar: I mange felt er \\(d\\) større ennn .5 regnet som stor.\n\nCohen \\(d=0.2\\) for en intervensjon, tolk dette tallet i en setning som inneholder ordene “standardavvik” og “økning i gjennomsnittsscore”.\n\nSvar: Forskjellen mellom intervensjon og kontroll tilsvarer en økning i gjennomsnittscore på 0.2 standardavvik.\n\nEn mindfulness-intervensjon gjør at konsentrasjonen i intervensjonsgruppa er 3 poeng høyere enn i kontrollgrupa. Hvis den poolede standardavviket \\(s_p\\) er 10 poeng, hva er da effektstørrelsen?\n\nSvar: \\(d =\\frac{\\overline{x_I}-\\overline{x_K}}{s_p}=3/10=0.3\\)\n\nVi genererer et datasett som måler konsentrasjon på en skala 1-20 etter en mindfulness-intervensjon:\n\n\nlibrary(tidyverse)\nset.seed(1)\ngruppe &lt;- sample(c(\"I\",\"K\"), size=100,replace=T)\nkonsentrasjon &lt;- 10+as.numeric(gruppe==\"I\")+runif(length(gruppe), -6,6) %&gt;% round(0)\nminedata &lt;- data.frame(gruppe, konsentrasjon)\n\nHvor mange deltagere var i kontroll og i intervensjonsgruppa? Hint:\n\ntable(gruppe)\n\ngruppe\n I  K \n49 51 \n\n\n\nLag et histogram over konsentrasjon\n\n\nhist(minedata$konsentrasjon)\n\n\n\n\n\nHva er max verdi av konsentrasjon?\n\n\nmax(minedata$konsentrasjon)\n\n[1] 17\n\n\n\nLag et boksplot over konsentrasjon og bruk det til å anslå interkvartilbredden.\n\n\nboxplot(minedata$konsentrasjon)\n\n\n\n\n\nHva er standardavviket til konsentrasjon?\n\n\nboxplot(minedata$konsentrasjon)\n\n\n\n\n\nEr det signifikant forskjell i konsentrasjon i de to gruppene? Bruk en t-test\n\n\nt.test(konsentrasjon~gruppe, data=minedata)\n\n\n    Welch Two Sample t-test\n\ndata:  konsentrasjon by gruppe\nt = 1.2389, df = 97.632, p-value = 0.2184\nalternative hypothesis: true difference in means between group I and group K is not equal to 0\n95 percent confidence interval:\n -0.4985509  2.1552136\nsample estimates:\nmean in group I mean in group K \n       11.12245        10.29412 \n\n\nNei ikke signifikant forskjell , p-verdien er større enn .05\n\nHva var differansen i gjennomsnitt?\n\nSvar: 11.12245 - 10.29412 =0.83 poeng\n\nBeregn cohens d for effektstørrelsen av intervensjonen.\n\n\nlibrary(psych)\ncohen.d(konsentrasjon~gruppe, data=minedata)\n\nSvar: d=0.25\n\nHva er konfidensintervallet for \\(d\\). Gi en tolkning av det faktum at det inneholder \\(0\\).\n\nSvar: Konfidensintervallet går fra -0.14 til 0.64 At 0 er inneholdt betyr at vi effektstørrelsen ikke er signifikant forskjellig fra 0.\n\nVi Lager et nytt simulert datasett for effekt av konsentrasjon på eksamensresultat:\n\n\nset.seed(1)\npoeng &lt;- 25+2*konsentrasjon+rnorm(length(konsentrasjon), mean=0, sd=10)\neksamendata &lt;- data.frame(poeng, konsentrasjon)\n\n\nPlott konsentrasjon mot eksamensresultat og beregn korrelasjonen\n\n\nplot(eksamendata$konsentrasjon, eksamendata$poeng)\n\n\n\n\n\nEstimer regresjonsmodellen \\(Poeng=\\beta_0+ \\beta_1 konsentrasjon + \\epsilon\\) og tolk stigningstallet \\(\\beta_1\\) på en lettfattelig måte\n\n\nmodel &lt;- lm(poeng~konsentrasjon, data=eksamendata)\nsummary(model)\n\n\nCall:\nlm(formula = poeng ~ konsentrasjon, data = eksamendata)\n\nResiduals:\n     Min       1Q   Median       3Q      Max \n-23.0078  -6.1458   0.0825   5.8221  23.8069 \n\nCoefficients:\n              Estimate Std. Error t value Pr(&gt;|t|)    \n(Intercept)    22.6031     3.0129   7.502 2.88e-11 ***\nkonsentrasjon   2.3258     0.2688   8.651 1.02e-13 ***\n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nResidual standard error: 8.961 on 98 degrees of freedom\nMultiple R-squared:  0.433, Adjusted R-squared:  0.4272 \nF-statistic: 74.84 on 1 and 98 DF,  p-value: 1.015e-13\n\n\nSvar: En økning i konsentrasjon på 1 poeng gjir en forventet økning i eksamensscore på 2.33 poeng.\n\nHva er forklaringskraften til modellen?\n\nSvar: 0.43\n\nSjekk at de tre forutsetningene (linearitet, homoskedastisitet og normalitet av residualer) ser ut til å være oppfylt\n\n\nlibrary(performance)\ncheck_model(model, check=c(\"linearity\", \"homogeneity\", \"normality\"))\n\n\n\n\nSvar: Ja de grønne linjene i de to første panelen er omtrent horisontale, og fordelingen til residualene følger tilnærmet den grønne normalfordelingen i det siste panelet.\n\nVi simulerer poengscore på ny, men nå med et ikke-normalt residual (khi-kvadrat fordelt)\n\n\nset.seed(1)\npoeng &lt;- 25+2*konsentrasjon+rchisq(length(konsentrasjon), df=2)\neksamendata &lt;- data.frame(poeng, konsentrasjon)\nnymodell &lt;- lm(poeng~konsentrasjon, data=eksamendata)\n\nKontroller at normalitetsantagelsen er brutt:\n\ncheck_model(nymodell, check=c(\"normality\"))\n\n\n\n\nSvar: Fordelingen til residualene avviker fra den grønne normalfordelte linja, så her er normalitetsantagelsen brutt."
+    "text": "FYSISKE SAMLINGER\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nDato\nTema\nForberedelser\nPresentasjoner\nR\nOppgaver\n\n\n\n\n23.01: 1215-16\nIntro og grunnleggende statistikk\n📖\n🖥 🖥\n📋\n📋\n\n\n05.03: 815-16\nPsykometri\n📖\n🖥 🖥\n\n📋\n\n\n09.04: 815-16\nLatente variable\n📖\n🖥\n\n\n\n\n03.06\nEksamen\n\n\n\n\n\n\n\n\n\n\nDIGITALE SAMLINGER\n\n\n\n\n\n\n\n\n\n\n\n\nDato\nTema\nForberedelser\nPresentasjon\nR\nOppgaver\n\n\n\n\n06.02: 9-12\nR og regresjonsmodellen\n📖\n🖥\n📋\n📋\n\n\n19.03: 9-12\nForskningsmetoder i psykologi + Forutsetninger for regresjon\n📖\n🖥\n\n📋\n\n\n23.04:9-12\nLatente variable\n\n\n\n\n\n\n07.05: 9-12\nEksamensforberedelse"
   },
   {
-    "objectID": "quiz/quiz 5mars.html",
-    "href": "quiz/quiz 5mars.html",
-    "title": "Quiz 5.mars. Multippel og logistisk regresjon",
+    "objectID": "quiz/quiz19mars.html",
+    "href": "quiz/quiz19mars.html",
+    "title": "Quiz 19.mars",
     "section": "",
-    "text": "Vi jobber videre med stressdata fila fra slides som er hentet fra denne studien\n\nEr dette et tverrsnitts- eller longitudinelt datasett?\nEr utvalget tilfeldig? Hvordan vil du karakterisere utvalget?\nHva er standardavviket til alder i datasettet?\nHvordan vil du definere en “uvanlig” høy alder?\nLag et 95\\% konfidensintervall for alder.\n\n\nt.test(stressdata$age)\n\n\nDet påstås at i populasjonen som dette utvalget er tatt ifra så er menn og kvinner like gamle. Skriv opp nullhypotesen og alternativhypotesen. Bruk symbolene \\(\\mu_M\\) og \\(\\mu_K\\).\nUtfør testen ved hjelp av\n\n\nt.test(age~kjønn, stressdata)\n\n\nGå til artikkelen og last ned “supplemental data” dokumentet. Der finner du spørsmålene om Usikkerhet: INSE1-INSE5. Lag et spredningsplott av INSE1 vs INSE2 og forklar hvorfor det ikke er informativt\n\n\nplot(stressdata$INSE1, stressdata$INSE2)\n\n\nDu kan “jittre” observasjonene ved hjelp av ggplot2 pakken i tidyverset.\n\n\nqplot(stressdata$INSE1, stressdata$INSE2)+geom_jitter()\n\nLegg til regresjonslinja ved hjelp av +geom_smooth(method=“lm”) i kommandoen over. Er det negativ, ingen, eller positiv sammenheng mellom INSE1 og INSE2?\n\nBeregn korrelasjonen mellom INSE1 og INSE2 vha cor() funksjonen\nLag summescore for alle 5 INSE items, som en ny variabel:\n\n\nstressdata$insecurity &lt;- stressdata$INSE1+stressdata$INSE2+stressdata$INSE3+stressdata$INSE4+stressdata$INSE5\n\n\nKjør en regresjon med summescore for insecurity som avhengig variabel og kjønn og alder som prediktorer. Hva blir \\(R^2\\) adjusted?\n\n\nmod &lt;- lm(insecurity ~ kjønn+age, data=stressdata) \nsummary(mod)\n\nHar modellen noen som helst forklaringskraft?\n\nKjør en regresjon med summescore for insecurity som avhengig variabel og bransje som prediktor. Har denne modellen noen som helst forklaringskraft?\n\n\nmod &lt;- lm(insecurity ~ bransje, data=stressdata) \nsummary(mod)\n\nHar modellen noen som helst forklaringskraft?\n\nTolk Intercept verdien i modellen i oppgave 12.\nTolk regresjonskoeffisient for bransje:Helse og Omsorg, i oppgave 12.\nTa med summescoren complexity for COMP1-COMP5 som en prediktor i tillegg til bransje. Har denne modellen bedre forklaringskraft enn modellen i oppgave 12?\nTolk regresjonskoeffisienten til complexity.\nHvilken insecurity score forventer vi for en person som skåret 10 på complexity skalaen dersom denne personen jobber i Helse og omsorg?\nLag korrelasjonsmatrisen for alle INSE items og insecurity\n\n\ninse &lt;- select(stressdata, contains(\"INSE\"))\ncor(inse) %&gt;% round(2)\n\nHvilket item er minst korrelert med summeskåren?\n\nBeregn cronbach’s \\(\\alpha\\) for INSE\n\n\npsych::alpha(inse[, 1:5])\n\nHva blir \\(\\alpha\\) hvis vi fjerne det itement fra skalaen som er minst korrelert med summeskåren?\n\nI utgangspunktet fra den tyske originalstudien skulle det være 10 fasetter av digitalt jobbstress. Studien vår finner ikke støtte for dette. Vi fant støtte for 8 fasetter. Hvilke to fasetter av digital jobbstress fant vi ikke støtte for i det norske utvalget?\nLogistisk regresjon. Bruk stressdataene til å predikere kjønn ut ifra bransje og leder (to binære prediktorer). Du må gjøre kjønn om til 0/1 (1 =kvinne) først:\n\n\nstressdata$kvinne &lt;- ifelse(stressdata$kjønn==\"mann\", 0, 1)\n\n\nTolk koeffisientene i forrige oppgave, gjerne som prosentvis endring i oddsene\nNoen kjente tester er\n\n\nEysenck and Eysenck (1968) Personality Inventory\nSpielberger (1983) State trait anxiety scale\nRotter (1966) locus of control\nRosenberg (1965) self-esteem\n\nHvor mange items er det i hvert av disse? Hvilken Likert skala er brukt?\n\n\n\n\nReferences\n\nEysenck, Hans J, and Sybil BG Eysenck. 1968. “Eysenck Personality Inventory.” Journal of Clinical Psychology.\n\n\nRosenberg, Morris. 1965. “Rosenberg Self-Esteem Scale.” Journal of Religion and Health.\n\n\nRotter, Julian B. 1966. “Generalized Expectancies for Internal Versus External Control of Reinforcement.” Psychological Monographs: General and Applied 80 (1): 1.\n\n\nSpielberger, Charles D. 1983. “State-Trait Anxiety Inventory for Adults.”"
+    "text": "Forklar hvorfor publikasjonsbias kan være en av årsakene til replikasjonskrisen.\n\nSvar: Det er vanskelig å replikere en studie som er en falsk positiv. Falske positive er overrepresentert i den publiserte litteraturen, grunnet publikasjonsbias.\n\nHva regnes som en stor effektstørrelse for Cohens \\(d\\)?\n\nSvar: I mange felt er \\(d\\) større ennn .5 regnet som stor.\n\nCohen \\(d=0.2\\) for en intervensjon, tolk dette tallet i en setning som inneholder ordene “standardavvik” og “økning i gjennomsnittsscore”.\nEn mindfulness-intervensjon gjør at konsentrasjonen i intervensjonsgruppa er 3 poeng høyere enn i kontrollgrupa. Hvis den poolede standardavviket \\(s_p\\) er 10 poeng, hva er da effektstørrelsen?\nVi genererer et datasett som måler konsentrasjon på en skala 1-20 etter en mindfulness-intervensjon:\n\n\nlibrary(tidyverse)\nset.seed(1)\ngruppe &lt;- sample(c(\"I\",\"K\"), size=100,replace=T)\nkonsentrasjon &lt;- 10+as.numeric(gruppe==\"I\")+runif(length(gruppe), -6,6) %&gt;% round(0)\nminedata &lt;- data.frame(gruppe, konsentrasjon)\n\nHvor mange deltagere var i kontroll og i intervensjonsgruppa? Hint:\n\ntable(gruppe)\n\ngruppe\n I  K \n49 51 \n\n\n\nLag et histogram over konsentrasjon\n\n\nhist(minedata$konsentrasjon)\n\n\n\n\n\nHva er max verdi av konsentrasjon?\nLag et boksplot over konsentrasjon og bruk det til å anslå interkvartilbredden.\n\n\nboxplot(minedata$konsentrasjon)\n\n\n\n\n\nHva er standardavviket til konsentrasjon?\nEr det forskjell i konsentrasjon i de to gruppene? Bruk en t-test\n\n\nt.test(konsentrasjon~gruppe, data=minedata)\n\n\nHva var differansen i gjennomsnitt?\nBeregn cohens d for effektstørrelsen av intervensjonen.\n\n\nlibrary(psych)\ncohen.d(konsentrasjon~gruppe, data=minedata)\n\nCall: cohen.d(x = konsentrasjon ~ gruppe, data = minedata)\nCohen d statistic of difference between two means\n              lower effect upper\nkonsentrasjon -0.64  -0.25  0.14\n\nMultivariate (Mahalanobis) distance between groups\n[1] 0.25\nr equivalent of difference between two means\nkonsentrasjon \n        -0.12 \n\n\n\nHva er konfidensintervallet for \\(d\\). Gi en tolkning av det faktum at det ikke inneholder \\(0\\).\nVi Lager et nytt simulert datasett for effekt av konsentrasjon på eksamensresultat:\n\n\nset.seed(1)\npoeng &lt;- 25+2*konsentrasjon+rnorm(length(konsentrasjon), mean=0, sd=10)\neksamendata &lt;- data.frame(poeng, konsentrasjon)\n\n\nPlott konsentrasjon mot eksamensresultat og beregn korrelasjonen\n\n\nplot(eksamendata$konsentrasjon, eksamendata$poeng)\n\n\n\n\n\nEstimer regresjonsmodellen \\(Poeng=\\beta_0+ \\beta_1 konsentrasjon + \\epsilon\\) og tolk stigningstallet \\(\\beta_1\\) på en lettfattelig måte\n\n\nmodel &lt;- lm(poeng~konsentrasjon, data=eksamendata)\nsummary(model)\n\n\nCall:\nlm(formula = poeng ~ konsentrasjon, data = eksamendata)\n\nResiduals:\n     Min       1Q   Median       3Q      Max \n-23.0078  -6.1458   0.0825   5.8221  23.8069 \n\nCoefficients:\n              Estimate Std. Error t value Pr(&gt;|t|)    \n(Intercept)    22.6031     3.0129   7.502 2.88e-11 ***\nkonsentrasjon   2.3258     0.2688   8.651 1.02e-13 ***\n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nResidual standard error: 8.961 on 98 degrees of freedom\nMultiple R-squared:  0.433, Adjusted R-squared:  0.4272 \nF-statistic: 74.84 on 1 and 98 DF,  p-value: 1.015e-13\n\n\n\nHva er forklaringskraften til modellen?\nSjekk at de tre forutsetningene (linearitet, homoskedastisitet og normalitet av residualer) ser ut til å være oppfylt\n\n\nlibrary(performance)\ncheck_model(model, check=c(\"linearity\", \"homogeneity\", \"normality\"))\n\n\n\n\n\nVi simulerer poengscore på ny, men nå med et ikke-normalt residual (khi-kvadrat fordelt)\n\n\nset.seed(1)\npoeng &lt;- 25+2*konsentrasjon+rchisq(length(konsentrasjon), df=2)\neksamendata &lt;- data.frame(poeng, konsentrasjon)\n\nKontroller at normalitetsantagelsen er brutt:\n\ncheck_model(model, check=c(\"normality\"))"
+  },
+  {
+    "objectID": "quiz/quiz 19mars.html",
+    "href": "quiz/quiz 19mars.html",
+    "title": "Quiz 19.mars",
+    "section": "",
+    "text": "Hva regnes som en stor effektstørrelse for Cohens \\(d\\)?\nCohen \\(d=0.2\\) for en intervensjon, tolk dette tallet i en setning som inneholder ordene “standardavvik” og “økning i gjennomsnittsscore”.\nEn mindfulness-intervensjon gjør at konsentrasjonen i intervensjonsgruppa er 3 poeng høyere enn i kontrollgrupa. Hvis den poolede standardavviket \\(s_p\\) er 10 poeng, hva er da effektstørrelsen?\nVi genererer et datasett som måler konsentrasjon på en skala 1-20 etter en mindfulness-intervensjon:\n\n\nset.seed(1)\ngruppe &lt;- sample(c(\"I\",\"K\"), size=100,replace=T)\nkonsentrasjon &lt;- 10+as.numeric(gruppe==\"I\")+runif(length(gruppe), -6,6) %&gt;% round(0)\nminedata &lt;- data.frame(gruppe, konsentrasjon)\n\nHvor mange deltagere var i kontroll og i intervensjonsgruppa? Hint:\n\ntable(gruppe)\n\n\nLag et histogram over konsentrasjon\n\n\nhist(minedata$konsentrasjon)\n\n\nHva er max verdi av konsentrasjon?\nLag et boksplot over konsentrasjon og bruk det til å anslå interkvartilbredden.\n\n\nboxplot(minedata$konsentrasjon)\n\n\nHva er standardavviket til konsentrasjon?\nEr det forskjell i konsentrasjon i de to gruppene? Bruk en t-test\n\n\nt.test(konsentrasjon~gruppe, data=minedata)\n\n\nHva var differansen i gjennomsnitt?\nBeregn cohens d for effektstørrelsen av intervensjonen.\n\n\nlibrary(psych)\ncohen.d(konsentrasjon~gruppe, data=minedata)\n\n\nHva er konfidensintervallet for \\(d\\). Gi en tolkning av det faktum at det ikke inneholder \\(0\\).\nVi Lager et nytt simulert datasett for effekt av konsentrasjon på eksamensresultat:\n\n\nset.seed(1)\npoeng &lt;- 25+2*konsentrasjon+rnorm(length(konsentrasjon), mean=0, sd=10)\neksamendata &lt;- data.frame(poeng, konsentrasjon)\n\n\nPlott konsentrasjon mot eksamensresultat og beregn korrelasjonen\n\n\nplot(eksamendata$konsentrasjon, eksamendata$poeng)\n\n\nEstimer regresjonsmodellen \\(Poeng=\\beta_0+ \\beta_1 konsentrasjon + \\epsilon\\) og tolk stigningstallet \\(\\beta_1\\) på en lettfattelig måte\n\n\nmodel &lt;- lm(poeng~konsentrasjon, data=eksamendata)\nsummary(model)\n\n\nHva er forklaringskraften til modellen?\nSjekk at de tre forutsetningene (linearitet, homoskedastisitet og normalitet av residualer) ser ut til å være oppfylt\n\n\nlibrary(performance)\ncheck_model(model, check=c(\"linearity\", \"homogeneity\", \"normality\"))\n\n\nVi simulerer poengscore på ny, men nå med et ikke-normalt residual (khi-kvadrat fordelt)\n\n\nset.seed(1)\npoeng &lt;- 25+2*konsentrasjon+rchisq(length(konsentrasjon), df=2)\neksamendata &lt;- data.frame(poeng, konsentrasjon)\n\nKontroller at normalitetsantagelsen er brutt:\n\ncheck_model(model, check=c(\"normality\"))"
+  },
+  {
+    "objectID": "R/R1.html#housing-dataene",
+    "href": "R/R1.html#housing-dataene",
+    "title": "R for samling 1",
+    "section": "Housing dataene",
+    "text": "Housing dataene\nVi må installere noen pakker og da får vi Housing datafilen gjennom pakken Ecdat.\n\nlibrary(Ecdat)\nlibrary(tidyverse)\nHousing &lt;- Housing[, c(1:3, 10, 11:12)]# her velger vi ut søylene 1,2,3,10,11,12\n#View(Housing) kikker litt på dataene"
+  },
+  {
+    "objectID": "R/R1.html#histogram-for-pris",
+    "href": "R/R1.html#histogram-for-pris",
+    "title": "R for samling 1",
+    "section": "Histogram for pris",
+    "text": "Histogram for pris\nEnten bruker vi base R eller den mer kraftige pakken ggplot som vi fikk via tidyverse."
+  },
+  {
+    "objectID": "R/R1.html#stolpediagram-for-preferred-area",
+    "href": "R/R1.html#stolpediagram-for-preferred-area",
+    "title": "R for samling 1",
+    "section": "Stolpediagram for preferred area",
+    "text": "Stolpediagram for preferred area\nStolpediagram for preferred area:\n\n#ggplot\nggplot(Housing, aes(prefarea))+geom_bar()"
+  },
+  {
+    "objectID": "R/R1.html#separere-på-preferreed-area-og-se-på-fordelingene",
+    "href": "R/R1.html#separere-på-preferreed-area-og-se-på-fordelingene",
+    "title": "R for samling 1",
+    "section": "Separere på preferreed area og se på fordelingene",
+    "text": "Separere på preferreed area og se på fordelingene\n\nggplot(Housing, aes(price, color=prefarea))+geom_density()"
+  },
+  {
+    "objectID": "R/R1.html#krysstabell",
+    "href": "R/R1.html#krysstabell",
+    "title": "R for samling 1",
+    "section": "KRYSSTABELL",
+    "text": "KRYSSTABELL\n\ntable(Housing$airc, Housing$prefarea)\n\n     \n       no yes\n  no  298  75\n  yes 120  53"
+  },
+  {
+    "objectID": "R/R1.html#spredningsdiagram",
+    "href": "R/R1.html#spredningsdiagram",
+    "title": "R for samling 1",
+    "section": "spredningsdiagram",
+    "text": "spredningsdiagram\n\nggplot(Housing, aes(lotsize,price))+geom_point()"
+  },
+  {
+    "objectID": "R/R1.html#korrelasjon",
+    "href": "R/R1.html#korrelasjon",
+    "title": "R for samling 1",
+    "section": "Korrelasjon",
+    "text": "Korrelasjon\n\nx &lt;- c(-5 , 10 , 15 , 31 , 42)\ny &lt;- c( 3 , 3 , 0 , 1 , -1)\ncor(x, y)\n\n[1] -0.82\n\n#base R\nplot(x,y)\n\n\n\n#ggplot\nggplot(data.frame(x,y), aes(x,y))+geom_point(size=3)"
+  },
+  {
+    "objectID": "R/R1.html#cornflakes",
+    "href": "R/R1.html#cornflakes",
+    "title": "R for samling 1",
+    "section": "Cornflakes",
+    "text": "Cornflakes\n\nvekt &lt;- c(502, 498, 479, 492, 488, 494, 494)\nt.test(vekt, mu=500)\n\n\n    One Sample t-test\n\ndata:  vekt\nt = -2.7105, df = 6, p-value = 0.03508\nalternative hypothesis: true mean is not equal to 500\n95 percent confidence interval:\n 485.5935 499.2636\nsample estimates:\nmean of x \n 492.4286"
+  },
+  {
+    "objectID": "R/R1.html#oppgave-13",
+    "href": "R/R1.html#oppgave-13",
+    "title": "R for samling 1",
+    "section": "Oppgave 13",
+    "text": "Oppgave 13\n\nalder &lt;- c(20, 20, 19, 23, 29, 27, 25, 21)#legge inn i vektor\nsd(alder)\n\n[1] 3.664502"
+  },
+  {
+    "objectID": "R/R1.html#oppgave-24",
+    "href": "R/R1.html#oppgave-24",
+    "title": "R for samling 1",
+    "section": "Oppgave 24",
+    "text": "Oppgave 24\n\ntimer &lt;- c(23, 55, 60, 70, 65 , 60)\nsd(timer)\n\n[1] 16.71825"
+  },
+  {
+    "objectID": "R/R1.html#oppgave-27",
+    "href": "R/R1.html#oppgave-27",
+    "title": "R for samling 1",
+    "section": "Oppgave 27",
+    "text": "Oppgave 27\n\nprop.test(x=26, n=240)\n\n\n    1-sample proportions test with continuity correction\n\ndata:  26 out of 240, null probability 0.5\nX-squared = 145.7, df = 1, p-value &lt; 2.2e-16\nalternative hypothesis: true p is not equal to 0.5\n95 percent confidence interval:\n 0.0732806 0.1563674\nsample estimates:\n        p \n0.1083333"
+  },
+  {
+    "objectID": "R/R1.html#oppgave-28",
+    "href": "R/R1.html#oppgave-28",
+    "title": "R for samling 1",
+    "section": "Oppgave 28",
+    "text": "Oppgave 28\n\nprop.test(x=28, n=56, conf.level=.9)#stemmer!\n\n\n    1-sample proportions test without continuity correction\n\ndata:  28 out of 56, null probability 0.5\nX-squared = 0, df = 1, p-value = 1\nalternative hypothesis: true p is not equal to 0.5\n90 percent confidence interval:\n 0.392661 0.607339\nsample estimates:\n  p \n0.5"
+  },
+  {
+    "objectID": "R/R1.html#oppgave-30",
+    "href": "R/R1.html#oppgave-30",
+    "title": "R for samling 1",
+    "section": "Oppgave 30",
+    "text": "Oppgave 30\n\n\n\n    One Sample t-test\n\ndata:  alder\nt = 9.5681, df = 5, p-value = 0.0002112\nalternative hypothesis: true mean is not equal to 0\n95 percent confidence interval:\n 29.61922 51.38078\nsample estimates:\nmean of x \n     40.5"
+  },
+  {
+    "objectID": "R/R1.html#oppgave-31",
+    "href": "R/R1.html#oppgave-31",
+    "title": "R for samling 1",
+    "section": "Oppgave 31",
+    "text": "Oppgave 31\n\npinge &lt;- read.csv(\"agePingelab.csv\")\nalder &lt;- pinge[, 1]# bare en søyle, vi velger denne. \nmean(alder)\n\n[1] 41.16667"
+  },
+  {
+    "objectID": "R/R1.html#oppgave-32",
+    "href": "R/R1.html#oppgave-32",
+    "title": "R for samling 1",
+    "section": "Oppgave 32",
+    "text": "Oppgave 32\n\nt.test(alder)\n\n\n    One Sample t-test\n\ndata:  alder\nt = 20.769, df = 59, p-value &lt; 2.2e-16\nalternative hypothesis: true mean is not equal to 0\n95 percent confidence interval:\n 37.20040 45.13293\nsample estimates:\nmean of x \n 41.16667"
+  },
+  {
+    "objectID": "R/R1.html#oppgave-42",
+    "href": "R/R1.html#oppgave-42",
+    "title": "R for samling 1",
+    "section": "Oppgave 42",
+    "text": "Oppgave 42\n\noppmøte &lt;- c( 2 , 15 , 8 , 14, 8 , 12 , 13 , 2 , 5, 4 )\npoeng &lt;- c( 13 , 26, 20 ,27, 16, 24 , 20, 11 , 16, 20)\nplot(oppmøte, poeng)"
+  },
+  {
+    "objectID": "R/R1.html#oppgave-44",
+    "href": "R/R1.html#oppgave-44",
+    "title": "R for samling 1",
+    "section": "Oppgave 44",
+    "text": "Oppgave 44\n\nreg &lt;- lm(oppmøte~ poeng)\nsummary(reg)\n\n\nCall:\nlm(formula = oppmøte ~ poeng)\n\nResiduals:\n    Min      1Q  Median      3Q     Max \n-4.8698 -0.8058 -0.3470  1.0486  4.1302 \n\nCoefficients:\n            Estimate Std. Error t value Pr(&gt;|t|)    \n(Intercept)  -7.4107     3.1388  -2.361 0.045887 *  \npoeng         0.8140     0.1573   5.176 0.000847 ***\n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nResidual standard error: 2.527 on 8 degrees of freedom\nMultiple R-squared:   0.77, Adjusted R-squared:  0.7413 \nF-statistic: 26.79 on 1 and 8 DF,  p-value: 0.0008471"
+  },
+  {
+    "objectID": "samlinger/samling4.html",
+    "href": "samlinger/samling4.html",
+    "title": "Digital samling - 19 mars",
+    "section": "",
+    "text": "Important\n\n\n\n\nDigital samling på Teams.\nLæringsmål:"
+  },
+  {
+    "objectID": "samlinger/samling4.html#forbered-deg-til-19-mars",
+    "href": "samlinger/samling4.html#forbered-deg-til-19-mars",
+    "title": "Digital samling - 19 mars",
+    "section": "Forbered deg til 19 mars",
+    "text": "Forbered deg til 19 mars\n\nSjekk definisjoner av hva en systematic review og en metaanalyse er for noe (feks wikipedia)\nSett deg inn i artikkelen Scholtz 2020\nSjekk definisjoner av reproducibility crisis\nLes minst fram til side 726 i Nosek 2022.\nKunne sjekke linearitetsantagelsen og andre antagelser i regresjon visuelt\n\n\n# last ned et datasett med Eysenck personality og Big Five \ndatafilename=\"https://personality-project.org/r/datasets/maps.mixx.epi.bfi.data\"  \npersonality.data =read.delim(url(datafilename))\nhead(personality.data)     #kikke på de første radene\n\n  epiE epiS epiImp epilie epiNeur bfagree bfcon bfext bfneur bfopen bdi\n1   18   10      7      3       9     138    96   141     51    138   1\n2   16    8      5      1      12     101    99   107    116    132   7\n3    6    1      3      2       5     143   118    38     68     90   4\n4   12    6      4      3      15     104   106    64    114    101   8\n5   14    6      5      3       2     115   102   103     86    118   8\n6    6    4      2      5      15     110   113    61     54    149   5\n  traitanx stateanx\n1       24       22\n2       41       40\n3       37       44\n4       54       40\n5       39       67\n6       51       38\n\nlibrary(performance)#en pakke\n\nmodel1 = lm(bdi~epiNeur,data=personality.data)  #enkel regresjon: beck depression forklares av neuroticism (1 av big five)\ncheck_model(model1)   # linearitet holder men ikke homoskedastisitet og heller ikke normalfordelte residualer.."
+  },
+  {
+    "objectID": "samlinger/samling2.html",
+    "href": "samlinger/samling2.html",
+    "title": "Digital samling - 6 feb",
+    "section": "",
+    "text": "Important\n\n\n\n\nDigital samling på Teams.\nLæringsmål:"
+  },
+  {
+    "objectID": "samlinger/samling2.html#forbered-deg-til-6-feb",
+    "href": "samlinger/samling2.html#forbered-deg-til-6-feb",
+    "title": "Digital samling - 6 feb",
+    "section": "Forbered deg til 6 feb!",
+    "text": "Forbered deg til 6 feb!\n\n📖 Repeter stoffet i kapittel 22 om enkel regresjon i Statistikk og Dataanalyse\nLes og reflekter rundt de to første sidene i artikkelen Orben 2019\nKjør dette og prøv å forstå hvordan det skal tolkes ift neuroticism (epiNeur) og bdi (becks depression inventory)\n\n\n# last ned et datasett med Eysenck personality og Big Five \ndatafilename=\"https://personality-project.org/r/datasets/maps.mixx.epi.bfi.data\"  \npersonality.data =read.delim(url(datafilename))\nhead(personality.data)     #kikke på de første radene\n\n  epiE epiS epiImp epilie epiNeur bfagree bfcon bfext bfneur bfopen bdi\n1   18   10      7      3       9     138    96   141     51    138   1\n2   16    8      5      1      12     101    99   107    116    132   7\n3    6    1      3      2       5     143   118    38     68     90   4\n4   12    6      4      3      15     104   106    64    114    101   8\n5   14    6      5      3       2     115   102   103     86    118   8\n6    6    4      2      5      15     110   113    61     54    149   5\n  traitanx stateanx\n1       24       22\n2       41       40\n3       37       44\n4       54       40\n5       39       67\n6       51       38\n\nplot(personality.data$epiNeur,personality.data$bdi)# spredningsplott viser korrelasjon.. \n\n\n\nmodel1 = lm(bdi~epiNeur,data=personality.data)  #enkel regresjon: beck depression forklares av neuroticism (1 av big five)\nsummary(model1)   # basic statistical summary\n\n\nCall:\nlm(formula = bdi ~ epiNeur, data = personality.data)\n\nResiduals:\n     Min       1Q   Median       3Q      Max \n-11.9548  -3.1577  -0.7707   2.0452  16.4092 \n\nCoefficients:\n            Estimate Std. Error t value Pr(&gt;|t|)    \n(Intercept) -0.32129    0.73070   -0.44    0.661    \nepiNeur      0.68200    0.06353   10.74   &lt;2e-16 ***\n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nResidual standard error: 4.721 on 229 degrees of freedom\nMultiple R-squared:  0.3348,    Adjusted R-squared:  0.3319 \nF-statistic: 115.3 on 1 and 229 DF,  p-value: &lt; 2.2e-16"
+  },
+  {
+    "objectID": "omeksamen.html",
+    "href": "omeksamen.html",
+    "title": "MPS 140",
+    "section": "",
+    "text": "5 timer skriftlig eksamen på UiS.\nSe emnebeskrivelsen for detaljer"
+  },
+  {
+    "objectID": "samlinger/samling1.html",
+    "href": "samlinger/samling1.html",
+    "title": "Første samling: Grunnleggende statistikk",
+    "section": "",
+    "text": "Velkommen!\nBLA BLA\nI denne samlingen får vi et overblikk over kurset, og vi frisker opp statistikken fra introkurset. Vi snakker også litt om metodologi i psykologi (kvantitativ vs kvalitativ tilnærming), og vi jobber i grupper.\nI gruppearbeidet vil dere få oppgaver på introkurs i statistikk nivå som er svært viktige å beherske for resten av kurset."
+  },
+  {
+    "objectID": "samlinger/samling1.html#læringsmål",
+    "href": "samlinger/samling1.html#læringsmål",
+    "title": "Første samling: Grunnleggende statistikk",
+    "section": "Læringsmål",
+    "text": "Læringsmål\nEtter denne samlingen har du repetert (eller lært) å:\n\nbeskrive et datasett ved hjelp av nøkkeltall som gjennomsnitt, standardavvik og korrelasjon.\nForklare variablers målenivå\nForstå forskjell på avhengig og uavhengiv variabel\nForstå forskjell på observasjonell og eksperimentell studie\nForstå forskjell på populasjon og utvalg\nKjenne til bekvemmelighetsutvalg, klyngeutvalg og stratifisert utvalg\nForstå konfidensintervall og hypotesetesting\nForklare hva “signifikant” betyr i statistikk\nInstallere R og Rstudio på din laptop"
+  },
+  {
+    "objectID": "samlinger/samling3.html",
+    "href": "samlinger/samling3.html",
+    "title": "Fysisk samling - 5 mars",
+    "section": "",
+    "text": "Læringsmål:"
+  },
+  {
+    "objectID": "samlinger/samling3.html#forberedelser",
+    "href": "samlinger/samling3.html#forberedelser",
+    "title": "Fysisk samling - 5 mars",
+    "section": "Forberedelser",
+    "text": "Forberedelser\n\n📖 Repeter stoffet i kapittel 22 om enkel regresjon i Statistikk og Dataanalyse. Vi skal også repetere p-verdi og konfidensintervall.\nSjekk ut videoer om reliabilitet og validitet på youtube. For eksempel er det en serie med tre videoer her: Reliabilitet og validitet\nLes om hvordan vi måler jobb-stress i artikkelen Sevic Foldnes og Brønnick 2024\nLast ned pakkene psych i R som kan regne ut reliabilitet, for eksempel Cronbach’s \\(\\alpha\\). Når du laster psych pakken inn i R sesjonen så får du tilgang til et datasett bfi som har 25 personlighet items. De fem første er “Agreeableness”, osv.\n\nLa oss prøve dette på bfi datasettet (becks depression inventory)\n\n# last ned et datasett med Eysenck personality og Big Five \n     #kikke på de første radene\nlibrary(psych)#loade psych pakken\n\n#definere constructene i bfi datasettet\n#legg merke til at feks A1 item \"Am indifferent to the feelings of others\"\n# har feil retning og må snus med et minustegn:\nkeys.list &lt;- list(agree=c(\"-A1\",\"A2\",\"A3\",\"A4\",\"A5\"),\n                  conscientious=c(\"C1\",\"C2\",\"C2\",\"-C4\",\"-C5\"),\n                  extraversion=c(\"-E1\",\"-E2\",\"E3\",\"E4\",\"E5\"),\n                  neuroticism=c(\"N1\",\"N2\",\"N3\",\"N4\",\"N5\"),\n                  openness = c(\"O1\",\"-O2\",\"O3\",\"O4\",\"-O5\"))\n#print ut flere forskjellige mål for reliabilitet, blant annet alpha\nreliability(keys=keys.list, items=bfi)\n\nLoading required namespace: GPArotation\n\n\nMeasures of reliability \nreliability(keys = keys.list, items = bfi)\n              omega_h alpha omega.tot  Uni r.fit fa.fit max.split min.split\nagree            0.64  0.71      0.75 0.89  0.90   0.99      0.75      0.62\nconscientious    0.58  0.69      0.74 0.93  0.96   0.97      0.74      0.61\nextraversion     0.55  0.76      0.82 0.97  0.97   0.99      0.78      0.71\nneuroticism      0.71  0.81      0.85 0.93  0.95   0.98      0.83      0.73\nopenness         0.39  0.61      0.70 0.85  0.88   0.97      0.66      0.53\n              mean.r med.r n.items\nagree           0.33  0.34       5\nconscientious   0.36  0.36       4\nextraversion    0.39  0.38       5\nneuroticism     0.47  0.41       5\nopenness        0.24  0.23       5"
+  },
+  {
+    "objectID": "samlinger/samling5.html",
+    "href": "samlinger/samling5.html",
+    "title": "Fysisk samling - 9 april",
+    "section": "",
+    "text": "Læringsmål:"
+  },
+  {
+    "objectID": "samlinger/samling5.html#forbered",
+    "href": "samlinger/samling5.html#forbered",
+    "title": "Fysisk samling - 9 april",
+    "section": "Forbered",
+    "text": "Forbered\n\nLes litt om latente variabler feks på wikipedia eller her\nSe igjen på artikkelen Sevic Foldnes og Brønnick 2024 Vi skal studere korrelasjonene mellom spørsmålene i skjemaet og gjøre EFA på skjemaet\nSjekke korrelasjoner for items. Du må endre på første linje slik at R finner datafilen stress_complete.rds som du kan laste ned her\n\n\nstress &lt;- readRDS(\"../data/stress_complete.rds\")\n\n#kikke på korrelasjoner mellom noen av konstruktene\nlibrary(tidyverse)\n\n── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──\n✔ dplyr     1.1.3     ✔ readr     2.1.4\n✔ forcats   1.0.0     ✔ stringr   1.5.0\n✔ ggplot2   3.4.4     ✔ tibble    3.2.1\n✔ lubridate 1.9.2     ✔ tidyr     1.3.0\n✔ purrr     1.0.2     \n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\nℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors\n\nlibrary(psych)\n\n\nAttaching package: 'psych'\n\nThe following objects are masked from 'package:ggplot2':\n\n    %+%, alpha\n\nkonstrukter &lt;- select(stress, contains(c(\"COMP\",\"CONF\", \"INSE\")))\nhead(konstrukter)\n\n   COMP1 COMP2 COMP3 COMP4 COMP5 CONF1 CONF2 CONF3 CONF4 CONF5 INSE1 INSE2\n1      2     2     2     2     2     3     1     3     2     2     1     1\n2      1     1     1     3     1     1     3     3     3     3     1     1\n4      1     1     1     1     1     1     1     1     1     1     1     1\n11     5     5     4     6     6     3     2     3     3     3     2     1\n16     4     5     4     6     5     1     1     1     1     1     3     1\n17     4     2     3     5     3     5     1     2     1     3     5     5\n   INSE3 INSE4 INSE5\n1      1     1     1\n2      1     1     1\n4      1     1     1\n11     1     1     1\n16     1     1     2\n17     3     4     3\n\n#beregne correlasjonsmatrisen\nkorr &lt;- cor(konstrukter)\n#visualisere\ncor.plot(korr)\n\n\n\n\nTenk over om instrumentet har ønsket faktorstruktur. Kan du se at det er 3 distinkte bolker av items?"
   },
   {
     "objectID": "R/digR1.html#pakker-vi-trenger-å-loade",
@@ -616,221 +819,123 @@
     "text": "Oppg 15\n99%"
   },
   {
-    "objectID": "samlinger/samling5.html",
-    "href": "samlinger/samling5.html",
-    "title": "Fysisk samling - 9 april",
+    "objectID": "quiz/quiz 5mars.html",
+    "href": "quiz/quiz 5mars.html",
+    "title": "Quiz 5.mars. Multippel og logistisk regresjon",
     "section": "",
-    "text": "Læringsmål:"
+    "text": "Vi jobber videre med stressdata fila fra slides som er hentet fra denne studien\n\nEr dette et tverrsnitts- eller longitudinelt datasett?\nEr utvalget tilfeldig? Hvordan vil du karakterisere utvalget?\nHva er standardavviket til alder i datasettet?\nHvordan vil du definere en “uvanlig” høy alder?\nLag et 95\\% konfidensintervall for alder.\n\n\nt.test(stressdata$age)\n\n\nDet påstås at i populasjonen som dette utvalget er tatt ifra så er menn og kvinner like gamle. Skriv opp nullhypotesen og alternativhypotesen. Bruk symbolene \\(\\mu_M\\) og \\(\\mu_K\\).\nUtfør testen ved hjelp av\n\n\nt.test(age~kjønn, stressdata)\n\n\nGå til artikkelen og last ned “supplemental data” dokumentet. Der finner du spørsmålene om Usikkerhet: INSE1-INSE5. Lag et spredningsplott av INSE1 vs INSE2 og forklar hvorfor det ikke er informativt\n\n\nplot(stressdata$INSE1, stressdata$INSE2)\n\n\nDu kan “jittre” observasjonene ved hjelp av ggplot2 pakken i tidyverset.\n\n\nqplot(stressdata$INSE1, stressdata$INSE2)+geom_jitter()\n\nLegg til regresjonslinja ved hjelp av +geom_smooth(method=“lm”) i kommandoen over. Er det negativ, ingen, eller positiv sammenheng mellom INSE1 og INSE2?\n\nBeregn korrelasjonen mellom INSE1 og INSE2 vha cor() funksjonen\nLag summescore for alle 5 INSE items, som en ny variabel:\n\n\nstressdata$insecurity &lt;- stressdata$INSE1+stressdata$INSE2+stressdata$INSE3+stressdata$INSE4+stressdata$INSE5\n\n\nKjør en regresjon med summescore for insecurity som avhengig variabel og kjønn og alder som prediktorer. Hva blir \\(R^2\\) adjusted?\n\n\nmod &lt;- lm(insecurity ~ kjønn+age, data=stressdata) \nsummary(mod)\n\nHar modellen noen som helst forklaringskraft?\n\nKjør en regresjon med summescore for insecurity som avhengig variabel og bransje som prediktor. Har denne modellen noen som helst forklaringskraft?\n\n\nmod &lt;- lm(insecurity ~ bransje, data=stressdata) \nsummary(mod)\n\nHar modellen noen som helst forklaringskraft?\n\nTolk Intercept verdien i modellen i oppgave 12.\nTolk regresjonskoeffisient for bransje:Helse og Omsorg, i oppgave 12.\nTa med summescoren complexity for COMP1-COMP5 som en prediktor i tillegg til bransje. Har denne modellen bedre forklaringskraft enn modellen i oppgave 12?\nTolk regresjonskoeffisienten til complexity.\nHvilken insecurity score forventer vi for en person som skåret 10 på complexity skalaen dersom denne personen jobber i Helse og omsorg?\nLag korrelasjonsmatrisen for alle INSE items og insecurity\n\n\ninse &lt;- select(stressdata, contains(\"INSE\"))\ncor(inse) %&gt;% round(2)\n\nHvilket item er minst korrelert med summeskåren?\n\nBeregn cronbach’s \\(\\alpha\\) for INSE\n\n\npsych::alpha(inse[, 1:5])\n\nHva blir \\(\\alpha\\) hvis vi fjerne det itement fra skalaen som er minst korrelert med summeskåren?\n\nI utgangspunktet fra den tyske originalstudien skulle det være 10 fasetter av digitalt jobbstress. Studien vår finner ikke støtte for dette. Vi fant støtte for 8 fasetter. Hvilke to fasetter av digital jobbstress fant vi ikke støtte for i det norske utvalget?\nLogistisk regresjon. Bruk stressdataene til å predikere kjønn ut ifra bransje og leder (to binære prediktorer). Du må gjøre kjønn om til 0/1 (1 =kvinne) først:\n\n\nstressdata$kvinne &lt;- ifelse(stressdata$kjønn==\"mann\", 0, 1)\n\n\nTolk koeffisientene i forrige oppgave, gjerne som prosentvis endring i oddsene\nNoen kjente tester er\n\n\nEysenck and Eysenck (1968) Personality Inventory\nSpielberger (1983) State trait anxiety scale\nRotter (1966) locus of control\nRosenberg (1965) self-esteem\n\nHvor mange items er det i hvert av disse? Hvilken Likert skala er brukt?\n\n\n\n\nReferences\n\nEysenck, Hans J, and Sybil BG Eysenck. 1968. “Eysenck Personality Inventory.” Journal of Clinical Psychology.\n\n\nRosenberg, Morris. 1965. “Rosenberg Self-Esteem Scale.” Journal of Religion and Health.\n\n\nRotter, Julian B. 1966. “Generalized Expectancies for Internal Versus External Control of Reinforcement.” Psychological Monographs: General and Applied 80 (1): 1.\n\n\nSpielberger, Charles D. 1983. “State-Trait Anxiety Inventory for Adults.”"
   },
   {
-    "objectID": "samlinger/samling5.html#forbered",
-    "href": "samlinger/samling5.html#forbered",
-    "title": "Fysisk samling - 9 april",
-    "section": "Forbered",
-    "text": "Forbered\n\nLes litt om latente variabler feks på wikipedia eller her\nSe igjen på artikkelen Sevic Foldnes og Brønnick 2024 Vi skal studere korrelasjonene mellom spørsmålene i skjemaet og gjøre EFA på skjemaet\nSjekke korrelasjoner for items. Du må endre på første linje slik at R finner datafilen stress_complete.rds som du kan laste ned her\n\n\nstress &lt;- readRDS(\"../data/stress_complete.rds\")\n\n#kikke på korrelasjoner mellom noen av konstruktene\nlibrary(tidyverse)\n\n── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──\n✔ dplyr     1.1.3     ✔ readr     2.1.4\n✔ forcats   1.0.0     ✔ stringr   1.5.0\n✔ ggplot2   3.4.4     ✔ tibble    3.2.1\n✔ lubridate 1.9.2     ✔ tidyr     1.3.0\n✔ purrr     1.0.2     \n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\nℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors\n\nlibrary(psych)\n\n\nAttaching package: 'psych'\n\nThe following objects are masked from 'package:ggplot2':\n\n    %+%, alpha\n\nkonstrukter &lt;- select(stress, contains(c(\"COMP\",\"CONF\", \"INSE\")))\nhead(konstrukter)\n\n   COMP1 COMP2 COMP3 COMP4 COMP5 CONF1 CONF2 CONF3 CONF4 CONF5 INSE1 INSE2\n1      2     2     2     2     2     3     1     3     2     2     1     1\n2      1     1     1     3     1     1     3     3     3     3     1     1\n4      1     1     1     1     1     1     1     1     1     1     1     1\n11     5     5     4     6     6     3     2     3     3     3     2     1\n16     4     5     4     6     5     1     1     1     1     1     3     1\n17     4     2     3     5     3     5     1     2     1     3     5     5\n   INSE3 INSE4 INSE5\n1      1     1     1\n2      1     1     1\n4      1     1     1\n11     1     1     1\n16     1     1     2\n17     3     4     3\n\n#beregne correlasjonsmatrisen\nkorr &lt;- cor(konstrukter)\n#visualisere\ncor.plot(korr)\n\n\n\n\nTenk over om instrumentet har ønsket faktorstruktur. Kan du se at det er 3 distinkte bolker av items?"
-  },
-  {
-    "objectID": "samlinger/samling3.html",
-    "href": "samlinger/samling3.html",
-    "title": "Fysisk samling - 5 mars",
-    "section": "",
-    "text": "Læringsmål:"
-  },
-  {
-    "objectID": "samlinger/samling3.html#forberedelser",
-    "href": "samlinger/samling3.html#forberedelser",
-    "title": "Fysisk samling - 5 mars",
-    "section": "Forberedelser",
-    "text": "Forberedelser\n\n📖 Repeter stoffet i kapittel 22 om enkel regresjon i Statistikk og Dataanalyse. Vi skal også repetere p-verdi og konfidensintervall.\nSjekk ut videoer om reliabilitet og validitet på youtube. For eksempel er det en serie med tre videoer her: Reliabilitet og validitet\nLes om hvordan vi måler jobb-stress i artikkelen Sevic Foldnes og Brønnick 2024\nLast ned pakkene psych i R som kan regne ut reliabilitet, for eksempel Cronbach’s \\(\\alpha\\). Når du laster psych pakken inn i R sesjonen så får du tilgang til et datasett bfi som har 25 personlighet items. De fem første er “Agreeableness”, osv.\n\nLa oss prøve dette på bfi datasettet (becks depression inventory)\n\n# last ned et datasett med Eysenck personality og Big Five \n     #kikke på de første radene\nlibrary(psych)#loade psych pakken\n\n#definere constructene i bfi datasettet\n#legg merke til at feks A1 item \"Am indifferent to the feelings of others\"\n# har feil retning og må snus med et minustegn:\nkeys.list &lt;- list(agree=c(\"-A1\",\"A2\",\"A3\",\"A4\",\"A5\"),\n                  conscientious=c(\"C1\",\"C2\",\"C2\",\"-C4\",\"-C5\"),\n                  extraversion=c(\"-E1\",\"-E2\",\"E3\",\"E4\",\"E5\"),\n                  neuroticism=c(\"N1\",\"N2\",\"N3\",\"N4\",\"N5\"),\n                  openness = c(\"O1\",\"-O2\",\"O3\",\"O4\",\"-O5\"))\n#print ut flere forskjellige mål for reliabilitet, blant annet alpha\nreliability(keys=keys.list, items=bfi)\n\nLoading required namespace: GPArotation\n\n\nMeasures of reliability \nreliability(keys = keys.list, items = bfi)\n              omega_h alpha omega.tot  Uni r.fit fa.fit max.split min.split\nagree            0.64  0.71      0.75 0.89  0.90   0.99      0.75      0.62\nconscientious    0.58  0.69      0.74 0.93  0.96   0.97      0.74      0.61\nextraversion     0.55  0.76      0.82 0.97  0.97   0.99      0.78      0.71\nneuroticism      0.71  0.81      0.85 0.93  0.95   0.98      0.83      0.73\nopenness         0.39  0.61      0.70 0.85  0.88   0.97      0.66      0.53\n              mean.r med.r n.items\nagree           0.33  0.34       5\nconscientious   0.36  0.36       4\nextraversion    0.39  0.38       5\nneuroticism     0.47  0.41       5\nopenness        0.24  0.23       5"
-  },
-  {
-    "objectID": "samlinger/samling1.html",
-    "href": "samlinger/samling1.html",
-    "title": "Første samling: Grunnleggende statistikk",
-    "section": "",
-    "text": "Velkommen!\nBLA BLA\nI denne samlingen får vi et overblikk over kurset, og vi frisker opp statistikken fra introkurset. Vi snakker også litt om metodologi i psykologi (kvantitativ vs kvalitativ tilnærming), og vi jobber i grupper.\nI gruppearbeidet vil dere få oppgaver på introkurs i statistikk nivå som er svært viktige å beherske for resten av kurset."
-  },
-  {
-    "objectID": "samlinger/samling1.html#læringsmål",
-    "href": "samlinger/samling1.html#læringsmål",
-    "title": "Første samling: Grunnleggende statistikk",
-    "section": "Læringsmål",
-    "text": "Læringsmål\nEtter denne samlingen har du repetert (eller lært) å:\n\nbeskrive et datasett ved hjelp av nøkkeltall som gjennomsnitt, standardavvik og korrelasjon.\nForklare variablers målenivå\nForstå forskjell på avhengig og uavhengiv variabel\nForstå forskjell på observasjonell og eksperimentell studie\nForstå forskjell på populasjon og utvalg\nKjenne til bekvemmelighetsutvalg, klyngeutvalg og stratifisert utvalg\nForstå konfidensintervall og hypotesetesting\nForklare hva “signifikant” betyr i statistikk\nInstallere R og Rstudio på din laptop"
-  },
-  {
-    "objectID": "omeksamen.html",
-    "href": "omeksamen.html",
-    "title": "MPS 140",
-    "section": "",
-    "text": "5 timer skriftlig eksamen på UiS.\nSe emnebeskrivelsen for detaljer"
-  },
-  {
-    "objectID": "samlinger/samling2.html",
-    "href": "samlinger/samling2.html",
-    "title": "Digital samling - 6 feb",
-    "section": "",
-    "text": "Important\n\n\n\n\nDigital samling på Teams.\nLæringsmål:"
-  },
-  {
-    "objectID": "samlinger/samling2.html#forbered-deg-til-6-feb",
-    "href": "samlinger/samling2.html#forbered-deg-til-6-feb",
-    "title": "Digital samling - 6 feb",
-    "section": "Forbered deg til 6 feb!",
-    "text": "Forbered deg til 6 feb!\n\n📖 Repeter stoffet i kapittel 22 om enkel regresjon i Statistikk og Dataanalyse\nLes og reflekter rundt de to første sidene i artikkelen Orben 2019\nKjør dette og prøv å forstå hvordan det skal tolkes ift neuroticism (epiNeur) og bdi (becks depression inventory)\n\n\n# last ned et datasett med Eysenck personality og Big Five \ndatafilename=\"https://personality-project.org/r/datasets/maps.mixx.epi.bfi.data\"  \npersonality.data =read.delim(url(datafilename))\nhead(personality.data)     #kikke på de første radene\n\n  epiE epiS epiImp epilie epiNeur bfagree bfcon bfext bfneur bfopen bdi\n1   18   10      7      3       9     138    96   141     51    138   1\n2   16    8      5      1      12     101    99   107    116    132   7\n3    6    1      3      2       5     143   118    38     68     90   4\n4   12    6      4      3      15     104   106    64    114    101   8\n5   14    6      5      3       2     115   102   103     86    118   8\n6    6    4      2      5      15     110   113    61     54    149   5\n  traitanx stateanx\n1       24       22\n2       41       40\n3       37       44\n4       54       40\n5       39       67\n6       51       38\n\nplot(personality.data$epiNeur,personality.data$bdi)# spredningsplott viser korrelasjon.. \n\n\n\nmodel1 = lm(bdi~epiNeur,data=personality.data)  #enkel regresjon: beck depression forklares av neuroticism (1 av big five)\nsummary(model1)   # basic statistical summary\n\n\nCall:\nlm(formula = bdi ~ epiNeur, data = personality.data)\n\nResiduals:\n     Min       1Q   Median       3Q      Max \n-11.9548  -3.1577  -0.7707   2.0452  16.4092 \n\nCoefficients:\n            Estimate Std. Error t value Pr(&gt;|t|)    \n(Intercept) -0.32129    0.73070   -0.44    0.661    \nepiNeur      0.68200    0.06353   10.74   &lt;2e-16 ***\n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nResidual standard error: 4.721 on 229 degrees of freedom\nMultiple R-squared:  0.3348,    Adjusted R-squared:  0.3319 \nF-statistic: 115.3 on 1 and 229 DF,  p-value: &lt; 2.2e-16"
-  },
-  {
-    "objectID": "samlinger/samling4.html",
-    "href": "samlinger/samling4.html",
-    "title": "Digital samling - 19 mars",
-    "section": "",
-    "text": "Important\n\n\n\n\nDigital samling på Teams.\nLæringsmål:"
-  },
-  {
-    "objectID": "samlinger/samling4.html#forbered-deg-til-19-mars",
-    "href": "samlinger/samling4.html#forbered-deg-til-19-mars",
-    "title": "Digital samling - 19 mars",
-    "section": "Forbered deg til 19 mars",
-    "text": "Forbered deg til 19 mars\n\nSjekk definisjoner av hva en systematic review og en metaanalyse er for noe (feks wikipedia)\nSett deg inn i artikkelen Scholtz 2020\nSjekk definisjoner av reproducibility crisis\nLes minst fram til side 726 i Nosek 2022.\nKunne sjekke linearitetsantagelsen og andre antagelser i regresjon visuelt\n\n\n# last ned et datasett med Eysenck personality og Big Five \ndatafilename=\"https://personality-project.org/r/datasets/maps.mixx.epi.bfi.data\"  \npersonality.data =read.delim(url(datafilename))\nhead(personality.data)     #kikke på de første radene\n\n  epiE epiS epiImp epilie epiNeur bfagree bfcon bfext bfneur bfopen bdi\n1   18   10      7      3       9     138    96   141     51    138   1\n2   16    8      5      1      12     101    99   107    116    132   7\n3    6    1      3      2       5     143   118    38     68     90   4\n4   12    6      4      3      15     104   106    64    114    101   8\n5   14    6      5      3       2     115   102   103     86    118   8\n6    6    4      2      5      15     110   113    61     54    149   5\n  traitanx stateanx\n1       24       22\n2       41       40\n3       37       44\n4       54       40\n5       39       67\n6       51       38\n\nlibrary(performance)#en pakke\n\nmodel1 = lm(bdi~epiNeur,data=personality.data)  #enkel regresjon: beck depression forklares av neuroticism (1 av big five)\ncheck_model(model1)   # linearitet holder men ikke homoskedastisitet og heller ikke normalfordelte residualer.."
-  },
-  {
-    "objectID": "R/R1.html#housing-dataene",
-    "href": "R/R1.html#housing-dataene",
-    "title": "R for samling 1",
-    "section": "Housing dataene",
-    "text": "Housing dataene\nVi må installere noen pakker og da får vi Housing datafilen gjennom pakken Ecdat.\n\nlibrary(Ecdat)\nlibrary(tidyverse)\nHousing &lt;- Housing[, c(1:3, 10, 11:12)]# her velger vi ut søylene 1,2,3,10,11,12\n#View(Housing) kikker litt på dataene"
-  },
-  {
-    "objectID": "R/R1.html#histogram-for-pris",
-    "href": "R/R1.html#histogram-for-pris",
-    "title": "R for samling 1",
-    "section": "Histogram for pris",
-    "text": "Histogram for pris\nEnten bruker vi base R eller den mer kraftige pakken ggplot som vi fikk via tidyverse."
-  },
-  {
-    "objectID": "R/R1.html#stolpediagram-for-preferred-area",
-    "href": "R/R1.html#stolpediagram-for-preferred-area",
-    "title": "R for samling 1",
-    "section": "Stolpediagram for preferred area",
-    "text": "Stolpediagram for preferred area\nStolpediagram for preferred area:\n\n#ggplot\nggplot(Housing, aes(prefarea))+geom_bar()"
-  },
-  {
-    "objectID": "R/R1.html#separere-på-preferreed-area-og-se-på-fordelingene",
-    "href": "R/R1.html#separere-på-preferreed-area-og-se-på-fordelingene",
-    "title": "R for samling 1",
-    "section": "Separere på preferreed area og se på fordelingene",
-    "text": "Separere på preferreed area og se på fordelingene\n\nggplot(Housing, aes(price, color=prefarea))+geom_density()"
-  },
-  {
-    "objectID": "R/R1.html#krysstabell",
-    "href": "R/R1.html#krysstabell",
-    "title": "R for samling 1",
-    "section": "KRYSSTABELL",
-    "text": "KRYSSTABELL\n\ntable(Housing$airc, Housing$prefarea)\n\n     \n       no yes\n  no  298  75\n  yes 120  53"
-  },
-  {
-    "objectID": "R/R1.html#spredningsdiagram",
-    "href": "R/R1.html#spredningsdiagram",
-    "title": "R for samling 1",
-    "section": "spredningsdiagram",
-    "text": "spredningsdiagram\n\nggplot(Housing, aes(lotsize,price))+geom_point()"
-  },
-  {
-    "objectID": "R/R1.html#korrelasjon",
-    "href": "R/R1.html#korrelasjon",
-    "title": "R for samling 1",
-    "section": "Korrelasjon",
-    "text": "Korrelasjon\n\nx &lt;- c(-5 , 10 , 15 , 31 , 42)\ny &lt;- c( 3 , 3 , 0 , 1 , -1)\ncor(x, y)\n\n[1] -0.82\n\n#base R\nplot(x,y)\n\n\n\n#ggplot\nggplot(data.frame(x,y), aes(x,y))+geom_point(size=3)"
-  },
-  {
-    "objectID": "R/R1.html#cornflakes",
-    "href": "R/R1.html#cornflakes",
-    "title": "R for samling 1",
-    "section": "Cornflakes",
-    "text": "Cornflakes\n\nvekt &lt;- c(502, 498, 479, 492, 488, 494, 494)\nt.test(vekt, mu=500)\n\n\n    One Sample t-test\n\ndata:  vekt\nt = -2.7105, df = 6, p-value = 0.03508\nalternative hypothesis: true mean is not equal to 500\n95 percent confidence interval:\n 485.5935 499.2636\nsample estimates:\nmean of x \n 492.4286"
-  },
-  {
-    "objectID": "R/R1.html#oppgave-13",
-    "href": "R/R1.html#oppgave-13",
-    "title": "R for samling 1",
-    "section": "Oppgave 13",
-    "text": "Oppgave 13\n\nalder &lt;- c(20, 20, 19, 23, 29, 27, 25, 21)#legge inn i vektor\nsd(alder)\n\n[1] 3.664502"
-  },
-  {
-    "objectID": "R/R1.html#oppgave-24",
-    "href": "R/R1.html#oppgave-24",
-    "title": "R for samling 1",
-    "section": "Oppgave 24",
-    "text": "Oppgave 24\n\ntimer &lt;- c(23, 55, 60, 70, 65 , 60)\nsd(timer)\n\n[1] 16.71825"
-  },
-  {
-    "objectID": "R/R1.html#oppgave-27",
-    "href": "R/R1.html#oppgave-27",
-    "title": "R for samling 1",
-    "section": "Oppgave 27",
-    "text": "Oppgave 27\n\nprop.test(x=26, n=240)\n\n\n    1-sample proportions test with continuity correction\n\ndata:  26 out of 240, null probability 0.5\nX-squared = 145.7, df = 1, p-value &lt; 2.2e-16\nalternative hypothesis: true p is not equal to 0.5\n95 percent confidence interval:\n 0.0732806 0.1563674\nsample estimates:\n        p \n0.1083333"
-  },
-  {
-    "objectID": "R/R1.html#oppgave-28",
-    "href": "R/R1.html#oppgave-28",
-    "title": "R for samling 1",
-    "section": "Oppgave 28",
-    "text": "Oppgave 28\n\nprop.test(x=28, n=56, conf.level=.9)#stemmer!\n\n\n    1-sample proportions test without continuity correction\n\ndata:  28 out of 56, null probability 0.5\nX-squared = 0, df = 1, p-value = 1\nalternative hypothesis: true p is not equal to 0.5\n90 percent confidence interval:\n 0.392661 0.607339\nsample estimates:\n  p \n0.5"
-  },
-  {
-    "objectID": "R/R1.html#oppgave-30",
-    "href": "R/R1.html#oppgave-30",
-    "title": "R for samling 1",
-    "section": "Oppgave 30",
-    "text": "Oppgave 30\n\n\n\n    One Sample t-test\n\ndata:  alder\nt = 9.5681, df = 5, p-value = 0.0002112\nalternative hypothesis: true mean is not equal to 0\n95 percent confidence interval:\n 29.61922 51.38078\nsample estimates:\nmean of x \n     40.5"
-  },
-  {
-    "objectID": "R/R1.html#oppgave-31",
-    "href": "R/R1.html#oppgave-31",
-    "title": "R for samling 1",
-    "section": "Oppgave 31",
-    "text": "Oppgave 31\n\npinge &lt;- read.csv(\"agePingelab.csv\")\nalder &lt;- pinge[, 1]# bare en søyle, vi velger denne. \nmean(alder)\n\n[1] 41.16667"
-  },
-  {
-    "objectID": "R/R1.html#oppgave-32",
-    "href": "R/R1.html#oppgave-32",
-    "title": "R for samling 1",
-    "section": "Oppgave 32",
-    "text": "Oppgave 32\n\nt.test(alder)\n\n\n    One Sample t-test\n\ndata:  alder\nt = 20.769, df = 59, p-value &lt; 2.2e-16\nalternative hypothesis: true mean is not equal to 0\n95 percent confidence interval:\n 37.20040 45.13293\nsample estimates:\nmean of x \n 41.16667"
-  },
-  {
-    "objectID": "R/R1.html#oppgave-42",
-    "href": "R/R1.html#oppgave-42",
-    "title": "R for samling 1",
-    "section": "Oppgave 42",
-    "text": "Oppgave 42\n\noppmøte &lt;- c( 2 , 15 , 8 , 14, 8 , 12 , 13 , 2 , 5, 4 )\npoeng &lt;- c( 13 , 26, 20 ,27, 16, 24 , 20, 11 , 16, 20)\nplot(oppmøte, poeng)"
-  },
-  {
-    "objectID": "R/R1.html#oppgave-44",
-    "href": "R/R1.html#oppgave-44",
-    "title": "R for samling 1",
-    "section": "Oppgave 44",
-    "text": "Oppgave 44\n\nreg &lt;- lm(oppmøte~ poeng)\nsummary(reg)\n\n\nCall:\nlm(formula = oppmøte ~ poeng)\n\nResiduals:\n    Min      1Q  Median      3Q     Max \n-4.8698 -0.8058 -0.3470  1.0486  4.1302 \n\nCoefficients:\n            Estimate Std. Error t value Pr(&gt;|t|)    \n(Intercept)  -7.4107     3.1388  -2.361 0.045887 *  \npoeng         0.8140     0.1573   5.176 0.000847 ***\n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nResidual standard error: 2.527 on 8 degrees of freedom\nMultiple R-squared:   0.77, Adjusted R-squared:  0.7413 \nF-statistic: 26.79 on 1 and 8 DF,  p-value: 0.0008471"
-  },
-  {
-    "objectID": "quiz/quiz 19mars.html",
-    "href": "quiz/quiz 19mars.html",
+    "objectID": "quiz/quiz19mars_medfasit.html",
+    "href": "quiz/quiz19mars_medfasit.html",
     "title": "Quiz 19.mars",
     "section": "",
-    "text": "Hva regnes som en stor effektstørrelse for Cohens \\(d\\)?\nCohen \\(d=0.2\\) for en intervensjon, tolk dette tallet i en setning som inneholder ordene “standardavvik” og “økning i gjennomsnittsscore”.\nEn mindfulness-intervensjon gjør at konsentrasjonen i intervensjonsgruppa er 3 poeng høyere enn i kontrollgrupa. Hvis den poolede standardavviket \\(s_p\\) er 10 poeng, hva er da effektstørrelsen?\nVi genererer et datasett som måler konsentrasjon på en skala 1-20 etter en mindfulness-intervensjon:\n\n\nset.seed(1)\ngruppe &lt;- sample(c(\"I\",\"K\"), size=100,replace=T)\nkonsentrasjon &lt;- 10+as.numeric(gruppe==\"I\")+runif(length(gruppe), -6,6) %&gt;% round(0)\nminedata &lt;- data.frame(gruppe, konsentrasjon)\n\nHvor mange deltagere var i kontroll og i intervensjonsgruppa? Hint:\n\ntable(gruppe)\n\n\nLag et histogram over konsentrasjon\n\n\nhist(minedata$konsentrasjon)\n\n\nHva er max verdi av konsentrasjon?\nLag et boksplot over konsentrasjon og bruk det til å anslå interkvartilbredden.\n\n\nboxplot(minedata$konsentrasjon)\n\n\nHva er standardavviket til konsentrasjon?\nEr det forskjell i konsentrasjon i de to gruppene? Bruk en t-test\n\n\nt.test(konsentrasjon~gruppe, data=minedata)\n\n\nHva var differansen i gjennomsnitt?\nBeregn cohens d for effektstørrelsen av intervensjonen.\n\n\nlibrary(psych)\ncohen.d(konsentrasjon~gruppe, data=minedata)\n\n\nHva er konfidensintervallet for \\(d\\). Gi en tolkning av det faktum at det ikke inneholder \\(0\\).\nVi Lager et nytt simulert datasett for effekt av konsentrasjon på eksamensresultat:\n\n\nset.seed(1)\npoeng &lt;- 25+2*konsentrasjon+rnorm(length(konsentrasjon), mean=0, sd=10)\neksamendata &lt;- data.frame(poeng, konsentrasjon)\n\n\nPlott konsentrasjon mot eksamensresultat og beregn korrelasjonen\n\n\nplot(eksamendata$konsentrasjon, eksamendata$poeng)\n\n\nEstimer regresjonsmodellen \\(Poeng=\\beta_0+ \\beta_1 konsentrasjon + \\epsilon\\) og tolk stigningstallet \\(\\beta_1\\) på en lettfattelig måte\n\n\nmodel &lt;- lm(poeng~konsentrasjon, data=eksamendata)\nsummary(model)\n\n\nHva er forklaringskraften til modellen?\nSjekk at de tre forutsetningene (linearitet, homoskedastisitet og normalitet av residualer) ser ut til å være oppfylt\n\n\nlibrary(performance)\ncheck_model(model, check=c(\"linearity\", \"homogeneity\", \"normality\"))\n\n\nVi simulerer poengscore på ny, men nå med et ikke-normalt residual (khi-kvadrat fordelt)\n\n\nset.seed(1)\npoeng &lt;- 25+2*konsentrasjon+rchisq(length(konsentrasjon), df=2)\neksamendata &lt;- data.frame(poeng, konsentrasjon)\n\nKontroller at normalitetsantagelsen er brutt:\n\ncheck_model(model, check=c(\"normality\"))"
+    "text": "Forklar hvorfor publikasjonsbias kan være en av årsakene til replikasjonskrisen.\n\nSvar: Det er vanskelig å replikere en studie som er en falsk positiv. Falske positive er overrepresentert i den publiserte litteraturen, grunnet publikasjonsbias.\n\nHva regnes som en stor effektstørrelse for Cohens \\(d\\)?\n\nSvar: I mange felt er \\(d\\) større ennn .5 regnet som stor.\n\nCohen \\(d=0.2\\) for en intervensjon, tolk dette tallet i en setning som inneholder ordene “standardavvik” og “økning i gjennomsnittsscore”.\n\nSvar: Forskjellen mellom intervensjon og kontroll tilsvarer en økning i gjennomsnittscore på 0.2 standardavvik.\n\nEn mindfulness-intervensjon gjør at konsentrasjonen i intervensjonsgruppa er 3 poeng høyere enn i kontrollgrupa. Hvis den poolede standardavviket \\(s_p\\) er 10 poeng, hva er da effektstørrelsen?\n\nSvar: \\(d =\\frac{\\overline{x_I}-\\overline{x_K}}{s_p}=3/10=0.3\\)\n\nVi genererer et datasett som måler konsentrasjon på en skala 1-20 etter en mindfulness-intervensjon:\n\n\nlibrary(tidyverse)\nset.seed(1)\ngruppe &lt;- sample(c(\"I\",\"K\"), size=100,replace=T)\nkonsentrasjon &lt;- 10+as.numeric(gruppe==\"I\")+runif(length(gruppe), -6,6) %&gt;% round(0)\nminedata &lt;- data.frame(gruppe, konsentrasjon)\n\nHvor mange deltagere var i kontroll og i intervensjonsgruppa? Hint:\n\ntable(gruppe)\n\ngruppe\n I  K \n49 51 \n\n\n\nLag et histogram over konsentrasjon\n\n\nhist(minedata$konsentrasjon)\n\n\n\n\n\nHva er max verdi av konsentrasjon?\n\n\nmax(minedata$konsentrasjon)\n\n[1] 17\n\n\n\nLag et boksplot over konsentrasjon og bruk det til å anslå interkvartilbredden.\n\n\nboxplot(minedata$konsentrasjon)\n\n\n\n\n\nHva er standardavviket til konsentrasjon?\n\n\nboxplot(minedata$konsentrasjon)\n\n\n\n\n\nEr det signifikant forskjell i konsentrasjon i de to gruppene? Bruk en t-test\n\n\nt.test(konsentrasjon~gruppe, data=minedata)\n\n\n    Welch Two Sample t-test\n\ndata:  konsentrasjon by gruppe\nt = 1.2389, df = 97.632, p-value = 0.2184\nalternative hypothesis: true difference in means between group I and group K is not equal to 0\n95 percent confidence interval:\n -0.4985509  2.1552136\nsample estimates:\nmean in group I mean in group K \n       11.12245        10.29412 \n\n\nNei ikke signifikant forskjell , p-verdien er større enn .05\n\nHva var differansen i gjennomsnitt?\n\nSvar: 11.12245 - 10.29412 =0.83 poeng\n\nBeregn cohens d for effektstørrelsen av intervensjonen.\n\n\nlibrary(psych)\ncohen.d(konsentrasjon~gruppe, data=minedata)\n\nSvar: d=0.25\n\nHva er konfidensintervallet for \\(d\\). Gi en tolkning av det faktum at det inneholder \\(0\\).\n\nSvar: Konfidensintervallet går fra -0.14 til 0.64 At 0 er inneholdt betyr at vi effektstørrelsen ikke er signifikant forskjellig fra 0.\n\nVi Lager et nytt simulert datasett for effekt av konsentrasjon på eksamensresultat:\n\n\nset.seed(1)\npoeng &lt;- 25+2*konsentrasjon+rnorm(length(konsentrasjon), mean=0, sd=10)\neksamendata &lt;- data.frame(poeng, konsentrasjon)\n\n\nPlott konsentrasjon mot eksamensresultat og beregn korrelasjonen\n\n\nplot(eksamendata$konsentrasjon, eksamendata$poeng)\n\n\n\n\n\nEstimer regresjonsmodellen \\(Poeng=\\beta_0+ \\beta_1 konsentrasjon + \\epsilon\\) og tolk stigningstallet \\(\\beta_1\\) på en lettfattelig måte\n\n\nmodel &lt;- lm(poeng~konsentrasjon, data=eksamendata)\nsummary(model)\n\n\nCall:\nlm(formula = poeng ~ konsentrasjon, data = eksamendata)\n\nResiduals:\n     Min       1Q   Median       3Q      Max \n-23.0078  -6.1458   0.0825   5.8221  23.8069 \n\nCoefficients:\n              Estimate Std. Error t value Pr(&gt;|t|)    \n(Intercept)    22.6031     3.0129   7.502 2.88e-11 ***\nkonsentrasjon   2.3258     0.2688   8.651 1.02e-13 ***\n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nResidual standard error: 8.961 on 98 degrees of freedom\nMultiple R-squared:  0.433, Adjusted R-squared:  0.4272 \nF-statistic: 74.84 on 1 and 98 DF,  p-value: 1.015e-13\n\n\nSvar: En økning i konsentrasjon på 1 poeng gjir en forventet økning i eksamensscore på 2.33 poeng.\n\nHva er forklaringskraften til modellen?\n\nSvar: 0.43\n\nSjekk at de tre forutsetningene (linearitet, homoskedastisitet og normalitet av residualer) ser ut til å være oppfylt\n\n\nlibrary(performance)\ncheck_model(model, check=c(\"linearity\", \"homogeneity\", \"normality\"))\n\n\n\n\nSvar: Ja de grønne linjene i de to første panelen er omtrent horisontale, og fordelingen til residualene følger tilnærmet den grønne normalfordelingen i det siste panelet.\n\nVi simulerer poengscore på ny, men nå med et ikke-normalt residual (khi-kvadrat fordelt)\n\n\nset.seed(1)\npoeng &lt;- 25+2*konsentrasjon+rchisq(length(konsentrasjon), df=2)\neksamendata &lt;- data.frame(poeng, konsentrasjon)\nnymodell &lt;- lm(poeng~konsentrasjon, data=eksamendata)\n\nKontroller at normalitetsantagelsen er brutt:\n\ncheck_model(nymodell, check=c(\"normality\"))\n\n\n\n\nSvar: Fordelingen til residualene avviker fra den grønne normalfordelte linja, så her er normalitetsantagelsen brutt."
   },
   {
-    "objectID": "quiz/quiz19mars.html",
-    "href": "quiz/quiz19mars.html",
-    "title": "Quiz 19.mars",
-    "section": "",
-    "text": "Forklar hvorfor publikasjonsbias kan være en av årsakene til replikasjonskrisen.\n\nSvar: Det er vanskelig å replikere en studie som er en falsk positiv. Falske positive er overrepresentert i den publiserte litteraturen, grunnet publikasjonsbias.\n\nHva regnes som en stor effektstørrelse for Cohens \\(d\\)?\n\nSvar: I mange felt er \\(d\\) større ennn .5 regnet som stor.\n\nCohen \\(d=0.2\\) for en intervensjon, tolk dette tallet i en setning som inneholder ordene “standardavvik” og “økning i gjennomsnittsscore”.\nEn mindfulness-intervensjon gjør at konsentrasjonen i intervensjonsgruppa er 3 poeng høyere enn i kontrollgrupa. Hvis den poolede standardavviket \\(s_p\\) er 10 poeng, hva er da effektstørrelsen?\nVi genererer et datasett som måler konsentrasjon på en skala 1-20 etter en mindfulness-intervensjon:\n\n\nlibrary(tidyverse)\nset.seed(1)\ngruppe &lt;- sample(c(\"I\",\"K\"), size=100,replace=T)\nkonsentrasjon &lt;- 10+as.numeric(gruppe==\"I\")+runif(length(gruppe), -6,6) %&gt;% round(0)\nminedata &lt;- data.frame(gruppe, konsentrasjon)\n\nHvor mange deltagere var i kontroll og i intervensjonsgruppa? Hint:\n\ntable(gruppe)\n\ngruppe\n I  K \n49 51 \n\n\n\nLag et histogram over konsentrasjon\n\n\nhist(minedata$konsentrasjon)\n\n\n\n\n\nHva er max verdi av konsentrasjon?\nLag et boksplot over konsentrasjon og bruk det til å anslå interkvartilbredden.\n\n\nboxplot(minedata$konsentrasjon)\n\n\n\n\n\nHva er standardavviket til konsentrasjon?\nEr det forskjell i konsentrasjon i de to gruppene? Bruk en t-test\n\n\nt.test(konsentrasjon~gruppe, data=minedata)\n\n\nHva var differansen i gjennomsnitt?\nBeregn cohens d for effektstørrelsen av intervensjonen.\n\n\nlibrary(psych)\ncohen.d(konsentrasjon~gruppe, data=minedata)\n\nCall: cohen.d(x = konsentrasjon ~ gruppe, data = minedata)\nCohen d statistic of difference between two means\n              lower effect upper\nkonsentrasjon -0.64  -0.25  0.14\n\nMultivariate (Mahalanobis) distance between groups\n[1] 0.25\nr equivalent of difference between two means\nkonsentrasjon \n        -0.12 \n\n\n\nHva er konfidensintervallet for \\(d\\). Gi en tolkning av det faktum at det ikke inneholder \\(0\\).\nVi Lager et nytt simulert datasett for effekt av konsentrasjon på eksamensresultat:\n\n\nset.seed(1)\npoeng &lt;- 25+2*konsentrasjon+rnorm(length(konsentrasjon), mean=0, sd=10)\neksamendata &lt;- data.frame(poeng, konsentrasjon)\n\n\nPlott konsentrasjon mot eksamensresultat og beregn korrelasjonen\n\n\nplot(eksamendata$konsentrasjon, eksamendata$poeng)\n\n\n\n\n\nEstimer regresjonsmodellen \\(Poeng=\\beta_0+ \\beta_1 konsentrasjon + \\epsilon\\) og tolk stigningstallet \\(\\beta_1\\) på en lettfattelig måte\n\n\nmodel &lt;- lm(poeng~konsentrasjon, data=eksamendata)\nsummary(model)\n\n\nCall:\nlm(formula = poeng ~ konsentrasjon, data = eksamendata)\n\nResiduals:\n     Min       1Q   Median       3Q      Max \n-23.0078  -6.1458   0.0825   5.8221  23.8069 \n\nCoefficients:\n              Estimate Std. Error t value Pr(&gt;|t|)    \n(Intercept)    22.6031     3.0129   7.502 2.88e-11 ***\nkonsentrasjon   2.3258     0.2688   8.651 1.02e-13 ***\n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nResidual standard error: 8.961 on 98 degrees of freedom\nMultiple R-squared:  0.433, Adjusted R-squared:  0.4272 \nF-statistic: 74.84 on 1 and 98 DF,  p-value: 1.015e-13\n\n\n\nHva er forklaringskraften til modellen?\nSjekk at de tre forutsetningene (linearitet, homoskedastisitet og normalitet av residualer) ser ut til å være oppfylt\n\n\nlibrary(performance)\ncheck_model(model, check=c(\"linearity\", \"homogeneity\", \"normality\"))\n\n\n\n\n\nVi simulerer poengscore på ny, men nå med et ikke-normalt residual (khi-kvadrat fordelt)\n\n\nset.seed(1)\npoeng &lt;- 25+2*konsentrasjon+rchisq(length(konsentrasjon), df=2)\neksamendata &lt;- data.frame(poeng, konsentrasjon)\n\nKontroller at normalitetsantagelsen er brutt:\n\ncheck_model(model, check=c(\"normality\"))"
+    "objectID": "slides/slides5a.html#agenda",
+    "href": "slides/slides5a.html#agenda",
+    "title": "Samling 9. april. Latente variabler og EFA",
+    "section": "Agenda",
+    "text": "Agenda\n\nPsykologiske konstrukter\nLatente variable\nFaktormodellen\nEksplorativ faktor analyse i R"
   },
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "MPS 140: Kvantitativ forskningsmetode og statistikk",
-    "section": "",
-    "text": "FYSISKE SAMLINGER\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nDato\nTema\nForberedelser\nPresentasjoner\nR\nOppgaver\n\n\n\n\n23.01: 1215-16\nIntro og grunnleggende statistikk\n📖\n🖥 🖥\n📋\n📋\n\n\n05.03: 815-16\nPsykometri\n📖\n🖥 🖥\n\n📋\n\n\n09.04: 815-16\nLatente variable\n📖\n\n\n\n\n\n03.06\nEksamen\n\n\n\n\n\n\n\n\n\n\nDIGITALE SAMLINGER\n\n\n\n\n\n\n\n\n\n\n\n\nDato\nTema\nForberedelser\nPresentasjon\nR\nOppgaver\n\n\n\n\n06.02: 9-12\nR og regresjonsmodellen\n📖\n🖥\n📋\n📋\n\n\n19.03: 9-12\nForskningsmetoder i psykologi + Forutsetninger for regresjon\n📖\n🖥\n\n📋\n\n\n23.04:9-12\nLatente variable\n\n\n\n\n\n\n07.05: 9-12\nEksamensforberedelse"
+    "objectID": "slides/slides5a.html#psykologiske-konstrukter",
+    "href": "slides/slides5a.html#psykologiske-konstrukter",
+    "title": "Samling 9. april. Latente variabler og EFA",
+    "section": "Psykologiske konstrukter",
+    "text": "Psykologiske konstrukter\n\nPsykologi omhandler ofte såkalte konstrukter som ikke er direkte observerbare\nVi måler disse konstruktene ved å lage items (spørsmål) som avspeiler konstruktet. Jo flere items jo bedre ift reliabilitet og validitet. Men da blir spørreskjemaene lange så vi kan ikke ha for mange items.\nMange konstrukter har etablerte batterier dvs spørreskjema som vi kan tenke på som måleinstrumenter"
+  },
+  {
+    "objectID": "slides/slides5a.html#terminologi",
+    "href": "slides/slides5a.html#terminologi",
+    "title": "Samling 9. april. Latente variabler og EFA",
+    "section": "Terminologi",
+    "text": "Terminologi\n\nLatent variabel, konstrukt, faktor: synonymer for en variabel som vi ikke kan observere.\nIndikator, observerbar variabel, item. Synonymer for variabler vi faktisk kan observere i datasettet. Indikatorer blir ofte gruppert sammen og oppfattet som om de måler en faktor\n\n-EFA eksplorative modellering med faktorer. Alle indikatorer har lov å lade på alle faktorer. Brukes til å finne ut hvilke faktorer som evt ligger bak de observerte dataene\n\nCFA: confirmatory faktor analyse. Her vet man hvilke item som lader på hvilke indikatorer.\nSEM strukturell equation modeling. Dette er som CFA bare at vi har regresjoner mellom de latente variablene"
+  },
+  {
+    "objectID": "slides/slides5a.html#statistisk-modell-for-konstrukter",
+    "href": "slides/slides5a.html#statistisk-modell-for-konstrukter",
+    "title": "Samling 9. april. Latente variabler og EFA",
+    "section": "Statistisk modell for konstrukter:",
+    "text": "Statistisk modell for konstrukter:\nVi tenker oss at items i et batteri er gendert av en latent variabel som representerer konstruktet:\n\\[\nSvar= \\lambda \\cdot F + \\epsilon\n\\]\nSvar på et spørsmål er bestemt av\n\nFaktor-scoren \\(F\\), som er den sanne verdien til en latent variabel \\(F\\), og hvor sterkt itemet lader på faktoren \\(F\\) ( \\(\\lambda\\) ).\nMålefeilen \\(\\epsilon\\). Den sier at vi ikke kan måle verdien av \\(F\\) nøyaktig. vi tar høyde for at itemsvar har støy. Dette er en styrke med faktormodeller. Mange modeller i feks økonomi tar ikke høyde for målefeil på variabelnivå. Feks har vi brukt summeskårer i regresjonsmodeller."
+  },
+  {
+    "objectID": "slides/slides5a.html#faktormodell-og-stidiagram",
+    "href": "slides/slides5a.html#faktormodell-og-stidiagram",
+    "title": "Samling 9. april. Latente variabler og EFA",
+    "section": "Faktormodell og stidiagram",
+    "text": "Faktormodell og stidiagram\nVi kaller den latente variabelen for en faktor. X’ene er her items, og \\(F\\) den latente variabelen. Målefeil er \\(e\\). Sirkler: latente. Firkanter: observerte\n\nstidiagram"
+  },
+  {
+    "objectID": "slides/slides5a.html#korrelasjoner-stress-skalaen",
+    "href": "slides/slides5a.html#korrelasjoner-stress-skalaen",
+    "title": "Samling 9. april. Latente variabler og EFA",
+    "section": "Korrelasjoner stress-skalaen",
+    "text": "Korrelasjoner stress-skalaen\nI følge skalaens skapere, skulle det være ti faktorer. Men vi får ikke det i det norske datasettet: Kan se ut som om vi har 6 relativt tydelig faktorer."
+  },
+  {
+    "objectID": "slides/slides5a.html#beregne-faktor-ladninger-i-lavaan",
+    "href": "slides/slides5a.html#beregne-faktor-ladninger-i-lavaan",
+    "title": "Samling 9. april. Latente variabler og EFA",
+    "section": "Beregne faktor-ladninger i lavaan",
+    "text": "Beregne faktor-ladninger i lavaan\nPakken lavaan er beregnet på latente variabler.\n\nlibrary(lavaan);library(tidyverse)\nmodel &lt;- \"COMP =~ COMP1+COMP2+COMP3+COMP4+COMP5\"\nf &lt;- cfa(model, data=data)#confirmatory factor analysis\nhead(standardizedsolution(f),5)\n\n   lhs op   rhs est.std    se      z pvalue ci.lower ci.upper\n1 COMP =~ COMP1   0.833 0.017 49.808      0    0.800    0.866\n2 COMP =~ COMP2   0.853 0.015 55.706      0    0.823    0.883\n3 COMP =~ COMP3   0.857 0.015 57.274      0    0.828    0.887\n4 COMP =~ COMP4   0.830 0.017 48.964      0    0.797    0.863\n5 COMP =~ COMP5   0.853 0.015 55.776      0    0.823    0.883\n\n\nFaktorladningene ligger i intervallet (0.83, 0.85). Ladningene er alltid mindre enn 1, så dette er bra."
+  },
+  {
+    "objectID": "slides/slides5a.html#soci-har-dårligere-indikatorer-som-comp",
+    "href": "slides/slides5a.html#soci-har-dårligere-indikatorer-som-comp",
+    "title": "Samling 9. april. Latente variabler og EFA",
+    "section": "SOCI har dårligere indikatorer som COMP",
+    "text": "SOCI har dårligere indikatorer som COMP\nSOCI har svakere ladninger enn COMP\n\nlibrary(lavaan)\nmodel &lt;- \"SOCI =~ SOCI1+SOCI2+SOCI3+SOCI4+SOCI5\"\nf &lt;- cfa(model, data=data)#confirmatory factor analysis\nhead(standardizedsolution(f),5)\n\n   lhs op   rhs est.std    se      z pvalue ci.lower ci.upper\n1 SOCI =~ SOCI1   0.595 0.034 17.321      0    0.528    0.662\n2 SOCI =~ SOCI2   0.756 0.025 30.044      0    0.707    0.805\n3 SOCI =~ SOCI3   0.655 0.031 21.067      0    0.594    0.716\n4 SOCI =~ SOCI4   0.800 0.023 35.314      0    0.756    0.844\n5 SOCI =~ SOCI5   0.805 0.022 36.022      0    0.762    0.849\n\n\nFaktorladningene ligger i intervallet (0.6, 0.8). Dette er også akseptabelt."
+  },
+  {
+    "objectID": "slides/slides5a.html#sum-scores-vs-latente-variabler",
+    "href": "slides/slides5a.html#sum-scores-vs-latente-variabler",
+    "title": "Samling 9. april. Latente variabler og EFA",
+    "section": "Sum scores vs latente variabler",
+    "text": "Sum scores vs latente variabler\nVi ønsker å finne korrelasjon mellom konstruktene COMP og SOCI. Den enkle måten er å lage sum skårer\n\ncompsum &lt;- rowSums(select(data, contains(\"COMP\")))\nsocisum &lt;- rowSums(select(data, contains(\"SOCI\")))\ncor(compsum, socisum)\n\n[1] 0.4564993\n\n\nHeller ta høyde for målefeil i en faktormodell:\n\n    model &lt;- \"SOCI =~ SOCI1+SOCI2+SOCI3+SOCI4+SOCI5; COMP=~COMP1+COMP2+COMP3+COMP4+COMP5\"\n    f &lt;- cfa(model, data=data)\n    tail(standardizedsolution(f),1 )[, 1:4]\n\n    lhs op  rhs est.std\n23 SOCI ~~ COMP    0.51\n\n\nSummeskårer gir lavere korrelasjon!"
+  },
+  {
+    "objectID": "slides/slides5a.html#bedre-regresjon-med-de-latente-variablene",
+    "href": "slides/slides5a.html#bedre-regresjon-med-de-latente-variablene",
+    "title": "Samling 9. april. Latente variabler og EFA",
+    "section": "Bedre: regresjon med de latente variablene",
+    "text": "Bedre: regresjon med de latente variablene\nDet er bedre å kjøre regresjonen med latente variable. Dette kalles structural equation modelling\n\n    model &lt;- \"SOCI =~ SOCI1+SOCI2+SOCI3+SOCI4+SOCI5; COMP=~COMP1+COMP2+COMP3+COMP4+COMP5; COMP~SOCI+job_level\"\n    f &lt;- cfa(model, data=data)\n    standardizedsolution(f) %&gt;% filter(op==\"~\") %&gt;% select(1:4)\n\n   lhs op       rhs est.std\n1 COMP  ~      SOCI   0.511\n2 COMP  ~ job_level  -0.097"
+  },
+  {
+    "objectID": "slides/slides5a.html#fordelen-med-latente-variabler",
+    "href": "slides/slides5a.html#fordelen-med-latente-variabler",
+    "title": "Samling 9. april. Latente variabler og EFA",
+    "section": "Fordelen med latente variabler",
+    "text": "Fordelen med latente variabler\n\nLatent variabel modellering tar høyde for at item har målefeil. Det gjør ikke summeskårer\nLatent variabel modellering tar også høyde for at hvert item har forskjellig bidrag til faktoren (forskjellige ladninger). Det gjør ikke summeskårer, der hvert item teller likt\nEneste fordelen med summeskårer er at det er mer intuitivt og håndfast en en latent(usynlig) variabel"
+  },
+  {
+    "objectID": "slides/slides5a.html#efa",
+    "href": "slides/slides5a.html#efa",
+    "title": "Samling 9. april. Latente variabler og EFA",
+    "section": "EFA",
+    "text": "EFA\n\nVi har kjørt noen confirmatory faktor analyser (CFA)\nMen første trinn når man utarbeider et måleinstrument er å utføre EFA\n\nDa kan ta bort item som ikke fungerer. Enten fordi de lader på flere faktorer, eller fordi de har lav ladning\nMan kan gruppere items og tolke disse som indikatorer for et konstrukt"
+  },
+  {
+    "objectID": "slides/slides5a.html#efa-med-psych-pakken",
+    "href": "slides/slides5a.html#efa-med-psych-pakken",
+    "title": "Samling 9. april. Latente variabler og EFA",
+    "section": "EFA med psych pakken",
+    "text": "EFA med psych pakken\nI EFA angir vi hvor mange faktorer. COMP og SOCI items gir en pen to-faktor struktur:\n\nstress_trim = data %&gt;% select(matches(\"COMP|SOCI\"))#10 items\nf &lt;- fa(stress_trim, 2)#spesifiserer 2 faktorer\nf$loadings\n\n\nLoadings:\n      MR1    MR2   \nCOMP1  0.835       \nCOMP2  0.864       \nCOMP3  0.853       \nCOMP4  0.799       \nCOMP5  0.867       \nSOCI1         0.555\nSOCI2         0.748\nSOCI3         0.670\nSOCI4         0.801\nSOCI5         0.814\n\n                 MR1   MR2\nSS loadings    3.571 2.625\nProportion Var 0.357 0.262\nCumulative Var 0.357 0.620"
+  },
+  {
+    "objectID": "slides/slides5a.html#bestemme-antall-faktorer",
+    "href": "slides/slides5a.html#bestemme-antall-faktorer",
+    "title": "Samling 9. april. Latente variabler og EFA",
+    "section": "Bestemme antall faktorer",
+    "text": "Bestemme antall faktorer\nvanskelig problem: Hvor mange faktorer ligger til grunn for en skala? I stress-studien trodde vi på 10 faktorer i utgangspunktet, men endte opp med 7 faktorer.\nVi skal bruke parallel-analyse for å studere dette.\nMerk at det finnes mange metoder, som ofte ikke er enige!\nHer må man bruke sin forståelse av feltet og itemene til å finne den beste løsningen!"
+  },
+  {
+    "objectID": "slides/slides5a.html#scree-plot",
+    "href": "slides/slides5a.html#scree-plot",
+    "title": "Samling 9. april. Latente variabler og EFA",
+    "section": "Scree plot",
+    "text": "Scree plot\nEt scree plot (Catell, 1966) viser de såkalte egenverdiene. Hver egenverdi svarer til en faktor. Typisk vil plottet ha en “knekk” og antall faktorer er da antall egenverdier før knekken. Vi prøver med alle 50 indikatorer i stressdataene\n\nfa.parallel(select(data, 11:ncol(data)))\n\n\nParallel analysis suggests that the number of factors =  8  and the number of components =  7 \n\n\n\n\nhjem"
   },
   {
     "objectID": "slides/slides1.html#mps-140",
@@ -1033,13 +1138,13 @@
     "href": "Ressurser.html",
     "title": "Programvaren R",
     "section": "",
-    "text": "R er en open source og gratis programvare for statistikk.\nFor installasjon på din computer følg oppskriften her: https://posit.co/download/rstudio-desktop/\nSå kan du lage noen tilfeldige tall og lage et histogram og regne ut snittet og median:\n\nminetall &lt;- rnorm(200)# 200 tilfeldige tall trekkes fra standard normalfordeling. Ser ganske normalfordelt ut ja\nhist(minetall)\n\n\n\nmean(minetall)\n\n[1] 0.02449622\n\nmedian(minetall)\n\n[1] 0.04257454"
+    "text": "R er en open source og gratis programvare for statistikk.\nFor installasjon på din computer følg oppskriften her: https://posit.co/download/rstudio-desktop/\nSå kan du lage noen tilfeldige tall og lage et histogram og regne ut snittet og median:\n\nminetall &lt;- rnorm(200)# 200 tilfeldige tall trekkes fra standard normalfordeling. Ser ganske normalfordelt ut ja\nhist(minetall)\n\n\n\nmean(minetall)\n\n[1] 0.03899975\n\nmedian(minetall)\n\n[1] 0.02888658"
   },
   {
     "objectID": "Ressurser.html#r-og-rstudio",
     "href": "Ressurser.html#r-og-rstudio",
     "title": "Programvaren R",
     "section": "",
-    "text": "R er en open source og gratis programvare for statistikk.\nFor installasjon på din computer følg oppskriften her: https://posit.co/download/rstudio-desktop/\nSå kan du lage noen tilfeldige tall og lage et histogram og regne ut snittet og median:\n\nminetall &lt;- rnorm(200)# 200 tilfeldige tall trekkes fra standard normalfordeling. Ser ganske normalfordelt ut ja\nhist(minetall)\n\n\n\nmean(minetall)\n\n[1] 0.02449622\n\nmedian(minetall)\n\n[1] 0.04257454"
+    "text": "R er en open source og gratis programvare for statistikk.\nFor installasjon på din computer følg oppskriften her: https://posit.co/download/rstudio-desktop/\nSå kan du lage noen tilfeldige tall og lage et histogram og regne ut snittet og median:\n\nminetall &lt;- rnorm(200)# 200 tilfeldige tall trekkes fra standard normalfordeling. Ser ganske normalfordelt ut ja\nhist(minetall)\n\n\n\nmean(minetall)\n\n[1] 0.03899975\n\nmedian(minetall)\n\n[1] 0.02888658"
   }
 ]
