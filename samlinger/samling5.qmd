@@ -1,0 +1,39 @@
+---
+title: "Fysisk samling - 9 april"
+subtitle: "Latente variable og faktoranalyse"
+editor: visual
+---
+
+Læringsmål:
+
+-   Lære mer om hvordan man utvikler instrumenter/skalaer i psykologisk forskning
+
+-   Kjenne til hvordan psykologiske konstrukter modelleres som *latente* variabler
+
+-   Kunne utføre eksplorativ faktor analyse i R
+
+-   Repetere anova og multippel regresjon i R
+
+## Forbered
+
+-   Les litt om latente variabler feks på wikipedia eller [her](https://osf.io/2qgne/download?format=pdf)
+
+-   Se igjen på artikkelen [Sevic Foldnes og Brønnick 2024](https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2024.1297194/full "Measuring digital stress in Norway") Vi skal studere korrelasjonene mellom spørsmålene i skjemaet og gjøre EFA på skjemaet
+
+-   Sjekke korrelasjoner for items. Du må endre på første linje slik at R finner datafilen *stress_complete.rds* som du kan laste ned [her](#0)
+
+```{r}
+stress <- readRDS("../data/stress_complete.rds")
+
+#kikke på korrelasjoner mellom noen av konstruktene
+library(tidyverse)
+library(psych)
+konstrukter <- select(stress, contains(c("COMP","CONF", "INSE")))
+head(konstrukter)
+#beregne correlasjonsmatrisen
+korr <- cor(konstrukter)
+#visualisere
+cor.plot(korr)
+```
+
+Tenk over om instrumentet har ønsket faktorstruktur. Kan du se at det er 3 distinkte bolker av items?
