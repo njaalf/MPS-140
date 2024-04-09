@@ -467,7 +467,7 @@ Svar= \lambda \cdot F + \epsilon
 <h2>Korrelasjoner stress-skalaen</h2>
 <p>I følge skalaens skapere, skulle det være ti faktorer. Men vi får ikke det i det norske datasettet: Kan se ut som om vi har 6 relativt tydelig faktorer.</p>
 
-<img data-src="slides5a_files/figure-revealjs/unnamed-chunk-1-1.png" width="960" class="r-stretch"></section>
+<img data-src="slides5a_files/figure-html/unnamed-chunk-1-1.png" width="672" class="r-stretch"></section>
 <section id="beregne-faktor-ladninger-i-lavaan" class="slide level2">
 <h2>Beregne faktor-ladninger i lavaan</h2>
 <p>Pakken <em>lavaan</em> er beregnet på latente variabler.</p>
@@ -627,7 +627,7 @@ Cumulative Var 0.357 0.620</code></pre>
 </div>
 </div>
 
-<img data-src="slides5a_files/figure-revealjs/unnamed-chunk-9-1.png" width="960" class="r-stretch"><div class="footer footer-default">
+<img data-src="slides5a_files/figure-html/unnamed-chunk-9-1.png" width="672" class="r-stretch"><div class="footer footer-default">
 <p><a href="https://njaalf.github.io/MPS-140/">hjem</a></p>
 </div>
 </section></section>
@@ -848,44 +848,6 @@ Cumulative Var 0.357 0.620</code></pre>
         ]
       });
     </script>
-    
-    <script>
-      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
-      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
-      // slide changes (different for each slide format).
-      (function () {
-        // dispatch for htmlwidgets
-        function fireSlideEnter() {
-          const event = window.document.createEvent("Event");
-          event.initEvent("slideenter", true, true);
-          window.document.dispatchEvent(event);
-        }
-
-        function fireSlideChanged(previousSlide, currentSlide) {
-          fireSlideEnter();
-
-          // dispatch for shiny
-          if (window.jQuery) {
-            if (previousSlide) {
-              window.jQuery(previousSlide).trigger("hidden");
-            }
-            if (currentSlide) {
-              window.jQuery(currentSlide).trigger("shown");
-            }
-          }
-        }
-
-        // hookup for slidy
-        if (window.w3c_slidy) {
-          window.w3c_slidy.add_observer(function (slide_num) {
-            // slide_num starts at position 1
-            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
-          });
-        }
-
-      })();
-    </script>
-
     <script id="quarto-html-after-body" type="application/javascript">
     window.document.addEventListener("DOMContentLoaded", function (event) {
       const toggleBodyColorMode = (bsSheetEl) => {
