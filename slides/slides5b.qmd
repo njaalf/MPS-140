@@ -1,0 +1,227 @@
+---
+title: "Samling 9. april.Repetisjon"
+author: "Njål Foldnes"
+footer:  "[hjem](https://njaalf.github.io/MPS-140/)"
+   
+bibliography: ../references.bib 
+format: 
+  revealjs: 
+    toc: true
+    toc-depth: 1
+    multiplex: true
+    transition: fade
+    slide-number: true
+    theme: slides.scss
+    chalkboard: true
+revealjs-plugins:
+  - revealjs-text-resizer
+    
+editor: visual
+execute:
+  echo: true
+  message: false
+  warning: false
+  freeze: auto 
+---
+# Beskrivende statistikk
+
+## Envariabelstatistikk vha nøkkeltall
+
+Kontinuerlige variable
+
+-    Sentraltendens:Gjennomsnitt eller median
+
+-   Spredning: Standardavvik eller interkvartilbredde
+
+Kategoriske variabler:
+
+-   Frekvenstabell
+
+## Envariabelstatistikk vha nøkkeltall, R
+Kontinuerlig:
+```{r}
+library(psych); data(bfi)
+bfi <- bfi[complete.cases(bfi), ]#remove missing row-wise
+mean(bfi$age); median(bfi$age)
+sd(bfi$age); IQR(bfi$age)
+```
+Kategorisk:
+```{r}
+table(bfi$gender)
+```
+
+## Standardavvik-regel
+
+I en normalfordeling så er 95% av observasjonene mindre enn to standardavvik unna gjennomsnittet. "Uvanlig": mer enn 2 standardavvik vekk fra snittet.
+```{r}
+library(tidyverse)
+ggplot(data = data.frame(x = c(-3, 3)), aes(x)) +
+  stat_function(fun = dnorm, n = 101, args = list(mean = 0, sd = 1)) + ylab("") +
+  scale_y_continuous(breaks = NULL)+ggtitle("Standard normalfordeling N(0,1)")
+```
+
+## Envariabelstatistikk: Grafer
+For kontinuerlige variabler: histogram eller boksplott
+```{r}
+hist(bfi$age)
+```
+
+## boksplott for å sammenlikne grupper
+```{r}
+boxplot(bfi$age~bfi$gender)
+```
+
+## Envariabelstatistikk: Stolpediagram for kategorisk variabel
+
+```{r}
+qplot(factor(bfi$education))+geom_bar()
+```
+
+## Tovariabelstatistikk: korrelasjon
+```{r}
+#the older the more agreeable
+sumA <- 7-bfi$A1+bfi$A2+bfi$A3+bfi$A4+bfi$A5
+cor(sumA,bfi$age)
+qplot(bfi$age, sumA)+geom_smooth(method="lm")
+```
+
+## Tovariabelstatistikk: Enkel regresjon
+
+```{r}
+lm(sumA~bfi$age) %>% summary()
+```
+For hvert år alder øker så forventes en økning i sumA på 0.06
+
+
+# Inferense
+
+## Envariabelstatistikk: Inferens om gjennomsnitt
+
+Teste om menn og kvinner har samme alder i populasjonen $H_0: \mu_M=\mu_K$ vs $H_A: \mu_M \neq \mu_K$. Da brukes en $t$-test. 
+```{r}
+t.test(bfi$age~bfi$gender)
+```
+Vi har støtte for å hevde at det er forskjellig snittalder menn vs kvinner (når signifikansnivået $\alpha=.05$)
+
+## Type I og II feil i hypotesetesting
+
+Type I feil: Å forkaste nullhypotesen når den er sann. Dette skjer 1 av 20 ganger i det lange løp, når signifikansnivået er 5%.
+
+Type II feil: Å ikke forkaste nullhypotesen når den er usann. Vi kan minske sjansen for dette ved å ha et stort utvalg. 
+
+Testens styrke: Sjansen for at man ikke begår Type II feil når $H_0$ er usann. Styrken øker når utvalgsstørrelsen øker. 
+
+## Konfidensintervall
+
+For gjennomsnitt så kan vi beregne et 95\% *konfidensintervall*. Vi er 95\% sikre på at populasjonsverdin ligger i intervallet
+```{r}
+t.test(bfi$age)
+```
+Konfidensintervall for alder er (29.07, 29.95).
+
+## Enkel Regresjon
+
+Enkel regresjon predikerer verdien på en *avhengig variabel* y som en lineær funksjon av en *uavhengig variabel* x. 
+
+```{r}
+lm(sumA~bfi$age) %>% summary()
+```
+
+
+Ja, alder er signifikant, men effekten er nesten uten praktisk verdi. $R^2=.02$ er den forklarte variansen. Så 2% av variasjon i agreeableness kan forklares av alder.  
+
+## Multippel Regresjon
+
+Fremdeles en avhengig variabel Y. Men nå har vi flere uavhengige/prediktorer $X_1, \ldots, X_k$. 
+
+*Ceteris paribus*: Alt annet likt. Dvs vi får effekt av hver X, kontrollert for at de andre X'ene ikke forandrer seg.
+
+Dummykoding: Kategoriske variable kan kodes med dummyer som er 0/1. Hver dummy gir kontrast til  referansekategorien.
+
+## Effekt av Neuroticism on Agreeableness, controlled for gender and age
+
+```{r}
+sumN <- bfi$N1+bfi$N2+bfi$N3+bfi$N4+bfi$N5
+lm(sumA~sumN+bfi$age+bfi$gender) %>% summary()
+```
+En økning i neuroticism sumskår på 1 poeng er forventet å minske sumskår A med .14.  Modellen forklarer 10.3% av variasjonen in A. 
+
+## Forutsetninger for regresjon
+
+- Homoskedastiske feil-ledd. Sjekkes ved å plotte residualene og se at de har lik varians uavhengig av den tilpassete y verdi
+
+- Linearitet. Sjekkes med plott
+
+- Hvis $n$ er lav: Normalfordelte feil-ledd. Sjekkes i QQ plot
+
+- Vi bruker *performance::check_model()* og sjekker visuelt
+
+## ANOVA
+
+Hvis vi har mange grupper kan vi sjekk om gjennomsnittene er like i alle gruppen. Enten bruke *aov()* funksjonen eller bare multippel regresjon og $F$ statistikken. $H_0$: snittet er likt i alle grupper, $H_A$ snittet er ulikt i noen grupper. 
+
+Er agreeableness den samme i alle utdanningsnivå?
+```{r}
+bfi$education <- factor(bfi$education)# si ifra at dette er grupper og ikke intervallskala
+aov(sumA~factor(bfi$education)) %>% summary()
+```
+p-verdi < .05 så vi forkaster $H_0$! Det er ikke samme Agreeableness i all utdanningsnivå
+
+## ANOVA med multippel regresjon
+
+```{r}
+lm(sumA~bfi$education) %>% summary()
+```
+F-statistikken har samme p-verdi! I tillegg får vi effektene vs referansekategorien 1.
+
+## Logistisk regresjon
+
+Når den avhengige variabelen er 0/1 så predikerer vi verdien til log-odds for $P(Y=1)=p$:
+$$ log(\frac{p}{p-1})=a+b_1 X_1+ b_2X_2+\epsilon$$
+Kan agreeableness forutsi kjønn (når vi kontrollerer for alder) ?
+```{r}
+female <- ifelse(bfi$gender ==2, 1, 0)
+glm(female ~ sumA+bfi$age, family="binomial") %>% coefficients()
+```
+
+Ja, jo høyere A, jo større er sjansen for at det er en dame. 
+
+
+
+# Psykologiske konstrukter
+
+## Skalaens reliabilitet
+
+Hvor stabile er målingene til skalaen?
+Hvis vi gjør spørreundersøkelsen på ny, hva er korrelasjon mellom gammel og ny score?
+
+Dette tallet kalles *reliabilitet* og måles oftest ved Cronbach's alpha.
+Bør være minst 0.7-0.8
+```{r}
+psych::alpha(select(bfi, paste0("A", 1:5)), check.keys=T) %>% summary()
+```
+## Skalaens validitet
+
+Dette er en kjerneegenskap. Valide instrument måler det de er ment å måle, og målingene brukes på en måte som gjenspeiler dette. 
+
+Et veldig stort og filosofisk felt. Det finnes flere typer validitet
+og etablering av validitet er en prosess med mange refleksjoner.
+Her er en nyttig [link](http://korbedpsych.com/R09eValidity.html)
+
+## Latente variable
+
+En *latent variabel* er ikke observerbar, men vi kan måle den indirekte vha indikatorer= items i spørreskjema. Et sett av items som måler en faktor må skilles fra andre items som måler andre faktorer. Det får vi til med EFA. 
+
+EFA:
+
+- finne antall faktorer i instrument/skala (parallel analyse)
+- finne ut hvilke items som hører sammen i grupper som reflekterer hver sin faktor (fa() funksjonen i psych)
+
+CFA: Da vet vi indikatorene og vi bruker *lavaan* til å beregne faktorladninger og regresjoner mellom latente variabler. 
+
+
+
+
+
+
+
