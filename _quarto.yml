@@ -38,10 +38,21 @@ website:
               text: "Goldilocks utvalg av 400 ungdommer"
             - href: data/stress_complete.csv
               text: "Digital jobbstress"
+            - href: data/stress_complete.rds
+              text: "Digital jobbstress rds fil"
         - section: "Eksamen"
           contents:
             - href: omeksamen.qmd
               text: Om eksamen
+            - href: eksamen/artikkel.pdf
+              text: Artikkel for prøveeksamen
+            - href: eksamen/eks_mps140_prøve.pdf
+              text: "Prøveeksamen"
+            - href: eksamen/data2.rds
+              text: "Data del 2 prøveeksamen (uten norske tegn)"
+            - href: eksamen/prøveeksamen del 2.qmd
+              text: Rkode del 2
+              
               
 format:
       html:

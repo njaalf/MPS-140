@@ -7,6 +7,76 @@
     "text": "Denne websiden inneholder kursmateriell for statistikkurset i 2-årig psykologi master ved UiS. Emnebeskrivelsen: https://www.uis.no/nb/course/MPS140_1"
   },
   {
+    "objectID": "eksamen/prøveeksamen del 2.html",
+    "href": "eksamen/prøveeksamen del 2.html",
+    "title": "Prøveeksamen del 2 løsningsforslag",
+    "section": "",
+    "text": "mydata &lt;- readRDS(\"data2.rds\")\ntable(complete.cases(mydata))\n\n\nFALSE  TRUE \n  108  2361 \n\nmydata &lt;- mydata[ complete.cases(mydata), ]\ndim(mydata)\n\n[1] 2361   77\n\n# View(mydata) se på dataene"
+  },
+  {
+    "objectID": "eksamen/prøveeksamen del 2.html#laste-data-og-ta-med-bare-de-komplette",
+    "href": "eksamen/prøveeksamen del 2.html#laste-data-og-ta-med-bare-de-komplette",
+    "title": "Prøveeksamen del 2 løsningsforslag",
+    "section": "",
+    "text": "mydata &lt;- readRDS(\"data2.rds\")\ntable(complete.cases(mydata))\n\n\nFALSE  TRUE \n  108  2361 \n\nmydata &lt;- mydata[ complete.cases(mydata), ]\ndim(mydata)\n\n[1] 2361   77\n\n# View(mydata) se på dataene"
+  },
+  {
+    "objectID": "eksamen/prøveeksamen del 2.html#alder-kjønn-og-engasjement",
+    "href": "eksamen/prøveeksamen del 2.html#alder-kjønn-og-engasjement",
+    "title": "Prøveeksamen del 2 løsningsforslag",
+    "section": "Alder kjønn og Engasjement",
+    "text": "Alder kjønn og Engasjement\n\nsummary(mydata$Alder)\n\n   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. \n  19.00   39.00   47.00   46.92   55.00   72.00 \n\nsd(mydata$Alder)#standard avvik i tillegg\n\n[1] 10.60807\n\nhist(mydata$Alder)\n\n\n\n\nKjønn (OBS: Hvis du har problemer med æøå lag e\n\ntable(mydata$Kjoenn)\n\n\n   1    2 \n 982 1379 \n\nprop.table(table(mydata$Kjoenn))#prosenter\n\n\n        1         2 \n0.4159255 0.5840745 \n\n\nEngasjement\n\nsummary(mydata$Engasjement)\n\n   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. \n  1.000   3.667   4.167   4.036   4.667   5.000 \n\nsd(mydata$Engasjement)#standard avvik i tillegg\n\n[1] 0.7281558\n\nhist(mydata$Engasjement)\n\n\n\n\nKjønnsforskjell ift Engasjement:\n\nt.test(mydata$Engasjement~mydata$Kjoenn)\n\n\n    Welch Two Sample t-test\n\ndata:  mydata$Engasjement by mydata$Kjoenn\nt = 1.3788, df = 2138, p-value = 0.1681\nalternative hypothesis: true difference in means between group 1 and group 2 is not equal to 0\n95 percent confidence interval:\n -0.0176418  0.1011852\nsample estimates:\nmean in group 1 mean in group 2 \n       4.059902        4.018131"
+  },
+  {
+    "objectID": "eksamen/prøveeksamen del 2.html#engasjement-påvirkes-av-autonomi",
+    "href": "eksamen/prøveeksamen del 2.html#engasjement-påvirkes-av-autonomi",
+    "title": "Prøveeksamen del 2 løsningsforslag",
+    "section": "Engasjement påvirkes av autonomi?",
+    "text": "Engasjement påvirkes av autonomi?\n\nmod &lt;- lm(mydata$Engasjement ~ mydata$Autonomi)\nsummary(mod)\n\n\nCall:\nlm(formula = mydata$Engasjement ~ mydata$Autonomi)\n\nResiduals:\n    Min      1Q  Median      3Q     Max \n-3.3752 -0.3752  0.1108  0.4578  1.9308 \n\nCoefficients:\n                Estimate Std. Error t value Pr(&gt;|t|)    \n(Intercept)      2.74269    0.06436   42.62   &lt;2e-16 ***\nmydata$Autonomi  0.32651    0.01588   20.57   &lt;2e-16 ***\n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nResidual standard error: 0.6707 on 2359 degrees of freedom\nMultiple R-squared:  0.152, Adjusted R-squared:  0.1517 \nF-statistic:   423 on 1 and 2359 DF,  p-value: &lt; 2.2e-16\n\n\nAntagelsene for regresjon\n\nlibrary(performance)\ncheck_model(mod, check=c(\"linearity\", \"homogeneity\", \"normality\"))\n\n\n\n\nKorrelasjon\n\ncor(mydata$Engasjement, mydata$Autonomi)\n\n[1] 0.38992\n\n\nKontrollere for kjønn og alder\n\nmod &lt;- lm(Engasjement ~ Autonomi+Kjoenn+Alder, data=mydata)\nsummary(mod)\n\n\nCall:\nlm(formula = Engasjement ~ Autonomi + Kjoenn + Alder, data = mydata)\n\nResiduals:\n    Min      1Q  Median      3Q     Max \n-3.3805 -0.3766  0.1114  0.4547  1.9341 \n\nCoefficients:\n              Estimate Std. Error t value Pr(&gt;|t|)    \n(Intercept)  2.7617931  0.0983123  28.092   &lt;2e-16 ***\nAutonomi     0.3263453  0.0159728  20.431   &lt;2e-16 ***\nKjoenn      -0.0085677  0.0280678  -0.305    0.760    \nAlder       -0.0001039  0.0013076  -0.079    0.937    \n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nResidual standard error: 0.6709 on 2357 degrees of freedom\nMultiple R-squared:  0.1521,    Adjusted R-squared:  0.151 \nF-statistic: 140.9 on 3 and 2357 DF,  p-value: &lt; 2.2e-16\n\ncheck_model(mod, check=c(\"linearity\", \"homogeneity\", \"normality\"))"
+  },
+  {
+    "objectID": "eksamen/prøveeksamen del 2.html#se-på-itemene-og-faktorstruktur",
+    "href": "eksamen/prøveeksamen del 2.html#se-på-itemene-og-faktorstruktur",
+    "title": "Prøveeksamen del 2 løsningsforslag",
+    "section": "Se på itemene og faktorstruktur",
+    "text": "Se på itemene og faktorstruktur\nNytt datasett kun med items og lag cor.plot over dem\n\nlibrary(psych)\nitem.df &lt;- mydata[ , 21:77  ]\ncor.plot(item.df)\n\n\n\n\nSe på engasjement konstrukt.\n\nlibrary(lavaan);library(tidyverse)\n\nThis is lavaan 0.6-17\nlavaan is FREE software! Please report any bugs.\n\n\n\nAttaching package: 'lavaan'\n\n\nThe following object is masked from 'package:psych':\n\n    cor2cov\n\n\n── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──\n✔ dplyr     1.1.3     ✔ readr     2.1.4\n✔ forcats   1.0.0     ✔ stringr   1.5.0\n✔ ggplot2   3.4.4     ✔ tibble    3.2.1\n✔ lubridate 1.9.2     ✔ tidyr     1.3.0\n✔ purrr     1.0.2     \n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ ggplot2::%+%()   masks psych::%+%()\n✖ ggplot2::alpha() masks psych::alpha()\n✖ dplyr::filter()  masks stats::filter()\n✖ dplyr::lag()     masks stats::lag()\nℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors\n\nmodel &lt;- \"ENG =~ Eng1+Eng2+Eng3+Eng4+Eng5+Eng6\"\nf &lt;- cfa(model, data=item.df)#confirmatory factor analysis\nhead(standardizedsolution(f),6)\n\n  lhs op  rhs est.std    se       z pvalue ci.lower ci.upper\n1 ENG =~ Eng1   0.817 0.008 101.585      0    0.801    0.833\n2 ENG =~ Eng2   0.876 0.006 139.929      0    0.864    0.888\n3 ENG =~ Eng3   0.847 0.007 118.870      0    0.833    0.861\n4 ENG =~ Eng4   0.790 0.009  88.920      0    0.772    0.807\n5 ENG =~ Eng5   0.678 0.012  55.965      0    0.655    0.702\n6 ENG =~ Eng6   0.648 0.013  50.142      0    0.623    0.674\n\n\nReliabilitet\n\neng = item.df[, paste0(\"Eng\", 1:6)]\nreliability(eng)\n\nkeys not specified, all items will be scored\n\n\nLoading required namespace: GPArotation\n\n\nMeasures of reliability \nreliability(keys = eng)\n          omega_h alpha omega.tot  Uni r.fit fa.fit max.split min.split mean.r\nAll_items    0.73   0.9      0.92 0.98  0.98      1      0.93      0.87    0.6\n          med.r n.items\nAll_items  0.58       6"
+  },
+  {
+    "objectID": "eksamen/prøveeksamen del 2.html#korrelasjon-mellom-autonomi-og-engasjement-konstruktene",
+    "href": "eksamen/prøveeksamen del 2.html#korrelasjon-mellom-autonomi-og-engasjement-konstruktene",
+    "title": "Prøveeksamen del 2 løsningsforslag",
+    "section": "Korrelasjon mellom autonomi og engasjement konstruktene",
+    "text": "Korrelasjon mellom autonomi og engasjement konstruktene\n\nmodel &lt;- \"ENG =~ Eng1+Eng2+Eng3+Eng4+Eng5+Eng6; AUT=~Auto1+Auto2+Auto3\"\nf &lt;- cfa(model, data=item.df)#confirmatory factor analysis\n\nstandardizedsolution(f) %&gt;% tail(1)\n\n   lhs op rhs est.std    se      z pvalue ci.lower ci.upper\n21 ENG ~~ AUT   0.424 0.019 22.469      0    0.387    0.461\n\n\nKorrelasjonene er større nå enn når vi brukte mean scores."
+  },
+  {
+    "objectID": "eksamen/prøveeksamen del 2.html#se-på-kynisme-og-utbrenthet-2-faktorer",
+    "href": "eksamen/prøveeksamen del 2.html#se-på-kynisme-og-utbrenthet-2-faktorer",
+    "title": "Prøveeksamen del 2 løsningsforslag",
+    "section": "Se på kynisme og utbrenthet: 2 faktorer?",
+    "text": "Se på kynisme og utbrenthet: 2 faktorer?\n\nutbr = item.df %&gt;% select(matches(\"Overb|Kyn\"))#10 items\nf &lt;- fa(utbr, 2)#spesifiserer 2 faktorer\nf$loadings\n\n\nLoadings:\n       MR1    MR2   \nOverb1  0.917       \nOverb2  0.932       \nOverb3  0.700  0.192\nOverb4  0.737       \nKyn1           0.918\nKyn2           0.938\nKyn3           0.663\n\n                 MR1   MR2\nSS loadings    2.750 2.208\nProportion Var 0.393 0.315\nCumulative Var 0.393 0.708\n\n\nKorrelasjonen:\n\nmodel &lt;- \"OVERB =~ Overb1+Overb2+Overb3+Overb4;\n  KYN=~ Kyn1+Kyn2+Kyn3\"\nf &lt;- cfa(model, data=item.df)#confirmatory factor analysis\nstandardizedsolution(f) %&gt;% tail(1)\n\n     lhs op rhs est.std    se      z pvalue ci.lower ci.upper\n17 OVERB ~~ KYN   0.534 0.016 32.612      0    0.502    0.566"
+  },
+  {
+    "objectID": "eksamen/prøveeksamen del 2.html#efa-med-15-faktorer",
+    "href": "eksamen/prøveeksamen del 2.html#efa-med-15-faktorer",
+    "title": "Prøveeksamen del 2 løsningsforslag",
+    "section": "EFA med 15 faktorer",
+    "text": "EFA med 15 faktorer\n\nf &lt;- fa(item.df, 15)#spesifiserer 15 faktorer\nf$loadings \n\n\nLoadings:\n        MR5    MR1    MR2    MR9    MR10   MR8    MR6    MR14   MR4    MR12  \nEng1                   0.662 -0.161                                          \nEng2                   0.754                                                 \nEng3                   0.723                                                 \nEng4                   0.616 -0.156                                          \nEng5                   0.653                                                 \nEng6                   0.597  0.138                                          \nMedarb1                                                                      \nMedarb2                                                                      \nMedarb3  0.100         0.126                                                 \nMedarb4  0.107                                                               \nOverb1                        0.851                                          \nOverb2                        0.910                                          \nOverb3                        0.663                       0.144              \nOverb4                        0.705                                          \nKyn1                                                      0.871              \nKyn2                                                      0.885              \nKyn3                                                      0.572              \nTurn1                                                     0.158         0.702\nTurn2                                                                   0.894\nTurn3                                                                   0.839\nInfo1                                                                        \nInfo2                                                                        \nMedv1           0.109                              0.149                     \nMedv2                                                                        \nMedv3                                                                        \nAuto1                                              0.886                     \nAuto2                                              0.888                     \nAuto3                                              0.817                     \nTilbm1                               0.885                                   \nTilbm2                               0.936                                   \nTilbm3                               0.845                                   \nInv1                                        0.950                            \nInv2                                        0.921                            \nInv3                                        0.753                            \nLK1             0.653                0.117                                   \nLK2             0.827                                                        \nLK3             0.648                                                        \nLK4             0.846                                                        \nLK5             0.900                                                        \nStk1     0.801                                                               \nStk2     0.822                                                               \nStk3     0.736                                                               \nStk4     0.819                                                               \nStk5     0.750                                                               \nStk6     0.708  0.111                                                        \nStk7     0.562                                                               \nKmaal1                                                           0.801       \nKmaal2                                                           0.930       \nKmaal3                                                           0.621       \nInts1    0.103                              0.134                0.156       \nInts2                                                            0.152       \nInts3                                                                        \nInts4                                                                        \nInts5                                                            0.229       \nArbp1                                                                        \nArbp2                                                                        \nArbp3                                                                        \n        MR3    MR13   MR11   MR7    MR15  \nEng1                                      \nEng2                                      \nEng3                                      \nEng4                                      \nEng5                                      \nEng6                          0.131       \nMedarb1                       0.552       \nMedarb2                       0.763       \nMedarb3                       0.593       \nMedarb4                       0.567       \nOverb1                                    \nOverb2                                    \nOverb3                                    \nOverb4                                    \nKyn1                                      \nKyn2                                      \nKyn3                                      \nTurn1                                     \nTurn2                                     \nTurn3                                     \nInfo1                  0.108         0.736\nInfo2                                0.681\nMedv1                  0.427         0.206\nMedv2                  0.845              \nMedv3                  0.747              \nAuto1                                     \nAuto2                                     \nAuto3                                     \nTilbm1                                    \nTilbm2                                    \nTilbm3                                    \nInv1                                      \nInv2                                      \nInv3                                      \nLK1                                       \nLK2                                       \nLK3                                       \nLK4                                       \nLK5                                       \nStk1                                      \nStk2                                      \nStk3                                      \nStk4                                      \nStk5                                      \nStk6                                      \nStk7                                 0.281\nKmaal1                                    \nKmaal2                                    \nKmaal3          0.168                     \nInts1           0.290                     \nInts2           0.498                     \nInts3           0.484  0.176              \nInts4           0.757                     \nInts5           0.608                     \nArbp1    0.717                            \nArbp2    0.865                            \nArbp3    0.842                            \n\n                 MR5   MR1   MR2   MR9  MR10   MR8   MR6  MR14   MR4  MR12\nSS loadings    3.976 3.137 2.760 2.592 2.448 2.365 2.303 1.963 2.042 2.030\nProportion Var 0.070 0.055 0.048 0.045 0.043 0.041 0.040 0.034 0.036 0.036\nCumulative Var 0.070 0.125 0.173 0.219 0.262 0.303 0.344 0.378 0.414 0.449\n                 MR3  MR13  MR11   MR7  MR15\nSS loadings    2.016 1.570 1.535 1.616 1.192\nProportion Var 0.035 0.028 0.027 0.028 0.021\nCumulative Var 0.485 0.512 0.539 0.568 0.588"
+  },
+  {
+    "objectID": "eksamen/prøveeksamen del 2.html#parallelanalyse",
+    "href": "eksamen/prøveeksamen del 2.html#parallelanalyse",
+    "title": "Prøveeksamen del 2 løsningsforslag",
+    "section": "Parallelanalyse",
+    "text": "Parallelanalyse\n\nfa.parallel(item.df)\n\n\n\n\nParallel analysis suggests that the number of factors =  14  and the number of components =  11"
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "Emnebeskrivelse",
+    "section": "",
+    "text": "Denne websiden inneholder kursmateriell for statistikkurset i 2-årig psykologi master ved UiS. Emnebeskrivelser: https://www.uis.no/nb/course/MPS140_1"
+  },
+  {
     "objectID": "slides/slides3b.html#psykologiske-skalaer-og-tester",
     "href": "slides/slides3b.html#psykologiske-skalaer-og-tester",
     "title": "Fysisk samling 05.03. Psykometri, reliabilitet og validitet",
@@ -1288,24 +1358,31 @@
     "text": "Tolkning av \\(\\beta\\) i logistisk regresjon\nSå barn øker log odds for utroskap, og høyer rating reduserer log odds for utroskap. Vi kan fjerne log ved å bruke eksponentialfunksjon\n\nexp(coef(log_mod))\n\n        (Intercept) factor(children)yes              rating \n          1.3257757           1.7386247           0.6216858 \n\n\nTolkning: barn øker oddsen for utroskap med 74% og at en enhets økning i rating reduserer oddsen med 38%\n\n\nhjem"
   },
   {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "Emnebeskrivelse",
+    "objectID": "slides/test_delete_later.html",
+    "href": "slides/test_delete_later.html",
+    "title": "9 april stress",
     "section": "",
-    "text": "Denne websiden inneholder kursmateriell for statistikkurset i 2-årig psykologi master ved UiS. Emnebeskrivelser: https://www.uis.no/nb/course/MPS140_1"
+    "text": "stress &lt;- readRDS(\"../data/stress_complete.rds\")\ndim(stress)\n\n[1] 456  60"
+  },
+  {
+    "objectID": "slides/test_delete_later.html#laste-inn-data",
+    "href": "slides/test_delete_later.html#laste-inn-data",
+    "title": "9 april stress",
+    "section": "",
+    "text": "stress &lt;- readRDS(\"../data/stress_complete.rds\")\ndim(stress)\n\n[1] 456  60"
   },
   {
     "objectID": "Ressurser.html",
     "href": "Ressurser.html",
     "title": "Programvaren R",
     "section": "",
-    "text": "R er en open source og gratis programvare for statistikk.\nFor installasjon på din computer følg oppskriften her: https://posit.co/download/rstudio-desktop/\nSå kan du lage noen tilfeldige tall og lage et histogram og regne ut snittet og median:\n\nminetall &lt;- rnorm(200)# 200 tilfeldige tall trekkes fra standard normalfordeling. Ser ganske normalfordelt ut ja\nhist(minetall)\n\n\n\nmean(minetall)\n\n[1] 0.03524629\n\nmedian(minetall)\n\n[1] -0.03116024"
+    "text": "R er en open source og gratis programvare for statistikk.\nFor installasjon på din computer følg oppskriften her: https://posit.co/download/rstudio-desktop/\nSå kan du lage noen tilfeldige tall og lage et histogram og regne ut snittet og median:\n\nminetall &lt;- rnorm(200)# 200 tilfeldige tall trekkes fra standard normalfordeling. Ser ganske normalfordelt ut ja\nhist(minetall)\n\n\n\nmean(minetall)\n\n[1] 0.03380917\n\nmedian(minetall)\n\n[1] -0.01878008"
   },
   {
     "objectID": "Ressurser.html#r-og-rstudio",
     "href": "Ressurser.html#r-og-rstudio",
     "title": "Programvaren R",
     "section": "",
-    "text": "R er en open source og gratis programvare for statistikk.\nFor installasjon på din computer følg oppskriften her: https://posit.co/download/rstudio-desktop/\nSå kan du lage noen tilfeldige tall og lage et histogram og regne ut snittet og median:\n\nminetall &lt;- rnorm(200)# 200 tilfeldige tall trekkes fra standard normalfordeling. Ser ganske normalfordelt ut ja\nhist(minetall)\n\n\n\nmean(minetall)\n\n[1] 0.03524629\n\nmedian(minetall)\n\n[1] -0.03116024"
+    "text": "R er en open source og gratis programvare for statistikk.\nFor installasjon på din computer følg oppskriften her: https://posit.co/download/rstudio-desktop/\nSå kan du lage noen tilfeldige tall og lage et histogram og regne ut snittet og median:\n\nminetall &lt;- rnorm(200)# 200 tilfeldige tall trekkes fra standard normalfordeling. Ser ganske normalfordelt ut ja\nhist(minetall)\n\n\n\nmean(minetall)\n\n[1] 0.03380917\n\nmedian(minetall)\n\n[1] -0.01878008"
   }
 ]
