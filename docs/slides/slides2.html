@@ -542,14 +542,14 @@ F-statistic: 6.158 on 1 and 3 DF,  p-value: 0.08916</code></pre>
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a>popmodel <span class="ot">&lt;-</span> <span class="fu">lm</span>(tot_wellbeing<span class="sc">~</span> tothours, <span class="at">data=</span>populasjon)</span>
 <span id="cb7-2"><a href="#cb7-2"></a>popmodel <span class="sc">%&gt;%</span> <span class="fu">tidy</span>() <span class="sc">%&gt;%</span> <span class="fu">kable</span>(<span class="at">digits=</span><span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<table data-quarto-postprocess="true">
+<table>
 <thead>
 <tr class="header">
-<th style="text-align: left;" data-quarto-table-cell-role="th">term</th>
-<th style="text-align: right;" data-quarto-table-cell-role="th">estimate</th>
-<th style="text-align: right;" data-quarto-table-cell-role="th">std.error</th>
-<th style="text-align: right;" data-quarto-table-cell-role="th">statistic</th>
-<th style="text-align: right;" data-quarto-table-cell-role="th">p.value</th>
+<th style="text-align: left;">term</th>
+<th style="text-align: right;">estimate</th>
+<th style="text-align: right;">std.error</th>
+<th style="text-align: right;">statistic</th>
+<th style="text-align: right;">p.value</th>
 </tr>
 </thead>
 <tbody>
@@ -569,8 +569,6 @@ F-statistic: 6.158 on 1 and 3 DF,  p-value: 0.08916</code></pre>
 </tr>
 </tbody>
 </table>
-
-
 </div>
 </div>
 <p>En time ekstra daglig mobilbruk gir en forventet nedgang i trivsel på 0.81</p>
@@ -583,14 +581,14 @@ F-statistic: 6.158 on 1 and 3 DF,  p-value: 0.08916</code></pre>
 <h2>Regresjon i utvalget</h2>
 <div class="cell">
 <div class="cell-output-display">
-<table data-quarto-postprocess="true">
+<table>
 <thead>
 <tr class="header">
-<th style="text-align: left;" data-quarto-table-cell-role="th">term</th>
-<th style="text-align: right;" data-quarto-table-cell-role="th">estimate</th>
-<th style="text-align: right;" data-quarto-table-cell-role="th">std.error</th>
-<th style="text-align: right;" data-quarto-table-cell-role="th">statistic</th>
-<th style="text-align: right;" data-quarto-table-cell-role="th">p.value</th>
+<th style="text-align: left;">term</th>
+<th style="text-align: right;">estimate</th>
+<th style="text-align: right;">std.error</th>
+<th style="text-align: right;">statistic</th>
+<th style="text-align: right;">p.value</th>
 </tr>
 </thead>
 <tbody>
@@ -610,8 +608,6 @@ F-statistic: 6.158 on 1 and 3 DF,  p-value: 0.08916</code></pre>
 </tr>
 </tbody>
 </table>
-
-
 </div>
 </div>
 <p>Ganske likt populasjonsverdiene! Vi har linearitet.</p>
@@ -674,14 +670,14 @@ F-statistic: 6.158 on 1 and 3 DF,  p-value: 0.08916</code></pre>
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a>multmodel <span class="ot">&lt;-</span> <span class="fu">lm</span>(tot_wellbeing<span class="sc">~</span> tothours<span class="sc">+</span>male, <span class="at">data=</span>utvalg)</span>
 <span id="cb10-2"><a href="#cb10-2"></a>multmodel <span class="sc">%&gt;%</span> <span class="fu">tidy</span>() <span class="sc">%&gt;%</span> <span class="fu">kable</span>(<span class="at">digits=</span><span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<table data-quarto-postprocess="true">
+<table>
 <thead>
 <tr class="header">
-<th style="text-align: left;" data-quarto-table-cell-role="th">term</th>
-<th style="text-align: right;" data-quarto-table-cell-role="th">estimate</th>
-<th style="text-align: right;" data-quarto-table-cell-role="th">std.error</th>
-<th style="text-align: right;" data-quarto-table-cell-role="th">statistic</th>
-<th style="text-align: right;" data-quarto-table-cell-role="th">p.value</th>
+<th style="text-align: left;">term</th>
+<th style="text-align: right;">estimate</th>
+<th style="text-align: right;">std.error</th>
+<th style="text-align: right;">statistic</th>
+<th style="text-align: right;">p.value</th>
 </tr>
 </thead>
 <tbody>
@@ -708,8 +704,6 @@ F-statistic: 6.158 on 1 and 3 DF,  p-value: 0.08916</code></pre>
 </tr>
 </tbody>
 </table>
-
-
 </div>
 </div>
 </section>
@@ -717,14 +711,14 @@ F-statistic: 6.158 on 1 and 3 DF,  p-value: 0.08916</code></pre>
 <h2>Telefonbruk, kjønn og well-being</h2>
 <div class="cell">
 <div class="cell-output-display">
-<table data-quarto-postprocess="true">
+<table>
 <thead>
 <tr class="header">
-<th style="text-align: left;" data-quarto-table-cell-role="th">term</th>
-<th style="text-align: right;" data-quarto-table-cell-role="th">estimate</th>
-<th style="text-align: right;" data-quarto-table-cell-role="th">std.error</th>
-<th style="text-align: right;" data-quarto-table-cell-role="th">statistic</th>
-<th style="text-align: right;" data-quarto-table-cell-role="th">p.value</th>
+<th style="text-align: left;">term</th>
+<th style="text-align: right;">estimate</th>
+<th style="text-align: right;">std.error</th>
+<th style="text-align: right;">statistic</th>
+<th style="text-align: right;">p.value</th>
 </tr>
 </thead>
 <tbody>
@@ -751,8 +745,6 @@ F-statistic: 6.158 on 1 and 3 DF,  p-value: 0.08916</code></pre>
 </tr>
 </tbody>
 </table>
-
-
 </div>
 </div>
 <p>Effekten av telefonbruk er litt mindre når vi kontrollerer for kjønn (-0.934 <span class="math inline">\(\rightarrow\)</span> -0.688 )</p>
@@ -773,15 +765,15 @@ F-statistic: 6.158 on 1 and 3 DF,  p-value: 0.08916</code></pre>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1"></a><span class="fu">aov</span>(tot_wellbeing<span class="sc">~</span> school, utvalg) <span class="sc">%&gt;%</span> <span class="fu">tidy</span>() <span class="sc">%&gt;%</span> <span class="fu">kable</span>(<span class="at">digits=</span><span class="dv">2</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<table data-quarto-postprocess="true">
+<table>
 <thead>
 <tr class="header">
-<th style="text-align: left;" data-quarto-table-cell-role="th">term</th>
-<th style="text-align: right;" data-quarto-table-cell-role="th">df</th>
-<th style="text-align: right;" data-quarto-table-cell-role="th">sumsq</th>
-<th style="text-align: right;" data-quarto-table-cell-role="th">meansq</th>
-<th style="text-align: right;" data-quarto-table-cell-role="th">statistic</th>
-<th style="text-align: right;" data-quarto-table-cell-role="th">p.value</th>
+<th style="text-align: left;">term</th>
+<th style="text-align: right;">df</th>
+<th style="text-align: right;">sumsq</th>
+<th style="text-align: right;">meansq</th>
+<th style="text-align: right;">statistic</th>
+<th style="text-align: right;">p.value</th>
 </tr>
 </thead>
 <tbody>
@@ -803,8 +795,6 @@ F-statistic: 6.158 on 1 and 3 DF,  p-value: 0.08916</code></pre>
 </tr>
 </tbody>
 </table>
-
-
 </div>
 </div>
 <p>Vi har ikke støtte for å hevde at det er forskjell i well-being mellom de 4 skolene (p-verdi=.77 vi beholder <span class="math inline">\(H_0\)</span>)</p>

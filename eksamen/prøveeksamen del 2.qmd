@@ -98,7 +98,7 @@ Reliabilitet
 
 ```{r}
 eng = item.df[, paste0("Eng", 1:6)]
-reliability(eng)
+#reliability(eng)
 ```
 
 ## Korrelasjon mellom autonomi og engasjement konstruktene

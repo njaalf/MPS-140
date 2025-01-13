@@ -468,7 +468,7 @@ F-statistic: 140.9 on 3 and 2357 DF,  p-value: &lt; 2.2e-16</code></pre>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(lavaan);<span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
-<pre><code>This is lavaan 0.6-17
+<pre><code>This is lavaan 0.6-18.2090
 lavaan is FREE software! Please report any bugs.</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
@@ -482,10 +482,10 @@ Attaching package: 'lavaan'</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
 <pre><code>── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
-✔ dplyr     1.1.3     ✔ readr     2.1.4
-✔ forcats   1.0.0     ✔ stringr   1.5.0
-✔ ggplot2   3.4.4     ✔ tibble    3.2.1
-✔ lubridate 1.9.2     ✔ tidyr     1.3.0
+✔ dplyr     1.1.4     ✔ readr     2.1.5
+✔ forcats   1.0.0     ✔ stringr   1.5.1
+✔ ggplot2   3.5.1     ✔ tibble    3.2.1
+✔ lubridate 1.9.3     ✔ tidyr     1.3.1
 ✔ purrr     1.0.2     
 ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
 ✖ ggplot2::%+%()   masks psych::%+%()
@@ -510,30 +510,16 @@ Attaching package: 'lavaan'</code></pre>
 <p>Reliabilitet</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>eng <span class="ot">=</span> item.df[, <span class="fu">paste0</span>(<span class="st">"Eng"</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>)]</span>
-<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a><span class="fu">reliability</span>(eng)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>keys not specified, all items will be scored</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Loading required namespace: GPArotation</code></pre>
-</div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Measures of reliability 
-reliability(keys = eng)
-          omega_h alpha omega.tot  Uni r.fit fa.fit max.split min.split mean.r
-All_items    0.73   0.9      0.92 0.98  0.98      1      0.93      0.87    0.6
-          med.r n.items
-All_items  0.58       6</code></pre>
-</div>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a><span class="co">#reliability(eng)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="korrelasjon-mellom-autonomi-og-engasjement-konstruktene" class="level2">
 <h2 class="anchored" data-anchor-id="korrelasjon-mellom-autonomi-og-engasjement-konstruktene">Korrelasjon mellom autonomi og engasjement konstruktene</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="st">"ENG =~ Eng1+Eng2+Eng3+Eng4+Eng5+Eng6; AUT=~Auto1+Auto2+Auto3"</span></span>
-<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a>f <span class="ot">&lt;-</span> <span class="fu">cfa</span>(model, <span class="at">data=</span>item.df)<span class="co">#confirmatory factor analysis</span></span>
-<span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb42-4"><a href="#cb42-4" aria-hidden="true" tabindex="-1"></a><span class="fu">standardizedsolution</span>(f) <span class="sc">%&gt;%</span> <span class="fu">tail</span>(<span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="st">"ENG =~ Eng1+Eng2+Eng3+Eng4+Eng5+Eng6; AUT=~Auto1+Auto2+Auto3"</span></span>
+<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>f <span class="ot">&lt;-</span> <span class="fu">cfa</span>(model, <span class="at">data=</span>item.df)<span class="co">#confirmatory factor analysis</span></span>
+<span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-4"><a href="#cb39-4" aria-hidden="true" tabindex="-1"></a><span class="fu">standardizedsolution</span>(f) <span class="sc">%&gt;%</span> <span class="fu">tail</span>(<span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>   lhs op rhs est.std    se      z pvalue ci.lower ci.upper
 21 ENG ~~ AUT   0.424 0.019 22.469      0    0.387    0.461</code></pre>
@@ -544,9 +530,12 @@ All_items  0.58       6</code></pre>
 <section id="se-på-kynisme-og-utbrenthet-2-faktorer" class="level2">
 <h2 class="anchored" data-anchor-id="se-på-kynisme-og-utbrenthet-2-faktorer">Se på kynisme og utbrenthet: 2 faktorer?</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a>utbr <span class="ot">=</span> item.df <span class="sc">%&gt;%</span> <span class="fu">select</span>(<span class="fu">matches</span>(<span class="st">"Overb|Kyn"</span>))<span class="co">#10 items</span></span>
-<span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a>f <span class="ot">&lt;-</span> <span class="fu">fa</span>(utbr, <span class="dv">2</span>)<span class="co">#spesifiserer 2 faktorer</span></span>
-<span id="cb44-3"><a href="#cb44-3" aria-hidden="true" tabindex="-1"></a>f<span class="sc">$</span>loadings</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a>utbr <span class="ot">=</span> item.df <span class="sc">%&gt;%</span> <span class="fu">select</span>(<span class="fu">matches</span>(<span class="st">"Overb|Kyn"</span>))<span class="co">#10 items</span></span>
+<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a>f <span class="ot">&lt;-</span> <span class="fu">fa</span>(utbr, <span class="dv">2</span>)<span class="co">#spesifiserer 2 faktorer</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Loading required namespace: GPArotation</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a>f<span class="sc">$</span>loadings</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Loadings:
@@ -567,10 +556,10 @@ Cumulative Var 0.393 0.708</code></pre>
 </div>
 <p>Korrelasjonen:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="st">"OVERB =~ Overb1+Overb2+Overb3+Overb4;</span></span>
-<span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a><span class="st">  KYN=~ Kyn1+Kyn2+Kyn3"</span></span>
-<span id="cb46-3"><a href="#cb46-3" aria-hidden="true" tabindex="-1"></a>f <span class="ot">&lt;-</span> <span class="fu">cfa</span>(model, <span class="at">data=</span>item.df)<span class="co">#confirmatory factor analysis</span></span>
-<span id="cb46-4"><a href="#cb46-4" aria-hidden="true" tabindex="-1"></a><span class="fu">standardizedsolution</span>(f) <span class="sc">%&gt;%</span> <span class="fu">tail</span>(<span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="st">"OVERB =~ Overb1+Overb2+Overb3+Overb4;</span></span>
+<span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a><span class="st">  KYN=~ Kyn1+Kyn2+Kyn3"</span></span>
+<span id="cb45-3"><a href="#cb45-3" aria-hidden="true" tabindex="-1"></a>f <span class="ot">&lt;-</span> <span class="fu">cfa</span>(model, <span class="at">data=</span>item.df)<span class="co">#confirmatory factor analysis</span></span>
+<span id="cb45-4"><a href="#cb45-4" aria-hidden="true" tabindex="-1"></a><span class="fu">standardizedsolution</span>(f) <span class="sc">%&gt;%</span> <span class="fu">tail</span>(<span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>     lhs op rhs est.std    se      z pvalue ci.lower ci.upper
 17 OVERB ~~ KYN   0.534 0.016 32.612      0    0.502    0.566</code></pre>
@@ -580,8 +569,8 @@ Cumulative Var 0.393 0.708</code></pre>
 <section id="efa-med-15-faktorer" class="level2">
 <h2 class="anchored" data-anchor-id="efa-med-15-faktorer">EFA med 15 faktorer</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a>f <span class="ot">&lt;-</span> <span class="fu">fa</span>(item.df, <span class="dv">15</span>)<span class="co">#spesifiserer 15 faktorer</span></span>
-<span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a>f<span class="sc">$</span>loadings </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a>f <span class="ot">&lt;-</span> <span class="fu">fa</span>(item.df, <span class="dv">15</span>)<span class="co">#spesifiserer 15 faktorer</span></span>
+<span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a>f<span class="sc">$</span>loadings </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Loadings:
@@ -716,7 +705,7 @@ Cumulative Var 0.485 0.512 0.539 0.568 0.588</code></pre>
 <section id="parallelanalyse" class="level2">
 <h2 class="anchored" data-anchor-id="parallelanalyse">Parallelanalyse</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="fu">fa.parallel</span>(item.df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="fu">fa.parallel</span>(item.df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="prøveeksamen-del-2_files/figure-html/unnamed-chunk-17-1.png" class="img-fluid" width="672"></p>
 </div>

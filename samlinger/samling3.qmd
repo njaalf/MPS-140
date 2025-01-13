@@ -38,5 +38,5 @@ keys.list <- list(agree=c("-A1","A2","A3","A4","A5"),
                   neuroticism=c("N1","N2","N3","N4","N5"),
                   openness = c("O1","-O2","O3","O4","-O5"))
 #print ut flere forskjellige mål for reliabilitet, blant annet alpha
-reliability(keys=keys.list, items=bfi)
+#reliability(keys=keys.list, items=bfi)
 ```
