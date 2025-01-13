@@ -1,6 +1,6 @@
 ---
 title: 'Første samling: Grunnleggende statistikk'
-subtitle: 23 Januar 2024
+subtitle: 21 Januar 2025
 format: 
   html
 editor: visual
@@ -12,11 +12,9 @@ execute:
 
 Velkommen!
 
-BLA BLA
-
 I denne samlingen får vi et overblikk over kurset, og vi frisker opp statistikken fra introkurset. Vi snakker også litt om metodologi i psykologi (kvantitativ vs kvalitativ tilnærming), og vi jobber i grupper.
 
-I gruppearbeidet vil dere få oppgaver på introkurs i statistikk nivå som er svært viktige å beherske for resten av kurset.
+I gruppearbeidet vil dere få oppgaver på introkurs i statistikk nivå som er svært viktige å beherske for resten av kurset. Gruppearbeid i faste grupper er en sentral del av undervisningen. Jeg er nemlig en tilhenger av omvendt klasserom: [kvantitativt paper om flipped classroom](https://journals.sagepub.com/doi/full/10.1177/1469787415616726) og [kvalitativt paper om flipped classroom](https://www.tandfonline.com/doi/full/10.1080/13562517.2017.1379481)
 
 ## Læringsmål
 
