@@ -1,5 +1,5 @@
 ---
-title: "Fysisk samling - 5 mars"
+title: "Fysisk samling - 4 mars"
 subtitle: "Multippel regresjon og Måling av psykologiske konstrukter "
 editor: visual
 ---

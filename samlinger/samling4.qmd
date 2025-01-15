@@ -1,5 +1,5 @@
 ---
-title: "Digital samling - 19 mars"
+title: "Digital samling - 18 mars"
 subtitle: "Forskningsmetoder i psykologi  og forutsetniger for regresjon"
 editor: visual
 ---

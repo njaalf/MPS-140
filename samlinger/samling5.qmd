@@ -1,5 +1,5 @@
 ---
-title: "Fysisk samling - 9 april"
+title: "Fysisk samling - 8 april"
 subtitle: "Latente variable og faktoranalyse"
 editor: visual
 ---
