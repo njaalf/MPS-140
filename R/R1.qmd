@@ -10,11 +10,10 @@ knitr::opts_chunk$set(message = FALSE)
 knitr::opts_chunk$set(warning = FALSE)
 ```
 
-
-
 # Forelesningen
 
 ## Housing dataene
+
 Vi må installere noen pakker og da får vi Housing datafilen gjennom pakken Ecdat.
 
 ```{r, echo=T}
@@ -25,7 +24,9 @@ Housing <- Housing[, c(1:3, 10, 11:12)]# her velger vi ut søylene 1,2,3,10,11,1
 ```
 
 ## Histogram for pris
-Enten bruker vi base R eller den mer kraftige pakken ggplot som vi fikk via tidyverse. 
+
+Enten bruker vi base R eller den mer kraftige pakken ggplot som vi fikk via tidyverse.
+
 ```{r}
 #basic plot
 hist(Housing$price)
@@ -34,6 +35,7 @@ ggplot(Housing, aes(price))+geom_histogram()
 ```
 
 ## Stolpediagram for preferred area
+
 Stolpediagram for preferred area:
 
 ```{r, echo=T}
@@ -41,8 +43,8 @@ Stolpediagram for preferred area:
 ggplot(Housing, aes(prefarea))+geom_bar()
 ```
 
-
 ## Separere på preferreed area og se på fordelingene
+
 ```{r, echo=T}
 ggplot(Housing, aes(price, color=prefarea))+geom_density()
 ```
@@ -54,22 +56,19 @@ age <- c(16, 56, 58, 67, 62,69)
 
 ```
 
-
-
-
-
 ## KRYSSTABELL
+
 ```{r, echo=T}
 table(Housing$airc, Housing$prefarea)
 ```
 
 ## spredningsdiagram
+
 ```{r, echo=T}
 ggplot(Housing, aes(lotsize,price))+geom_point()
 ```
 
-
-## Korrelasjon 
+## Korrelasjon
 
 ```{r, echo=T}
 x <- c(-5 , 10 , 15 , 31 , 42)
@@ -81,18 +80,17 @@ plot(x,y)
 ggplot(data.frame(x,y), aes(x,y))+geom_point(size=3)
 ```
 
-## Cornflakes 
+## Cornflakes
 
 ```{r, echo=T}
 vekt <- c(502, 498, 479, 492, 488, 494, 494)
 t.test(vekt, mu=500)
 ```
 
-
-
 # Quiz
 
 ## Oppgave 13
+
 ```{r, echo=T}
 alder <- c(20, 20, 19, 23, 29, 27, 25, 21)#legge inn i vektor
 sd(alder)
@@ -106,11 +104,13 @@ sd(timer)
 ```
 
 ## Oppgave 27
+
 ```{r, echo=T}
 prop.test(x=26, n=240)
 ```
 
 ## Oppgave 28
+
 ```{r, echo=T}
 prop.test(x=28, n=56, conf.level=.9)#stemmer!
 ```
@@ -123,6 +123,7 @@ t.test(alder)
 ```
 
 ## Oppgave 31
+
 ```{r, echo=T}
 pinge <- read.csv("agePingelab.csv")
 alder <- pinge[, 1]# bare en søyle, vi velger denne. 
@@ -130,11 +131,13 @@ mean(alder)
 ```
 
 ## Oppgave 32
+
 ```{r, echo=T}
 t.test(alder)
 ```
 
 ## Oppgave 42
+
 ```{r, echo=T}
 oppmøte <- c( 2 , 15 , 8 , 14, 8 , 12 , 13 , 2 , 5, 4 )
 poeng <- c( 13 , 26, 20 ,27, 16, 24 , 20, 11 , 16, 20)
@@ -142,12 +145,8 @@ plot(oppmøte, poeng)
 ```
 
 ## Oppgave 44
+
 ```{r, echo=T}
 reg <- lm(oppmøte~ poeng)
 summary(reg)
 ```
-
-
-
-
-
