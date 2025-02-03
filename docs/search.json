@@ -291,7 +291,7 @@
     "href": "slides/slides2.html#trivsel-og-sosiale-medier-engelske-15-åringer",
     "title": "Lineær Regresjon. Digital samling 1",
     "section": "Trivsel og sosiale medier engelske 15 åringer",
-    "text": "Trivsel og sosiale medier engelske 15 åringer\nPrzybylski, A. & Weinstein, N. (2017). A Large-Scale Test of the Goldilocks Hypothesis. Psychological Science, 28, 204–215.\nStorskala studie som finner støtte til “Goldilocks” hypotesen.\nDataene er tilgjengelige her"
+    "text": "Trivsel og sosiale medier engelske 15 åringer\nPrzybylski, A. & Weinstein, N. (2017). A Large-Scale Test of the Goldilocks Hypothesis. Psychological Science, 28, 204–215.\nStorskala studie som finner støtte til “Goldilocks” hypotesen.\nDataene er tilgjengelige her\nSe også “smartphone_wellbeing.rds” filen i Data folderen på kurssiden."
   },
   {
     "objectID": "slides/slides2.html#trivsel---wellbeing",
@@ -1376,13 +1376,13 @@
     "href": "Ressurser.html",
     "title": "Programvaren R",
     "section": "",
-    "text": "R er en open source og gratis programvare for statistikk.\nFor installasjon på din computer følg oppskriften her: https://posit.co/download/rstudio-desktop/\nSå kan du lage noen tilfeldige tall og lage et histogram og regne ut snittet og median:\n\nminetall &lt;- rnorm(200)# 200 tilfeldige tall trekkes fra standard normalfordeling. Ser ganske normalfordelt ut ja\nhist(minetall)\n\n\n\nmean(minetall)\n\n[1] 0.08353022\n\nmedian(minetall)\n\n[1] 0.04584366"
+    "text": "R er en open source og gratis programvare for statistikk.\nFor installasjon på din computer følg oppskriften her: https://posit.co/download/rstudio-desktop/\nSå kan du lage noen tilfeldige tall og lage et histogram og regne ut snittet og median:\n\nminetall &lt;- rnorm(200)# 200 tilfeldige tall trekkes fra standard normalfordeling. Ser ganske normalfordelt ut ja\nhist(minetall)\n\n\n\nmean(minetall)\n\n[1] 0.072221\n\nmedian(minetall)\n\n[1] 0.02101216"
   },
   {
     "objectID": "Ressurser.html#r-og-rstudio",
     "href": "Ressurser.html#r-og-rstudio",
     "title": "Programvaren R",
     "section": "",
-    "text": "R er en open source og gratis programvare for statistikk.\nFor installasjon på din computer følg oppskriften her: https://posit.co/download/rstudio-desktop/\nSå kan du lage noen tilfeldige tall og lage et histogram og regne ut snittet og median:\n\nminetall &lt;- rnorm(200)# 200 tilfeldige tall trekkes fra standard normalfordeling. Ser ganske normalfordelt ut ja\nhist(minetall)\n\n\n\nmean(minetall)\n\n[1] 0.08353022\n\nmedian(minetall)\n\n[1] 0.04584366"
+    "text": "R er en open source og gratis programvare for statistikk.\nFor installasjon på din computer følg oppskriften her: https://posit.co/download/rstudio-desktop/\nSå kan du lage noen tilfeldige tall og lage et histogram og regne ut snittet og median:\n\nminetall &lt;- rnorm(200)# 200 tilfeldige tall trekkes fra standard normalfordeling. Ser ganske normalfordelt ut ja\nhist(minetall)\n\n\n\nmean(minetall)\n\n[1] 0.072221\n\nmedian(minetall)\n\n[1] 0.02101216"
   }
 ]

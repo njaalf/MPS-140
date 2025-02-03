@@ -161,6 +161,11 @@ Storskala studie som finner støtte til "Goldilocks" hypotesen.
 
 Dataene er tilgjengelige [her](https://osf.io/49rmq/files/osfstorage)
 
+Se også "smartphone_wellbeing.rds" filen i Data folderen på kurssiden.
+
+
+
+
 ## Trivsel - Wellbeing
 
 Vi ønsker å studere trivsel. Det er vår *avhengige* variabel:
