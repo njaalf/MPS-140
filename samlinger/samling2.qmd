@@ -5,7 +5,7 @@ editor: visual
 ---
 
 ::: callout-important
--   Digital samling på [Teams](https://teams.microsoft.com/l/meetup-join/19%3ameeting_MWRhZDU2NmMtNTYzYi00YWJmLTk0YjItNzI1MzQ3NWMyMDMz%40thread.v2/0?context=%7b%22Tid%22%3a%22f8a213d2-8f6c-400d-9e74-4e8b475316c6%22%2c%22Oid%22%3a%22a890ccff-de91-4c38-af4c-d63348992da3%22%7d "Link").
+-   Digital samling på [Teams](https://teams.microsoft.com/l/meetup-join/19%3ameeting_MTYyMDk3ZWMtZDc0Yi00ZWMyLWI0MzctMzZkYTFmMmE3ZGI0%40thread.v2/0?context=%7b%22Tid%22%3a%22f8a213d2-8f6c-400d-9e74-4e8b475316c6%22%2c%22Oid%22%3a%22a890ccff-de91-4c38-af4c-d63348992da3%22%7d "Link").
 :::
 
 Læringsmål:
@@ -16,7 +16,7 @@ Læringsmål:
 
 -   kunne kjøre regresjon i R og tolke resultatene
 
-## Forbered deg til 6 feb!
+## Forbered deg til 4 feb!
 
 -   📖 Repeter stoffet i kapittel 22 om enkel regresjon i Statistikk og Dataanalyse
 

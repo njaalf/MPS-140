@@ -1,0 +1,248 @@
+  \documentclass[12pt,a4paper, norsk]{article}
+
+ \usepackage[norsk]{babel}
+ \usepackage{color}
+	 \usepackage{multicol, multirow}
+  \usepackage[utf8]{inputenc} 
+\usepackage{pgfplots} 
+\usepackage{hyperref}
+ \usepackage{url}
+ \usepackage{enumerate}
+ \usepackage{graphicx} 
+ \usepackage{tabularx}
+ \usepackage{wrapfig} 
+ \usepackage{subfigure}
+ \usepackage{amsmath,amssymb}
+\usepackage{multirow}
+\usepackage{tikz}
+\usepackage{times}
+
+\addtolength{\textwidth}{0.5in}
+
+\title{Prøveeksamen MPS - redusert versjon}
+\date{\nodate}
+ 
+ \begin{document} %\color{blue}
+ 	
+ 	Eksamen er todelt. Første del inneholder oppgaver som skal besvares basert på informasjon i dette oppgavesettet. 
+ 	Andre del inneholder spørsmål omkring analyser av datasettet som ble levert ut to uker før eksamen. 
+ 	Denne prøveeksamenen inneholder omkring halvparten så mange oppgaver som den kommende eksamen. 
+ 	Oppgavene i denne prøveeksamen er representative med tanke på tematikk og vanskegrad. 
+ 	
+ \section*{Del 1}
+ 
+Personlighetstester blir ofte brukt i rekruttering i arbeidslivet. 
+Formålet er å finne ut hvilke personlighetstrekk en jobbkandidat har.  En stor bedrift lyste ut ti ledige stillinger som kundekonsulent. Totalt var det $n=295$ søkere til stillingene, og alle tok en personlighetstest. 
+Testen resulterte blant annet i scorer på følgende personlighetstrekk:
+\begin{itemize}
+	\item {\it Medmenneskelighet}: Et mål på hvor stor tillit man har til medmennesker, og hvor stor omtanke man har for medmennesker.  Måles på en kontinuerlig skala fra 0-100.
+	
+	\item {\it Nevrotisisme}:  Et mål på følelsesmessig ustabilitet med tilbøyelighet til angst, irritasjon og depresjon. Måles på en kontinuerlig skala fra 0-100.
+	
+\end{itemize}
+
+I tillegg skal vi se på følgende variabler: {\it Kjønn}, {\it Alder} og {\it Utdanningsnivå}.  Sistnevnte variabel har følgende fem kategorier: Ungdomsskole, Videregående skole, Årsstudium innen høyere utdanning, Bachelorgrad og Mastergrad. 
+
+ 
+
+
+\subsection*{Oppgave 1  (4 poeng) }
+
+
+
+ \begin{enumerate}[(a)]
+
+
+\item På hvilket målenivå er variabelen {\it Utdanningsnivå}?
+
+
+\item Krysstabellen mellom {\it Kjønn} og {\it Utdanningsnivå} er som følger:
+
+
+
+\begin{table}[ht]
+	\centering
+	\begin{tabular}{rrrrrr}
+ & Ungdomsskole & Vid.g. skole & Årsstudium & Bachelor & Master \\ 
+  \hline
+Mann &  13 &  11 &  43 &  ? &  18 \\ 
+  Kvinne &  11 &  22 & 102 &  35 &  29 \\ 
+   \hline
+\end{tabular}
+\end{table}
+
+Hvor mange menn hadde Bachelor som sitt utdanningsnivå?
+
+\item 
+Hvor stor prosentandel av søkerne hadde Mastergrad?
+
+
+
+\item Lag en graf som viser fordelingen til {\it Utdanningsnivå} for de kvinnelige søkerne.
+
+
+
+	\end{enumerate}		
+
+\subsection*{Oppgave 2  (4 poeng) }
+Figur \ref{fig:1}  viser fordelingen til {\it Medmenneskelighet} hos menn og kvinner.
+\begin{figure}[htp]
+	\centering
+	\includegraphics[width=0.99\textwidth]{fig1}
+	\caption{Oppgave 2 }
+	\label{fig:1}
+\end{figure}
+
+ \begin{enumerate}[(a)]
+
+\item Hva kalles den type graf som vises i figuren? 
+
+
+\item  Hvilket kjønn  scorer høyest på medmenneskelighet?
+
+\item  Anslå medianverdien til medmenneskelighet hos kvinner.
+
+
+\item  Anslå interkvartilbredden (IK) i medmenneskelighet hos menn. 
+
+
+
+
+
+\end{enumerate}		
+
+
+\subsection*{Oppgave 3  (2 poeng) }
+La oss anta at  {\it Nevrotisisme} hos en tilfeldig valgt 
+søker er normalfordelt med  $\mu=50$   og standardavvik $\sigma=15$. 
+
+
+
+\begin{enumerate}[(a)]
+	
+	\item  Lars har en nevrotisisme-score på 80. Hva er $z$-verdien til denne scoren?
+	
+	\item Hva er sannsynligheten for at en tilfeldig valgt søker scorer mellom 20 og 80 i nevrotisisme? Skisser sannsynligheten som arealet under en graf.
+	
+
+	\end{enumerate}		
+%
+
+
+
+
+	
+	
+\subsection*{Oppgave 4  (3 poeng) }
+	
+	Tabellen under  inneholder nøkkeltall for score på medmenneskelighet for menn og kvinner. 
+	\begin{figure}[htp]
+		\centering
+		\includegraphics[width=0.9\textwidth]{fig2}
+		\caption{Oppgave 5.}
+		\label{fig:2}
+	\end{figure}
+
+
+	
+	 \begin{enumerate}[(a)]
+	
+	\item  Er tallene i tabellen observatorer eller parametre?
+	
+	\item Det påstås at kvinnelige søkere  i gjennomsnitt er mer medmenneskelige enn mannlige søkere. Skriv opp hypoteser $H_0$ og $H_A$ for å teste denne påstanden. Bruk symbolene $\mu_K$ og $\mu_M$. 
+	
+	
+	\item Når testen utføres så blir p-verdien $< .001$. Hva blir konklusjonen på testen? Formuler deg i et lettfattelig språk. 
+	 
+\end{enumerate}		
+		
+		
+\subsection*{Oppgave 5  (5 poeng) }
+			Vi ser på regresjonen mellom den uavhengige variabelen $x=${\it Alder} og den avhengige variabelen $y$=
+			{\it Medmenneskelighet}.
+		 Regresjonstabellen for linja $$\widehat{\text{Medmenneskelighet}}=b_0+b_1\cdot \text{alder}$$ er
+			
+			\begin{center}
+		
+	\begin{tabular}{rrrrr}
+  \hline
+ & Estimate & Std. Error & t value & Pr($>$$|$t$|$) \\ 
+  \hline
+(Intercept) & 62.06 & 3.38 & 18.36 & 0.00 \\ 
+  alder & 0.24 & 0.11 & 2.19 & 0.03 \\ 
+   \hline
+\end{tabular}
+			 	\end{center}
+			
+			
+			 \begin{enumerate}[(a)]
+			
+			\item  Lise er en ny søker, og hun er 50 år gammel. Hva er prognosen for hennes medmenneskelighets-score? 
+			
+			\item  Gi en tolkning av koeffisienten $b_1=0.24$.
+			
+			\item 
+			 Det påstås  at søkere har høyere score på medmenneskelighet jo eldre de er. Skriv opp $H_0$ og $H_A$ for å teste denne påstanden. Bruk symbolet $\beta_1$. 
+			 
+			 \item Har vi tilstrekkelig støtte til å hevde at scoren på medmenneskelighet øker med alder? Bruk signifikansnivå $\alpha=0.05$. 
+			
+			\item Nevn tre forutsetninger for at vi kan stole på resultatet fra en lineær regresjonsmodell.
+			
+			
+			
+				\end{enumerate}		
+				
+	
+	\subsection*{Oppgave 6  (4 poeng) }
+	
+	Fram til nå har vi antatt at nevrotisisme er målt på  en skala fra 0-100. I forskning brukes skalaer for å måle nevrotisisme, blant annet som del av big 5. Forskerne Weinstock og Whisman lanserte i 2006 en skala for nevrotisisme som består av 8 item, som måles på 4-punkts  Likert skala.
+	Itemene kalles (tense, nervous, temperamental, irritable, envious, unstable, insecure, emotional). 
+	
+	 
+	
+	
+	\begin{enumerate}[(a)]
+	
+	\item Forklar hvorfor forskerne bruker flere enn ett item. 
+	
+	\item Reliabiliteten til skalaen var $\alpha=.86$ i et representativt utvalg. Definer reliabilitet og gi en tolkning av $\alpha$ verdien. 
+	
+	\item Forklar hva validitet er. 
+	
+	\item Forskerne oppgir at deres skala er korrelert med $r=0.7$ med nevrotisisme skalaen som ofte brukes i big five instrumentet (NEO Personality Inventory ,Costa og McCrae, 1992). 
+	Forklar hvordan dette styrker validiteten. Hva kaller vi den type validitet som her styrkes?
+	
+	
+	
+	
+\end{enumerate}
+
+
+\subsection*{Oppgave 7  (3 poeng) }
+
+\begin{enumerate}[(a)]
+	
+	\item Forklar hva en latent variabel er for noe. Bruke gjerne nevrotisisme som eksempel. 
+	
+	\item Hva er formålet med EFA (eksplorerende faktor analyse). Bruke gjerne nevrotisisme som eksempel.
+	
+	\item Gi et eksempel på at en skala kan bestå av to subskalaer. Bruke gjerne nevrotisisme som eksempel.
+	
+
+	
+	
+	
+\end{enumerate}
+
+
+
+\section{Del 2} 
+
+
+
+
+
+
+
+ 
+  \end{document}
