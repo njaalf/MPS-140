@@ -1061,7 +1061,7 @@
     "href": "index.html",
     "title": "MPS 140: Kvantitativ forskningsmetode",
     "section": "",
-    "text": "FYSISKE SAMLINGER\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nDato\nTema\nForberedelser\nPresentasjoner\nR\nOppgaver\n\n\n\n\n21.01: 1215-16\nIntro og grunnleggende statistikk\n📖\n🖥 🖥\n📋\n📋\n\n\n04.03: 815-16\nPsykometri\n📖\n🖥 🖥\n\n[📋]\n\n\n08.04: 815-16\nLatente variable\n📖\n🖥🖥\n\n[📋]\n\n\n06.06\nEksamen\n\n\n\n\n\n\n\n\n\n\nDIGITALE SAMLINGER\n\n\n\n\n\n\n\n\n\n\n\n\nDato\nTema\nForberedelser\nPresentasjon\nR\nOppgaver\n\n\n\n\n04.02: 9-12\nR og regresjonsmodellen\n📖\n🖥\n[📋](R/digR1.qmd “R kode”)\n[📋](quiz/digsamling1_mps140.pdf “Oppg 2”)\n\n\n18.03: 9-12\nForskningsmetoder i psykologi + Forutsetninger for regresjon\n📖\n🖥\n\n[📋]\n\n\n29.04:9-12\nLatente variable\n\n\n\n\n\n\n06.05: 9-12\nEksamensforberedelse"
+    "text": "FYSISKE SAMLINGER\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nDato\nTema\nForberedelser\nPresentasjoner\nR\nOppgaver\n\n\n\n\n21.01: 1215-16\nIntro og grunnleggende statistikk\n📖\n🖥 🖥\n📋\n📋\n\n\n04.03: 815-16\nPsykometri\n📖\n🖥 🖥\n\n[📋]\n\n\n08.04: 815-16\nLatente variable\n📖\n🖥🖥\n\n[📋]\n\n\n06.06\nEksamen\n\n\n\n\n\n\n\n\n\n\nDIGITALE SAMLINGER\n\n\n\n\n\n\n\n\n\n\n\n\nDato\nTema\nForberedelser\nPresentasjon\nR\nOppgaver\n\n\n\n\n04.02: 9-12\nR og regresjonsmodellen\n📖\n🖥\n📋\n📋\n\n\n18.03: 9-12\nForskningsmetoder i psykologi + Forutsetninger for regresjon\n📖\n🖥\n\n[📋]\n\n\n29.04:9-12\nLatente variable\n\n\n\n\n\n\n06.05: 9-12\nEksamensforberedelse"
   },
   {
     "objectID": "slides/slides5a.html#agenda",
@@ -1376,13 +1376,13 @@
     "href": "Ressurser.html",
     "title": "Programvaren R",
     "section": "",
-    "text": "R er en open source og gratis programvare for statistikk.\nFor installasjon på din computer følg oppskriften her: https://posit.co/download/rstudio-desktop/\nSå kan du lage noen tilfeldige tall og lage et histogram og regne ut snittet og median:\n\nminetall &lt;- rnorm(200)# 200 tilfeldige tall trekkes fra standard normalfordeling. Ser ganske normalfordelt ut ja\nhist(minetall)\n\n\n\nmean(minetall)\n\n[1] 0.0919103\n\nmedian(minetall)\n\n[1] -0.0214243"
+    "text": "R er en open source og gratis programvare for statistikk.\nFor installasjon på din computer følg oppskriften her: https://posit.co/download/rstudio-desktop/\nSå kan du lage noen tilfeldige tall og lage et histogram og regne ut snittet og median:\n\nminetall &lt;- rnorm(200)# 200 tilfeldige tall trekkes fra standard normalfordeling. Ser ganske normalfordelt ut ja\nhist(minetall)\n\n\n\nmean(minetall)\n\n[1] -0.03906508\n\nmedian(minetall)\n\n[1] 0.01432773"
   },
   {
     "objectID": "Ressurser.html#r-og-rstudio",
     "href": "Ressurser.html#r-og-rstudio",
     "title": "Programvaren R",
     "section": "",
-    "text": "R er en open source og gratis programvare for statistikk.\nFor installasjon på din computer følg oppskriften her: https://posit.co/download/rstudio-desktop/\nSå kan du lage noen tilfeldige tall og lage et histogram og regne ut snittet og median:\n\nminetall &lt;- rnorm(200)# 200 tilfeldige tall trekkes fra standard normalfordeling. Ser ganske normalfordelt ut ja\nhist(minetall)\n\n\n\nmean(minetall)\n\n[1] 0.0919103\n\nmedian(minetall)\n\n[1] -0.0214243"
+    "text": "R er en open source og gratis programvare for statistikk.\nFor installasjon på din computer følg oppskriften her: https://posit.co/download/rstudio-desktop/\nSå kan du lage noen tilfeldige tall og lage et histogram og regne ut snittet og median:\n\nminetall &lt;- rnorm(200)# 200 tilfeldige tall trekkes fra standard normalfordeling. Ser ganske normalfordelt ut ja\nhist(minetall)\n\n\n\nmean(minetall)\n\n[1] -0.03906508\n\nmedian(minetall)\n\n[1] 0.01432773"
   }
 ]
