@@ -1,5 +1,5 @@
 ---
-title: "Quiz 5.mars. Multippel og logistisk regresjon"
+title: "Quiz 4.mars. Multippel og logistisk regresjon"
 bibliography: ../references.bib 
 
 format: 

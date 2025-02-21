@@ -8,10 +8,10 @@
 <link href="../site_libs/quarto-html/light-border.css" rel="stylesheet">
 <link href="../site_libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.5.57">
+  <meta name="generator" content="quarto-1.3.450">
 
   <meta name="author" content="n foldnes">
-  <title>MPS 140 – R for samling 1</title>
+  <title>MPS 140 - R for samling 1</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -31,7 +31,7 @@
     }
     /* CSS for syntax highlighting */
     pre > code.sourceCode { white-space: pre; position: relative; }
-    pre > code.sourceCode > span { line-height: 1.25; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
     pre > code.sourceCode > span:empty { height: 1.2em; }
     .sourceCode { overflow: visible; }
     code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -42,7 +42,7 @@
     }
     @media print {
     pre > code.sourceCode { white-space: pre-wrap; }
-    pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
     }
     pre.numberSource code
       { counter-reset: source-line 0; }
@@ -70,7 +70,7 @@
     code span.at { color: #657422; } /* Attribute */
     code span.bn { color: #ad0000; } /* BaseN */
     code span.bu { } /* BuiltIn */
-    code span.cf { color: #003b4f; font-weight: bold; } /* ControlFlow */
+    code span.cf { color: #003b4f; } /* ControlFlow */
     code span.ch { color: #20794d; } /* Char */
     code span.cn { color: #8f5902; } /* Constant */
     code span.co { color: #5e5e5e; } /* Comment */
@@ -84,7 +84,7 @@
     code span.fu { color: #4758ab; } /* Function */
     code span.im { color: #00769e; } /* Import */
     code span.in { color: #5e5e5e; } /* Information */
-    code span.kw { color: #003b4f; font-weight: bold; } /* Keyword */
+    code span.kw { color: #003b4f; } /* Keyword */
     code span.op { color: #5e5e5e; } /* Operator */
     code span.ot { color: #003b4f; } /* Other */
     code span.pp { color: #ad0000; } /* Preprocessor */
@@ -221,8 +221,7 @@
   }
 
   .callout.callout-titled .callout-body > .callout-content > :last-child {
-    padding-bottom: 0.5rem;
-    margin-bottom: 0;
+    margin-bottom: 0.5rem;
   }
 
   .callout.callout-titled .callout-icon::before {
@@ -411,10 +410,10 @@ n foldnes
 <h2>Housing dataene</h2>
 <p>Vi må installere noen pakker og da får vi Housing datafilen gjennom pakken Ecdat.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a><span class="fu">library</span>(Ecdat)</span>
-<span id="cb1-2"><a></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb1-3"><a></a>Housing <span class="ot">&lt;-</span> Housing[, <span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>, <span class="dv">10</span>, <span class="dv">11</span><span class="sc">:</span><span class="dv">12</span>)]<span class="co"># her velger vi ut søylene 1,2,3,10,11,12</span></span>
-<span id="cb1-4"><a></a><span class="co">#View(Housing) kikker litt på dataene</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="fu">library</span>(Ecdat)</span>
+<span id="cb1-2"><a href="#cb1-2"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-3"><a href="#cb1-3"></a>Housing <span class="ot">&lt;-</span> Housing[, <span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>, <span class="dv">10</span>, <span class="dv">11</span><span class="sc">:</span><span class="dv">12</span>)]<span class="co"># her velger vi ut søylene 1,2,3,10,11,12</span></span>
+<span id="cb1-4"><a href="#cb1-4"></a><span class="co">#View(Housing) kikker litt på dataene</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="histogram-for-pris" class="slide level2">
@@ -422,18 +421,10 @@ n foldnes
 <p>Enten bruker vi base R eller den mer kraftige pakken ggplot som vi fikk via tidyverse.</p>
 <div class="cell">
 <div class="cell-output-display">
-<div>
-<figure>
 <p><img data-src="R1_files/figure-revealjs/unnamed-chunk-3-1.png" width="960"></p>
-</figure>
-</div>
 </div>
 <div class="cell-output-display">
-<div>
-<figure>
 <p><img data-src="R1_files/figure-revealjs/unnamed-chunk-3-2.png" width="960"></p>
-</figure>
-</div>
 </div>
 </div>
 </section>
@@ -441,15 +432,15 @@ n foldnes
 <h2>Stolpediagram for preferred area</h2>
 <p>Stolpediagram for preferred area:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a></a><span class="co">#ggplot</span></span>
-<span id="cb2-2"><a></a><span class="fu">ggplot</span>(Housing, <span class="fu">aes</span>(prefarea))<span class="sc">+</span><span class="fu">geom_bar</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a><span class="co">#ggplot</span></span>
+<span id="cb2-2"><a href="#cb2-2"></a><span class="fu">ggplot</span>(Housing, <span class="fu">aes</span>(prefarea))<span class="sc">+</span><span class="fu">geom_bar</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
 <img data-src="R1_files/figure-revealjs/unnamed-chunk-4-1.png" width="960" class="r-stretch"></section>
 <section id="separere-på-preferreed-area-og-se-på-fordelingene" class="slide level2">
 <h2>Separere på preferreed area og se på fordelingene</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a><span class="fu">ggplot</span>(Housing, <span class="fu">aes</span>(price, <span class="at">color=</span>prefarea))<span class="sc">+</span><span class="fu">geom_density</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a><span class="fu">ggplot</span>(Housing, <span class="fu">aes</span>(price, <span class="at">color=</span>prefarea))<span class="sc">+</span><span class="fu">geom_density</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
 <img data-src="R1_files/figure-revealjs/unnamed-chunk-5-1.png" width="960" class="r-stretch"></section></section>
@@ -457,13 +448,13 @@ n foldnes
 <section id="alder" class="title-slide slide level1 center">
 <h1>Alder</h1>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a></a>age <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">16</span>, <span class="dv">56</span>, <span class="dv">58</span>, <span class="dv">67</span>, <span class="dv">62</span>,<span class="dv">69</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a>age <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">16</span>, <span class="dv">56</span>, <span class="dv">58</span>, <span class="dv">67</span>, <span class="dv">62</span>,<span class="dv">69</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="krysstabell" class="slide level2">
 <h2>KRYSSTABELL</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a></a><span class="fu">table</span>(Housing<span class="sc">$</span>airc, Housing<span class="sc">$</span>prefarea)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a><span class="fu">table</span>(Housing<span class="sc">$</span>airc, Housing<span class="sc">$</span>prefarea)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>     
        no yes
@@ -475,44 +466,36 @@ n foldnes
 <section id="spredningsdiagram" class="slide level2">
 <h2>spredningsdiagram</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a></a><span class="fu">ggplot</span>(Housing, <span class="fu">aes</span>(lotsize,price))<span class="sc">+</span><span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a><span class="fu">ggplot</span>(Housing, <span class="fu">aes</span>(lotsize,price))<span class="sc">+</span><span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
 <img data-src="R1_files/figure-revealjs/unnamed-chunk-8-1.png" width="960" class="r-stretch"></section>
 <section id="korrelasjon" class="slide level2">
 <h2>Korrelasjon</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">5</span> , <span class="dv">10</span> , <span class="dv">15</span> , <span class="dv">31</span> , <span class="dv">42</span>)</span>
-<span id="cb8-2"><a></a>y <span class="ot">&lt;-</span> <span class="fu">c</span>( <span class="dv">3</span> , <span class="dv">3</span> , <span class="dv">0</span> , <span class="dv">1</span> , <span class="sc">-</span><span class="dv">1</span>)</span>
-<span id="cb8-3"><a></a><span class="fu">cor</span>(x, y)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">5</span> , <span class="dv">10</span> , <span class="dv">15</span> , <span class="dv">31</span> , <span class="dv">42</span>)</span>
+<span id="cb8-2"><a href="#cb8-2"></a>y <span class="ot">&lt;-</span> <span class="fu">c</span>( <span class="dv">3</span> , <span class="dv">3</span> , <span class="dv">0</span> , <span class="dv">1</span> , <span class="sc">-</span><span class="dv">1</span>)</span>
+<span id="cb8-3"><a href="#cb8-3"></a><span class="fu">cor</span>(x, y)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] -0.82</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a></a><span class="co">#base R</span></span>
-<span id="cb10-2"><a></a><span class="fu">plot</span>(x,y)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a><span class="co">#base R</span></span>
+<span id="cb10-2"><a href="#cb10-2"></a><span class="fu">plot</span>(x,y)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div>
-<figure>
 <p><img data-src="R1_files/figure-revealjs/unnamed-chunk-9-1.png" width="960"></p>
-</figure>
 </div>
-</div>
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a></a><span class="co">#ggplot</span></span>
-<span id="cb11-2"><a></a><span class="fu">ggplot</span>(<span class="fu">data.frame</span>(x,y), <span class="fu">aes</span>(x,y))<span class="sc">+</span><span class="fu">geom_point</span>(<span class="at">size=</span><span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1"></a><span class="co">#ggplot</span></span>
+<span id="cb11-2"><a href="#cb11-2"></a><span class="fu">ggplot</span>(<span class="fu">data.frame</span>(x,y), <span class="fu">aes</span>(x,y))<span class="sc">+</span><span class="fu">geom_point</span>(<span class="at">size=</span><span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div>
-<figure>
 <p><img data-src="R1_files/figure-revealjs/unnamed-chunk-9-2.png" width="960"></p>
-</figure>
-</div>
 </div>
 </div>
 </section>
 <section id="cornflakes" class="slide level2">
 <h2>Cornflakes</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a></a>vekt <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">502</span>, <span class="dv">498</span>, <span class="dv">479</span>, <span class="dv">492</span>, <span class="dv">488</span>, <span class="dv">494</span>, <span class="dv">494</span>)</span>
-<span id="cb12-2"><a></a><span class="fu">t.test</span>(vekt, <span class="at">mu=</span><span class="dv">500</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1"></a>vekt <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">502</span>, <span class="dv">498</span>, <span class="dv">479</span>, <span class="dv">492</span>, <span class="dv">488</span>, <span class="dv">494</span>, <span class="dv">494</span>)</span>
+<span id="cb12-2"><a href="#cb12-2"></a><span class="fu">t.test</span>(vekt, <span class="at">mu=</span><span class="dv">500</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
     One Sample t-test
@@ -536,8 +519,8 @@ mean of x
 <section id="oppgave-13" class="slide level2">
 <h2>Oppgave 13</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a></a>alder <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">20</span>, <span class="dv">20</span>, <span class="dv">19</span>, <span class="dv">23</span>, <span class="dv">29</span>, <span class="dv">27</span>, <span class="dv">25</span>, <span class="dv">21</span>)<span class="co">#legge inn i vektor</span></span>
-<span id="cb14-2"><a></a><span class="fu">sd</span>(alder)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1"></a>alder <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">20</span>, <span class="dv">20</span>, <span class="dv">19</span>, <span class="dv">23</span>, <span class="dv">29</span>, <span class="dv">27</span>, <span class="dv">25</span>, <span class="dv">21</span>)<span class="co">#legge inn i vektor</span></span>
+<span id="cb14-2"><a href="#cb14-2"></a><span class="fu">sd</span>(alder)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 3.664502</code></pre>
 </div>
@@ -546,8 +529,8 @@ mean of x
 <section id="oppgave-24" class="slide level2">
 <h2>Oppgave 24</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a></a>timer <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">23</span>, <span class="dv">55</span>, <span class="dv">60</span>, <span class="dv">70</span>, <span class="dv">65</span> , <span class="dv">60</span>)</span>
-<span id="cb16-2"><a></a><span class="fu">sd</span>(timer)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1"></a>timer <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">23</span>, <span class="dv">55</span>, <span class="dv">60</span>, <span class="dv">70</span>, <span class="dv">65</span> , <span class="dv">60</span>)</span>
+<span id="cb16-2"><a href="#cb16-2"></a><span class="fu">sd</span>(timer)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 16.71825</code></pre>
 </div>
@@ -556,7 +539,7 @@ mean of x
 <section id="oppgave-27" class="slide level2">
 <h2>Oppgave 27</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a></a><span class="fu">prop.test</span>(<span class="at">x=</span><span class="dv">26</span>, <span class="at">n=</span><span class="dv">240</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1"></a><span class="fu">prop.test</span>(<span class="at">x=</span><span class="dv">26</span>, <span class="at">n=</span><span class="dv">240</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
     1-sample proportions test with continuity correction
@@ -575,7 +558,7 @@ sample estimates:
 <section id="oppgave-28" class="slide level2">
 <h2>Oppgave 28</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a></a><span class="fu">prop.test</span>(<span class="at">x=</span><span class="dv">28</span>, <span class="at">n=</span><span class="dv">56</span>, <span class="at">conf.level=</span>.<span class="dv">9</span>)<span class="co">#stemmer!</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1"></a><span class="fu">prop.test</span>(<span class="at">x=</span><span class="dv">28</span>, <span class="at">n=</span><span class="dv">56</span>, <span class="at">conf.level=</span>.<span class="dv">9</span>)<span class="co">#stemmer!</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
     1-sample proportions test without continuity correction
@@ -612,9 +595,9 @@ mean of x
 <section id="oppgave-31" class="slide level2">
 <h2>Oppgave 31</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a></a>pinge <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"agePingelab.csv"</span>)</span>
-<span id="cb23-2"><a></a>alder <span class="ot">&lt;-</span> pinge[, <span class="dv">1</span>]<span class="co"># bare en søyle, vi velger denne. </span></span>
-<span id="cb23-3"><a></a><span class="fu">mean</span>(alder)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1"></a>pinge <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"agePingelab.csv"</span>)</span>
+<span id="cb23-2"><a href="#cb23-2"></a>alder <span class="ot">&lt;-</span> pinge[, <span class="dv">1</span>]<span class="co"># bare en søyle, vi velger denne. </span></span>
+<span id="cb23-3"><a href="#cb23-3"></a><span class="fu">mean</span>(alder)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 41.16667</code></pre>
 </div>
@@ -623,7 +606,7 @@ mean of x
 <section id="oppgave-32" class="slide level2">
 <h2>Oppgave 32</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a></a><span class="fu">t.test</span>(alder)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1"></a><span class="fu">t.test</span>(alder)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
     One Sample t-test
@@ -642,17 +625,17 @@ mean of x
 <section id="oppgave-42" class="slide level2">
 <h2>Oppgave 42</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a></a>oppmøte <span class="ot">&lt;-</span> <span class="fu">c</span>( <span class="dv">2</span> , <span class="dv">15</span> , <span class="dv">8</span> , <span class="dv">14</span>, <span class="dv">8</span> , <span class="dv">12</span> , <span class="dv">13</span> , <span class="dv">2</span> , <span class="dv">5</span>, <span class="dv">4</span> )</span>
-<span id="cb27-2"><a></a>poeng <span class="ot">&lt;-</span> <span class="fu">c</span>( <span class="dv">13</span> , <span class="dv">26</span>, <span class="dv">20</span> ,<span class="dv">27</span>, <span class="dv">16</span>, <span class="dv">24</span> , <span class="dv">20</span>, <span class="dv">11</span> , <span class="dv">16</span>, <span class="dv">20</span>)</span>
-<span id="cb27-3"><a></a><span class="fu">plot</span>(oppmøte, poeng)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1"></a>oppmøte <span class="ot">&lt;-</span> <span class="fu">c</span>( <span class="dv">2</span> , <span class="dv">15</span> , <span class="dv">8</span> , <span class="dv">14</span>, <span class="dv">8</span> , <span class="dv">12</span> , <span class="dv">13</span> , <span class="dv">2</span> , <span class="dv">5</span>, <span class="dv">4</span> )</span>
+<span id="cb27-2"><a href="#cb27-2"></a>poeng <span class="ot">&lt;-</span> <span class="fu">c</span>( <span class="dv">13</span> , <span class="dv">26</span>, <span class="dv">20</span> ,<span class="dv">27</span>, <span class="dv">16</span>, <span class="dv">24</span> , <span class="dv">20</span>, <span class="dv">11</span> , <span class="dv">16</span>, <span class="dv">20</span>)</span>
+<span id="cb27-3"><a href="#cb27-3"></a><span class="fu">plot</span>(oppmøte, poeng)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
 <img data-src="R1_files/figure-revealjs/unnamed-chunk-18-1.png" width="960" class="r-stretch"></section>
 <section id="oppgave-44" class="slide level2">
 <h2>Oppgave 44</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a></a>reg <span class="ot">&lt;-</span> <span class="fu">lm</span>(oppmøte<span class="sc">~</span> poeng)</span>
-<span id="cb28-2"><a></a><span class="fu">summary</span>(reg)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1"></a>reg <span class="ot">&lt;-</span> <span class="fu">lm</span>(oppmøte<span class="sc">~</span> poeng)</span>
+<span id="cb28-2"><a href="#cb28-2"></a><span class="fu">summary</span>(reg)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Call:
@@ -675,10 +658,8 @@ F-statistic: 26.79 on 1 and 8 DF,  p-value: 0.0008471</code></pre>
 </div>
 </div>
 
-<div class="quarto-auto-generated-content">
 <div class="footer footer-default">
 
-</div>
 </div>
 </section></section>
     </div>
@@ -707,6 +688,7 @@ F-statistic: 26.79 on 1 and 8 DF,  p-value: 0.0008471</code></pre>
       Reveal.initialize({
 'controlsAuto': true,
 'previewLinksAuto': false,
+'smaller': false,
 'pdfSeparateFragments': false,
 'autoAnimateEasing': "ease",
 'autoAnimateDuration': 1,
@@ -961,7 +943,18 @@ F-statistic: 26.79 on 1 and 8 DF,  p-value: 0.0008471</code></pre>
         }
         return false;
       }
-      const onCopySuccess = function(e) {
+      const clipboard = new window.ClipboardJS('.code-copy-button', {
+        text: function(trigger) {
+          const codeEl = trigger.previousElementSibling.cloneNode(true);
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
+            }
+          }
+          return codeEl.innerText;
+        }
+      });
+      clipboard.on('success', function(e) {
         // button target
         const button = e.trigger;
         // don't keep focus
@@ -993,50 +986,11 @@ F-statistic: 26.79 on 1 and 8 DF,  p-value: 0.0008471</code></pre>
         }, 1000);
         // clear code selection
         e.clearSelection();
-      }
-      const getTextToCopy = function(trigger) {
-          const codeEl = trigger.previousElementSibling.cloneNode(true);
-          for (const childEl of codeEl.children) {
-            if (isCodeAnnotation(childEl)) {
-              childEl.remove();
-            }
-          }
-          return codeEl.innerText;
-      }
-      const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
-        text: getTextToCopy
       });
-      clipboard.on('success', onCopySuccess);
-      if (window.document.getElementById('quarto-embedded-source-code-modal')) {
-        // For code content inside modals, clipBoardJS needs to be initialized with a container option
-        // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
-        const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
-          text: getTextToCopy,
-          container: window.document.getElementById('quarto-embedded-source-code-modal')
-        });
-        clipboardModal.on('success', onCopySuccess);
-      }
-        var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
-        var mailtoRegex = new RegExp(/^mailto:/);
-          var filterRegex = new RegExp("https:\/\/njaalf\.github\.io\/MPS-140\/");
-        var isInternal = (href) => {
-            return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
-        }
-        // Inspect non-navigation links and adorn them if external
-     	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
-        for (var i=0; i<links.length; i++) {
-          const link = links[i];
-          if (!isInternal(link.href)) {
-            // undo the damage that might have been done by quarto-nav.js in the case of
-            // links that we want to consider external
-            if (link.dataset.originalHref !== undefined) {
-              link.href = link.dataset.originalHref;
-            }
-          }
-        }
-      function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      function tippyHover(el, contentFn) {
         const config = {
           allowHTML: true,
+          content: contentFn,
           maxWidth: 500,
           delay: 100,
           arrow: false,
@@ -1046,17 +1000,8 @@ F-statistic: 26.79 on 1 and 8 DF,  p-value: 0.0008471</code></pre>
           interactive: true,
           interactiveBorder: 10,
           theme: 'light-border',
-          placement: 'bottom-start',
+          placement: 'bottom-start'
         };
-        if (contentFn) {
-          config.content = contentFn;
-        }
-        if (onTriggerFn) {
-          config.onTrigger = onTriggerFn;
-        }
-        if (onUntriggerFn) {
-          config.onUntrigger = onUntriggerFn;
-        }
           config['offset'] = [0,0];
           config['maxWidth'] = 700;
         window.tippy(el, config); 
@@ -1070,11 +1015,7 @@ F-statistic: 26.79 on 1 and 8 DF,  p-value: 0.0008471</code></pre>
           try { href = new URL(href).hash; } catch {}
           const id = href.replace(/^#\/?/, "");
           const note = window.document.getElementById(id);
-          if (note) {
-            return note.innerHTML;
-          } else {
-            return "";
-          }
+          return note.innerHTML;
         });
       }
       const findCites = (el) => {

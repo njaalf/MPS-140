@@ -1,5 +1,5 @@
 ---
-title: "Fysisk samling 05.03. Psykometri, reliabilitet og validitet"
+title: "Fysisk samling 04.03. Psykometri, reliabilitet og validitet"
 author: "Njål Foldnes"
 footer:  "[hjem](https://njaalf.github.io/MPS-140/)"
    
