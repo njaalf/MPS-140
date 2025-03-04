@@ -10,21 +10,21 @@ tbl-colwidths: [10,30,10,10,10]
 <!-- [📖](samlinger/samling2.qmd "Samling 2") -->
 
 ::: column-screen-inset-right
-| Dato           | Tema                              |              Forberedelser               |                               Presentasjoner                                | R                       |                                    Oppgaver                                     |
-|----------------|-----------------------------------|:----------------------------------------:|:---------------------------------------------------------------------------:|-------------------------|:-------------------------------------------------------------------------------:|
-| 21.01: 1215-16 | Intro og grunnleggende statistikk | [📖](samlinger/samling1.qmd "Samling 1") | [🖥](slides/slides1.qmd "Foiler 1") [🖥](slides/stat_review.pdf "Repetisjon") | [📋](R/R1.qmd "R kode") |                     [📋](quiz/samling1_mps140.pdf "Oppg 1")                     |
-| 04.03: 815-16  | Psykometri                        | [📖](samlinger/samling3.qmd "Samling 3") |  [🖥](slides/slides3a.qmd "Foiler 3A") [🖥](slides/slides3b.qmd "Foiler 3b")  |                         |                \[📋\]<!--(quiz/quiz%205mars.qmd "Oppg 1")   -->                 |
-| 08.04: 815-16  | Latente variable                  | [📖](samlinger/samling5.qmd "Samling 5") |  [🖥](slides/slides5a.qmd "Foiler 5A")[🖥](slides/slides5b.qmd "Foiler 5A")   |                         | \[📋\]<!--(quiz/quiz9aprilA.qmd "Quiz 1")[📋](quiz/quiz9aprilB.qmd "Quiz 2")--> |
-| 02.06          | Eksamen                           |                                          |                                                                             |                         |                                                                                 |
+| Dato | Tema | Forberedelser | Presentasjoner | R | Oppgaver |
+|-----------|-----------|:---------:|:-----------:|-----------|:------------:|
+| 21.01: 1215-16 | Intro og grunnleggende statistikk | [📖](samlinger/samling1.qmd "Samling 1") | [🖥](slides/slides1.qmd "Foiler 1") [🖥](slides/stat_review.pdf "Repetisjon") | [📋](R/R1.qmd "R kode") | [📋](quiz/samling1_mps140.pdf "Oppg 1") |
+| 04.03: 815-16 | Psykometri | [📖](samlinger/samling3.qmd "Samling 3") | [🖥](slides/slides3a.qmd "Foiler 3A") [🖥](slides/slides3b.qmd "Foiler 3b") |  | [📋](quiz/quiz 5mars.qmd "Quiz")  |
+| 08.04: 815-16 | Latente variable | [📖](samlinger/samling5.qmd "Samling 5") | [🖥](slides/slides5a.qmd "Foiler 5A")[🖥](slides/slides5b.qmd "Foiler 5A") |  | \[📋\]<!--(quiz/quiz9aprilA.qmd "Quiz 1")[📋](quiz/quiz9aprilB.qmd "Quiz 2")--> |
+| 02.06 | Eksamen |  |  |  |  |
 :::
 
 # DIGITALE SAMLINGER
 
 ::: column-screen-inset-right
-| Dato        | Tema                                                         |              Forberedelser               |            Presentasjon            | R                          |                       Oppgaver                       |
-|-------------|--------------------------------------------------------------|:----------------------------------------:|:----------------------------------:|----------------------------|:----------------------------------------------------:|
-| 04.02: 9-12 | R og regresjonsmodellen                                      | [📖](samlinger/samling2.qmd "Samling 1") | [🖥](slides/slides2.qmd "Foiler 2") | [📋](R/digR1.qmd "R kode") |      [📋](quiz/digsamling1_mps140.pdf "Oppg 2")      |
-| 18.03: 9-12 | Forskningsmetoder i psykologi + Forutsetninger for regresjon | [📖](samlinger/samling4.qmd "Samling 4") | [🖥](slides/slides4.qmd "Foiler 4") |                            | \[📋\]<!--(quiz/quiz19mars_medfasit.qmd "Oppg 4")--> |
-| 29.04:9-12  | Latente variable                                             |                                          |                                    |                            |                                                      |
-| 06.05: 9-12 | Eksamensforberedelse                                         |                                          |                                    |                            |                                                      |
+| Dato | Tema | Forberedelser | Presentasjon | R | Oppgaver |
+|------------|-------------|:----------:|:----------:|------------|:----------:|
+| 04.02: 9-12 | R og regresjonsmodellen | [📖](samlinger/samling2.qmd "Samling 1") | [🖥](slides/slides2.qmd "Foiler 2") | [📋](R/digR1.qmd "R kode") | [📋](quiz/digsamling1_mps140.pdf "Oppg 2") |
+| 18.03: 9-12 | Forskningsmetoder i psykologi + Forutsetninger for regresjon | [📖](samlinger/samling4.qmd "Samling 4") | [🖥](slides/slides4.qmd "Foiler 4") |  | \[📋\]<!--(quiz/quiz19mars_medfasit.qmd "Oppg 4")--> |
+| 29.04:9-12 | Latente variable |  |  |  |  |
+| 06.05: 9-12 | Eksamensforberedelse |  |  |  |  |
 :::
