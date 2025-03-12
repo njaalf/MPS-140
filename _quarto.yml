@@ -40,6 +40,8 @@ website:
               text: "Digital jobbstress"
             - href: data/stress_complete.rds
               text: "Digital jobbstress rds fil"
+            - href: data/stressdata_for_quiz.csv
+              text: "Digital jobbstress csv fil for quiz 4 mars"
             - href: data/smartphone_wellbeing.rds
               text: "Smartphone wellbeing, digital samling 1"
             - href: data/agePingelab.csv

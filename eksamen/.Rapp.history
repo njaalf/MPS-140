@@ -1,0 +1,9 @@
+load("/Users/Njaal0/BI Norwegian Business School Dropbox/Njål Foldnes/kurs/mps140/hjemmeside/eksamen/data2.rds")
+readRDS("/Users/Njaal0/BI Norwegian Business School Dropbox/Njål Foldnes/kurs/mps140/hjemmeside/eksamen/data2.rds")
+readRDS("/Users/Njaal0/BI Norwegian Business School Dropbox/Njål Foldnes/kurs/mps140/hjemmeside/eksamen/data2.rds") -> a
+head(a)
+dim(a)
+load("/Users/Njaal0/BI Norwegian Business School Dropbox/Njål Foldnes/kurs/mps140/hjemmeside/eksamen/datafil.rds")
+readRDS("/Users/Njaal0/BI Norwegian Business School Dropbox/Njål Foldnes/kurs/mps140/hjemmeside/eksamen/datafil.rds") -> a
+head(a)
+dim(a)
