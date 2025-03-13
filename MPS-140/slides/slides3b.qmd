@@ -1,0 +1,188 @@
+---
+title: "Fysisk samling 05.03. Psykometri, reliabilitet og validitet"
+author: "Njål Foldnes"
+footer:  "[hjem](https://njaalf.github.io/MPS-140/)"
+   
+bibliography: ../references.bib 
+format: 
+  revealjs: 
+    multiplex: true
+    transition: fade
+    slide-number: true
+    theme: slides.scss
+    chalkboard: true
+revealjs-plugins:
+  - revealjs-text-resizer
+    
+editor: visual
+execute:
+  echo: true
+  message: false
+  warning: false
+  freeze: auto
+---
+
+# Psykologiske konstrukter
+
+## Psykologiske skalaer og tester
+
+Vi trenger gode *målingsverktøy* i psykologisk teori og praksis. For å måle holdninger eller personlighet så har man utviklet *batterier* av *items*. (engelsk:scale, inventory, battery). Laget av en mengde påstander som typisk besvares på lukket form (ikke åpne svar).
+
+```{r}
+library(tidyverse)
+library(psych)#har data for Big Five Inventory
+?bfi
+names(bfi)#variabler
+```
+
+## Hva trenger vi testbatterier for?
+
+-   I organisasjoner: kan brukes til å teste om kandidater er passende for ulike yrkesoppgaver
+-   I klinisk psykologi: Måle grad av depresjon osv
+-   Måle kognitive eller personlighets (self-efficacy, self-esteem, motivation, osv) egenskaper når vi utvikler psykologiske teorier
+
+Batteriet av items er ment å fange opp forskjellige aspekter av det konstruktet som batteriet er ment å avdekke.
+
+## Likert rating er den mest brukte skalaen
+
+Likert foreslo i 1932 en skala fra svært uenig til svært enig i besvarelsen av nøye utvalgte påstander. Det er vanlig å bruke mellom 5 og 7 svaralternativ.
+
+```{r}
+qplot(bfi$A1)+geom_bar()
+```
+
+## Et batteri av 5 items for å måle AGREEABLENESS
+
+For eksempel, i big five har vi faktoren AGREEABLENESS. Påstander som tilsammen avdekker det *latente konstruktet* er i bfi
+
+| Ordlyd                                    | Reversert |
+|-------------------------------------------|-----------|
+| Am indifferent to the feelings of others. | Ja        |
+| Inquire about others' well-being.         | Nei       |
+| Know how to comfort others.               | Nei       |
+| Love children.                            | Nei       |
+| Make people feel at ease.                 | Nei       |
+
+## Mye arbeid kreves for et ferdig batteri
+
+1.  Lag dobbelt så mange item som du har tenkt å bruke. Reverser noen av itemene. Prøv å dekke hele konstruktet (alle aspekter av feks self-esteem)
+
+2.  Test ut på noen respondenter for å luke ut misforståelser, tolkningsproblemer, uklarheter
+
+3.  Lag nye items for hvert item som ikke er bra nok, og repeter trinn 2 igjen, helt til alt er ok
+
+4.  Test ut på pilotutvalg med 50-100 respondenter
+
+5.  Sjekk *reliabilitet* og luk ut items / legg til bedre items slik at cronbach $\alpha$ \> .7
+
+6.  Undersøk om batteriet har *validitet*
+
+## Noen problemer å være obs på ift testbatterier
+
+-   Social desirability: Man svarer ofte slik at man framstår i godt lys. Også under full anonymitet
+
+-   Ikke bruk ladet språk, ikke bruke doble negativer, ikke ledende spørsmål
+
+-   Ikke bruk tekniske termer
+
+-   Online utfylling er ikke nødvendigvis verre enn papir @naus2009paper
+
+## Noen kjente batterier
+
+-   @eysenck1968eysenck Personality Inventory
+-   @spielberger1983state State trait anxiety scale
+-   @rotter1966generalized locus of control
+-   @rosenberg1965rosenberg self-esteem
+
+## Reliabilitet
+
+Psykologi er ikke naturvitenskap. Det er mye mer komplisert å måle "Anxiety" enn det er å måle "Watt".
+
+Det finnes mange ulike batterier for holdninger og ferdigheter, som feks "anxiety", "motivation", "intelligens". De fleste batteriene for samme holdning er høyt korrelert.
+
+Et krav til et batteri er at det skal være konsistent over gjentatte målinger. Det må ikke variere for mye! Dette kalles *reliabilitet* og betyr at vi kan stole på målingen
+
+## Analogi til blodtrykk målinger
+
+Måling av blodtrykk kan variere selv om de skjer nesten samtidig og på samme sted og person. Vi kan derfor ta flere målinger for å stabilisere.
+
+Det samme skjer med psykologiske konstrukt: Vi bruker mange items. Da unngår vi støy i form av at noen items blir misforstått av noen respondenter. Det er viktig at alle itemene tapper samme konstrukt, og at ikke noen item stikker seg ut
+
+Reliabilitet betyr at vi får omtrent det samme svaret hvis samme person hadde tatt batteriet mange ganger etter hverandre fra scratch (dette er ikke mulig i virkeligheten)
+
+## Reliabilitet betyr pålitelighet over item og over situasjoner
+
+Det innebærer konsistens over items og testsituasjoner. Dvs at en person som scorer lavt på "anxiety" scorer lavt på alle items og i forskjellig testsituasjoner. Og en person som scorer høyt på "anxiety" scorer høyt på alle items og i alle situasjoner.
+
+Derfor er mange mål på reliabilitet avledet av item-korrelasjonene.
+
+## Forskjellige typer reliabilitet
+
+-   Test-retest reliabilitet. Måler pålitelighet over tid
+-   Intern konsistens reliabilitet. Måler hvor sterk sammenheng det er mellom items. Denne måles av bl.a. Cronbach's $\alpha$ og er sentral i dette kurset.
+
+## Internal consistency reliabilitet.
+
+Dersom itemene ikke er godt utformet, så spriker de i forskjellige retninger. Da blir presisjonen, dvs reliabiliteten, lav. Derfor bør vi unngå uklare formuleringer, tekniske termer, dobbel negasjon, osv, når vi lager items.
+
+Internal consistency reliabilitet måles derfor ved å kikke på korrelasjonene til itemene og lage en formel. Hvis to items er høyt korrelerte så blir summen av dem et mål på den sanne underliggende verdien ("anxiety").
+
+## Cronbach's alpha
+
+@cronbach1951coefficient foreslo følgende formel for intern konsistens reliabilitet
+
+## [![Formel for cronbachs alpha](alpha.png)](https://www.youtube.com/watch?v=W9uPvAmtTOk&t=248s)
+
+## Cronbach's alpha egenskaper
+
+-   Ligger mellom 0 (null reliabilitet) og 1 (max reliabilitet)
+-   Blir høyere jo flere items
+-   Blir høyere jo høyere korrelasjoner det er mellom items
+
+## Husk å reverse slik at alle items peker i samme retning!
+
+Hvis vi glemmer at A1 er reversert i AGREEABLENESS får vi lav reliabilitet siden A1 peker i motsatt retning!
+
+```{r, eval=T}
+a <- alpha(bfi[, c("A1", "A2",  "A3",  "A4",  "A5")])
+a$total[1]
+```
+
+Men det korrekte er
+
+```{r, eval=T}
+a<-alpha(bfi[, c("A1", "A2",  "A3",  "A4",  "A5")], keys=list(agree=c("-A1","A2","A3","A4","A5")))
+a$total[1]
+```
+
+## Validitet er det mest sentrale kravet i psykometri
+
+At batteriet måler det det er tenkt å måle kalles *validitet*.
+
+Det er ikke enighet om hvordan vi definerer og evaluerer validitet.
+
+[Bibelen](https://www.apa.org/science/programs/testing/standards#overview) for validitet er utviklet av USA baserte organisasjonene AERA, APA og NCME
+
+"Validity refers to the degree to which evidence and theory support the interpretations of test scores for proposed uses of tests"
+
+Har å gjøre med testscorenes *mening* og hvordan vi *bruker* dem. Validitet støtter oss når vi tolker og bruker testscorer. Så validitet er knyttet til tolkning og bruk av testscorene, ikke testen i seg selv.
+
+## IQ tester er valide?
+
+-   IQ test batterier er utviklet som er svært reliable
+-   Men er de egentlig valide? Disse testene er ganske smale, de måler kognitive ferdigheter, men ikke kreativitet som er en form for intelligens?
+
+## Tradisjonelle typer validitet
+
+-   Face validity. Det er klart for forskeren og respondenten hva itemene måler. "Det gir mening"
+-   Content validity. En ekspert ser nøye på itemene og avgjør om de er relevante for konstructet. Dette er mulig i feks matematikk, men ikke så lett i psykologi, for eksempel depresjon.
+-   Criterion validity. Testscoren fanger opp ulikheter i grupper vi vet er forskjellige med hensyn på det vi skal måle. For eksempel skal vi ha høyere depresjonsscore i en gruppe av mennesker som har vært innlagt for depresjon enn i en kontrollgruppe. Eller det skal være høy korrelasjon med et allerede utviklet batteri for samme konstrukt.
+
+## 
+
+-   Construct validity. Dette gjelder psykologisk konstrukt som ikke er etablert. Dvs finnes denne konstrukten egentlig? Vi må finne bevis for at den finnes ved å linke konstruktet til eksisterende teori. \## Referanser
+
+## Referanser
+
+::: {#refs}
+:::

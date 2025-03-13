@@ -1,0 +1,51 @@
+---
+title: 'Første samling: Grunnleggende statistikk'
+subtitle: 21 Januar 2025
+format: 
+  html
+editor: visual
+execute: 
+  echo: true
+  warning: false
+  message: false
+---
+
+Velkommen!
+
+I denne samlingen får vi et overblikk over kurset, og vi frisker opp statistikken fra introkurset. Vi snakker også litt om metodologi i psykologi (kvantitativ vs kvalitativ tilnærming), og vi jobber i grupper.
+
+I gruppearbeidet vil dere få oppgaver på introkurs i statistikk nivå som er svært viktige å beherske for resten av kurset. Gruppearbeid i faste grupper er en sentral del av undervisningen. Jeg er nemlig en tilhenger av omvendt klasserom: [kvantitativt paper om flipped classroom](https://journals.sagepub.com/doi/full/10.1177/1469787415616726) og [kvalitativt paper om flipped classroom](https://www.tandfonline.com/doi/full/10.1080/13562517.2017.1379481)
+
+## Læringsmål
+
+Etter denne samlingen har du repetert (eller lært) å:
+
+-   beskrive et datasett ved hjelp av nøkkeltall som gjennomsnitt, standardavvik og korrelasjon.
+
+-   Forklare variablers målenivå
+
+-   Forstå forskjell på avhengig og uavhengiv variabel
+
+-   Forstå forskjell på observasjonell og eksperimentell studie
+
+-   Forstå forskjell på populasjon og utvalg
+
+-   Kjenne til bekvemmelighetsutvalg, klyngeutvalg og stratifisert utvalg
+
+-   Forstå konfidensintervall og hypotesetesting
+
+-   Forklare hva "signifikant" betyr i statistikk
+
+-   Installere R og Rstudio på din laptop
+
+# Forberedelser
+
+-   Før samlingen, gå gjennom det du lærte i intro kurset. Du bør lese Bolk 1 (eller tilsvarende i en annen introbok du har) i *Statistikk og Dataanalyse* [https://utdanning.cappelendamm.no/\_statistikk-og-dataanalyse-9788202780043](#0){.uri}
+
+-   Last ned og installer R og Rstudio [her](/Ressurser.qmd)
+
+-   En spilleliste for intro statistikk kan nytes her {{< video https://www.youtube.com/watch?v=mormpnTjfr0&list=PLIL-ab4XLlB1EcHq1kz4qCGmmuT2_2qqp&index=1 >}}
+
+::: {style="font-size: 0.875em;"}
+Tilbake til [kursplan](/index.qmd) ⏎
+:::

@@ -1,0 +1,41 @@
+---
+title: "Digital samling - 18 mars"
+subtitle: "Forskningsmetoder i psykologi  og forutsetniger for regresjon"
+editor: visual
+---
+
+::: callout-important
+-   Digital samling på [Teams](https://teams.microsoft.com/l/meetup-join/19%3ameeting_Y2ViZTUxNTMtY2E4ZC00ZTMzLThhMjktODVkNDJlOTU0ZTAw%40thread.v2/0?context=%7b%22Tid%22%3a%22f8a213d2-8f6c-400d-9e74-4e8b475316c6%22%2c%22Oid%22%3a%22a890ccff-de91-4c38-af4c-d63348992da3%22%7d "Link").
+:::
+
+Læringsmål:
+
+-   Forstå mere om forskningsmetoder i psykologisk vitenskap og om kritikken av kvantititativ/positivistisk tilnærming
+
+-   Forstå hva replikasjonskrisen er for noe og hva som kan gjøres for å bøte på problemet
+
+-   Kjenne til forutsetninger for regresjon og kunne sjekke disse i R
+
+## Forbered deg til 19 mars
+
+-   Sjekk definisjoner av hva en systematic review og en metaanalyse er for noe (feks wikipedia)
+
+-   Sett deg inn i artikkelen [Scholtz 2020](https://www.frontiersin.org/articles/10.3389/frma.2020.00001/full "The Use of Research Methods in Psychological Research: A Systematised Review")
+
+-   Sjekk definisjoner av reproducibility crisis
+
+-   Les minst fram til side 726 i [Nosek 2022](https://www.annualreviews.org/doi/abs/10.1146/annurev-psych-020821-114157 "Replicability, Robustness, and Reproducibility in Psychological Science").
+
+-   Kunne sjekke linearitetsantagelsen og andre antagelser i regresjon visuelt
+
+```{r}
+# last ned et datasett med Eysenck personality og Big Five 
+datafilename="https://personality-project.org/r/datasets/maps.mixx.epi.bfi.data"  
+personality.data =read.delim(url(datafilename))
+head(personality.data)     #kikke på de første radene
+
+library(performance)#en pakke
+
+model1 = lm(bdi~epiNeur,data=personality.data)  #enkel regresjon: beck depression forklares av neuroticism (1 av big five)
+check_model(model1)   # linearitet holder men ikke homoskedastisitet og heller ikke normalfordelte residualer..
+```

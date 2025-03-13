@@ -1,0 +1,167 @@
+---
+title: "R for digital samling 1"
+author: "n foldnes"
+format: revealjs
+editor: visual
+---
+
+```{r,  message=F, warning=FALSE}
+knitr::opts_chunk$set(message = FALSE)
+knitr::opts_chunk$set(warning = FALSE)
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Pakker vi trenger å loade
+
+```{r}
+library(tidyverse)
+library(kableExtra)
+library(broom)
+```
+
+# Forelesningen
+
+## Lekeeksempel
+
+```{r, echo=T}
+x <- c(-5, 10, 15, 31, 42)
+y <- c(3,3,0,1, -1)
+model <- lm(y~x)
+qplot(x,y)+geom_smooth(method="lm", se=F)
+```
+
+## Lekeeksempel
+
+```{r}
+summary(model)
+```
+
+## Predikere ny verdi for $x=20$
+
+```{r}
+yhat <- predict(model, newdata=data.frame(x=20))
+yhat
+qplot(x,y, size=3)+geom_smooth(method="lm", se=F)+geom_point(aes(x=20, y=yhat),size=5, color="red")
+```
+
+## Trivsel og well-being populasjon
+
+Last ned datasettene først! Se Data til venstre i margen
+
+```{r}
+populasjon <- readRDS("../data/smartphone_wellbeing.rds")#du må endre på adressen selv. Avhenger av hvilken folder du la dataene i
+hist(populasjon$tot_wellbeing)
+hist(populasjon$tothours)
+```
+
+## Regresjonen i populasjonen
+
+```{r}
+popmodel <- lm(tot_wellbeing~ tothours, data=populasjon)
+popmodel %>% tidy() %>% kable(digits=2)
+```
+
+## Regresjon i utvalget (last ned først)
+
+```{r}
+utvalg <- readRDS("../data/goldilocksutvalg.rds")
+ggplot(utvalg, aes(tothours, tot_wellbeing))+geom_jitter(height=0) +geom_smooth(method="lm", se=F)+xlab("Antall timer daglig")+ylab("Total trivsel")
+```
+
+## Regresjon i utvalget
+
+```{r}
+model <- lm(tot_wellbeing~ tothours, data=utvalg)
+model %>% tidy() %>% kable(digits=2)
+```
+
+## Multippel regresjon i R
+
+$$ \text{tot_wellbeing} = \beta_0+ \beta_1 \cdot \text{tothours}+ \beta_2 \cdot \text{male}+\epsilon$$
+
+```{r, echo=T}
+multmodel <- lm(tot_wellbeing~ tothours+male, data=utvalg)
+multmodel %>% tidy() %>% kable(digits=2)
+```
+
+## ANOVA
+
+```{r, echo=T}
+aov(tot_wellbeing~ school, utvalg) %>% tidy() %>% kable(digits=2) 
+```
+
+# QUIZ
+
+## Oppg 2
+
+```{r}
+motivasjon <- c(9, 4, 7, 1, 2, 7)
+oppmøte <- c(12,6, 9, 4, 5, 8)
+plot(motivasjon , oppmøte)
+```
+
+## Oppg 3
+
+```{r}
+sd(oppmøte)
+```
+
+## Oppg 4
+
+```{r}
+mymodel <- lm(oppmøte~motivasjon)
+mymodel
+qplot(motivasjon, oppmøte)+geom_smooth(method="lm")
+
+```
+
+## Oppg 6 og 7
+
+```{r}
+summary(mymodel)
+```
+
+ID1 har residual 1.0667.
+
+Adjusted R-squared: 0.9183: 92% av variasjon i oppmøte forklare vha av varierende motivasjon. 8% av variasjonen skyldes andre faktorer enn motivasjon
+
+## Oppg 8
+
+```{r}
+MinstTo <- c(1, 0, 1, 0, 0, 1)# 1=MinstTO
+mymodel <- lm(motivasjon~MinstTo)
+mymodel# Vi forventer at MinstTo gir et motivasjon som er 5.33 høyere enn når MinstTO=0
+```
+
+## Oppg 9
+
+```{r}
+eksamensscore <- c(15, 7, 12.5, 3, 4.5, 11)
+mymodel <- lm(eksamensscore~oppmøte)
+mymodel# effekt av oppmøte: Ett ekstra oppmøte gir en forventa økning i eksamensscore på 1.577
+```
+
+## Oppg 10
+
+```{r}
+predict(mymodel, newdata=data.frame(oppmøte=5))
+```
+
+## Oppg 12
+
+```{r}
+mymodel <- lm(eksamensscore ~ oppmøte + motivasjon)
+summary(mymodel)
+```
+
+## Oppg 13
+
+Ett ekstra oppmøte gir 0.45 ekstra poeng på eksamen, gitt at vi kontrollerer for motivasjon
+
+## Oppg 14
+
+Ett ekstra poeng i motivasjon gir en forventet økning i eksamensscore på 1.08
+
+## Oppg 15
+
+99%

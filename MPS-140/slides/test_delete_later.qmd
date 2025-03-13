@@ -1,0 +1,11 @@
+---
+title: "9 april stress"
+editor: visual
+---
+
+## Laste inn data
+
+```{r}
+stress <- readRDS("../data/stress_complete.rds")
+dim(stress)
+```

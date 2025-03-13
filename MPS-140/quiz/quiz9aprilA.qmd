@@ -1,0 +1,135 @@
+---
+title: "Quiz 1 - 9. april"
+bibliography: ../references.bib 
+
+format: 
+  html:
+    page-layout: article
+---
+
+```{r, echo=FALSE}
+knitr::opts_chunk$set(eval = F)
+knitr::opts_chunk$set(message = F)
+knitr::opts_chunk$set(error = F)
+
+```
+
+0. Forklar hva en latent variabel er for noe. 
+
+
+1.  Skriv opp likningen som angir hvordan en indikatorvariabel som er knyttet til en faktor $F$:  $$item = \ldots$$ med faktorladning $\lambda$, latent variabel $F$ og feilledd $\epsilon$.
+
+2. Gi eksempel på et psykologisk konstrukt som modelleres som en latent variabel. 
+
+3. I datasettet *bfi* i psych-pakken er det 25 personlighetsitems. Big five  = 5 latente variabler som styrer korrelasjonene. Missing data er en vanlig utfordring i statistikk. Installer pakken *naniar* som gir en fin oversikt over missing:
+```{r}
+library(psych); library(tidyverse)
+library(naniar)
+data(bfi)
+vis_miss(bfi)
+```
+Hvilken variabel har mest missing?
+
+
+4. Hvor mange personer har vi i bfi utvalget?
+Vi fjerner alle individer med missing:
+
+```{r}
+bfi <- bfi[complete.cases(bfi), ]
+```
+
+Hvor mange individer har vi igjen i datasettet nå?
+
+5.  Beregn korrelasjonsmatrisen for de fem indikatorene for konstruktet Agreeableness:
+```{r}
+cor(select(bfi, paste0("A", 1:5))) %>% round(3)
+```
+En av indikatorvariablene er reversert ift de andre fire. Hvilken er det?
+
+6. Reverser den indikatorvariabelen som har negativ retning (A1=Am indifferent to the feelings of others. )
+```{r}
+bfi$A1 <- 7-bfi$A1
+```
+Beregn korrelasjonsmatrisen på nytt og verifiser at alle korrelasjonene er positive. 
+
+7. For konstruktet Conscientiousness så er det de to siste indikatorene som må reverseres. Foreta reversering av disse to og beregn korrelasjonene til Conscientiousness indikatorene. (Reverseringen er oppgitt i Examples i hjelpefila for bfi. *?bfi*)
+
+8. Lag en figur som viser korrelasjonene for de ti itemene og forklar hvorfor figuren gir støtte for en to-faktor med A og C som latente konstrukter. 
+
+```{r}
+cor.plot(select(bfi, c(paste0("A", 1:5), paste0("C", 1:5))))
+```
+
+9. Vi ser at det er en positive små korrelasjoner mellom A- og C- indikatorene. 
+Hva er korrelasjonen mellom A og C?
+Prøv først med summeskårer og finn korrelasjon mellom summene:
+```{r}
+csum <- rowSums(select(bfi, paste0("C", 1:5)))
+asum <- rowSums(select(bfi, paste0("A", 1:5)))
+cor(asum, csum)
+```
+
+10. Beregn korrelasjon ved hjelp av latent variabel modellering i *lavaan* (installer denne pakken først)
+```{r}
+model <- "A=~ A1+A2+A3+A4+A5; C=~ C1+C2+C3+C4+C5"
+f <- cfa(model, data=bfi)
+standardizedsolution(f)
+```
+Er korrelasjonen mellom A og C større eller mindre enn mellom summeskårene i forrige oppgave?
+
+11. Beregn korrelasjonen mellom latente konstruktene Agreeableness og Openness. Test om korrelasjone er forskjellig fra 0. Bruk signifikansnivå $\alpha=.01$ og konkluder i et lettfattelig språk. 
+
+11. Beregn Cronbach's alpha (raw_alpha) for de to konstruktene A og C
+```{r}
+#Agreeableness:
+psych::alpha(select(bfi, paste0("A", 1:5)))
+```
+
+12. Nå skal vi se på all personlighetsiteme. Vi lager et datasett med alle 25:
+
+```{r}
+all <- select(bfi, c(paste0("A", 1:5),
+                     paste0("C", 1:5),
+                     paste0("E", 1:5),
+                     paste0("N", 1:5),
+                     paste0("O", 1:5)))
+```
+Huske å reversere itemene 1, 2 for Extraversion; itemene 2 og 5 for openness.
+```{r}
+all$E1 <- 7-all$E1; all$E2 <- 7-all$E2
+all$O2 <- 7-all$O2; all$O5 <- 7-all$O5
+```
+
+
+13.
+Lag figuren som viser korrelasjonene mellom alle 25 items. 
+Kan vi skimte en 5-faktor løsning i dataene?
+```{r}
+cor.plot(all)
+```
+
+14. Neuroticism har indikatorer som generelt er negativt korrelert med de andre indikatorene. 
+Forklar hvorfor dette ikke er overraskende, og beregn korrelasjonen mellom Agreeableness og Neuroticism i en latent variabel modell
+(hint:se oppgave 10)
+
+15. La oss anta at big five ikke er en etablert teori i personlighetspsykologi, og at vi vil utforske våre 25 indikatorer uten at vi helt vet hvilke indikatorer som hører til hvilken faktor. Vi prøver med EFA i psych pakken:
+```{r}
+f <- fa(all, nfactors=5)
+f$loadings
+```
+Kan du gjenkjenne hvilke indikatorer som lader på samme faktor? MR1-MR5 er faktorene. Hvilken av disse ser ut til å matche Agreeableness?
+
+16. Hvilket av A-indikatorene har dårligst egenskaper? Dvs som lader lavest på hovedfaktoren og lader også på andre faktorer?
+
+17. Hvilket Extraversion indikator fungerer dårligst?
+Hvis du ser på ordlyden i dette itemet i bfi hjelpefilen, kan du skjønne hvorfor?
+
+18. Nå skal vi prøve å finne ut hvor mange faktorer parallel-analyse indikerer. 
+```{r}
+fa.parallel(all)
+```
+Hvor mange faktorer gir dette?
+
+
+
+

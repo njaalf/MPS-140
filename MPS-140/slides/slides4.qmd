@@ -1,0 +1,217 @@
+---
+title: "Digital samling 19.03. Forskningsmetoder i psykologi, replikasjonskrisen og å sjekke antagelser for regresjon"
+author: "Njål Foldnes"
+footer:  "[hjem](https://njaalf.github.io/MPS-140/)"
+   
+bibliography: ../references.bib 
+format: 
+  revealjs: 
+    toc: true
+    toc-depth: 1
+    multiplex: true
+    transition: fade
+    slide-number: true
+    theme: slides.scss
+    chalkboard: true
+revealjs-plugins:
+  - revealjs-text-resizer
+    
+editor: visual
+execute:
+  echo: true
+  message: false
+  warning: false
+  freeze: auto 
+---
+
+# Om meta analyser og Cohens d
+
+## Metaanalyse og effektstørrelse
+
+De siste årene har oppsummeringsartikler blitt vanlige
+
+-   Metaanalyse. Sammenfatter funn av mange kvantitative studier. Vekter hver studie og beregner en felles effektstørrelse. I *systematisk review* så beregnes som regel ikke en felles effektstørrelse
+
+-   Effektstørrelse. Sier hvor mange standardavvik en avhengig variabel øker som følge av at man øker en uavhengig variabel med ett standardavvik
+
+-   Dersom den uavhengige variabelen er binær så er sier effektstørrelsen hva som skjer dersom den uavhengige variabelen er lik 1 vs lik 0. Gjelder når vi ser på effekten av en intervensjon (binært: kontroll vs intervensjon)
+
+## Cohens $d$
+
+Vanligste effektstørrelse er Cohens (1988) $d$. Kontroll vs intervensjon:
+
+$$ d =\frac{\overline{x_I}-\overline{x_K}}{s_p}$$ Hvor $s$ er den kombinerte (pooled) standardavviket i de to gruppene.
+
+Cohen ga følgende tommelfingerregel for størrelsen
+
+-   Liten: d = .2
+-   Medium: d = .5
+-   Large d = .8
+
+## Simulere data fra en mindfulness intervensjon
+
+Vi ser på IQ score. Kontrollgruppen er hentet fra en populasjon der IQ er 100 i snitt og med standardavvik 15. Vi tenker oss at en mindfulness-intervensjon gir en forventet økning i IQ på 5 poeng.
+
+```{r}
+nK <- 50#antall i kontrollgruppen
+nI <- 48#antall i intervensjonsgruppen
+set.seed(1)#når vi simulerer så setter vi et seed for reproduksjon (alle får likt)
+iqK <- rnorm(nK, mean=100, sd=15)# generere scorer kontroll
+iqI <- rnorm(nI, mean=100+5, sd=15)## generere scorer intervensjon
+simdata <- data.frame(gruppe=c(rep("K", nK)), IQ=iqK)
+simdata <- rbind(simdata, data.frame(gruppe=c(rep("I", nI)), IQ=iqI))
+```
+
+## Se på forskjellene og gjøre en t.test
+
+```{r}
+library(tidyverse)
+ggplot(data=simdata, aes(x=gruppe, y=IQ))+geom_boxplot()
+t.test(IQ~gruppe, data=simdata)
+```
+
+## Beregner Cohens d i R: 0.44
+
+```{r}
+library(psych)
+cohen.d(IQ~gruppe, data=simdata)
+```
+
+## Trinn i en metaanalyse
+
+1.  Definer forskningsspørsmålet og konstrukter som skal være med
+
+2.  Litteratursøk (systematisk og reproducible). Inklusjonskriterier defineres
+
+3.  Bestem et mål for effektsstørrelse og metodologi (regresjon meta-analyse eller sem-metanalyse)
+
+4.  rapportere resultater
+
+## Noen eksempler på metastudier
+
+-   [Positiv psykologi intervensjoner virker](https://www.tandfonline.com/doi/full/10.1080/17439760.2020.1818807?casa_token=sJnu401WLu0AAAAA%3A2e9d636k9cz9fzoLXrzNQLHDWkJRx-50zYARQyLF_A_vOdBMt1tCwVKuUIjrKw9-fcMMdeZnFlRJ)
+
+-   Meta-metaanalyse av [Undervisningsformer i høyere utdanning](https://psycnet.apa.org/record/2017-12895-001)
+
+# En oversikt over metoder brukt i psykologisk forskning
+
+## Flest kvantitative studier i psykologi
+
+@scholtz2020use gikk gjennom forskningsmetoder i en [systemised revies](https://www.frontiersin.org/articles/10.3389/frma.2020.00001/full) av 999 artikler i topp fem journaler over 5 år
+
+" researchers are more likely to use quantitative research methods (90.22%) compared to all other research methods. Qualitative research was the second most common research method but only made up about 4.79% of the general method usage. Reviews occurred almost as much as qualitative studies (3.91%), as the third most popular method. Mixed-methods research studies (0.98%)"
+
+## Oversikt over kvantitative metoder i ledende kanadiske journaler
+
+@counsell2017reporting gikk gjennom mest brukte statistiske metoder i kanadiske psykologi journaler: ANOVA, t-test og multippel regresjon
+
+APA anbefaler å rapportere p-verdier + konfidensintervall+ effektstørrelser.
+
+Endel metodeforskere mener at effektstørrelsen med tilhørende konfidensintervall er nok (se side 2 i artikkelen)
+
+Altfor få studier rapporterer missing data og sjekk av statisiske forutsetninger
+
+# Om replikasjon
+
+## Replikasjonskrisen
+
+@nosek diskuterer replikasjon og reproduksjon av psykologiske forskningsfunn
+
+- Replikasjon: Å imitere en studie med nye data for å bekrefte at funnet kan gjenskapes. Gjennom 2010 årene ble flere replikasjonsstudier utført. Mange publiserte funn ble ikke replikert! (replikasjonskrisen)
+
+- @camerer2018evaluating replikerte 21 eksperiment fra to toppjournaler (Nature og Science) bare 62\% var signifikante i samme retning. Effekstørrelsene mye mindre.  
+
+## Publikasjonsbias
+
+@nosek (side 724) nevner at de fleste studier har lav teststyrke (mindre en 50\%). Da skulle man forvente at mer enn halvparten av studiene rapporterer om ikke-signifikant funn. Men ca 90\% av funnene i forskningsartikler er signifikante. Dette tyder på at publikasjonsbias eksisterer!
+
+
+- En studie som har et positivt funn (forkaste $H_0$ siden p-verdi < 0.05) har en større sjanse til å bli antatt i en journal enn en studie med nullfunn...
+
+- Det øker sjansen for at effekter som i virkeligheten er nær null kan framstå som viktige i forskningslitteraturen
+
+
+
+
+
+
+
+# Sjekke forutsetninger for multippel regresjon
+
+## Forutsetninger for multippel regresjon
+
+p-verdiene og konfidensintervaller for stigningstallene i regresjon er bare til å stole på dersom vi har
+
+-   Linearitet
+-   Homoskedastiske feilledd
+-   Normalfordelte residualer dersom $n$ er lav
+
+Vi begrenser oss til disse tre forutsetningene her.
+
+## Simulere data fra en perfekt modell
+
+Vi simulerer et datasett som kommer fra en tenkte regresjonsmodell av hvordan IQ forklares av mattescore og størrelse på hjernen. (ikke realistisk: 1 kg mer hjerne gir 10 ekstra IQ poeng. 1 ekstra mattescore gir 1 ekstra IQ)
+
+```{r}
+set.seed(1)
+n <- 200#deltagere
+mattescore <- rnorm(n, mean=20, sd=3 )
+hjerne <- rnorm(n, mean=1.4, sd=.1)
+IQ <- 100+10*(hjerne - 1.4)+1*mattescore+rnorm(n, mean=0, sd=3)
+iqdata <- data.frame(IQ, hjerne, mattescore)
+model <- lm(IQ~hjerne+mattescore, data=iqdata)
+summary(model)
+```
+
+## Se på de 3 forutsetningene i de perfekte dataene
+
+```{r}
+library(performance)#visuelt sjekke forutsetninger
+check_model(model, check=c("linearity", "homogeneity", "normality"))
+```
+
+## Simulere data fra en ikke-lineær modell
+
+Vi lar effekt av mattescore være kvadratisk
+
+```{r}
+set.seed(1)
+n <- 200#deltagere
+mattescore <- rnorm(n, mean=20, sd=3 )
+hjerne <- rnorm(n, mean=1.4, sd=.1)
+IQ <- 100+10*(hjerne - 1.4)+1*mattescore +1*mattescore^2+rnorm(n, mean=0, sd=3)
+iqdata <- data.frame(IQ, hjerne, mattescore)
+model <- lm(IQ~hjerne+mattescore, data=iqdata)
+summary(model)
+```
+
+## Se på de 3 forutsetningene i de ikke-lineære dataene
+
+```{r}
+library(performance)#visuelt sjekke forutsetninger
+check_model(model, check=c("linearity", "homogeneity", "normality"))
+```
+
+Her ser at ting går galt og vi kan ikke stole på modellen!
+
+## Man kan modellere den ikke-lineære effekten!
+
+Vi lar effekt av mattescore være kvadratisk
+
+```{r}
+iqdata$mattescore2 <- iqdata$mattescore*iqdata$mattescore
+model_kvad <-
+  lm(IQ~hjerne+mattescore+mattescore2, data=iqdata)
+coef(model_kvad)
+```
+
+## Regresjonsmodell med kvadratisk term er OK
+
+```{r}
+check_model(model_kvad, check=c("linearity", "homogeneity", "normality"))
+```
+
+## Referanser
+
+::: {#refs}
+:::

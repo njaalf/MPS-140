@@ -1,0 +1,83 @@
+# modelled on https://github.com/sta210-s22/website
+#https://atheobold.github.io/stat-313-website/ stolen from also
+project:
+  type: website
+  output-dir: docs
+
+website:
+  page-navigation: true
+  title: "MPS 140"
+  site-url: "https://njaalf.github.io/MPS-140/"
+  
+  sidebar:
+      background: "#D9E3E4"
+      logo: "images/icon.png"
+      pinned: true
+      align: center
+      style: "docked"
+      search: true
+      collapse-level: 1
+      contents:
+        - section: "Kursinfo"
+          contents: 
+            - href: emnebeskrivelse.qmd
+              text: Emnebeskrivelse
+        - section: "Samlinger"
+          contents:
+            - href: samlinger/samling1.qmd
+              text: "Samling 1"
+        - section: "R"
+          contents:
+            - href: Ressurser.qmd
+              text: Installasjon
+        - section: "Data"
+          contents: 
+            - href: data/smartphone_wellbeing.rds
+              text: "Goldilocks hele datasett"
+            - href: data/goldilocksutvalg.rds
+              text: "Goldilocks utvalg av 400 ungdommer"
+            - href: data/stress_complete.csv
+              text: "Digital jobbstress"
+            - href: data/stress_complete.rds
+              text: "Digital jobbstress rds fil"
+            - href: data/smartphone_wellbeing.rds
+              text: "Smartphone wellbeing, digital samling 1"
+            - href: data/agePingelab.csv
+              text: "Pingelab csv fil"
+        - section: "Prøveeksamen"
+          contents:
+            - href: omeksamen.qmd
+              text: Om eksamen
+            - href: eksamen/artikkel.pdf
+              text: Artikkel for prøveeksamen
+            - href: eksamen/eks_mps140_prøve.pdf
+              text: "Prøveeksamen"
+            - href: eksamen/datafil.rds
+              text: "Data del 2 prøveeksamen rds format"
+            - href: eksamen/datafil.csv
+              text: "Data del 2 prøveeksamen csv format"
+            - href: eksamen/Variable_Description-1.txt
+              text: "Data del 2 items"
+        - section: "Eksamen 2024"
+          contents:
+            - href: eksamen/eks_mps140_24.pdf
+              text: "Eksamen"
+            - href: eksamen/eksamen del 2.pdf
+              text: "Utlevert 2 uker før eksamen"
+            - href: eksamen/items.csv
+              text: "Items beskrivelse"
+            - href: eksamen/datafil_eks24.csv
+              text: "Data del 2"
+              
+              
+              
+format:
+      html:
+        theme:
+          light: [cosmo, theme.scss]
+          dark: [cosmo, theme-dark.scss]
+        mainfont: "Atkinson Hyperlegible"
+        code-copy: true
+        code-overflow: wrap
+        toc: false
+

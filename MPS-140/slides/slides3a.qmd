@@ -1,0 +1,258 @@
+---
+title: "Fysisk samling 05.03. Multippel og logistisk regresjon"
+author: "Njål Foldnes"
+footer:  "[hjem](https://njaalf.github.io/MPS-140/)"
+   
+format: 
+  revealjs: 
+    multiplex: true
+    transition: fade
+    slide-number: true
+    theme: slides.scss
+    chalkboard: true
+revealjs-plugins:
+  - revealjs-text-resizer
+    
+editor: visual
+execute:
+  echo: false
+  message: false
+  warning: false
+  freeze: auto
+---
+
+```{r, echo=F, message=F, warning=FALSE}
+knitr::opts_chunk$set(message = FALSE)
+knitr::opts_chunk$set(warning = FALSE)
+library(kableExtra)
+library(broom)
+library(modelsummary)
+library("pwr")
+library("see")
+library("performance")
+library("report")
+library("tidyverse")
+theme_set(theme_minimal())
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Multippel og logistisk regresjon
+
+## Multippel regresjon er et hovedverktøy i psykologi
+
+-   Fra forskningsspørsmålet identifiserer vi en *avhengig variabel* $Y$ som vi vil forklare variasjonen til
+-   Og en rekke *prediktorer* $X_1, X_2, \ldots, X_k$ som skal forklare variasjonen i $Y$
+-   Modellen:
+
+$$ Y = \beta_0 + \beta_1 X_1+ \beta_1 X_2+\ldots +  \beta_k X_k+\epsilon$$
+
+## Fra forskningsspørsmål til regresjon
+
+-   Finne de viktigste prediktorene
+-   Sjekke forutsetninger: stort nok utvalg, unngå multikollinearitet[^1], sammenhengene er lineære, homoskedastisitet[^2], normalfordelte residualer
+-   Sjekke modellens totale forklaringskraft (Adjusted $R^2$ og $F$)
+-   Sjekke hver prediktors forklaringskraft
+-   Besvare forskningsspørsmålet
+
+[^1]: unngå høyt korrelerte prediktorer
+
+[^2]: residualene har konstant varians
+
+## Digitalt stress
+
+Vi ser på noen data fra [stress-studien](https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2024.1297194/full). Dataene er i comma separated format og lastes ned [her](../data/stress_complete.csv)
+
+For å lese inn data i mange format (excel, csv, spss, osv) trykk på *File\>Import dataset* i Rstudio
+
+```{r}
+library("tidyverse")
+stressdata <- read.csv("../data/stress_complete.csv") 
+stressdata$X <- NULL#fjerne unødvendig variabel "X"
+dim(stressdata)#rader og søyler
+colnames(stressdata)#hvilke variabler
+```
+
+## Beskrivende statistikk - Alder
+
+Vi begynner alltid med å se på grafer
+
+```{r}
+#| fig-height: 3
+hist(stressdata$age)
+```
+
+Vi har outlier. Gjennomsnitt `r mean(stressdata$age) %>% round(1)` og median: `r median(stressdata$age)`. Fjern outlier:
+
+```{r}
+#| fig-height: 3
+stressdata <- filter(stressdata, age < 70)
+nrow(stressdata)
+hist(stressdata$age)
+```
+
+## Beskrivende statistikk - Utdanningsnivå
+
+Fire utdanningsnivå (grunnskole, vid.g, bachelor, master/phd)
+
+```{r}
+#| fig-height: 3
+qplot(stressdata$education)+geom_bar()
+```
+
+Andeler
+
+```{r}
+prop.table(table(stressdata$education))
+```
+
+## Beskrivende statistikk kjønn
+
+Variabelen "sex" er kodet slik: 1=kvinne, 2=mann, 3=ikke oppgitt.
+
+Vi forenkler med å lage en ny binær variabel "kjønn"
+
+```{r}
+stressdata$kjønn <- ifelse(stressdata$sex == 2,"mann", "kvinne")
+qplot(stressdata$kjønn)+geom_bar()
+```
+
+## Beskrivende statistikk bransje
+
+```{r}
+table(stressdata$bransje )
+```
+
+Vi forenkler ved å lage ny binær variabel for bransje (vi overskriver den gamle bransje)
+
+```{r}
+stressdata$bransje <- ifelse(stressdata$bransje =="Helse og omsorg", "Helse og omsorg", "Annet")
+table(stressdata$bransje)
+```
+
+## Complexity ICT er et aspekt med digitalt stress
+
+Fem items som tilhører "Complexity ICT" er bra korrelert
+
+```{r}
+#| fig-width: 10
+#| fig-height: 10
+comp <- select(stressdata, contains("COMP"))#velge ut bare disse 5
+cor(comp) %>% round(1)
+```
+
+## Oppsummere complexity med en summeskår
+
+Lage summeskår som et mål på Complexity stress
+
+```{r}
+stressdata$complexity <- stressdata$COMP1+stressdata$COMP2+stressdata$COMP3+stressdata$COMP4+stressdata$COMP5
+summary(stressdata$complexity)
+hist(stressdata$complexity)
+```
+
+## Kan vi forklare noe i variasjonen til complexity stress?
+
+Kan kjønn og alder forklare noe av stresset?
+
+```{r}
+mod <- lm(complexity ~ kjønn+age, data=stressdata) 
+summary(mod)
+```
+
+-   p-verdien til F-testen er signifikant. Det betyr at kjønn og alder forklarer mer enn ingenting
+-   $R^2$ er imidlertid veldig lav
+
+## Endre modell
+
+Ta bort alder og ta heller med bransje
+
+```{r}
+mod <- lm(complexity ~ kjønn+bransje, data=stressdata) 
+summary(mod)
+```
+
+-   p-verdien til F-testen er signifikant og $R^2$ er mye høyere nå
+-   Nå er ikke kjønn signifikant lengre.
+
+## Helsesektor er full av kvinner..
+
+Det er helsesektoren som forklarer stress! Grunnen til at kjønn var signifikant før var at det er mange damer i den stressfulle helsesektoren
+
+```{r}
+stressdata %>% group_by(bransje) %>% summarise(andel_menn=mean(kjønn=="mann"))
+```
+
+## Bransje og lederansvar
+
+Ta bort kjønn og ta med lederansvar
+
+```{r}
+mod <- lm(complexity ~ leder+bransje, data=stressdata) 
+summary(mod)
+```
+
+Leder er ikke signifikant.
+
+## Utdanningsnivå og stress
+
+Utdanningsnivå er på ordinal skala så vi gjør det om til factor:
+
+```{r}
+mod <- lm(complexity ~ education+bransje, data=stressdata) 
+summary(mod)
+```
+
+Utdanningsnivå er heller ikke signifikant prediktor
+
+## Parsimony = Enkelhetsprinsippet
+
+Ironisk nok ender vi opp med en enkel regresjon! Det er bare bransje som forklarer stress i våre data (15% er forklart, 85% er ikke forklart)
+
+```{r}
+mod <- lm(complexity ~ bransje, data=stressdata) 
+summary(mod)
+```
+
+## Når $Y$ er binær: Logistisk regresjon
+
+-   I multippel regresjon er $Y$ kontinuerlig
+    -   For eksempel $Y$= well-being på en skala fra 0-10
+    -   Modellen gir forventet well-being gitt feks kjønn og alder
+-   Hvis $Y$ er binær så må vi bruke *logistisk* regresjon
+    -   For eksempel $Y$=depressiv (Ja/Nei)
+    -   Modellen gir da odds/sannsynlighet for at en person er depressiv, gitt feks kjønn og alder
+
+## Eksempel: Extramarital affairs
+
+```{r}
+library(AER)#install first if needed
+data("Affairs")#loader datasettet
+summary(Affairs)
+Affairs$utro <- ifelse(Affairs$affairs == 0, 0, 1)#binær variabel
+```
+
+## Logistisk regresjon når $Y$= 0/1
+
+Vi ønsker å bruke rating og children som prediktorer for utroskap Modellen er $$ log(\frac{p}{1-p})=\beta_0+ \beta_1 rating + \beta_2 children + \epsilon$$
+
+Her er $p$ sannsynlighet for utroskap, og $\frac{p}{1-p}$ er *oddsen* Oddsen er alltid positiv men når vi tar logaritmen så får vi dekket både negative og positive tall!
+
+Tolkningen av $\beta$-ene blir mer komplisert!
+
+## I R bruker vi glm() funksjonen
+
+```{r}
+
+log_mod <- glm(utro ~ factor(children) +rating, data=Affairs, family="binomial")
+summary(log_mod)
+```
+
+## Tolkning av $\beta$ i logistisk regresjon
+
+Så barn øker log odds for utroskap, og høyer rating reduserer log odds for utroskap. Vi kan fjerne log ved å bruke eksponentialfunksjon
+
+```{r}
+exp(coef(log_mod))
+```
+
+Tolkning: barn øker oddsen for utroskap med 74% og at en enhets økning i rating reduserer oddsen med 38%

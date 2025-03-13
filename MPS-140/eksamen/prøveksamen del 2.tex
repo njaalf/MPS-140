@@ -1,0 +1,54 @@
+\documentclass[12pt,a4paper, norsk]{article}
+
+\usepackage[norsk]{babel}
+\usepackage{hyperref}
+%opening
+\title{Forberedelse prøveeksamen MPS 140, Del 2}
+\author{Njål Foldnes}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+
+Vi ser på  \href{https://onlinelibrary.wiley.com/doi/10.1111/sjop.12793}{denne studien} som omhandler måling av  psykologiske konstrukter relevante for arbeidsmiljø, slik som autonomi, personlig utvikling, osv. Hele instrumentet kalles People Performance Scales (PPS).  Du kan laste ned datafila på canvas, i filformatet .rds, og i filformat .cvs. Der finner du også variabelforklaringene i en egen .txt fil, samt en pdf av artikkelen.
+
+Finn først ut hvor mange respondenter som har missing data, og fjern disse respondentene fra datasettet.
+(Tips: bruk R-funksjonen \textsf{complete.cases())}. 
+	
+	Da har vi et nytt og redusert datasett. Basert på dette, beregn beskrivende statistikk for 
+	\begin{itemize}
+		\item alder
+		\item kjønn
+		\item gjennomsnittlig engasjement (ligger i variabelen {\it Engasjement}) på de seks engasjement-item.
+	\end{itemize}
+
+Undersøk også om kjønn påvirker  {\it Engasjement}. 
+
+
+Undersøk hvordan mellom  y={\it Engasjement} påvirkes av variabelen x={\it Autonomi}, som er gjennomsnittet av de tre autonomi variablene. Beregn også korrelasjonen. Sjekk de tre antagelsene for regresjonen. 
+
+Sjekk hvorvidt regresjonen mellom y={\it Engasjement} og variabelen x={\it Utbrenthet} forandrer seg når vi kontrollerer for kjønn og alder. 
+
+Nå skal vi se på itemene som indikatorer for latente konstrukt. 
+Du kan feks lage et nytt datasett som bare inneholder søyle 21 og utover. Lag et korrelasjonsplott for dette nye datasettet med \textsf{cor.plot()} i psych-pakken. 
+
+For engasjement-konstruktet, bestem de 6 standardiserte faktor ladningene.  Hva er reliabiliteten?
+
+Hva blir korrelasjonen mellom engasjement og autonomi når vi behandler dem som latente variable. 
+Sammenlikn med korrelasjonen vi fikk når vi brukte gjennomsnittskårene.
+
+
+I variabelforklaringene (.txt fila) så er utbrenthet målt med 7 indikatorer: Overb1-Overb4 og Kyn1-Kyn3.
+Undersøk ved hjelp av \textsf{fa()} funksjonen, der du spesifiserer 2 faktorer, om disse itemene kan lade på to sub-konstrukter (overbelastning og kynisme). Hva er korrelasjonen mellom disse to latente faktorene (overbelastning og kynisme)?
+Finn ut hvilken av modellene omtalt på side 114 som framkommer hvis vi skiller overbelastning og kynisme.
+
+Forskerne ender opp med å anbefale en 15-faktor struktur for PPS skalaen. Kjør en \textsf{fa()} analyse på alle 57 indikatorene der du spesifiserer 15 faktorer. 
+Vurder hvorvidt strukturen matcher 15 distinkte faktorer som hver har sine naturlige indikatorer. 
+
+
+Kjør en parallel-analyse på alle indikatorene og vurder hvor mange konstrukter PPS skalaen består av.
+
+
+\end{document}
