@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>MPS 140 - MPS 140: Kvantitativ forskningsmetode</title>
+<title>MPS 140 - Quiz 4.mars. Multippel og logistisk regresjon</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,26 +20,79 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -61,10 +114,12 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 </head>
 
-<body class="nav-sidebar docked fullcontent">
+<body class="nav-sidebar docked">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -73,7 +128,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">MPS 140: Kvantitativ forskningsmetode</li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Quiz 4.mars. Multippel og logistisk regresjon</li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -87,8 +142,8 @@ ul.task-list li input[type="checkbox"] {
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation docked overflow-auto">
     <div class="pt-lg-2 mt-2 text-center sidebar-header">
-      <a href="./index.html" class="sidebar-logo-link">
-      <img src="./images/icon.png" alt="" class="sidebar-logo py-0 d-lg-inline d-none">
+      <a href="../index.html" class="sidebar-logo-link">
+      <img src="../images/icon.png" alt="" class="sidebar-logo py-0 d-lg-inline d-none">
       </a>
       <div class="sidebar-tools-main">
   <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
@@ -112,7 +167,7 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./emnebeskrivelse.html" class="sidebar-item-text sidebar-link">
+  <a href="../emnebeskrivelse.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Emnebeskrivelse</span></a>
   </div>
 </li>
@@ -129,7 +184,7 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./samlinger/samling1.html" class="sidebar-item-text sidebar-link">
+  <a href="../samlinger/samling1.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Samling 1</span></a>
   </div>
 </li>
@@ -146,7 +201,7 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Ressurser.html" class="sidebar-item-text sidebar-link">
+  <a href="../Ressurser.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Installasjon</span></a>
   </div>
 </li>
@@ -163,43 +218,43 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./data/smartphone_wellbeing.rds" class="sidebar-item-text sidebar-link">
+  <a href="../data/smartphone_wellbeing.rds" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Smartphone wellbeing, digital samling 1</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./data/goldilocksutvalg.rds" class="sidebar-item-text sidebar-link">
+  <a href="../data/goldilocksutvalg.rds" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Goldilocks utvalg av 400 ungdommer</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./data/stress_complete.csv" class="sidebar-item-text sidebar-link">
+  <a href="../data/stress_complete.csv" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Digital jobbstress</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./data/stress_complete.rds" class="sidebar-item-text sidebar-link">
+  <a href="../data/stress_complete.rds" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Digital jobbstress rds fil</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./data/stressdata_for_quiz.csv" class="sidebar-item-text sidebar-link">
+  <a href="../data/stressdata_for_quiz.csv" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Digital jobbstress csv fil for quiz 4 mars</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./data/smartphone_wellbeing.rds" class="sidebar-item-text sidebar-link">
+  <a href="../data/smartphone_wellbeing.rds" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Smartphone wellbeing, digital samling 1</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./data/agePingelab.csv" class="sidebar-item-text sidebar-link">
+  <a href="../data/agePingelab.csv" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Pingelab csv fil</span></a>
   </div>
 </li>
@@ -216,37 +271,37 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./omeksamen.html" class="sidebar-item-text sidebar-link">
+  <a href="../omeksamen.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Om eksamen</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./eksamen/artikkel.pdf" class="sidebar-item-text sidebar-link">
+  <a href="../eksamen/artikkel.pdf" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Artikkel for prøveeksamen</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./eksamen/eks_mps140_prøve.pdf" class="sidebar-item-text sidebar-link">
+  <a href="../eksamen/eks_mps140_prøve.pdf" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Prøveeksamen</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./eksamen/datafil.rds" class="sidebar-item-text sidebar-link">
+  <a href="../eksamen/datafil.rds" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Data del 2 prøveeksamen rds format</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./eksamen/datafil.csv" class="sidebar-item-text sidebar-link">
+  <a href="../eksamen/datafil.csv" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Data del 2 prøveeksamen csv format</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./eksamen/Variable_Description-1.txt" class="sidebar-item-text sidebar-link">
+  <a href="../eksamen/Variable_Description-1.txt" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Data del 2 items</span></a>
   </div>
 </li>
@@ -263,25 +318,25 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./eksamen/eks_mps140_24.pdf" class="sidebar-item-text sidebar-link">
+  <a href="../eksamen/eks_mps140_24.pdf" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Eksamen</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./eksamen/eksamen del 2.pdf" class="sidebar-item-text sidebar-link">
+  <a href="../eksamen/eksamen del 2.pdf" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Utlevert 2 uker før eksamen</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./eksamen/items.csv" class="sidebar-item-text sidebar-link">
+  <a href="../eksamen/items.csv" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Items beskrivelse</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./eksamen/datafil_eks24.csv" class="sidebar-item-text sidebar-link">
+  <a href="../eksamen/datafil_eks24.csv" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Data del 2</span></a>
   </div>
 </li>
@@ -292,13 +347,14 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+    <div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="quiz 5mars_forpdf.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></div>
 <!-- main -->
-<main class="content page-columns page-full" id="quarto-document-content">
+<main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">MPS 140: Kvantitativ forskningsmetode</h1>
+<h1 class="title">Quiz 4.mars. Multippel og logistisk regresjon</h1>
 </div>
 
 
@@ -313,130 +369,116 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<section id="fysiske-samlinger" class="level1 page-columns page-full">
-<h1>FYSISKE SAMLINGER</h1>
-<!-- [📖](samlinger/samling1.qmd "Samling 1")  -->
-<!-- [📖](samlinger/samling2.qmd "Samling 2") -->
-<div class="column-screen-inset-right">
-<table class="table">
-<colgroup>
-<col style="width: 10%">
-<col style="width: 30%">
-<col style="width: 10%">
-<col style="width: 10%">
-<col style="width: 10%">
-<col style="width: 10%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Dato</th>
-<th>Tema</th>
-<th style="text-align: center;">Forberedelser</th>
-<th style="text-align: center;">Presentasjoner</th>
-<th>R</th>
-<th style="text-align: center;">Oppgaver</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>21.01: 1215-16</td>
-<td>Intro og grunnleggende statistikk</td>
-<td style="text-align: center;"><a href="./samlinger/samling1.html" title="Samling 1">📖</a></td>
-<td style="text-align: center;"><a href="./slides/slides1.html" title="Foiler 1">🖥</a> <a href="slides/stat_review.pdf" title="Repetisjon">🖥</a></td>
-<td><a href="./R/R1.html" title="R kode">📋</a></td>
-<td style="text-align: center;"><a href="quiz/samling1_mps140.pdf" title="Oppg 1">📋</a></td>
-</tr>
-<tr class="even">
-<td>04.03: 815-16</td>
-<td>Psykometri</td>
-<td style="text-align: center;"><a href="./samlinger/samling3.html" title="Samling 3">📖</a></td>
-<td style="text-align: center;"><a href="./slides/slides3a.html" title="Foiler 3A">🖥</a> <a href="./slides/slides3b.html" title="Foiler 3b">🖥</a></td>
-<td></td>
-<td style="text-align: center;"><a href="./quiz/quiz4mars.html" title="Quiz">📋</a></td>
-</tr>
-<tr class="odd">
-<td>08.04: 815-16</td>
-<td>Latente variable</td>
-<td style="text-align: center;"><a href="./samlinger/samling5.html" title="Samling 5">📖</a></td>
-<td style="text-align: center;"><a href="./slides/slides5a.html" title="Foiler 5A">🖥</a><a href="./slides/slides5b.html" title="Foiler 5A">🖥</a></td>
-<td></td>
-<td style="text-align: center;">[📋]<!--(quiz/quiz9aprilA.qmd "Quiz 1")[📋](quiz/quiz9aprilB.qmd "Quiz 2")--></td>
-</tr>
-<tr class="even">
-<td>02.06</td>
-<td>Eksamen</td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-<td></td>
-<td style="text-align: center;"></td>
-</tr>
-</tbody>
-</table>
+<p>Vi jobber videre med stressdata <a href="../data/stressdata_for_quiz.csv">fila</a> fra slides som er hentet fra <a href="https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2024.1297194/full">denne studien</a></p>
+<ol type="1">
+<li><p>Er dette et tverrsnitts- eller longitudinelt datasett?</p></li>
+<li><p>Er utvalget tilfeldig? Hvordan vil du karakterisere utvalget?</p></li>
+<li><p>Hva er standardavviket til alder i datasettet?</p></li>
+<li><p>Hvordan vil du definere en “uvanlig” høy alder?</p></li>
+<li><p>Lag et 95\% konfidensintervall for alder.</p></li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">t.test</span>(stressdata<span class="sc">$</span>age)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</section>
-<section id="digitale-samlinger" class="level1 page-columns page-full">
-<h1>DIGITALE SAMLINGER</h1>
-<div class="column-screen-inset-right">
-<table class="table">
-<colgroup>
-<col style="width: 10%">
-<col style="width: 30%">
-<col style="width: 10%">
-<col style="width: 10%">
-<col style="width: 10%">
-<col style="width: 10%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Dato</th>
-<th>Tema</th>
-<th style="text-align: center;">Forberedelser</th>
-<th style="text-align: center;">Presentasjon</th>
-<th>R</th>
-<th style="text-align: center;">Oppgaver</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>04.02: 9-12</td>
-<td>R og regresjonsmodellen</td>
-<td style="text-align: center;"><a href="./samlinger/samling2.html" title="Samling 1">📖</a></td>
-<td style="text-align: center;"><a href="./slides/slides2.html" title="Foiler 2">🖥</a></td>
-<td><a href="./R/digR1.html" title="R kode">📋</a></td>
-<td style="text-align: center;"><a href="quiz/digsamling1_mps140.pdf" title="Oppg 2">📋</a></td>
-</tr>
-<tr class="even">
-<td>18.03: 9-12</td>
-<td>Forskningsmetoder i psykologi + Forutsetninger for regresjon</td>
-<td style="text-align: center;"><a href="./samlinger/samling4.html" title="Samling 4">📖</a></td>
-<td style="text-align: center;"><a href="./slides/slides4.html" title="Foiler 4">🖥</a></td>
-<td></td>
-<td style="text-align: center;"><a href="./quiz/quiz19mars_medfasit.html" title="Oppg 4">📋</a></td>
-</tr>
-<tr class="odd">
-<td>29.04:9-12</td>
-<td>Latente variable</td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-<td></td>
-<td style="text-align: center;"></td>
-</tr>
-<tr class="even">
-<td>06.05: 9-12</td>
-<td>Eksamensforberedelse</td>
-<td style="text-align: center;"></td>
-<td style="text-align: center;"></td>
-<td></td>
-<td style="text-align: center;"></td>
-</tr>
-</tbody>
-</table>
+<ol start="6" type="1">
+<li><p>Det påstås at i populasjonen som dette utvalget er tatt ifra så er menn og kvinner like gamle. Skriv opp nullhypotesen og alternativhypotesen. Bruk symbolene <span class="math inline">\(\mu_M\)</span> og <span class="math inline">\(\mu_K\)</span>.</p></li>
+<li><p>Utfør testen ved hjelp av</p></li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">t.test</span>(age<span class="sc">~</span>kjønn, stressdata)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+<ol start="8" type="1">
+<li>Gå til artikkelen og last ned “supplemental data” dokumentet. Der finner du spørsmålene om Usikkerhet: INSE1-INSE5. Lag et spredningsplott av INSE1 vs INSE2 og forklar hvorfor det ikke er informativt</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(stressdata<span class="sc">$</span>INSE1, stressdata<span class="sc">$</span>INSE2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol start="9" type="1">
+<li>Du kan “jittre” observasjonene ved hjelp av ggplot2 pakken i tidyverset.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">qplot</span>(stressdata<span class="sc">$</span>INSE1, stressdata<span class="sc">$</span>INSE2)<span class="sc">+</span><span class="fu">geom_jitter</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Legg til regresjonslinja ved hjelp av <em>+geom_smooth(method=“lm”)</em> i kommandoen over. Er det negativ, ingen, eller positiv sammenheng mellom INSE1 og INSE2?</p>
+<ol start="10" type="1">
+<li><p>Beregn korrelasjonen mellom INSE1 og INSE2 vha <em>cor()</em> funksjonen</p></li>
+<li><p>Lag summescore for alle 5 INSE items, som en ny variabel:</p></li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>stressdata<span class="sc">$</span>insecurity <span class="ot">&lt;-</span> stressdata<span class="sc">$</span>INSE1<span class="sc">+</span>stressdata<span class="sc">$</span>INSE2<span class="sc">+</span>stressdata<span class="sc">$</span>INSE3<span class="sc">+</span>stressdata<span class="sc">$</span>INSE4<span class="sc">+</span>stressdata<span class="sc">$</span>INSE5</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol start="12" type="1">
+<li>Kjør en regresjon med summescore for insecurity som avhengig variabel og kjønn og alder som prediktorer. Hva blir <span class="math inline">\(R^2\)</span> adjusted?</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>mod <span class="ot">&lt;-</span> <span class="fu">lm</span>(insecurity <span class="sc">~</span> kjønn<span class="sc">+</span>age, <span class="at">data=</span>stressdata) </span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(mod)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Har modellen noen som helst forklaringskraft?</p>
+<ol start="12" type="1">
+<li>Kjør en regresjon med summescore for insecurity som avhengig variabel og bransje som prediktor. Har denne modellen noen som helst forklaringskraft?</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>mod <span class="ot">&lt;-</span> <span class="fu">lm</span>(insecurity <span class="sc">~</span> bransje, <span class="at">data=</span>stressdata) </span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(mod)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Har modellen noen som helst forklaringskraft?</p>
+<ol start="13" type="1">
+<li><p>Tolk Intercept verdien i modellen i oppgave 12.</p></li>
+<li><p>Tolk regresjonskoeffisient for bransje:Helse og Omsorg, i oppgave 12.</p></li>
+<li><p>Ta med summescoren <em>complexity</em> for COMP1-COMP5 som en prediktor i tillegg til bransje. Har denne modellen bedre forklaringskraft enn modellen i oppgave 12?</p></li>
+<li><p>Tolk regresjonskoeffisienten til <em>complexity</em>.</p></li>
+<li><p>Hvilken <em>insecurity</em> score forventer vi for en person som skåret 10 på <em>complexity</em> skalaen dersom denne personen jobber i Helse og omsorg?</p></li>
+<li><p>Lag korrelasjonsmatrisen for alle INSE items og <em>insecurity</em></p></li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>inse <span class="ot">&lt;-</span> <span class="fu">select</span>(stressdata, <span class="fu">contains</span>(<span class="st">"INSE"</span>))</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(inse) <span class="sc">%&gt;%</span> <span class="fu">round</span>(<span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Hvilket item er minst korrelert med summeskåren?</p>
+<ol start="19" type="1">
+<li>Beregn cronbach’s <span class="math inline">\(\alpha\)</span> for INSE</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>psych<span class="sc">::</span><span class="fu">alpha</span>(inse[, <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Hva blir <span class="math inline">\(\alpha\)</span> hvis vi fjerne det itement fra skalaen som er minst korrelert med summeskåren?</p>
+<ol start="20" type="1">
+<li><p>I utgangspunktet fra den tyske originalstudien skulle det være 10 fasetter av digitalt jobbstress. Studien vår finner ikke støtte for dette. Vi fant støtte for 8 fasetter. Hvilke to fasetter av digital jobbstress fant vi ikke støtte for i det norske utvalget?</p></li>
+<li><p>Logistisk regresjon. Bruk stressdataene til å predikere kjønn ut ifra bransje og leder (to binære prediktorer). Du må gjøre kjønn om til 0/1 (1 =kvinne) først:</p></li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>stressdata<span class="sc">$</span>kvinne <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(stressdata<span class="sc">$</span>kjønn<span class="sc">==</span><span class="st">"mann"</span>, <span class="dv">0</span>, <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol start="22" type="1">
+<li><p>Tolk koeffisientene i forrige oppgave, gjerne som prosentvis endring i oddsene</p></li>
+<li><p>Noen kjente tester er</p></li>
+</ol>
+<ul>
+<li><span class="citation" data-cites="eysenck1968eysenck">Eysenck and Eysenck (<a href="#ref-eysenck1968eysenck" role="doc-biblioref">1968</a>)</span> Personality Inventory</li>
+<li><span class="citation" data-cites="spielberger1983state">Spielberger (<a href="#ref-spielberger1983state" role="doc-biblioref">1983</a>)</span> State trait anxiety scale</li>
+<li><span class="citation" data-cites="rotter1966generalized">Rotter (<a href="#ref-rotter1966generalized" role="doc-biblioref">1966</a>)</span> locus of control</li>
+<li><span class="citation" data-cites="rosenberg1965rosenberg">Rosenberg (<a href="#ref-rosenberg1965rosenberg" role="doc-biblioref">1965</a>)</span> self-esteem</li>
+</ul>
+<p>Hvor mange items er det i hvert av disse? Hvilken Likert skala er brukt?</p>
 
 
-</section>
 
-</main> <!-- /main -->
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<div id="ref-eysenck1968eysenck" class="csl-entry" role="listitem">
+Eysenck, Hans J, and Sybil BG Eysenck. 1968. <span>“Eysenck Personality Inventory.”</span> <em>Journal of Clinical Psychology</em>.
+</div>
+<div id="ref-rosenberg1965rosenberg" class="csl-entry" role="listitem">
+Rosenberg, Morris. 1965. <span>“Rosenberg Self-Esteem Scale.”</span> <em>Journal of Religion and Health</em>.
+</div>
+<div id="ref-rotter1966generalized" class="csl-entry" role="listitem">
+Rotter, Julian B. 1966. <span>“Generalized Expectancies for Internal Versus External Control of Reinforcement.”</span> <em>Psychological Monographs: General and Applied</em> 80 (1): 1.
+</div>
+<div id="ref-spielberger1983state" class="csl-entry" role="listitem">
+Spielberger, Charles D. 1983. <span>“State-Trait Anxiety Inventory for Adults.”</span>
+</div>
+</div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
