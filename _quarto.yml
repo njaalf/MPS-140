@@ -54,11 +54,11 @@ website:
               text: Artikkel for prøveeksamen
             - href: eksamen/eks_mps140_prøve.pdf
               text: "Prøveeksamen"
-            - href: eksamen/datafil.rds
+            - href: eksamen/datafil_prøve.rds
               text: "Data del 2 prøveeksamen rds format"
-            - href: eksamen/datafil.csv
+            - href: eksamen/datafil_prøve.csv
               text: "Data del 2 prøveeksamen csv format"
-            - href: eksamen/Variable_Description-1.txt
+            - href: eksamen/Variable_Description.txt
               text: "Data del 2 items"
         - section: "Eksamen 2024"
           contents:
