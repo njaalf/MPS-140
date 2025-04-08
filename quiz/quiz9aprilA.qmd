@@ -1,9 +1,9 @@
 ---
-title: "Quiz 1 - 9. april"
+title: "Quiz 1 - 8. april"
 bibliography: ../references.bib 
 
 format: 
-  html:
+  pdf:
     page-layout: article
 ---
 

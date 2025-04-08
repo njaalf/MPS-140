@@ -5,17 +5,13 @@ tbl-colwidths: [10,30,10,10,10]
 
 # FYSISKE SAMLINGER
 
-<!-- [📖](samlinger/samling1.qmd "Samling 1")  -->
-
-<!-- [📖](samlinger/samling2.qmd "Samling 2") -->
-
 ::: column-screen-inset-right
 | Dato           | Tema                              |              Forberedelser               |                               Presentasjoner                                | R                       |                                    Oppgaver                                     |
 |------------|------------|:----------:|:----------:|------------|:----------:|
 | 21.01: 1215-16 | Intro og grunnleggende statistikk | [📖](samlinger/samling1.qmd "Samling 1") | [🖥](slides/slides1.qmd "Foiler 1") [🖥](slides/stat_review.pdf "Repetisjon") | [📋](R/R1.qmd "R kode") |                     [📋](quiz/samling1_mps140.pdf "Oppg 1")                     |
 | 04.03: 815-16  | Psykometri                        | [📖](samlinger/samling3.qmd "Samling 3") |  [🖥](slides/slides3a.qmd "Foiler 3A") [🖥](slides/slides3b.qmd "Foiler 3b")  |                         |                       [📋](quiz/quiz4mars.qmd "Quiz")                        |
-| 08.04: 815-16  | Latente variable                  | [📖](samlinger/samling5.qmd "Samling 5") |  [🖥](slides/slides5a.qmd "Foiler 5A")[🖥](slides/slides5b.qmd "Foiler 5A")   |                         | \[📋\]<!--(quiz/quiz9aprilA.qmd "Quiz 1")[📋](quiz/quiz9aprilB.qmd "Quiz 2")--> |
-| 02.06          | Eksamen                           |                                          |                                                                             |                         |                                                                                 |
+| 08.04: 815-16  | Latente variable                  | [📖](samlinger/samling5.qmd "Samling 5") |  [🖥](slides/slides5a.qmd "Foiler 5A")[🖥](slides/slides5b.qmd "Foiler 5A")   |                         | [📋](quiz/quiz9aprilA.qmd "Quiz 1") [📋](quiz/quiz9aprilB.qmd "Quiz 2")  |
+| 11.06          | Eksamen (utlevering av datsett 28 mai)                           |                                          |                                                                             |                         |                                                                                 |
 :::
 
 # DIGITALE SAMLINGER

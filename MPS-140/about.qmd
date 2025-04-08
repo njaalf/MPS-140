@@ -1,5 +1,0 @@
----
-title: "Emnebeskrivelse"
----
-
-Denne websiden inneholder kursmateriell for statistikkurset i 2-årig psykologi master ved UiS. Emnebeskrivelser: <https://www.uis.no/nb/course/MPS140_1>

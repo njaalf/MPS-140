@@ -1,5 +1,5 @@
 ---
-title: "Samling 9. april. Latente variabler og EFA"
+title: "Samling 8. april. Latente variabler og EFA"
 author: "Njål Foldnes"
 footer:  "[hjem](https://njaalf.github.io/MPS-140/)"
    

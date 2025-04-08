@@ -1,9 +1,9 @@
 ---
-title: "Quiz repetisjon - 9. april"
+title: "Quiz repetisjon - 8. april"
 bibliography: ../references.bib 
 
 format: 
-  html:
+  pdf:
     page-layout: article
 ---
 
